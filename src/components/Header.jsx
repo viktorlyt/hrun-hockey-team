@@ -1,11 +1,35 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+
+const ThemeSwitcher = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <div className="theme-switcher">
+      <label htmlFor="theme-switch" className="theme-label">
+        Home
+      </label>
+      <label className="switch">
+        <input
+          type="checkbox"
+          checked={theme === "light"}
+          onChange={toggleTheme}
+        />
+        <span className="slider round" />
+      </label>
+      <label htmlFor="theme-switch" className="theme-label">
+        Away
+      </label>
+    </div>
+  );
+};
 
 export default function Header() {
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
-    color: "#161616",
+    color: "var(--accent-color)",
   };
 
   return (
@@ -69,6 +93,7 @@ export default function Header() {
           Hockey School
         </NavLink>
       </nav>
+      <ThemeSwitcher />
     </header>
   );
 }
