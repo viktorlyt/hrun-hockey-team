@@ -26,12 +26,6 @@ const ThemeSwitcher = () => {
 };
 
 export default function Header() {
-  const activeStyles = {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    color: "var(--accent-color)",
-  };
-
   return (
     <header>
       <Link className="site-logo" to="/">
@@ -40,55 +34,55 @@ export default function Header() {
       <nav>
         <NavLink
           to="/team"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Team
         </NavLink>
         <NavLink
           to="/tickets"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Tickets
         </NavLink>
         <NavLink
           to="/shop"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Shop
         </NavLink>
         <NavLink
           to="/news"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           News
         </NavLink>
         <NavLink
           to="/events"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Events
         </NavLink>
         <NavLink
           to="/schedule"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Schedule
         </NavLink>
         <NavLink
           to="/stats"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Stats
         </NavLink>
         <NavLink
           to="/community"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Community
         </NavLink>
         <NavLink
           to="/school"
-          style={({ isActive }) => (isActive ? activeStyles : null)}
+          className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Hockey School
         </NavLink>
