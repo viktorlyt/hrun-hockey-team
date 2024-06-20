@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import Logo from "./Logo";
+import { LiaShoppingCartSolid } from "react-icons/lia";
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
@@ -28,27 +30,15 @@ const ThemeSwitcher = () => {
 export default function Header() {
   return (
     <header>
-      <Link className="site-logo" to="/">
-        Name of the team
+      <Link className="logo-container" to="/">
+        <Logo />
       </Link>
-      <nav>
+      <nav className="nav-center">
         <NavLink
-          to="/team"
+          to="/"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
-          Team
-        </NavLink>
-        <NavLink
-          to="/tickets"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Tickets
-        </NavLink>
-        <NavLink
-          to="/shop"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Shop
+          Home
         </NavLink>
         <NavLink
           to="/news"
@@ -57,22 +47,22 @@ export default function Header() {
           News
         </NavLink>
         <NavLink
-          to="/events"
+          to="/team"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
-          Events
+          Team
+        </NavLink>
+        <NavLink
+          to="/shop"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Shop
         </NavLink>
         <NavLink
           to="/schedule"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Schedule
-        </NavLink>
-        <NavLink
-          to="/stats"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Stats
         </NavLink>
         <NavLink
           to="/community"
@@ -86,8 +76,44 @@ export default function Header() {
         >
           Hockey School
         </NavLink>
+        <NavLink
+          to="/events"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Events
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Contact us
+        </NavLink>
+
+        {/* <NavLink
+          to="/shop"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Shop
+        </NavLink>
+        <NavLink
+          to="/tickets"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Tickets
+        </NavLink>
+        <NavLink
+          to="/stats"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Stats
+        </NavLink> */}
       </nav>
-      <ThemeSwitcher />
+      <div className="right-side">
+        <Link to="/shop" className="shop-btn">
+          <LiaShoppingCartSolid />
+        </Link>
+        <ThemeSwitcher />
+      </div>
     </header>
   );
 }

@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import homeImage from "../assets/images/main-picture.jpg";
 
 const Home = () => {
   return (
     <div>
-      Home
+      <img src={homeImage} alt="Team Image" className="home-image" />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useTheme } from "../context/ThemeContext";
+import Socials from "./Socials";
 
 export default function Layout() {
   const { theme } = useTheme();
@@ -11,6 +12,7 @@ export default function Layout() {
     <div className={`site-wrapper ${theme}`}>
       <Header />
       <main>
+        <Socials />
         <Outlet />
       </main>
       <Footer />
