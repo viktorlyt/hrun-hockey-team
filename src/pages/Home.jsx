@@ -1,6 +1,7 @@
 import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
 import ProductsSection from "../components/ProductsSection";
+import UpdatesSection from "../components/UpdatesSection";
 import Logo from "../components/Logo";
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
           <button className="buy-ticket">Buy A Ticket</button>
         </div>
       </div>
+      <UpdatesSection />
       <ProductsSection />
     </Wrapper>
   );

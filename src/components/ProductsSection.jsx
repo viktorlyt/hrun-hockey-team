@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
-import Wrapper from "../assets/wrappers/ProductsSection";
+import Wrapper from "../assets/wrappers/HomePageSections";
 import img from "../assets/images/logo.jpg";
 
 const topProducts = [
@@ -28,11 +28,11 @@ const topProducts = [
 const ProductsSection = () => {
   return (
     <Wrapper>
-      <div className="products-section">
+      <div className="home-page-section">
         <h2>Top products in our listing</h2>
         <p>Explore our top products.</p>
         <p>Discover our selection quality</p>
-        <div className="products-container">
+        <div className="home-page-section-container">
           {topProducts.map((p) => (
             <ProductCard
               key={p.id}
@@ -44,7 +44,7 @@ const ProductsSection = () => {
           ))}
         </div>
         <div className="button-container">
-          <button className="explore-all-btn">
+          <button>
             <Link to="/shop">Explore All</Link>
           </button>
         </div>
