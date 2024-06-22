@@ -1,35 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
-import Logo from "./Logo";
 import { LiaShoppingCartSolid } from "react-icons/lia";
-
-const ThemeSwitcher = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  return (
-    <div className="theme-switcher">
-      <label htmlFor="theme-switch" className="theme-label">
-        Home
-      </label>
-      <label className="switch">
-        <input
-          type="checkbox"
-          checked={theme === "light"}
-          onChange={toggleTheme}
-        />
-        <span className="slider round" />
-      </label>
-      <label htmlFor="theme-switch" className="theme-label">
-        Away
-      </label>
-    </div>
-  );
-};
+import Logo from "./Logo";
+import ThemeSwitcher from "./ThemeSwitcher";
+import Wrapper from "../assets/wrappers/Header";
 
 export default function Header() {
   return (
-    <header>
+    <Wrapper>
       <Link className="logo-container" to="/">
         <Logo />
       </Link>
@@ -88,25 +66,6 @@ export default function Header() {
         >
           Contact us
         </NavLink>
-
-        {/* <NavLink
-          to="/shop"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Shop
-        </NavLink>
-        <NavLink
-          to="/tickets"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Tickets
-        </NavLink>
-        <NavLink
-          to="/stats"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
-          Stats
-        </NavLink> */}
       </nav>
       <div className="right-side">
         <Link to="/shop" className="shop-btn">
@@ -114,6 +73,6 @@ export default function Header() {
         </Link>
         <ThemeSwitcher />
       </div>
-    </header>
+    </Wrapper>
   );
 }

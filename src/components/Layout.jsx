@@ -12,7 +12,6 @@ export default function Layout() {
     <div className={`site-wrapper ${theme}`}>
       <Header />
       <main>
-        <Socials />
         <Outlet />
       </main>
       <Footer />

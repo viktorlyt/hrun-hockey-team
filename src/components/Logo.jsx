@@ -1,7 +1,8 @@
 import logo from "../assets/images/logo.jpg";
+import Wrapper from "../assets/wrappers/Logo";
 
 const Logo = () => {
-  return <img src={logo} alt="Castors Logo" className="logo" />;
+  return <Wrapper src={logo} alt="Castors Logo" />;
 };
 
 export default Logo;

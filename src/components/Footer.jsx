@@ -1,46 +1,66 @@
-import React from "react";
+import Wrapper from "../assets/wrappers/Footer";
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
+import Socials from "./Socials";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { useTeam } from "../context/TeamContext";
 
 export default function Footer() {
+  const { teamName, address, phone, email } = useTeam();
+
   return (
-    <div className="footer-container">
-      <footer className="site-footer">
+    <>
+      <Wrapper>
         <div className="footer-content">
-          <img src="./logo.png" alt="logo" className="footer-logo" />
-          <div className="footer-sections">
-            <section>
-              <h3>Contact Info</h3>
-              <div>
-                <a href="#">Email: team@email.com</a>
-                <Link to="/">Web: www.team.ca</Link>
-              </div>
-            </section>
-            <section>
-              <h3>Tickets & Merch</h3>
-              <div>
-                <Link to="/tickets">Tickets</Link>
-                <Link to="/shop">Shop</Link>
-              </div>
-            </section>
-            <section>
-              <h3>About the Team</h3>
-              <div>
-                <Link to="/team">Team</Link>
-                <Link to="/news">News</Link>
-                <Link to="/events">Events</Link>
-                <Link to="/schedule">Schedule</Link>
-                <Link to="/school">Hockey School</Link>
-              </div>
-            </section>
+          <div className="footer-left">
+            <div className="footer-branding">
+              <Link className="logo-container" to="/">
+                <Logo />
+              </Link>
+              <Socials className="footer-socials" />
+            </div>
+            <ThemeSwitcher />
+          </div>
+          <div className="footer-center">
+            <div className="footer-sections">
+              <section>
+                <h3>{teamName}</h3>
+                <div>
+                  <Link to="/team">Team</Link>
+                  <Link to="/school">Hockey School</Link>
+                  <Link to="/events">Events</Link>
+                  <Link to="/schedule">Schedule</Link>
+                  <Link to="/home#contact-us">Contact us</Link>
+                </div>
+              </section>
+              <section>
+                <h3>Quick links</h3>
+                <div>
+                  <Link to="/news">News</Link>
+                  <Link to="/shop">Shop</Link>
+                  <Link to="/stats">Stats</Link>
+                  <Link to="/blog">Blog</Link>
+                  <Link to="/community">Community</Link>
+                </div>
+              </section>
+              <section>
+                <h3>Location</h3>
+                <div>
+                  <p>{address}</p>
+                  <a href={`mailto:${email}`}>{`Email: ${email}`}</a>
+                  <p>{phone}</p>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          &#169; 2024 Team Name Site. All Rights Reserved.
+        <div className="footer-copyright">
+          {`© 2024 ${teamName}. All Rights Reserved.`}
         </div>
-      </footer>
+      </Wrapper>
       <div className="created-by">
         <a href="https://hrun.pro/">Created by HRUN</a>
       </div>
-    </div>
+    </>
   );
 }

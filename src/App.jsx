@@ -9,6 +9,7 @@ import HockeySchool from "./pages/HockeySchool";
 import News from "./pages/News";
 import Schedule from "./pages/Schedule";
 import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
 import Stats from "./pages/Stats";
 import Team from "./pages/Team";
 import Tickets from "./pages/Tickets";
@@ -28,6 +29,7 @@ function App() {
           <Route path="news" element={<News />} />
           <Route path="schedule" element={<Schedule />} />
           <Route path="shop" element={<Shop />} />
+          <Route path="shop/:id" element={<ProductDetail />} />
           <Route path="stats" element={<Stats />} />
           <Route path="team" element={<Team />} />
           <Route path="tickets" element={<Tickets />} />
