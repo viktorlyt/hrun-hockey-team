@@ -1,7 +1,8 @@
 import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
-import ProductsSection from "../components/ProductsSection";
 import UpdatesSection from "../components/UpdatesSection";
+import ProductsSection from "../components/ProductsSection";
+import NewsSection from "../components/NewsSection";
 import Logo from "../components/Logo";
 
 const Home = () => {
@@ -28,6 +29,7 @@ const Home = () => {
       </div>
       <UpdatesSection />
       <ProductsSection />
+      <NewsSection />
     </Wrapper>
   );
 };

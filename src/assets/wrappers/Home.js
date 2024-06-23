@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     position: absolute;
     bottom: 4rem;
     right: 4rem;
-    background-color: var(--semi-transparent-black-7);
+    background-color: var(--background-color-transparent);
     padding: 1.5rem;
     border-radius: 10px;
     max-width: 300px;
@@ -35,10 +35,10 @@ const Wrapper = styled.div`
   .tickets-section p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
+    color: var(--text-color);
   }
 
   .buy-ticket {
-    background-color: var(--primary-500);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -72,17 +72,18 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 1rem;
     margin-left: 3rem;
+    color: var(--text-color);
   }
 
   .home-socials-container .socials-container a {
-    background-color: var(--semi-transparent-white-2);
+    background-color: var(--background-color-transparent-secondary);
     padding: 0.2rem;
     border-radius: 50%;
   }
 
   .socials-container a {
     transform: scale(1.2);
-    background-color: var(--semi-transparent-white-2);
+    background-color: var(--background-color-transparent-secondary);
   }
 
   .socials-text {
@@ -90,7 +91,7 @@ const Wrapper = styled.div`
     text-align: center;
     margin-bottom: 1rem;
     transform: rotate(180deg);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--background-color-transparent-secondary);
     padding: 0.5rem;
     border-radius: 1rem;
   }

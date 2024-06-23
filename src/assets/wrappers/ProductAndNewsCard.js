@@ -44,6 +44,13 @@ const Wrapper = styled(Link)`
     color: var(--primary-500);
   }
 
+  .news-date {
+    display: inline-block;
+    border: 1px solid var(--text-color);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+  }
+
   @media (max-width: 1024px) {
     width: calc(50% - 1rem);
   }

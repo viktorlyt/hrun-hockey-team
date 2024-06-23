@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../assets/wrappers/ProductCard";
+import Wrapper from "../assets/wrappers/ProductAndNewsCard";
 
 const ProductCard = ({ id, imageSrc, price, productName }) => {
   return (

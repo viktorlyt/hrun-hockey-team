@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     right: 0;
     bottom: 0;
     transition: 0.4s;
-    background-color: var(--background-color);
+    background-color: var(--text-color);
   }
 
   .slider:before {
@@ -36,14 +36,14 @@ const Wrapper = styled.div`
     width: 52px;
     left: 4px;
     bottom: 4px;
-    background-color: var(--text-color);
+    background-color: var(--background-color);
     transition: 0.4s;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     font-size: 0.8rem;
-    color: var(--background-color);
+    color: var(--text-color);
   }
 
   input:checked + .slider:before {

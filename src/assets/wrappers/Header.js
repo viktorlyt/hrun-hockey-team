@@ -11,7 +11,7 @@ const Wrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-  background-color: var(--semi-transparent-white-6);
+  background-color: var(--background-color-transparent);
   color: var(--text-color);
   box-sizing: border-box;
   font-size: 1.1rem;

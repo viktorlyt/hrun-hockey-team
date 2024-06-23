@@ -9,7 +9,7 @@ const Wrapper = styled(Link)`
   box-shadow: var(--shadow-2);
   overflow: hidden;
   transition: transform 0.3s ease;
-  border: 1px solid var(--black);
+  border: 1px solid var(--text-color);
 
   &:hover {
     transform: translateY(-5px);

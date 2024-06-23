@@ -5,7 +5,7 @@
   --primary-200: #e47b77;
   --primary-300: #e64b47;
   --primary-400: #d21818;
-  --primary-500: #c41616;
+  --primary-500: #c23404;
   --primary-600: #b31415;
   --primary-700: #a31212;
   --primary-800: #870e0e;
@@ -39,18 +39,19 @@
   --black: #222;
   --white: #fff;
   --grey: #f2f2f0;
-  --red: #b31415;
+  --red: #c23404;
   --red-light: #e4a19f;
   --red-dark: #5f0a0a;
-  --brown: #9a6e46;
-  --brown-light: #d5baa1;
-  --brown-dark: #5e4942;
+  --brown: #53432c;
+  --brown-light: #91754d;
+  --brown-dark: #2a1e0f;
   --blue: #0a3683;
   --blue-light: #94b6f1;
   --blue-dark: #02225a;
 
   --semi-transparent-white-2: rgba(255, 255, 255, 0.2);
   --semi-transparent-white-6: rgba(255, 255, 255, 0.6);
+  --semi-transparent-black-3: rgba(0, 0, 0, 0.3);
   --semi-transparent-black-7: rgba(0, 0, 0, 0.7);
   --semi-transparent-brown-5: rgba(94, 73, 66, 0.5);
 
@@ -73,18 +74,6 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-  /* DARK MODE */
-  /* 
-  --dark-mode-bg-color: var(--brown-dark);
-  --dark-mode-text-color: #fff;
-  --dark-mode-bg-secondary-color: var(--brown);
-  --dark-mode-text-secondary-color: var(--primary-50);
-
-  --background-color: #fff;
-  --text-color: var(--brown-dark);
-  --background-secondary-color: var(--brown-50);
-  --text-secondary-color: var(--brown); */
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -150,16 +139,20 @@ button:focus-visible {
 
 .site-wrapper.light {
   --background-color: #fff;
-  --text-color: var(--brown-dark);
-  --background-secondary-color: var(--brown-50);
+  --background-color-transparent: var(--semi-transparent-white-6);
+  --background-color-transparent-secondary: var(--semi-transparent-white-2);
+  --text-color: var(--black);
+  --background-secondary-color: var(--brown-light);
   --text-secondary-color: var(--brown);
 }
 
 .site-wrapper.dark {
-  --background-color: var(--brown-dark);
+  --background-color: var(--black);
+  --background-color-transparent: var(--semi-transparent-black-7);
+  --background-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color: #fff;
   --background-secondary-color: var(--brown);
-  --text-secondary-color: var(--primary-50);
+  --text-secondary-color: var(--brown-light);
 }
 
 main {
@@ -202,8 +195,4 @@ a {
 .created-by a {
   font-weight: bold;
   color: var(--text-secondary-color);
-}
-
-.created-by a {
-  color: var(--brown-900);
 }
