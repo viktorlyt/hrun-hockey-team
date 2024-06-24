@@ -31,7 +31,7 @@ const NewsSection = () => {
   return (
     <Wrapper>
       <div className="home-page-section">
-        <h2>Latest News</h2>
+        <h2 className="section-title">Latest News</h2>
         <div className="home-page-section-container">
           {latestNews.map((n) => (
             <NewsCard

@@ -5,7 +5,7 @@ const TeamContext = createContext();
 
 export const TeamProvider = ({ children }) => {
   const [teamName] = useState("Castors");
-  const [address] = useState("Moncton, NB, Canada");
+  const [address] = useState("45 Grand St,\nMoncton, NB, Canada");
   const [phone] = useState("+1 506 567 6777");
   const [email] = useState("castors@gmail.com");
 

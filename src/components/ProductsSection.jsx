@@ -29,7 +29,7 @@ const ProductsSection = () => {
   return (
     <Wrapper>
       <div className="home-page-section">
-        <h2>Top products in our listing</h2>
+        <h2 className="section-title">Top products in our listing</h2>
         <p>Explore our top products.</p>
         <p>Discover our selection quality</p>
         <div className="home-page-section-container">

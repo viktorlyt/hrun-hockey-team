@@ -12,7 +12,12 @@ export default function ThemeSwitcher() {
           checked={theme === "light"}
           onChange={toggleTheme}
         />
-        <span className="slider round" />
+        {/* <span className="slider round" /> */}
+        <span className="slider round">
+          <span className="switch-text">
+            {theme === "light" ? "Away" : "Home"}
+          </span>
+        </span>
       </label>
     </Wrapper>
   );

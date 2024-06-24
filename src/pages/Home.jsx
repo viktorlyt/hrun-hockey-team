@@ -3,6 +3,7 @@ import Socials from "../components/Socials";
 import UpdatesSection from "../components/UpdatesSection";
 import ProductsSection from "../components/ProductsSection";
 import NewsSection from "../components/NewsSection";
+import ContactFormSection from "../components/ContactFormSection";
 import Logo from "../components/Logo";
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
       <UpdatesSection />
       <ProductsSection />
       <NewsSection />
+      <ContactFormSection />
     </Wrapper>
   );
 };
