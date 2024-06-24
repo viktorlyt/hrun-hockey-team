@@ -30,14 +30,9 @@ const ContactFormSection = () => {
             </div>
           </div>
           <form className="form">
-            <FormRow type="text" name="name" defaultValue="John Smith" />
-            <FormRow
-              type="text"
-              name="phone"
-              defaultValue="5061234567"
-              isRequired={false}
-            />
-            <FormRow type="email" name="email" defaultValue="john@gmail.com" />
+            <FormRow type="text" name="name" />
+            <FormRow type="text" name="phone" isRequired={false} />
+            <FormRow type="email" name="email" />
             <FormRow
               type="textarea"
               name="message"

@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import mainPicture from "../images/main-picture.jpg";
 
 const Wrapper = styled.div`
   .home-section {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url("src/assets/images/main-picture.jpg");
+    /* background-image: url("src/assets/images/main-picture.jpg"); */
+    background-image: url(${mainPicture});
     background-size: cover;
     background-position: center;
     display: flex;
