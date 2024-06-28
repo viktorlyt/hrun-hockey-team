@@ -1,6 +1,7 @@
 import React from "react";
 import Wrapper from "../../public/assets/wrappers/Team";
 import FactCard from "../components/FactCard";
+import CoachCard from "../components/CoachCard";
 
 const facts = [
   {
@@ -17,6 +18,36 @@ const facts = [
     total: "20",
     title: "awards",
     content: "We have achieved 22 winner awards ",
+  },
+];
+
+const coaches = [
+  {
+    id: 1,
+    firstName: "Ryan",
+    lastName: "Donald",
+    position: "Head Coach and General Manager",
+    bio:
+      "Ryan is the club’s first-ever head coach and general manager for the team’s " +
+      "inaugural season of 2020-2021. Donald spent 5 seasons at Yale University as an " +
+      "Assistant Coach before joining the Bucks in 2020. Donald also has had coaching stints " +
+      "in both Trail and Woodstock.  Ryan played 2 years of junior A hockey himself and then " +
+      "went on to play for Yale University for 4 years, winning an ECAC championship along the " +
+      "way.",
+  },
+  {
+    id: 2,
+    firstName: "Jack",
+    lastName: "Watson",
+    position: "Assistant Coach",
+    bio: "Ryan is the club’s first-ever head coach and general manager for the team’s inaugural season of 2020-2021. Donald spent 5 seasons at Yale University as an Assistant Coach before joining the Bucks in 2020. Donald also has had coaching stints in both Trail and Woodstock.  Ryan played 2 years of junior A hockey himself and then went on to play for Yale University for 4 years, winning an ECAC championship along the way. ",
+  },
+  {
+    id: 3,
+    firstName: "Daniel",
+    lastName: "McLean",
+    position: "Assistant Coach",
+    bio: "Ryan is the club’s first-ever head coach and general manager for the team’s inaugural season of 2020-2021. Donald spent 5 seasons at Yale University as an Assistant Coach before joining the Bucks in 2020. Donald also has had coaching stints in both Trail and Woodstock.  Ryan played 2 years of junior A hockey himself and then went on to play for Yale University for 4 years, winning an ECAC championship along the way. ",
   },
 ];
 
@@ -49,7 +80,17 @@ const Team = () => {
         />
       </div>
       <h1>Coaching Staff</h1>
-      <div className="coaches-container"></div>
+      <div className="coaches-container">
+        {coaches.map((c) => (
+          <CoachCard
+            key={c.id}
+            firstName={c.firstName}
+            lastName={c.lastName}
+            position={c.position}
+            bio={c.bio}
+          />
+        ))}
+      </div>
       <h1>Join Us</h1>
       <div className="join-container"></div>
     </Wrapper>

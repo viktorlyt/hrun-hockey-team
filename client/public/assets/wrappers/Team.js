@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 
   h1 {
     text-align: start;
-    margin-bottom: 1rem;
+    margin-top: 5rem;
     padding: 0 3rem;
     font-size: 2.5rem;
   }
@@ -24,6 +24,12 @@ const Wrapper = styled.div`
     height: auto;
     object-fit: cover;
   }
+
+  /* .team-container,
+  .coaches-container,
+  .join-container {
+    margin: 4rem 0;
+  } */
 
   .team-container {
     display: flex;
@@ -60,7 +66,7 @@ const Wrapper = styled.div`
   .coaches-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
     justify-items: start;
     padding: 0 3rem;
   }
