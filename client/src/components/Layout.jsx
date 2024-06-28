@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useTheme } from "../context/ThemeContext";
@@ -7,11 +7,13 @@ import Socials from "./Socials";
 
 export default function Layout() {
   const { theme } = useTheme();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <div className={`site-wrapper ${theme}`}>
       <Header />
-      <main>
+      <main className={isHomePage ? "home-page" : ""}>
         <Outlet />
       </main>
       <Footer />

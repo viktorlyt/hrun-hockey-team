@@ -53,7 +53,7 @@
   --semi-transparent-white-6: rgba(255, 255, 255, 0.6);
   --semi-transparent-black-3: rgba(0, 0, 0, 0.3);
   --semi-transparent-black-7: rgba(0, 0, 0, 0.7);
-  --semi-transparent-brown-5: rgba(94, 73, 66, 0.5);
+  --semi-transparent-brown-5: rgba(94, 73, 66, 0.3);
 
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
@@ -96,6 +96,11 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.home-page {
+  margin-top: -8rem;
+  padding-top: 8rem;
 }
 
 h1 {
@@ -142,6 +147,7 @@ button:focus-visible {
   --background-color-transparent: var(--semi-transparent-white-6);
   --background-color-transparent-secondary: var(--semi-transparent-white-2);
   --text-color: var(--black);
+  --text-color-transparent: var(--semi-transparent-brown-5);
   --background-secondary-color: var(--brown-light);
   --text-secondary-color: var(--brown);
 }
@@ -151,6 +157,7 @@ button:focus-visible {
   --background-color-transparent: var(--semi-transparent-black-7);
   --background-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color: #fff;
+  --text-color-transparent: var(--semi-transparent-white-6);
   --background-secondary-color: var(--brown);
   --text-secondary-color: var(--brown-light);
 }

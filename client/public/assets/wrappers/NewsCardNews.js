@@ -9,16 +9,41 @@ const Wrapper = styled.div`
     margin-bottom: 1rem;
   }
 
+  .image-container {
+    position: relative;
+    width: 100%;
+  }
+
   img {
-    width: 44vw;
-    height: 25vw;
-    object-fit: cover; /* Crop image if it's larger */
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 0.5rem;
   }
 
+  .date-overlay {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background-color: var(--background-color-transparent);
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+  }
+
   p {
     margin-bottom: 1rem;
+  }
+
+  .button-container {
+    text-align: left;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin: 0;
   }
 `;
 

@@ -21,11 +21,14 @@ const NewsCardNews = ({ id, date, img, title, content }) => {
       <h2>{title}</h2>
       <div className="image-container">
         <img src={img} alt={title} />
+        <div className="date-overlay">{formattedDate}</div>
       </div>
       <p>{truncateContent(content, 305)}</p>
-      <button className="read-more">
-        <Link to={`/news/${id}`}>Read more</Link>
-      </button>
+      <div className="button-container">
+        <button className="read-more">
+          <Link to={`/news/${id}`}>Read more</Link>
+        </button>
+      </div>
     </Wrapper>
   );
 };

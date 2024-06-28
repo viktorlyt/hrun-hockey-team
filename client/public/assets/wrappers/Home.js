@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import mainPicture from "../../public/assets/images/main-picture.jpg";
+import mainPicture from "../images/main-picture.jpg";
 
 const Wrapper = styled.div`
   .home-section {

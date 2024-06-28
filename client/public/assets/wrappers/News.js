@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   padding: 1rem;
+  padding-top: 8rem;
   margin-bottom: 2rem;
 
   h1 {
-    text-align: center;
+    text-align: start;
     margin-bottom: 1rem;
+    padding: 0 3rem;
   }
 
   .news-container {
