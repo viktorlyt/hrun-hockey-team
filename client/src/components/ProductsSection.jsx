@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
-import Wrapper from "../assets/wrappers/HomePageSections";
+import Wrapper from "../../public/assets/wrappers/HomePageSections";
 import img from "../assets/images/logo.jpg";
 
 const topProducts = [

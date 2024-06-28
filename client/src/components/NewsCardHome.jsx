@@ -1,7 +1,7 @@
 import React from "react";
-import Wrapper from "../assets/wrappers/ProductAndNewsCard";
+import Wrapper from "../../public/assets/wrappers/ProductAndNewsCardHome";
 
-const NewsCard = ({ id, date, title, description }) => {
+const NewsCardHome = ({ id, date, title, description }) => {
   const dateObject = new Date(date);
 
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -26,4 +26,4 @@ const NewsCard = ({ id, date, title, description }) => {
   );
 };
 
-export default NewsCard;
+export default NewsCardHome;

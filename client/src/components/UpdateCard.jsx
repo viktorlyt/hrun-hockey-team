@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../assets/wrappers/UpdateCard";
+import Wrapper from "../../public/assets/wrappers/UpdateCard";
 
 const UpdateCard = ({
   id,

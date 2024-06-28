@@ -1,7 +1,7 @@
 import React from "react";
-import NewsCard from "./NewsCard";
+import NewsCardHome from "./NewsCardHome";
 import { Link } from "react-router-dom";
-import Wrapper from "../assets/wrappers/HomePageSections";
+import Wrapper from "../../public/assets/wrappers/HomePageSections";
 
 const latestNews = [
   {
@@ -34,7 +34,7 @@ const NewsSection = () => {
         <h2 className="section-title">Latest News</h2>
         <div className="home-page-section-container">
           {latestNews.map((n) => (
-            <NewsCard
+            <NewsCardHome
               key={n.id}
               id={n.id}
               date={n.date}

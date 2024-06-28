@@ -2,8 +2,9 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import Logo from "./Logo";
+import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
-import Wrapper from "../assets/wrappers/Header";
+import Wrapper from "../../public/assets/wrappers/Header";
 
 export default function Header() {
   return (
@@ -68,6 +69,7 @@ export default function Header() {
         </NavLink>
       </nav>
       <div className="right-side">
+        <LanguageSwitcher />
         <Link to="/shop" className="shop-btn">
           <LiaShoppingCartSolid />
         </Link>

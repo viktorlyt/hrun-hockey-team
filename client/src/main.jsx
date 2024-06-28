@@ -5,15 +5,18 @@ import "./index.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { TeamProvider } from "./context/TeamContext";
 import { extendStringPrototype } from "./utils/stringExtensions.js";
+import { LanguageProvider } from "./context/LanguageContext.jsx";
 
 extendStringPrototype();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <TeamProvider>
-        <App />
-      </TeamProvider>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider>
+        <TeamProvider>
+          <App />
+        </TeamProvider>
+      </ThemeProvider>
+    </LanguageProvider>
   </React.StrictMode>
 );
