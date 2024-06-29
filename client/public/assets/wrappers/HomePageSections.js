@@ -100,6 +100,10 @@ const Wrapper = styled.div`
     height: 1em;
   }
 
+  /* .address {
+    white-space: "pre-line";
+  } */
+
   .form {
     max-width: 60%;
     width: 60%;

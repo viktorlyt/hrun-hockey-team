@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink } from "react-router-hash-link";
 import Wrapper from "../../public/assets/wrappers/Team";
 import FactCard from "../components/FactCard";
 import CoachCard from "../components/CoachCard";
@@ -92,7 +93,26 @@ const Team = () => {
         ))}
       </div>
       <h1>Join Us</h1>
-      <div className="join-container"></div>
+      <div className="join-container">
+        <div className="about">
+          <p className="larger-font">
+            Whether you’re a die-hard fan, a curious newcomer, or a potential
+            player, we invite you to join the Castors family. Follow our
+            journey, support our games, and share in the excitement of hockey at
+            its finest. Stay tuned to our website for the latest news, game
+            schedules, player updates, and more. Together, we are unstoppable.
+          </p>
+          <button className="contact-us">
+            <HashLink smooth to="/#contact-us-section">
+              Contact Us
+            </HashLink>
+          </button>
+        </div>
+        <img
+          src="../../public/assets/images/main-picture.jpg"
+          alt="Join Us Image"
+        />
+      </div>
     </Wrapper>
   );
 };

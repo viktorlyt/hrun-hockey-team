@@ -19,7 +19,9 @@ const ContactFormSection = () => {
                 Feel free to message us and we will get back to you as soon as
                 possible.
               </p>
-              <p style={{ whiteSpace: "pre-line" }}>{address}</p>
+              <p className="address" style={{ whiteSpace: "pre-line" }}>
+                {address}
+              </p>
               <p className="icons-info">
                 <LuPhone /> {phone}
               </p>

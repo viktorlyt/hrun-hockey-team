@@ -31,7 +31,9 @@ const Home = () => {
       <UpdatesSection />
       <ProductsSection />
       <NewsSection />
-      <ContactFormSection />
+      <div id="contact-us-section">
+        <ContactFormSection />
+      </div>
     </Wrapper>
   );
 };

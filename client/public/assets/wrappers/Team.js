@@ -25,12 +25,6 @@ const Wrapper = styled.div`
     object-fit: cover;
   }
 
-  /* .team-container,
-  .coaches-container,
-  .join-container {
-    margin: 4rem 0;
-  } */
-
   .team-container {
     display: flex;
     justify-content: space-between;
@@ -75,9 +69,30 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    justify-items: start;
     padding: 0 3rem;
   }
+
+  .join-container .about {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-us {
+    display: inline-block; // Change from block to inline-block
+    padding: 1rem 3rem;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 0; // Ensure there's no left margin
+    margin-right: auto; // Allow right margin to push button to the left
+  }
+
+  /* .contact-us a {
+    color: inherit;
+    text-decoration: none;
+  } */
 `;
 
 export default Wrapper;
