@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../../public/assets/wrappers/ProductAndNewsCardHome";
 
-const ProductCard = ({ id, imageSrc, price, productName }) => {
+const ProductCard = ({ id, imageSrc, price, name }) => {
   return (
     <Wrapper to={`/shop/${id}`}>
       <div className="image-container">
@@ -9,7 +9,7 @@ const ProductCard = ({ id, imageSrc, price, productName }) => {
       </div>
       <div className="container">
         <h5>${price}</h5>
-        <h5>{productName}</h5>
+        <h5>{name}</h5>
       </div>
     </Wrapper>
   );

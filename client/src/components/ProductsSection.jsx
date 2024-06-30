@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "./ProductCard";
+import ProductCardHome from "./ProductCardHome";
 import { Link } from "react-router-dom";
 import Wrapper from "../../public/assets/wrappers/HomePageSections";
 import img from "../../public/assets/images/logo.jpg";
@@ -9,19 +9,19 @@ const topProducts = [
     id: 1,
     imageSrc: img,
     price: 45,
-    productName: "Men's Edmonton Oilers Fantastics Gray/White Hat",
+    name: "Men's Edmonton Oilers Fantastics Gray/White Hat",
   },
   {
     id: 2,
     imageSrc: img,
     price: 90,
-    productName: "Men's Edmonton Oilers Fantastics Sweatshirt ",
+    name: "Men's Edmonton Oilers Fantastics Sweatshirt ",
   },
   {
     id: 3,
     imageSrc: img,
     price: 70,
-    productName: "Unisex Edmonton Oilers Fantastics T-shirt ",
+    name: "Unisex Edmonton Oilers Fantastics T-shirt ",
   },
 ];
 
@@ -34,12 +34,12 @@ const ProductsSection = () => {
         <p>Discover our selection quality</p>
         <div className="home-page-section-container">
           {topProducts.map((p) => (
-            <ProductCard
+            <ProductCardHome
               key={p.id}
               id={p.id}
               imageSrc={p.imageSrc}
               price={p.price}
-              productName={p.productName}
+              name={p.name}
             />
           ))}
         </div>
