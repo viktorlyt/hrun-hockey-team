@@ -74,7 +74,6 @@ const Wrapper = styled.div`
   }
 
   img {
-    border-radius: 10px;
     width: 100%;
     height: auto;
     object-fit: cover;

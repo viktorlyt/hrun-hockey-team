@@ -108,12 +108,18 @@ const types = ["Jersey", "Hoodie", "Hat", "Novelty"];
 
 const Shop = () => {
   const [products, setProducts] = useState(productsArray);
-  const [typeFilters, setTypeFilters] = useState([]);
-  const [categoryFilters, setCategoryFilters] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilters = searchParams.getAll("type");
+  const categoryFilters = searchParams.getAll("category");
+  // const [typeFilters, setTypeFilters] = useState([]);
+  // const [categoryFilters, setCategoryFilters] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(productsArray);
 
   useEffect(() => {
     let result = productsArray;
+    const typeFilter = searchParams.get("type");
+    const categoryFilter = searchParams.get("category");
+
     if (typeFilters.length > 0) {
       result = result.filter((p) => typeFilters.includes(p.type));
     }
@@ -139,19 +145,22 @@ const Shop = () => {
   }, [typeFilters, categoryFilters]);
 
   function handleFilterChange(key, value) {
-    if (key === "type") {
-      setTypeFilters((prev) =>
-        prev.includes(value)
-          ? prev.filter((item) => item !== value)
-          : [...prev, value]
-      );
-    } else if (key === "category") {
-      setCategoryFilters((prev) =>
-        prev.includes(value)
-          ? prev.filter((item) => item !== value)
-          : [...prev, value]
-      );
-    }
+    setSearchParams((prevParams) => {
+      const currentValues = prevParams.getAll(key);
+      if (currentValues.includes(value)) {
+        // Remove the value if it's already there
+        return {
+          ...Object.fromEntries(prevParams.entries()),
+          [key]: currentValues.filter((v) => v !== value),
+        };
+      } else {
+        // Add the value if it's not there
+        return {
+          ...Object.fromEntries(prevParams.entries()),
+          [key]: [...currentValues, value],
+        };
+      }
+    });
   }
 
   return (
@@ -169,7 +178,12 @@ const Shop = () => {
                   (c === "Women" || c === "Men")) ||
                 (c === "Adult" &&
                   (categoryFilters.includes("Women") ||
-                    categoryFilters.includes("Men")))
+                    categoryFilters.includes("Men"))) ||
+                (categoryFilters.includes("Kids") &&
+                  (c === "Girls" || c === "Boys")) ||
+                (c === "Kids" &&
+                  (categoryFilters.includes("Girls") ||
+                    categoryFilters.includes("Boys")))
                   ? "selected"
                   : ""
               }`}
@@ -196,8 +210,7 @@ const Shop = () => {
             {(typeFilters.length > 0 || categoryFilters.length > 0) && (
               <button
                 onClick={() => {
-                  setTypeFilters([]);
-                  setCategoryFilters([]);
+                  setSearchParams({});
                 }}
                 className="clear-filters"
               >

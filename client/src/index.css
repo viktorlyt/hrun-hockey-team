@@ -85,6 +85,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.site-wrapper.light {
+  --background-color: #fff;
+  --background-color-transparent: var(--semi-transparent-white-6);
+  --background-color-transparent-secondary: var(--semi-transparent-white-2);
+  --text-color: var(--black);
+  --text-color-transparent: var(--semi-transparent-brown-5);
+  --background-secondary-color: var(--brown-light);
+  --text-secondary-color: var(--brown);
+  --text-color-blue: var(--blue);
+}
+
+.site-wrapper.dark {
+  --background-color: var(--black);
+  --background-color-transparent: var(--semi-transparent-black-7);
+  --background-color-transparent-secondary: var(--semi-transparent-black-3);
+  --text-color: #fff;
+  --text-color-transparent: var(--semi-transparent-white-6);
+  --background-secondary-color: var(--brown);
+  --text-secondary-color: var(--brown-light);
+  --text-color-blue: var(--blue-light);
+}
+
 html,
 body {
   height: 100%;
@@ -140,26 +162,6 @@ button:focus-visible {
   min-height: 100vh;
   color: var(--text-color);
   background-color: var(--background-color);
-}
-
-.site-wrapper.light {
-  --background-color: #fff;
-  --background-color-transparent: var(--semi-transparent-white-6);
-  --background-color-transparent-secondary: var(--semi-transparent-white-2);
-  --text-color: var(--black);
-  --text-color-transparent: var(--semi-transparent-brown-5);
-  --background-secondary-color: var(--brown-light);
-  --text-secondary-color: var(--brown);
-}
-
-.site-wrapper.dark {
-  --background-color: var(--black);
-  --background-color-transparent: var(--semi-transparent-black-7);
-  --background-color-transparent-secondary: var(--semi-transparent-black-3);
-  --text-color: #fff;
-  --text-color-transparent: var(--semi-transparent-white-6);
-  --background-secondary-color: var(--brown);
-  --text-secondary-color: var(--brown-light);
 }
 
 main {

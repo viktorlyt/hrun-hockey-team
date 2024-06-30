@@ -70,7 +70,7 @@ export default function Header() {
       </nav>
       <div className="right-side">
         <LanguageSwitcher />
-        <Link to="/shop" className="shop-btn">
+        <Link to="/cart" className="shop-btn">
           <LiaShoppingCartSolid />
         </Link>
         <ThemeSwitcher />

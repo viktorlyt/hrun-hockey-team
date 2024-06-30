@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
@@ -22,16 +23,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="community" element={<Community />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="events" element={<Events />} />
-          <Route path="school" element={<HockeySchool />} />
           <Route path="news" element={<News />} />
-          <Route path="schedule" element={<Schedule />} />
+          <Route path="team" element={<Team />} />
           <Route path="shop" element={<Shop />} />
           <Route path="shop/:id" element={<ProductDetail />} />
+          <Route path="schedule" element={<Schedule />} />
+          <Route path="community" element={<Community />} />
+          <Route path="school" element={<HockeySchool />} />
+          <Route path="events" element={<Events />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="stats" element={<Stats />} />
-          <Route path="team" element={<Team />} />
           <Route path="tickets" element={<Tickets />} />
           <Route path="*" element={<NotFound />} />
         </Route>
