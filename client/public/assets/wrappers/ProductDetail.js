@@ -46,19 +46,54 @@ const Wrapper = styled.div`
     margin-left: 3rem;
   }
 
+  .images-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .images-container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
     align-items: start;
     gap: 1rem;
-    margin-right: 2rem;
+    max-height: 33rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    /* Hide the scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .images-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .scroll-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--primary-500);
+    outline: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .scroll-button:hover {
+    color: var(--primary-700);
+  }
+
+  .scroll-button:focus {
+    outline: none;
   }
 
   .image-preview-container {
-    width: 11rem;
-    height: 11rem;
-    padding: 2px;
+    width: 13rem;
+    height: 13rem;
+    padding: 4px;
     box-sizing: border-box;
   }
 
@@ -79,7 +114,7 @@ const Wrapper = styled.div`
   .chosen-image {
     width: 100%;
     height: auto;
-    max-height: 33rem;
+    max-height: 37rem;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: var(--shadow-2);
@@ -96,7 +131,7 @@ const Wrapper = styled.div`
 
   .details-section {
     color: var(--text-secondary-color);
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--grey-200);
   }
 

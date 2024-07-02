@@ -1,16 +1,17 @@
+import "express-async-errors";
 import * as dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 const app = express();
-import morgan from "morgan";
+// import morgan from "morgan";
 import mongoose from "mongoose";
 
 //routers
-//import  from "./routes";
+import ProductRouter from "./routes/productRouter.js";
 
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-}
+// if (process.env.NODE_ENV === "development") {
+//   app.use(morgan("dev"));
+// }
 
 app.use(express.json());
 
@@ -23,7 +24,7 @@ app.post("/", (req, res) => {
   res.json({ message: "data received", data: req.body });
 });
 
-//app.use("url", someRouter);
+app.use("/api/products", ProductRouter);
 
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });
@@ -34,7 +35,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ msg: "something went wrong" });
 });
 
-const port = process.env.PORT || 5100;
+const port = process.env.PORT || 5101;
 
 try {
   await mongoose.connect(process.env.MONGO_URL);

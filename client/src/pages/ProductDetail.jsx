@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { RxDoubleArrowDown, RxDoubleArrowUp } from "react-icons/rx";
 import Wrapper from "../../public/assets/wrappers/ProductDetail";
 
 const product = {
@@ -7,6 +8,8 @@ const product = {
   name: "Green Pro Crested Jersey",
   // mainImage: "../../public/assets/images/logo.jpg",
   images: [
+    "../../public/assets/images/logo.jpg",
+    "../../public/assets/images/logo.jpg",
     "../../public/assets/images/logo.jpg",
     "../../public/assets/images/logo.jpg",
     "../../public/assets/images/logo.jpg",
@@ -42,6 +45,7 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const imagesContainerRef = useRef(null);
 
   const getColorValue = (colorName) => {
     const colorMap = {
@@ -69,6 +73,15 @@ const ProductDetail = () => {
   const decrementQuantity = () =>
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
+  const handleScroll = (direction) => {
+    if (imagesContainerRef.current) {
+      imagesContainerRef.current.scrollBy({
+        top: direction === "up" ? -100 : 100,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedSize) {
@@ -85,19 +98,30 @@ const ProductDetail = () => {
       <h1>Our Products</h1>
       <Breadcrumb category={product.category} type={product.type} />
       <div className="product-container">
-        <div className="images-container">
-          {product.images.map((img, index) => (
-            <div key={index} className="image-preview-container">
-              <img
-                src={img}
-                alt=""
-                className={`image-preview ${
-                  selectedImageIndex === index ? "selected" : ""
-                }`}
-                onClick={() => setSelectedImageIndex(index)}
-              />
-            </div>
-          ))}
+        <div className="images-container-wrapper">
+          <button className="scroll-button" onClick={() => handleScroll("up")}>
+            <RxDoubleArrowUp />
+          </button>
+          <div className="images-container" ref={imagesContainerRef}>
+            {product.images.map((img, index) => (
+              <div key={index} className="image-preview-container">
+                <img
+                  src={img}
+                  alt=""
+                  className={`image-preview ${
+                    selectedImageIndex === index ? "selected" : ""
+                  }`}
+                  onClick={() => setSelectedImageIndex(index)}
+                />
+              </div>
+            ))}
+          </div>
+          <button
+            className="scroll-button"
+            onClick={() => handleScroll("down")}
+          >
+            <RxDoubleArrowDown />
+          </button>
         </div>
         <img
           src={product.images[selectedImageIndex]}

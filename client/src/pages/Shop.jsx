@@ -9,7 +9,7 @@ const productsArray = [
     id: 1,
     name: "Green Pro Crested Jersey",
     imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Adult",
+    category: "Adults",
     type: "Jersey",
     minPrice: 190,
     maxPrice: 195,
@@ -81,7 +81,7 @@ const productsArray = [
     id: 7,
     name: "Pro Crested Hat",
     imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Adult",
+    category: "Adults",
     type: "Hat",
     minPrice: 25,
     maxPrice: 25,
@@ -125,11 +125,11 @@ const Shop = () => {
     }
     if (categoryFilters.length > 0) {
       result = result.filter((p) => {
-        if (p.category === "Adult") {
+        if (p.category === "Adults") {
           return (
             categoryFilters.includes("Women") ||
             categoryFilters.includes("Men") ||
-            categoryFilters.includes("Adult")
+            categoryFilters.includes("Adults")
           );
         }
         if (p.category === "Girls" || p.category === "Boys") {
@@ -174,9 +174,9 @@ const Shop = () => {
               onClick={() => handleFilterChange("category", c)}
               className={`category ${c} ${
                 categoryFilters.includes(c) ||
-                (categoryFilters.includes("Adult") &&
+                (categoryFilters.includes("Adults") &&
                   (c === "Women" || c === "Men")) ||
-                (c === "Adult" &&
+                (c === "Adults" &&
                   (categoryFilters.includes("Women") ||
                     categoryFilters.includes("Men"))) ||
                 (categoryFilters.includes("Kids") &&
