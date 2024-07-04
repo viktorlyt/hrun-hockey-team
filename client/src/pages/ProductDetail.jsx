@@ -1,60 +1,103 @@
-import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useRef, useMemo, useEffect } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import { RxDoubleArrowDown, RxDoubleArrowUp } from "react-icons/rx";
+import customFetch from "../utils/customFetch";
+import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Wrapper from "../../public/assets/wrappers/ProductDetail";
 
-const product = {
-  id: 1,
-  name: "Green Pro Crested Jersey",
-  // mainImage: "../../public/assets/images/logo.jpg",
-  images: [
-    "../../public/assets/images/logo.jpg",
-    "../../public/assets/images/logo.jpg",
-    "../../public/assets/images/logo.jpg",
-    "../../public/assets/images/logo.jpg",
-    "../../public/assets/images/logo.jpg",
-  ],
-  category: "Men",
-  type: "Jersey",
-  minPrice: 190,
-  maxPrice: 195,
-  description:
-    "This graphic t-shirt which is perfect for any occasion. Crafted from" +
-    " a soft and breathable fabric, it offers superior comfort and style.",
-  sizes: ["Small", "Medium", "Large", "X-Large"],
-  colors: ["White", "Red", "Black"],
+export const loader = async ({ params }) => {
+  const productId = params.id;
+
+  try {
+    const { data } = await customFetch.get(`/products/${productId}`);
+    return { data };
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return { error };
+  }
 };
 
-const Breadcrumb = ({ category, type }) => (
+const Breadcrumb = ({ category, type, name }) => (
   <nav className="breadcrumb">
     <Link to="/">Home</Link> &gt;
     <Link to="/shop">Shop</Link> &gt;
     <Link to={`/shop?category=${category}`}>{category}</Link> &gt;
     <Link to={`/shop?category=${category}&type=${type}`}>{type}</Link> &gt;
     <span>
-      <b>{product.name}</b>
+      <b>{name}</b>
     </span>
   </nav>
 );
 
 const ProductDetail = () => {
-  const price = 190;
-  const inStock = 4;
+  const { data, error } = useLoaderData();
+  const product = data.product || null;
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(null);
+  const processedProduct = useMemo(() => {
+    if (!product) return null;
+
+    const colors = [...new Set(product.variants.map((v) => v.color))];
+    const sizes = [...new Set(product.variants.map((v) => v.size))];
+
+    const getPrice = (color, size) => {
+      const variant = product.variants.find(
+        (v) => v.color === color && v.size === size
+      );
+      return variant ? variant.price : null;
+    };
+
+    const getInStock = (color, size) => {
+      const variant = product.variants.find(
+        (v) => v.color === color && v.size === size
+      );
+      return variant ? variant.stockQuantity : 0;
+    };
+
+    return {
+      ...product,
+      colors,
+      sizes,
+      getPrice,
+      getInStock,
+    };
+  }, [product]);
+
+  const [selectedColor, setSelectedColor] = useState(
+    processedProduct.colors[0]
+  );
+  const [selectedSize, setSelectedSize] = useState(processedProduct.sizes[0]);
   const [quantity, setQuantity] = useState(1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const imagesContainerRef = useRef(null);
+
+  useEffect(() => {
+    setQuantity(1);
+  }, [selectedColor, selectedSize]);
+
+  const inStock =
+    selectedColor && selectedSize
+      ? processedProduct.getInStock(selectedColor, selectedSize)
+      : 0;
+  const price =
+    inStock > 0 ? processedProduct.getPrice(selectedColor, selectedSize) : null;
+  // const price =
+  //   selectedColor && selectedSize
+  //     ? processedProduct.getPrice(selectedColor, selectedSize)
+  //     : null;
 
   const getColorValue = (colorName) => {
     const colorMap = {
+      Black: "#000000",
       White: "#FFFFFF",
       Red: "#c23404",
-      Black: "#000000",
       Blue: "#0a3683",
-      Green: "green",
       Brown: "#53432c",
+      //       Green: "green",
+      // Pink: "pink",
+      // PURPLE: "Purple",
+      Multicolor:
+        "linear-gradient(to right, #c23404, #0a3683, #53432c, #009688, #e91e63)",
     };
     return colorMap[colorName] || colorName;
   };
@@ -85,25 +128,36 @@ const ProductDetail = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedSize) {
-      alert("Please select a size");
+      toast.error("Please select a size");
+      return;
+    }
+    if (!selectedColor) {
+      toast.error("Please select a color");
       return;
     }
     console.log("Selected color:", selectedColor);
     console.log("Selected size:", selectedSize);
-    console.log("Selected size:", quantity);
+    console.log("Quantity:", quantity);
   };
+
+  if (error) return <div>Error loading product: {error.message}</div>;
+  if (!processedProduct) return <div>Loading...</div>;
 
   return (
     <Wrapper>
       <h1>Our Products</h1>
-      <Breadcrumb category={product.category} type={product.type} />
+      <Breadcrumb
+        category={processedProduct.category}
+        type={processedProduct.type}
+        name={processedProduct.name}
+      />
       <div className="product-container">
         <div className="images-container-wrapper">
           <button className="scroll-button" onClick={() => handleScroll("up")}>
             <RxDoubleArrowUp />
           </button>
           <div className="images-container" ref={imagesContainerRef}>
-            {product.images.map((img, index) => (
+            {processedProduct.images.map((img, index) => (
               <div key={index} className="image-preview-container">
                 <img
                   src={img}
@@ -124,25 +178,25 @@ const ProductDetail = () => {
           </button>
         </div>
         <img
-          src={product.images[selectedImageIndex]}
-          alt={product.name}
+          src={processedProduct.images[selectedImageIndex]}
+          alt={processedProduct.name}
           className="chosen-image"
-        />{" "}
+        />
         <div className="details">
           <h3>
-            {product.name} - {product.category}
+            {processedProduct.name} - {processedProduct.category}
           </h3>
-          <h5>{price} $CAD</h5>
-          <p className="details-section">{product.description}</p>
+          <h5>{price ? `${price} $CAD` : "Out of stock"}</h5>
+          <p className="details-section">{processedProduct.description}</p>
           <div className="details-section colors">
             <p>Select Color</p>
             <div className="colors-container">
-              {product.colors.map((color) => (
+              {processedProduct.colors.map((color) => (
                 <div
                   key={color}
                   className={`color-option ${
                     selectedColor === color ? "selected" : ""
-                  }`}
+                  } ${color === "Multicolor" ? "multi-color" : ""}`}
                   style={{ backgroundColor: getColorValue(color) }}
                   onClick={() => setSelectedColor(color)}
                 >
@@ -163,7 +217,7 @@ const ProductDetail = () => {
           <div className="details-section sizes">
             <p>Select Size</p>
             <div className="sizes-container">
-              {product.sizes.map((size) => (
+              {processedProduct.sizes.map((size) => (
                 <button
                   key={size}
                   type="button"
@@ -179,7 +233,9 @@ const ProductDetail = () => {
             <div className="add-to-cart-section">
               <div className="left-side">
                 <div className="quantity-selector">
-                  <button onClick={decrementQuantity}>-</button>
+                  <button onClick={decrementQuantity} disabled={!inStock}>
+                    -
+                  </button>
                   <input
                     type="number"
                     value={quantity}
@@ -192,33 +248,35 @@ const ProductDetail = () => {
                         )
                       )
                     }
-                    min="1"
+                    min={inStock > 0 ? 1 : 0}
                     max={inStock}
+                    disabled={!inStock}
                   />
                   <button
                     onClick={incrementQuantity}
-                    disabled={quantity >= inStock}
+                    disabled={quantity >= inStock || !inStock}
                   >
                     +
                   </button>
                 </div>
-                {/* {quantity >= inStock && (
-                  <p className="max-quantity-reached">Max quantity reached</p>
-                )} */}
                 <p className="more-details">Shipping and returns</p>
               </div>
               <div className="right-side">
                 <input
                   type="hidden"
                   name="selectedColor"
-                  value={selectedColor}
+                  value={selectedColor || ""}
                 />
                 <input
                   type="hidden"
                   name="selectedSize"
                   value={selectedSize || ""}
                 />
-                <button type="submit" className="add-to-cart">
+                <button
+                  type="submit"
+                  className="add-to-cart"
+                  disabled={!inStock}
+                >
                   Add to Cart
                 </button>
                 <p className="more-details">Product details</p>

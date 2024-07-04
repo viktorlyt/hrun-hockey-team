@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 import Wrapper from "../../public/assets/wrappers/Shop";
 import ProductCardShop from "../components/ProductCardShop";
 import ContactFormSection from "../components/ContactFormSection";
 import customFetch from "../utils/customFetch";
-import { toast } from "react-toastify";
+import { categories, types } from "../utils/clientConstants";
 
 export const loader = async ({ request }) => {
   try {
@@ -17,9 +18,6 @@ export const loader = async ({ request }) => {
     return error;
   }
 };
-
-const categories = ["Women", "Men", "Youth", "Kids"];
-const types = ["Jersey", "Hoodie", "Hat", "Novelty"];
 
 const Shop = () => {
   const { data } = useLoaderData();

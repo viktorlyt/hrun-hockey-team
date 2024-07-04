@@ -161,6 +161,24 @@ const Wrapper = styled.div`
     border-color: var(--primary-500);
   }
 
+  .color-option.multi-color {
+    background: var(--color-value);
+    background-size: 200% 200%;
+    animation: colorChange 5s ease infinite;
+  }
+
+  @keyframes colorChange {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
   .checkmark {
     font-size: 1.2rem;
     font-weight: bold;
