@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LuPhone, LuMail, LuPen } from "react-icons/lu";
-import Wrapper from "../../public/assets/wrappers/HomePageSections";
+import Wrapper from "../assets/wrappers/HomePageSections";
 import { useTeam } from "../context/TeamContext";
 import FormRow from "./FormRow";
 

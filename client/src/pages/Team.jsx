@@ -1,13 +1,12 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
-import Wrapper from "../../public/assets/wrappers/Team";
+import Wrapper from "../assets/wrappers/Team";
 import FactCard from "../components/FactCard";
 import CoachCard from "../components/CoachCard";
 
 const getImagePath = (imageName) => {
-  return import.meta.env.DEV
-    ? `/public/assets/images/${imageName}`
-    : `/assets/images/${imageName}`;
+  // return import.meta.env.DEV
+  return `/assets/images/${imageName}`;
 };
 
 const facts = [
@@ -111,7 +110,7 @@ const Team = () => {
             </HashLink>
           </button>
         </div>
-        <img src={getImagePath("main-picture.jpg")} alt="Join Us Image" />;
+        <img src={getImagePath("main-picture.jpg")} alt="Join Us Image" />
       </div>
     </Wrapper>
   );

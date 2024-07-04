@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../public/assets/wrappers/ProductAndNewsCardHome";
+import Wrapper from "../assets/wrappers/ProductAndNewsCardHome";
 
 const NewsCardHome = ({ id, date, title, description }) => {
   const dateObject = new Date(date);

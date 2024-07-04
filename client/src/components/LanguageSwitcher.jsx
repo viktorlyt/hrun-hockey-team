@@ -1,4 +1,4 @@
-import Wrapper from "../../public/assets/wrappers/LanguageSwitcher";
+import Wrapper from "../assets/wrappers/LanguageSwitcher";
 import { useLanguage } from "../context/LanguageContext";
 import { useState } from "react";
 

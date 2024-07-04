@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../public/assets/wrappers/FactCard";
+import Wrapper from "../assets/wrappers/FactCard";
 
 const FactCard = ({ total, title, content }) => {
   return (

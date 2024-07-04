@@ -1,8 +1,8 @@
 import React from "react";
 import ProductCardHome from "./ProductCardHome";
 import { Link } from "react-router-dom";
-import Wrapper from "../../public/assets/wrappers/HomePageSections";
-import img from "../../public/assets/images/logo.jpg";
+import Wrapper from "../assets/wrappers/HomePageSections";
+import img from "../assets/images/logo.jpg";
 
 const topProducts = [
   {

@@ -1,4 +1,4 @@
-import Wrapper from "../../public/assets/wrappers/Footer";
+import Wrapper from "../assets/wrappers/Footer";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import Socials from "./Socials";

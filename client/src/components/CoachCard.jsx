@@ -1,17 +1,11 @@
 import React from "react";
-import Wrapper from "../../public/assets/wrappers/CoachCard";
-
-const getImagePath = (imageName) => {
-  return import.meta.env.DEV
-    ? `/public/assets/images/${imageName}`
-    : `/assets/images/${imageName}`;
-};
+import Wrapper from "../assets/wrappers/CoachCard";
 
 const FactCard = ({ firstName, lastName, position, bio }) => {
   return (
     <Wrapper>
       <img
-        src={getImagePath(`${firstName}_${lastName}.jpg`)}
+        src={`/assets/images/coach_${firstName}_${lastName}.jpg`}
         alt={`${firstName} ${lastName}`}
       />
       <h3>

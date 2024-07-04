@@ -4,7 +4,7 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
-import Wrapper from "../../public/assets/wrappers/Header";
+import Wrapper from "../assets/wrappers/Header";
 
 export default function Header() {
   return (

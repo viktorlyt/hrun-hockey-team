@@ -1,6 +1,6 @@
 import UpdateCard from "./UpdateCard";
 import { Link } from "react-router-dom";
-import Wrapper from "../../public/assets/wrappers/HomePageSections";
+import Wrapper from "../assets/wrappers/HomePageSections";
 
 const upcomingMatch = {
   team1: "Boston Bruins",

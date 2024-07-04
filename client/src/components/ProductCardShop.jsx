@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../public/assets/wrappers/ProductCardShop";
+import Wrapper from "../assets/wrappers/ProductCardShop";
 
 const ProductCard = ({
   id,

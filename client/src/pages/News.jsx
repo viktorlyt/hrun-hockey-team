@@ -1,11 +1,8 @@
 import React from "react";
 import NewsCardNews from "../components/NewsCardNews";
-import Wrapper from "../../public/assets/wrappers/News";
+import Wrapper from "../assets/wrappers/News";
 
 const getImagePath = (imageName) => {
-  if (import.meta.env.DEV) {
-    return `/public/assets/images/${imageName}`;
-  }
   return `/assets/images/${imageName}`;
 };
 

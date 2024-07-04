@@ -1,4 +1,4 @@
-import Wrapper from "../../public/assets/wrappers/ThemeSwitcher";
+import Wrapper from "../assets/wrappers/ThemeSwitcher";
 import { useTheme } from "../context/ThemeContext";
 
 export default function ThemeSwitcher() {

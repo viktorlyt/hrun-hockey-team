@@ -1,5 +1,5 @@
 import React from "react";
-import Wrapper from "../../public/assets/wrappers/NewsCardNews";
+import Wrapper from "../assets/wrappers/NewsCardNews";
 import { Link } from "react-router-dom";
 
 const NewsCardNews = ({ id, date, img, title, content }) => {

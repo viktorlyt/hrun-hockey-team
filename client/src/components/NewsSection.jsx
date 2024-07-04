@@ -1,7 +1,7 @@
 import React from "react";
 import NewsCardHome from "./NewsCardHome";
 import { Link } from "react-router-dom";
-import Wrapper from "../../public/assets/wrappers/HomePageSections";
+import Wrapper from "../assets/wrappers/HomePageSections";
 
 const latestNews = [
   {

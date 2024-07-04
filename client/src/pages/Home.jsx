@@ -1,4 +1,4 @@
-import Wrapper from "../../public/assets/wrappers/Home";
+import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
 import UpdatesSection from "../components/UpdatesSection";
 import ProductsSection from "../components/ProductsSection";
