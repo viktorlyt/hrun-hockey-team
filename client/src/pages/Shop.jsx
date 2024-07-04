@@ -1,124 +1,57 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import Wrapper from "../../public/assets/wrappers/Shop";
 import ProductCardShop from "../components/ProductCardShop";
 import ContactFormSection from "../components/ContactFormSection";
+import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
 
-const productsArray = [
-  {
-    id: 1,
-    name: "Green Pro Crested Jersey",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Adults",
-    type: "Jersey",
-    minPrice: 190,
-    maxPrice: 195,
-    description: "",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Green"],
-  },
-  {
-    id: 2,
-    name: "Green Pro Crested Jersey",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Men",
-    type: "Jersey",
-    minPrice: 190,
-    maxPrice: 195,
-    description: "",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Black", "White"],
-  },
-  {
-    id: 3,
-    name: "Pro Crested Jersey",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Women",
-    type: "Jersey",
-    minPrice: 190,
-    maxPrice: 195,
-    description: "",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Black", "Red"],
-  },
-  {
-    id: 4,
-    name: "Green Pro Crested Jersey",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Girls",
-    type: "Jersey",
-    minPrice: 190,
-    maxPrice: 195,
-    description: "",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Red", "Blue"],
-  },
-  {
-    id: 5,
-    name: "Green Pro Crested Jersey",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Boys",
-    type: "Jersey",
-    minPrice: 190,
-    maxPrice: 195,
-    description: "",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Black", "Blue"],
-  },
-  {
-    id: 6,
-    name: "Green Pro Crested Jersey",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Youth",
-    type: "Jersey",
-    minPrice: 190,
-    maxPrice: 195,
-    description: "",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: ["Black", "Red", "White"],
-  },
-  {
-    id: 7,
-    name: "Pro Crested Hat",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Adults",
-    type: "Hat",
-    minPrice: 25,
-    maxPrice: 25,
-    description: "",
-    sizes: ["One Size"],
-    colors: ["Green", "Blue", "Red"],
-  },
-  {
-    id: 8,
-    name: "Pro Crested Hat",
-    imageSrc: "../../public/assets/images/logo.jpg",
-    category: "Kids",
-    type: "Hat",
-    minPrice: 15,
-    maxPrice: 15,
-    description: "",
-    sizes: ["One Size"],
-    colors: ["Black", "Blue", "White"],
-  },
-];
+export const loader = async ({ request }) => {
+  try {
+    const { data } = await customFetch.get("/products");
+    return {
+      data,
+    };
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
+};
 
 const categories = ["Women", "Men", "Youth", "Kids"];
 const types = ["Jersey", "Hoodie", "Hat", "Novelty"];
 
 const Shop = () => {
-  const [products, setProducts] = useState(productsArray);
+  const { data } = useLoaderData();
+  const productsArray = data.products || [];
+
+  const processedProducts = useMemo(() => {
+    return productsArray.map((product) => {
+      const variants = product.variants;
+      const prices = variants.map((v) => v.price);
+      const minPrice = Math.min(...prices);
+      const maxPrice = Math.max(...prices);
+      const colors = [...new Set(variants.map((v) => v.color))];
+      const sizes = [...new Set(variants.map((v) => v.size))];
+
+      return {
+        ...product,
+        minPrice,
+        maxPrice,
+        colors,
+        sizes,
+      };
+    });
+  }, [productsArray]);
+
   const [searchParams, setSearchParams] = useSearchParams();
-  const typeFilters = searchParams.getAll("type");
-  const categoryFilters = searchParams.getAll("category");
-  // const [typeFilters, setTypeFilters] = useState([]);
-  // const [categoryFilters, setCategoryFilters] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState(productsArray);
+  const [filteredProducts, setFilteredProducts] = useState(processedProducts);
 
   useEffect(() => {
-    let result = productsArray;
-    const typeFilter = searchParams.get("type");
-    const categoryFilter = searchParams.get("category");
+    const typeFilters = searchParams.getAll("type");
+    const categoryFilters = searchParams.getAll("category");
+
+    let result = processedProducts;
 
     if (typeFilters.length > 0) {
       result = result.filter((p) => typeFilters.includes(p.type));
@@ -142,25 +75,33 @@ const Shop = () => {
       });
     }
     setFilteredProducts(result);
-  }, [typeFilters, categoryFilters]);
+  }, [searchParams, processedProducts]);
 
   function handleFilterChange(key, value) {
     setSearchParams((prevParams) => {
       const currentValues = prevParams.getAll(key);
       if (currentValues.includes(value)) {
         // Remove the value if it's already there
-        return {
-          ...Object.fromEntries(prevParams.entries()),
-          [key]: currentValues.filter((v) => v !== value),
-        };
+        const newValues = currentValues.filter((v) => v !== value);
+        if (newValues.length === 0) {
+          prevParams.delete(key);
+        } else {
+          prevParams.set(key, newValues);
+        }
       } else {
         // Add the value if it's not there
-        return {
-          ...Object.fromEntries(prevParams.entries()),
-          [key]: [...currentValues, value],
-        };
+        prevParams.append(key, value);
       }
+      return prevParams;
     });
+  }
+
+  if (productsArray.length === 0) {
+    return (
+      <Wrapper>
+        <h2>No products to display...</h2>
+      </Wrapper>
+    );
   }
 
   return (
@@ -173,17 +114,17 @@ const Shop = () => {
               key={c}
               onClick={() => handleFilterChange("category", c)}
               className={`category ${c} ${
-                categoryFilters.includes(c) ||
-                (categoryFilters.includes("Adults") &&
+                searchParams.getAll("category").includes(c) ||
+                (searchParams.getAll("category").includes("Adults") &&
                   (c === "Women" || c === "Men")) ||
                 (c === "Adults" &&
-                  (categoryFilters.includes("Women") ||
-                    categoryFilters.includes("Men"))) ||
-                (categoryFilters.includes("Kids") &&
+                  (searchParams.getAll("category").includes("Women") ||
+                    searchParams.getAll("category").includes("Men"))) ||
+                (searchParams.getAll("category").includes("Kids") &&
                   (c === "Girls" || c === "Boys")) ||
                 (c === "Kids" &&
-                  (categoryFilters.includes("Girls") ||
-                    categoryFilters.includes("Boys")))
+                  (searchParams.getAll("category").includes("Girls") ||
+                    searchParams.getAll("category").includes("Boys")))
                   ? "selected"
                   : ""
               }`}
@@ -201,13 +142,14 @@ const Shop = () => {
                 type="button"
                 onClick={() => handleFilterChange("type", t)}
                 className={`type ${t} ${
-                  typeFilters.includes(t) ? "selected" : ""
+                  searchParams.getAll("type").includes(t) ? "selected" : ""
                 }`}
               >
                 {t}
               </button>
             ))}
-            {(typeFilters.length > 0 || categoryFilters.length > 0) && (
+
+            {(searchParams.has("type") || searchParams.has("category")) && (
               <button
                 onClick={() => {
                   setSearchParams({});
@@ -221,10 +163,10 @@ const Shop = () => {
           <div className="products-container">
             {filteredProducts.map((p) => (
               <ProductCardShop
-                key={p.id}
-                id={p.id}
+                key={p.productId}
+                id={p.productId}
                 name={p.name}
-                imageSrc={p.imageSrc}
+                imageSrc={p.images[0]}
                 category={p.category}
                 type={p.type}
                 minPrice={p.minPrice}

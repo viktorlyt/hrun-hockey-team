@@ -5,8 +5,10 @@ const FormRow = ({
   labelIcon,
   labelText,
   defaultValue,
+  value,
   isPlaceholder = true,
   isRequired = true,
+  onChange,
 }) => {
   const renderLabel = () => {
     if (type === "checkbox" && labelText.includes("collected and stored")) {
@@ -22,6 +24,32 @@ const FormRow = ({
     return labelText;
   };
 
+  const inputProps = {
+    id: name,
+    name: name,
+    className: "form-input",
+    required: isRequired,
+  };
+
+  if (onChange) {
+    inputProps.onChange = onChange;
+    if (type === "checkbox") {
+      inputProps.checked = value;
+    } else {
+      inputProps.value = value;
+    }
+  } else {
+    if (type === "checkbox") {
+      inputProps.defaultChecked = defaultValue;
+    } else {
+      inputProps.defaultValue = defaultValue || "";
+    }
+  }
+
+  if (isPlaceholder && type !== "checkbox") {
+    inputProps.placeholder = name.capitalizeFirstLetter();
+  }
+
   return (
     <div className={`form-row ${type}`}>
       {isLabeled && type !== "checkbox" && (
@@ -32,25 +60,9 @@ const FormRow = ({
       )}
       <div className={`form-input-container ${type}`}>
         {type === "textarea" ? (
-          <textarea
-            id={name}
-            name={name}
-            className="form-input"
-            placeholder={isPlaceholder ? name.capitalizeFirstLetter() : ""}
-            defaultValue={defaultValue || ""}
-            required
-          />
+          <textarea {...inputProps} />
         ) : (
-          <input
-            type={type}
-            {...(type === "checkbox" ? { checked: defaultValue || false } : {})}
-            id={name}
-            name={name}
-            className="form-input"
-            placeholder={isPlaceholder ? name.capitalizeFirstLetter() : ""}
-            defaultValue={defaultValue || ""}
-            required
-          />
+          <input type={type} {...inputProps} />
         )}
         {isLabeled && type === "checkbox" && (
           <label htmlFor={name} className="form-label checkbox-lbl">
@@ -62,4 +74,5 @@ const FormRow = ({
     </div>
   );
 };
+
 export default FormRow;

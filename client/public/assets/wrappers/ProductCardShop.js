@@ -10,7 +10,7 @@ const Wrapper = styled(Link)`
   align-items: start;
 
   img {
-    width: 100%;
+    width: 40vh;
     height: 40vh;
     object-fit: cover;
     border-radius: 10px;

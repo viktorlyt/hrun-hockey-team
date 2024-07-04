@@ -12,6 +12,10 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
   }
 
+  h2 {
+    text-align: center;
+  }
+
   .product-section {
     display: flex;
     justify-items: start;
