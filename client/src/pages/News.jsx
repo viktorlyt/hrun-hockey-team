@@ -2,11 +2,18 @@ import React from "react";
 import NewsCardNews from "../components/NewsCardNews";
 import Wrapper from "../../public/assets/wrappers/News";
 
+const getImagePath = (imageName) => {
+  if (import.meta.env.DEV) {
+    return `/public/assets/images/${imageName}`;
+  }
+  return `/assets/images/${imageName}`;
+};
+
 const news = [
   {
     id: 1,
     date: "2024-06-01T00:00:00Z",
-    img: "../../public/assets/images/news_1.jpg",
+    img: getImagePath("news_1.jpg"),
     title: "2024 BCHL Annual General Meeting Recap",
     description: "",
     content:
@@ -15,7 +22,7 @@ const news = [
   {
     id: 2,
     date: "2024-05-25T00:00:00Z",
-    img: "../../public/assets/images/news_2.jpg",
+    img: getImagePath("news_2.jpg"),
     title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
     description: "",
     content:
@@ -24,7 +31,7 @@ const news = [
   {
     id: 3,
     date: "2024-04-08T00:00:00Z",
-    img: "../../public/assets/images/news_3.jpg",
+    img: getImagePath("news_3.jpg"),
     title: "2024 BCHL Annual General Meeting Recap",
     description: "",
     content:
@@ -33,7 +40,7 @@ const news = [
   {
     id: 4,
     date: "2024-06-01T00:00:00Z",
-    img: "../../public/assets/images/news_4.jpg",
+    img: getImagePath("news_4.jpg"),
     title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
     description: "",
     content:
@@ -42,7 +49,7 @@ const news = [
   {
     id: 5,
     date: "2024-05-25T00:00:00Z",
-    img: "../../public/assets/images/news_5.jpg",
+    img: getImagePath("news_5.jpg"),
     title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
     description: "",
     content:
@@ -51,7 +58,7 @@ const news = [
   {
     id: 6,
     date: "2024-04-08T00:00:00Z",
-    img: "../../public/assets/images/news_6.jpg",
+    img: getImagePath("news_6.jpg"),
     title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
     description: "",
     content:
