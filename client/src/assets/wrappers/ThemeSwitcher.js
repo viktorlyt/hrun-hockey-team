@@ -74,6 +74,72 @@ const Wrapper = styled.div`
   input:checked + .slider .switch-text {
     transform: translateX(3px); // Move "Away" text to the left
   }
+
+  @media (max-width: 1200px) {
+    margin-left: 0.5rem;
+
+    .switch {
+      width: 60px;
+      height: 28px;
+    }
+
+    .slider:before {
+      height: 22px;
+      width: 22px;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(32px);
+    }
+
+    .switch-text {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+
+    .switch {
+      width: 60px;
+      height: 28px;
+    }
+
+    .slider:before {
+      height: 22px;
+      width: 22px;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(32px);
+    }
+
+    .switch-text {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 0.5rem;
+
+    .switch {
+      width: 50px;
+      height: 24px;
+    }
+
+    .slider:before {
+      height: 18px;
+      width: 18px;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .switch-text {
+      font-size: 9px;
+    }
+  }
 `;
 
 export default Wrapper;

@@ -39,6 +39,23 @@ const Wrapper = styled.div`
   .dropdown-menu div:hover {
     background-color: #f1f1f1;
   }
+
+  @media (max-width: 768px) {
+    .dropdown-menu {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .language {
+      min-width: 2rem;
+    }
+
+    .dropdown-menu div {
+      padding: 5px 10px;
+    }
+  }
 `;
 
 export default Wrapper;

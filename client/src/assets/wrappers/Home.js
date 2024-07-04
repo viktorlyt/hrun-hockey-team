@@ -109,6 +109,48 @@ const Wrapper = styled.div`
       left: 1rem;
       max-width: none;
     }
+
+    .home-socials-container {
+      left: 0.5rem;
+      margin-left: 0;
+    }
+
+    .socials-text {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home-section {
+      height: calc(100vh - 5rem);
+    }
+
+    .home-socials-container {
+      top: auto;
+      bottom: 5rem;
+      left: 1rem;
+      right: 1rem;
+      flex-direction: row;
+    }
+
+    .socials-container {
+      flex-direction: row;
+    }
+
+    .tickets-section {
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      padding: 1rem;
+    }
+
+    .tickets-section h3 {
+      font-size: 1.2rem;
+    }
+
+    .tickets-section p {
+      font-size: 0.8rem;
+    }
   }
 `;
 

@@ -181,12 +181,59 @@ const Wrapper = styled.div`
     line-height: 1.2;
   }
 
-  /* .form-btn {
-    align-self: end;
-    margin-top: 1rem;
-    display: grid;
-    place-items: center;
-  } */
+  @media (max-width: 1200px) {
+    .home-page-section {
+      padding: 2rem;
+    }
+
+    .home-page-section .section-title {
+      width: 100%;
+      font-size: 1.8rem;
+    }
+
+    .form-section {
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .form-info,
+    .form {
+      width: 100%;
+      max-width: none;
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-page-section-container {
+      flex-direction: column;
+    }
+
+    .upcoming-match {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .form-row {
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home-page-section {
+      padding: 1rem;
+    }
+
+    .home-page-section .section-title {
+      font-size: 1.5rem;
+    }
+
+    .form-section {
+      padding: 1rem;
+    }
+  }
+
   @media (min-width: 992px) {
     .form-center {
       grid-template-columns: 1fr 1fr;

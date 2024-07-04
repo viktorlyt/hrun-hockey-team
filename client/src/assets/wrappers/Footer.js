@@ -126,6 +126,16 @@ const Wrapper = styled.footer`
   }
 
   @media (max-width: 480px) {
+    padding: 1rem;
+
+    .footer-left {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-socials {
+      justify-content: center;
+    }
     .footer-sections {
       flex-direction: column;
       gap: 0.01rem;

@@ -32,6 +32,30 @@ const Wrapper = styled(Link)`
     flex-direction: row;
     gap: 3rem;
   }
+
+  @media (max-width: 1024px) {
+    width: calc(50% - 1rem);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .update-results {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .update-header > p {
+      font-size: 0.9rem;
+    }
+
+    .update-results {
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 export default Wrapper;

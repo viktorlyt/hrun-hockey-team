@@ -56,8 +56,27 @@ const Wrapper = styled(Link)`
   }
 
   @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+
     .products-section {
       padding: 2rem;
+    }
+
+    .image-container {
+      height: 150px;
+    }
+
+    .container {
+      padding: 0.5rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    h5:first-child {
+      font-size: 1.1rem;
     }
   }
 
