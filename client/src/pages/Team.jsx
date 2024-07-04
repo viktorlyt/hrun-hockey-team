@@ -4,6 +4,12 @@ import Wrapper from "../../public/assets/wrappers/Team";
 import FactCard from "../components/FactCard";
 import CoachCard from "../components/CoachCard";
 
+const getImagePath = (imageName) => {
+  return import.meta.env.DEV
+    ? `/public/assets/images/${imageName}`
+    : `/assets/images/${imageName}`;
+};
+
 const facts = [
   {
     total: "350",
@@ -75,10 +81,7 @@ const Team = () => {
             ))}
           </div>
         </div>
-        <img
-          src="../../public/assets/images/main-picture.jpg"
-          alt="Team Image"
-        />
+        <img src={getImagePath("main-picture.jpg")} alt="Team Image" />;
       </div>
       <h1>Coaching Staff</h1>
       <div className="coaches-container">
@@ -108,10 +111,7 @@ const Team = () => {
             </HashLink>
           </button>
         </div>
-        <img
-          src="../../public/assets/images/main-picture.jpg"
-          alt="Join Us Image"
-        />
+        <img src={getImagePath("main-picture.jpg")} alt="Join Us Image" />;
       </div>
     </Wrapper>
   );
