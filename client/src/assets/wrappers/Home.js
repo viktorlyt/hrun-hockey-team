@@ -81,6 +81,12 @@ const Wrapper = styled.div`
     background-color: var(--background-color-transparent-secondary);
     padding: 0.2rem;
     border-radius: 50%;
+    transition: all 0.3s ease-in;
+    /* display: inline-block; */
+  }
+
+  .home-socials-container .socials-container a:hover {
+    transform: scale(1.3);
   }
 
   .socials-container a {

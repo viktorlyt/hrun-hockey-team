@@ -80,7 +80,7 @@ const Team = () => {
             ))}
           </div>
         </div>
-        <img src={getImagePath("main-picture.jpg")} alt="Team Image" />;
+        <img src={getImagePath("main-picture.jpg")} alt="Team Image" />
       </div>
       <h1>Coaching Staff</h1>
       <div className="coaches-container">

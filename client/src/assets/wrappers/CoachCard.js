@@ -9,10 +9,12 @@ const Wrapper = styled.div`
   border-radius: 10px;
   box-sizing: border-box;
   gap: 0.2rem;
+  padding: 1rem;
 
   img {
-    height: 400px;
-    width: auto;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
   }
 
   p {
@@ -22,7 +24,19 @@ const Wrapper = styled.div`
 
   h3 {
     font-weight: bold;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      max-height: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      max-height: 200px;
+    }
   }
 `;
-
 export default Wrapper;

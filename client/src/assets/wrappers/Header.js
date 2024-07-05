@@ -182,20 +182,25 @@ const Wrapper = styled.header`
   /* @media (max-width: 1200px) { */
   @media (max-width: 768px) {
     height: 5rem;
+    position: fixed; // Change to fixed positioning
+    width: 100%;
 
     .logo-container img {
       height: 4rem;
     }
 
     .nav-center {
-      position: absolute;
-      top: 100%;
+      position: fixed; // Change to fixed positioning
+      top: 5rem; // Match the header height
       left: 0;
       right: 0;
       flex-direction: column;
       background-color: var(--background-color);
       padding: 0.5rem 0;
       display: none;
+      z-index: 1000;
+      max-height: calc(100vh - 5rem); // Limit height to viewport minus header
+      overflow-y: auto; // Allow scrolling if menu is too long
     }
 
     .nav-center.show-menu {
@@ -238,7 +243,7 @@ const Wrapper = styled.header`
     padding: 0.5rem;
 
     .logo-container img {
-      height: 3rem; // Adjust for very small screens
+      height: 3rem;
     }
 
     .right-side {

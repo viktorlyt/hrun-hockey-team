@@ -7,8 +7,8 @@ const Wrapper = styled.div`
 
   h1 {
     text-align: start;
-    margin-top: 5rem;
-    padding: 0 3rem;
+    margin-top: 3rem;
+    padding: 0 1rem;
     font-size: 2.5rem;
   }
 
@@ -27,9 +27,10 @@ const Wrapper = styled.div`
 
   .team-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    padding: 0 3rem;
+    padding: 0 1rem;
     gap: 1.5rem;
   }
 
@@ -50,7 +51,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: stretch;
     gap: 1rem;
-    margin-top: auto;
+    margin-top: 1rem;
   }
 
   .facts-container > div {
@@ -59,17 +60,17 @@ const Wrapper = styled.div`
 
   .coaches-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-    justify-items: start;
-    padding: 0 3rem;
+    justify-items: center;
+    padding: 0 1rem;
   }
 
   .join-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 0 3rem;
+    padding: 0 1rem;
   }
 
   .join-container .about {
@@ -79,20 +80,77 @@ const Wrapper = styled.div`
   }
 
   .contact-us {
-    display: inline-block; // Change from block to inline-block
-    padding: 1rem 3rem;
+    display: inline-block;
+    padding: 1rem 2rem;
     background-color: var(--text-color);
     color: var(--background-color);
     text-align: left;
     margin-top: 1rem;
-    margin-left: 0; // Ensure there's no left margin
-    margin-right: auto; // Allow right margin to push button to the left
+    margin-left: 0;
+    margin-right: auto;
   }
 
-  /* .contact-us a {
-    color: inherit;
-    text-decoration: none;
-  } */
-`;
+  @media (max-width: 1200px) {
+    h1 {
+      font-size: 1.6rem;
+    }
 
+    .larger-font {
+      font-size: 1.3rem;
+    }
+
+    .team-container {
+      gap: 1rem;
+    }
+
+    .facts-container {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .team-container {
+      flex-direction: row;
+    }
+
+    .join-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      padding: 0;
+    }
+
+    .larger-font {
+      font-size: 1.2rem;
+    }
+
+    .facts-container > div {
+      flex-basis: calc(50% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 6rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    .larger-font {
+      font-size: 1.1rem;
+    }
+
+    .facts-container > div {
+      flex-basis: 100%;
+    }
+
+    .coaches-container {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
 export default Wrapper;

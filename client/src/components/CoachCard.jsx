@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../assets/wrappers/CoachCard";
 
-const FactCard = ({ firstName, lastName, position, bio }) => {
+const CoachCard = ({ firstName, lastName, position, bio }) => {
   return (
     <Wrapper>
       <img
@@ -17,4 +17,4 @@ const FactCard = ({ firstName, lastName, position, bio }) => {
   );
 };
 
-export default FactCard;
+export default CoachCard;
