@@ -85,7 +85,9 @@ const ContactFormSection = () => {
               onChange={handleInputChange}
             />
 
-            <button type="submit">Contact us</button>
+            <button type="submit" className="contact-us-btn">
+              Contact us
+            </button>
           </form>
         </div>
       </div>

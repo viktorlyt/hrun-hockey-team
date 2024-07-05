@@ -107,12 +107,12 @@ const Wrapper = styled.div`
   .form {
     max-width: 60%;
     width: 60%;
-    padding-left: 7rem;
   }
 
   .form-row {
     margin-bottom: 0rem;
     margin-top: 1.5rem;
+    width: 90%;
   }
 
   .underlined-text {
@@ -181,30 +181,79 @@ const Wrapper = styled.div`
     line-height: 1.2;
   }
 
+  .checkbox-label-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .label-part-0 {
+    flex: 0 0 auto;
+  }
+
+  .label-part-1 {
+    flex: 0 0 auto;
+  }
+
+  .contact-us-btn {
+    margin-top: 1rem;
+  }
+
   @media (max-width: 1200px) {
+    .home-page-section .section-title {
+      width: 100%;
+      text-align: center;
+    }
+
     .home-page-section {
       padding: 2rem;
     }
 
-    .home-page-section .section-title {
-      width: 100%;
-      font-size: 1.8rem;
+    .form-section {
+      padding: 2rem 3rem;
+    }
+
+    .form {
+      width: 80%;
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .section-title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .form-section {
+      padding: 2rem 4rem;
       flex-direction: column;
-      padding: 2rem;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
     }
 
     .form-info,
     .form {
+      width: 70%;
+    }
+
+    .form-info .content {
       width: 100%;
-      max-width: none;
-      padding-left: 0;
+    }
+
+    .form {
+      margin-top: 1rem;
     }
   }
 
   @media (max-width: 768px) {
+    .home-page-section {
+      padding: 2rem;
+    }
+
     .home-page-section-container {
       flex-direction: column;
     }
@@ -215,8 +264,22 @@ const Wrapper = styled.div`
       gap: 1rem;
     }
 
+    .form {
+      width: 100%;
+      margin: 1rem 1rem;
+      padding: 0.5rem;
+    }
+
+    .form {
+      margin-top: 1rem;
+    }
+
     .form-row {
       margin-top: 1rem;
+    }
+
+    .checkbox-lbl {
+      font-size: 0.7rem;
     }
   }
 
@@ -231,32 +294,6 @@ const Wrapper = styled.div`
 
     .form-section {
       padding: 1rem;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .form-center {
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      column-gap: 1rem;
-    }
-  }
-  @media (min-width: 1120px) {
-    .form-center {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-
-  @media (min-width: 1025px) {
-    .home-page-section-container {
-      width: 100%;
-    }
-
-    .form-section {
-      width: 100%;
-      max-width: calc(3 * (33.333% - 1.334rem) + 4rem);
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 `;

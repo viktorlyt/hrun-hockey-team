@@ -95,10 +95,14 @@ const Wrapper = styled.div`
     .switch-text {
       font-size: 10px;
     }
+
+    input:not(:checked) + .slider .switch-text {
+      transform: translateX(22px);
+    }
   }
 
   @media (max-width: 768px) {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 
     .switch {
       width: 60px;
@@ -120,7 +124,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 480px) {
-    margin-left: 0.5rem;
+    margin-left: 0.3rem;
 
     .switch {
       width: 50px;

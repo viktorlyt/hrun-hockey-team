@@ -15,9 +15,11 @@ const FormRow = ({
       const parts = labelText.split("collected and stored");
       return (
         <>
-          {parts[0]}
-          <u className="underlined-text">collected and stored</u>
-          {parts[1]}
+          <span className="label-part-0">{parts[0]}</span>
+          <span className="label-part-1">
+            <u className="underlined-text">collected and stored</u>
+            {parts[1]}
+          </span>
         </>
       );
     }
