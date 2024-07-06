@@ -48,12 +48,21 @@ const Wrapper = styled.div`
     font-weight: bold;
   }
 
-  .product-type-filter {
+  /* .product-type-filter {
     display: flex;
     justify-items: start;
     align-items: start;
     gap: 3rem;
     margin-bottom: 3rem;
+  } */
+
+  .product-type-filter {
+    display: flex;
+    justify-items: start;
+    align-items: center;
+    gap: 2.7rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
   }
 
   .product-type-filter .type {
@@ -90,6 +99,99 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     justify-items: start;
+  }
+
+  @media (max-width: 1600px) {
+    .products-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .product-type-filter {
+      justify-content: space-between;
+      gap: 0.2rem;
+    }
+
+    .clear-filters {
+      margin-top: 1rem;
+      width: 50%;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .product-category-filter {
+      padding-left: 2rem;
+      padding-right: 1rem;
+    }
+
+    .product-section {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .product-section {
+      flex-direction: column;
+      margin: 2rem;
+      align-items: center;
+    }
+
+    .product-category-filter {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 1rem 0 1rem;
+      width: 100%;
+      gap: 3rem;
+    }
+
+    .product-category-filter > li {
+      width: auto;
+      text-align: center;
+      padding: 0.2rem 1rem;
+      border: 1px solid var(--primary-500);
+      border-radius: 20px;
+    }
+
+    .product-type-filter {
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .clear-filters {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+
+    .products-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .product-section {
+      margin: 1rem;
+      gap: 0.5rem;
+    }
+
+    .product-category-filter {
+      padding: 1rem 0.5rem 0 0.5rem;
+      gap: 0;
+    }
+
+    .product-category-filter > li {
+      padding: 0.2rem 0.5rem;
+      margin: 1rem;
+    }
+
+    .product-type-filter {
+      justify-items: center;
+      align-items: start;
+      gap: 1.2rem;
+    }
   }
 `;
 

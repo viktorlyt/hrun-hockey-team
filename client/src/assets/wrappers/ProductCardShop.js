@@ -28,6 +28,21 @@ const Wrapper = styled(Link)`
   .price {
     font-size: 1.4rem;
   }
+
+  @media (max-width: 1200px) {
+    img {
+      width: 30vh;
+      height: 35vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+  }
 `;
 
 export default Wrapper;
