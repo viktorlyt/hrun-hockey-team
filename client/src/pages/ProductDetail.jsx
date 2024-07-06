@@ -1,7 +1,12 @@
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
-import { RxDoubleArrowDown, RxDoubleArrowUp } from "react-icons/rx";
+import {
+  RxDoubleArrowDown,
+  RxDoubleArrowUp,
+  RxDoubleArrowLeft,
+  RxDoubleArrowRight,
+} from "react-icons/rx";
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Wrapper from "../assets/wrappers/ProductDetail";
@@ -109,14 +114,35 @@ const productJson = {
 };
 
 const ProductDetail = () => {
+  const sizeOrder = [
+    "X-Small",
+    "Small",
+    "Medium",
+    "Large",
+    "X-Large",
+    "XX-Large",
+    "XXX-Large",
+  ];
   const { data, error } = useLoaderData();
   const product = data.product || productJson || null;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isHorizontalScroll = windowWidth <= 768;
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const processedProduct = useMemo(() => {
     if (!product) return null;
 
-    const colors = [...new Set(product.variants.map((v) => v.color))];
-    const sizes = [...new Set(product.variants.map((v) => v.size))];
+    const colors = [...new Set(product.variants.map((v) => v.color))].sort();
+    const sizes = [...new Set(product.variants.map((v) => v.size))].sort(
+      (a, b) => {
+        return sizeOrder.indexOf(a) - sizeOrder.indexOf(b);
+      }
+    );
 
     const getPrice = (color, size) => {
       const variant = product.variants.find(
@@ -171,9 +197,6 @@ const ProductDetail = () => {
       Red: "#c23404",
       Blue: "#0a3683",
       Brown: "#53432c",
-      //       Green: "green",
-      // Pink: "pink",
-      // PURPLE: "Purple",
       Multicolor:
         "linear-gradient(to right, #c23404, #0a3683, #53432c, #009688, #e91e63)",
     };
@@ -197,7 +220,8 @@ const ProductDetail = () => {
   const handleScroll = (direction) => {
     if (imagesContainerRef.current) {
       imagesContainerRef.current.scrollBy({
-        top: direction === "up" ? -100 : 100,
+        left: isHorizontalScroll ? (direction === "up" ? -100 : 100) : 0,
+        top: !isHorizontalScroll ? (direction === "up" ? -100 : 100) : 0,
         behavior: "smooth",
       });
     }
@@ -232,7 +256,7 @@ const ProductDetail = () => {
       <div className="product-container">
         <div className="images-container-wrapper">
           <button className="scroll-button" onClick={() => handleScroll("up")}>
-            <RxDoubleArrowUp />
+            {windowWidth <= 768 ? <RxDoubleArrowLeft /> : <RxDoubleArrowUp />}
           </button>
           <div className="images-container" ref={imagesContainerRef}>
             {processedProduct.images.map((img, index) => (
@@ -252,7 +276,11 @@ const ProductDetail = () => {
             className="scroll-button"
             onClick={() => handleScroll("down")}
           >
-            <RxDoubleArrowDown />
+            {windowWidth <= 768 ? (
+              <RxDoubleArrowRight />
+            ) : (
+              <RxDoubleArrowDown />
+            )}
           </button>
         </div>
         <img
@@ -268,44 +296,74 @@ const ProductDetail = () => {
           <p className="details-section">{processedProduct.description}</p>
           <div className="details-section colors">
             <p>Select Color</p>
-            <div className="colors-container">
-              {processedProduct.colors.map((color) => (
-                <div
-                  key={color}
-                  className={`color-option ${
-                    selectedColor === color ? "selected" : ""
-                  } ${color === "Multicolor" ? "multi-color" : ""}`}
-                  style={{ backgroundColor: getColorValue(color) }}
-                  onClick={() => setSelectedColor(color)}
-                >
-                  {selectedColor === color && (
-                    <span
-                      className="checkmark"
-                      style={{
-                        color: isLightColor(color) ? "black" : "white",
-                      }}
-                    >
-                      ✓
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
+            {windowWidth <= 992 && windowWidth > 768 ? (
+              <select
+                className="color-dropdown"
+                value={selectedColor}
+                onChange={(e) => setSelectedColor(e.target.value)}
+              >
+                {processedProduct.colors.map((color) => (
+                  <option key={color} value={color}>
+                    {color}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <div className="colors-container">
+                {processedProduct.colors.map((color) => (
+                  <div
+                    key={color}
+                    className={`color-option ${
+                      selectedColor === color ? "selected" : ""
+                    } ${color === "Multicolor" ? "multi-color" : ""}`}
+                    style={{ backgroundColor: getColorValue(color) }}
+                    onClick={() => setSelectedColor(color)}
+                  >
+                    {selectedColor === color && (
+                      <span
+                        className="checkmark"
+                        style={{
+                          color: isLightColor(color) ? "black" : "white",
+                        }}
+                      >
+                        ✓
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div className="details-section sizes">
             <p>Select Size</p>
-            <div className="sizes-container">
-              {processedProduct.sizes.map((size) => (
-                <button
-                  key={size}
-                  type="button"
-                  className={`size ${selectedSize === size ? "selected" : ""}`}
-                  onClick={() => setSelectedSize(size)}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
+            {windowWidth <= 992 && windowWidth > 768 ? (
+              <select
+                className="size-dropdown"
+                value={selectedSize}
+                onChange={(e) => setSelectedSize(e.target.value)}
+              >
+                {processedProduct.sizes.map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <div className="sizes-container">
+                {processedProduct.sizes.map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    className={`size ${
+                      selectedSize === size ? "selected" : ""
+                    }`}
+                    onClick={() => setSelectedSize(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <form onSubmit={handleSubmit}>
             <div className="add-to-cart-section">
