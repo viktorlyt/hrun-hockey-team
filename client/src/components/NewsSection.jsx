@@ -1,30 +1,9 @@
 import React from "react";
-import NewsCardHome from "./NewsCardHome";
 import { Link } from "react-router-dom";
+import NewsCardHome from "./NewsCardHome";
 import Wrapper from "../assets/wrappers/HomePageSections";
-import customFetch from "../utils/customFetch";
-import { useMockData } from "../utils/environment";
-import { mockLatestNews } from "../data/mockData.js";
 
-export const loader = async ({ request }) => {
-  try {
-    if (useMockData) {
-      return { data: { news: mockLatestNews } };
-    }
-    const { data } = await customFetch.get("/news/recent");
-    return {
-      data,
-    };
-  } catch (error) {
-    toast.error(error?.response?.data?.msg);
-    return error;
-  }
-};
-
-const NewsSection = () => {
-  const { data } = useLoaderData();
-  const news = data.news || [];
-
+const NewsSection = ({ latestNews }) => {
   return (
     <Wrapper>
       <div className="home-page-section">

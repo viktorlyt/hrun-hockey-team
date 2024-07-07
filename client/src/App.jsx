@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
-import Home from "./pages/Home";
+import Home, { loader as latestNewsLoader } from "./pages/Home";
 import Cart from "./pages/Cart";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <Home />, loader: latestNewsLoader },
       { path: "news", element: <News />, loader: newsLoader },
       { path: "team", element: <Team />, loader: coachesLoader },
       { path: "shop", element: <Shop />, loader: productsLoader },
