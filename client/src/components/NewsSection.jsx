@@ -2,6 +2,7 @@ import React from "react";
 import NewsCardHome from "./NewsCardHome";
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/HomePageSections";
+import customFetch from "../utils/customFetch";
 import { useMockData } from "../utils/environment";
 import { mockLatestNews } from "../data/mockData.js";
 
