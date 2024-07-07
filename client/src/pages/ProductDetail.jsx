@@ -10,11 +10,17 @@ import {
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Wrapper from "../assets/wrappers/ProductDetail";
+import { useMockData } from "../utils/environment";
+import { mockProduct } from "../data/mockData.js";
 
 export const loader = async ({ params }) => {
   const productId = params.id;
 
   try {
+    if (useMockData) {
+      return { data: { product: mockProduct } };
+    }
+
     const { data } = await customFetch.get(`/products/${productId}`);
     return { data };
   } catch (error) {
@@ -35,84 +41,6 @@ const Breadcrumb = ({ category, type, name }) => (
   </nav>
 );
 
-const productJson = {
-  _id: "66835bfec6ea5908733b4e83",
-  productId: 1,
-  name: "Pro Crested Jersey",
-  category: "Adults",
-  type: "Jersey",
-  description:
-    "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-  images: [
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-  ],
-  variants: [
-    {
-      color: "Green",
-      size: "Small",
-      price: 190,
-      stockQuantity: 3,
-      _id: "66835bfec6ea5908733b4e84",
-    },
-    {
-      color: "Green",
-      size: "Large",
-      price: 185,
-      stockQuantity: 2,
-      _id: "66835bfec6ea5908733b4e85",
-    },
-    {
-      color: "Blue",
-      size: "Small",
-      price: 195,
-      stockQuantity: 2,
-      _id: "66835bfec6ea5908733b4e86",
-    },
-    {
-      color: "Blue",
-      size: "X-Large",
-      price: 200,
-      stockQuantity: 4,
-      _id: "66835bfec6ea5908733b4e87",
-    },
-    {
-      color: "Red",
-      size: "X-Large",
-      price: 185,
-      stockQuantity: 1,
-      _id: "66835bfec6ea5908733b4e88",
-    },
-    {
-      color: "Red",
-      size: "Medium",
-      price: 195,
-      stockQuantity: 5,
-      _id: "66835bfec6ea5908733b4e89",
-    },
-    {
-      color: "White",
-      size: "Large",
-      price: 195,
-      stockQuantity: 4,
-      _id: "66835bfec6ea5908733b4e8a",
-    },
-    {
-      color: "White",
-      size: "Medium",
-      price: 190,
-      stockQuantity: 6,
-      _id: "66835bfec6ea5908733b4e8b",
-    },
-  ],
-  createdAt: "2024-07-02T01:46:38.598Z",
-  updatedAt: "2024-07-02T01:46:38.598Z",
-  __v: 0,
-};
-
 const ProductDetail = () => {
   const sizeOrder = [
     "X-Small",
@@ -124,7 +52,7 @@ const ProductDetail = () => {
     "XXX-Large",
   ];
   const { data, error } = useLoaderData();
-  const product = data.product || productJson || null;
+  const product = data.product || null;
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isHorizontalScroll = windowWidth <= 768;
 

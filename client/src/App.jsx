@@ -7,12 +7,12 @@ import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
 import HockeySchool from "./pages/HockeySchool";
-import News from "./pages/News";
+import News, { loader as newsLoader } from "./pages/News";
 import Schedule from "./pages/Schedule";
 import Shop, { loader as productsLoader } from "./pages/Shop";
 import ProductDetail, { loader as productLoader } from "./pages/ProductDetail";
 import Stats from "./pages/Stats";
-import Team from "./pages/Team";
+import Team, { loader as coachesLoader } from "./pages/Team";
 import Tickets from "./pages/Tickets";
 import NotFound from "./pages/NotFound";
 import "./App.css";
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: "news", element: <News /> },
-      { path: "team", element: <Team /> },
+      { path: "news", element: <News />, loader: newsLoader },
+      { path: "team", element: <Team />, loader: coachesLoader },
       { path: "shop", element: <Shop />, loader: productsLoader },
       { path: "shop/:id", element: <ProductDetail />, loader: productLoader },
       { path: "schedule", element: <Schedule /> },

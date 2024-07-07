@@ -1,78 +1,38 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 import NewsCardNews from "../components/NewsCardNews";
 import Wrapper from "../assets/wrappers/News";
+import { useMockData } from "../utils/environment";
+import { mockNews } from "../data/mockData.js";
 
-const getImagePath = (imageName) => {
-  return `/assets/images/${imageName}`;
+export const loader = async ({ request }) => {
+  try {
+    if (useMockData) {
+      return { data: { news: mockNews } };
+    }
+    const { data } = await customFetch.get("/news");
+    return {
+      data,
+    };
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
 };
 
-const news = [
-  {
-    id: 1,
-    date: "2024-06-01T00:00:00Z",
-    img: getImagePath("news_1.jpg"),
-    title: "2024 BCHL Annual General Meeting Recap",
-    description: "",
-    content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as",
-  },
-  {
-    id: 2,
-    date: "2024-05-25T00:00:00Z",
-    img: getImagePath("news_2.jpg"),
-    title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
-    description: "",
-    content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-  },
-  {
-    id: 3,
-    date: "2024-04-08T00:00:00Z",
-    img: getImagePath("news_3.jpg"),
-    title: "2024 BCHL Annual General Meeting Recap",
-    description: "",
-    content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-  },
-  {
-    id: 4,
-    date: "2024-06-01T00:00:00Z",
-    img: getImagePath("news_4.jpg"),
-    title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
-    description: "",
-    content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-  },
-  {
-    id: 5,
-    date: "2024-05-25T00:00:00Z",
-    img: getImagePath("news_5.jpg"),
-    title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
-    description: "",
-    content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-  },
-  {
-    id: 6,
-    date: "2024-04-08T00:00:00Z",
-    img: getImagePath("news_6.jpg"),
-    title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
-    description: "",
-    content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-  },
-];
-
 const News = () => {
+  const { data } = useLoaderData();
+  const news = data.news || [];
+
   return (
     <Wrapper>
       <h1>Top Stories</h1>
       <div className="news-container">
         {news.map((n) => (
           <NewsCardNews
-            key={n.id}
-            id={n.id}
-            img={n.img}
+            key={n.newsId}
+            id={n.newsId}
+            img={n.images[0]}
             date={n.date}
             title={n.title}
             content={n.content}

@@ -9,9 +9,12 @@ import {
   deleteProduct,
 } from "../controllers/productController.js";
 import {
-  validateProductIdParam,
   validateProductInput,
+  validateIdParam,
 } from "../middleware/validationMiddleware.js";
+import Product from "../models/ProductModel.js";
+
+const validateProductIdParam = validateIdParam("productId", "product", Product);
 
 router.route("/").get(getAllproducts).post(validateProductInput, createProduct);
 router

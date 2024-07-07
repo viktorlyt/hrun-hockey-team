@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 
 //routers
 import ProductRouter from "./routes/productRouter.js";
+import NewsRouter from "./routes/newsRouter.js";
 
 //middleware
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", ProductRouter);
+app.use("/api/news", NewsRouter);
 
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });

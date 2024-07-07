@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Counter from "./counter.js";
 import {
   PRODUCT_CATEGORY,
   PRODUCT_TYPE,
@@ -10,7 +11,7 @@ const ProductSchema = new mongoose.Schema(
   {
     productId: {
       type: Number,
-      required: true,
+      // required: true,
       unique: true,
       index: true,
     },
@@ -81,6 +82,26 @@ const ProductSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Pre-save middleware to auto-increment productId
+ProductSchema.pre("save", async function (next) {
+  if (!this.isNew) {
+    next();
+    return;
+  }
+
+  try {
+    const counter = await Counter.findByIdAndUpdate(
+      { _id: "productId" },
+      { $inc: { seq: 1 } },
+      { new: true, upsert: true }
+    );
+    this.productId = counter.seq;
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 ProductSchema.path("variants").validate(function (variants) {
   return variants.length > 0;

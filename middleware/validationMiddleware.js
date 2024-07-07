@@ -7,6 +7,7 @@ import {
   PRODUCT_SIZES,
 } from "../utils/constants.js";
 import Product from "../models/ProductModel.js";
+import News from "../models/NewsModel.js";
 import { param } from "express-validator";
 
 // Constants
@@ -16,6 +17,13 @@ const MIN_IMAGES = 1;
 const MIN_VARIANTS = 1;
 const MAX_PRICE = 1000;
 const MAX_STOCK = 10000;
+
+// News
+const MIN_TITLE_LENGTH = 5;
+const MAX_TITLE_LENGTH = 150;
+const MIN_ABSTRACT_LENGTH = 5;
+const MAX_ABSTRACT_LENGTH = 350;
+const MIN_CONTENT_LENGTH = 20;
 
 const validateVariant = (variant) => {
   const errors = [];
@@ -120,14 +128,68 @@ export const validateProductInput = withValidationErrors([
     .custom(validateVariants),
 ]);
 
-export const validateProductIdParam = withValidationErrors([
-  param("productId").custom(async (value) => {
-    const productId = Number(value);
-    if (!Number.isInteger(productId))
-      throw new BadRequestError("Invalid product ID, must be a whole number");
+// export const validateProductIdParam = withValidationErrors([
+//   param("productId").custom(async (value) => {
+//     const productId = Number(value);
+//     if (!Number.isInteger(productId))
+//       throw new BadRequestError("Invalid product ID, must be a whole number");
 
-    const product = await Product.findOne({ productId });
-    if (!product)
-      throw new NotFoundError(`No product with product ID : ${productId}`);
-  }),
+//     const product = await Product.findOne({ productId });
+//     if (!product)
+//       throw new NotFoundError(`No product with product ID : ${productId}`);
+//   }),
+// ]);
+
+export const validateNewsInput = withValidationErrors([
+  body("date")
+    .isISO8601()
+    .withMessage("Invalid date format. Use ISO 8601 format.")
+    .toDate(),
+  body("title")
+    .isLength({ min: MIN_TITLE_LENGTH, max: MAX_TITLE_LENGTH })
+    .withMessage(
+      `Title must be between ${MIN_TITLE_LENGTH} and ${MAX_TITLE_LENGTH} characters long`
+    )
+    .trim()
+    .escape(),
+  body("abstract")
+    .optional()
+    .isLength({ min: MIN_ABSTRACT_LENGTH, max: MAX_ABSTRACT_LENGTH })
+    .withMessage(
+      `Abstract must be between ${MIN_ABSTRACT_LENGTH} and ${MAX_ABSTRACT_LENGTH} characters long`
+    )
+    .trim()
+    .escape(),
+  body("content")
+    .isLength({ min: MIN_CONTENT_LENGTH })
+    .withMessage(
+      `Content must be at least ${MIN_CONTENT_LENGTH} characters long`
+    )
+    .trim()
+    .escape(),
+  body("images")
+    .isArray({ min: MIN_IMAGES })
+    .withMessage(`At least ${MIN_IMAGES} image is required`)
+    .custom((images) => {
+      images.forEach((image) => {
+        if (typeof image !== "string" || image.trim() === "") {
+          throw new Error("Each image must be a non-empty string");
+        }
+      });
+      return true;
+    }),
 ]);
+
+export const validateIdParam = (paramName, modelName, Model) =>
+  withValidationErrors([
+    param(paramName)
+      .isInt({ min: 1 })
+      .withMessage(`Invalid ${modelName} ID. Must be a positive integer.`)
+      .custom(async (value) => {
+        const id = Number(value);
+        const document = await Model.findOne({ [`${modelName}Id`]: id });
+        if (!document) {
+          throw new NotFoundError(`No ${modelName} found with ID: ${id}`);
+        }
+      }),
+  ]);

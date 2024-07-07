@@ -1,12 +1,28 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Wrapper from "../assets/wrappers/Team";
 import FactCard from "../components/FactCard";
 import CoachCard from "../components/CoachCard";
+// import { useMockData } from "../utils/environment";
+import { mockCoaches } from "../data/mockData.js";
 
-const getImagePath = (imageName) => {
-  // return import.meta.env.DEV
-  return `/assets/images/${imageName}`;
+const useMockData = true;
+
+export const loader = async ({ request }) => {
+  try {
+    if (useMockData) {
+      console.log(`coaches: ${{ data: { teamMembers: mockCoaches } }}`);
+      return { data: { teamMembers: mockCoaches } };
+    }
+    const { data } = await customFetch.get("/coaches");
+    return {
+      data,
+    };
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
 };
 
 const facts = [
@@ -27,37 +43,10 @@ const facts = [
   },
 ];
 
-const coaches = [
-  {
-    id: 1,
-    firstName: "Ryan",
-    lastName: "Donald",
-    position: "Head Coach and General Manager",
-    bio:
-      "Ryan is the club’s first-ever head coach and general manager for the team’s " +
-      "inaugural season of 2020-2021. Donald spent 5 seasons at Yale University as an " +
-      "Assistant Coach before joining the Bucks in 2020. Donald also has had coaching stints " +
-      "in both Trail and Woodstock.  Ryan played 2 years of junior A hockey himself and then " +
-      "went on to play for Yale University for 4 years, winning an ECAC championship along the " +
-      "way.",
-  },
-  {
-    id: 2,
-    firstName: "Jack",
-    lastName: "Watson",
-    position: "Assistant Coach",
-    bio: "Ryan is the club’s first-ever head coach and general manager for the team’s inaugural season of 2020-2021. Donald spent 5 seasons at Yale University as an Assistant Coach before joining the Bucks in 2020. Donald also has had coaching stints in both Trail and Woodstock.  Ryan played 2 years of junior A hockey himself and then went on to play for Yale University for 4 years, winning an ECAC championship along the way. ",
-  },
-  {
-    id: 3,
-    firstName: "Daniel",
-    lastName: "McLean",
-    position: "Assistant Coach",
-    bio: "Ryan is the club’s first-ever head coach and general manager for the team’s inaugural season of 2020-2021. Donald spent 5 seasons at Yale University as an Assistant Coach before joining the Bucks in 2020. Donald also has had coaching stints in both Trail and Woodstock.  Ryan played 2 years of junior A hockey himself and then went on to play for Yale University for 4 years, winning an ECAC championship along the way. ",
-  },
-];
-
 const Team = () => {
+  const { data } = useLoaderData();
+  const coaches = data.teamMembers || [];
+
   return (
     <Wrapper>
       <h1>Our Team</h1>
@@ -80,7 +69,7 @@ const Team = () => {
             ))}
           </div>
         </div>
-        <img src={getImagePath("main-picture.jpg")} alt="Team Image" />
+        <img src="/assets/images/main-picture.jpg" alt="Team Image" />
       </div>
       <h1>Coaching Staff</h1>
       <div className="coaches-container">
@@ -110,7 +99,7 @@ const Team = () => {
             </HashLink>
           </button>
         </div>
-        <img src={getImagePath("main-picture.jpg")} alt="Join Us Image" />
+        <img src="/assets/images/main-picture.jpg" alt="Join Us Image" />
       </div>
     </Wrapper>
   );
