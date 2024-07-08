@@ -4,12 +4,12 @@ import { toast } from "react-toastify";
 import NewsCardNews from "../components/NewsCardNews";
 import Wrapper from "../assets/wrappers/News";
 import customFetch from "../utils/customFetch";
-import { useMockData } from "../utils/environment";
+import { shouldUseMockData } from "../utils/environment";
 import { mockNews } from "../data/mockData.js";
 
 export const loader = async ({ request }) => {
   try {
-    if (useMockData) {
+    if (shouldUseMockData) {
       return { data: { news: mockNews } };
     }
     const { data } = await customFetch.get("/news");
