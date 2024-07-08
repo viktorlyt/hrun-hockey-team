@@ -1,122 +1,118 @@
 //return import.meta.env.DEV ? `/public/assets/images/${imageName}`  : `/assets/images/${imageName}`;
 
-export const mockNews = {
-  news: [
-    {
-      _id: "668ac04c7c530c1138b05e1f",
-      date: "2024-06-01T00:00:00.000Z",
-      title: "2024 BCHL Annual General Meeting Recap",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game&#x27;s first star, as",
-      images: ["/assets/images/news_1.jpg"],
-      createdAt: "2024-07-07T16:20:28.623Z",
-      updatedAt: "2024-07-07T16:20:28.623Z",
-      newsId: 1,
-      __v: 0,
-    },
-    {
-      _id: "668ac0bd7c530c1138b05e22",
-      date: "2024-05-25T00:00:00.000Z",
-      title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_2.jpg"],
-      createdAt: "2024-07-07T16:22:21.158Z",
-      updatedAt: "2024-07-07T16:22:21.158Z",
-      newsId: 2,
-      __v: 0,
-    },
-    {
-      _id: "668ac1607c530c1138b05e28",
-      date: "2024-04-08T00:00:00.000Z",
-      title: "2023 BCHL Annual General Meeting Recap",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_3.jpg"],
-      createdAt: "2024-07-07T16:25:04.134Z",
-      updatedAt: "2024-07-07T16:25:04.134Z",
-      newsId: 4,
-      __v: 0,
-    },
-    {
-      _id: "668ac1ad7c530c1138b05e2e",
-      date: "2024-06-01T00:00:00.000Z",
-      title: "Brooks Bandits win 2023 Rocky Mountain Challenge",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_4.jpg"],
-      createdAt: "2024-07-07T16:26:21.920Z",
-      updatedAt: "2024-07-07T16:26:21.920Z",
-      newsId: 6,
-      __v: 0,
-    },
-    {
-      _id: "668ac1fe7c530c1138b05e34",
-      date: "2024-05-25T00:00:00.000Z",
-      title: "Brooks Bandits win 2022 Rocky Mountain Challenge",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_5.jpg"],
-      createdAt: "2024-07-07T16:27:42.546Z",
-      updatedAt: "2024-07-07T16:27:42.546Z",
-      newsId: 8,
-      __v: 0,
-    },
-    {
-      _id: "668ac290e54fcbf864f5b122",
-      date: "2021-04-08T00:00:00.000Z",
-      title: "Brooks Bandits win 2021 Rocky Mountain Challenge",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_6.jpg"],
-      createdAt: "2024-07-07T16:30:08.038Z",
-      updatedAt: "2024-07-07T16:30:08.038Z",
-      newsId: 9,
-      __v: 0,
-    },
-  ],
-};
+export const mockNews = [
+  {
+    _id: "668ac04c7c530c1138b05e1f",
+    date: "2024-06-01T00:00:00.000Z",
+    title: "2024 BCHL Annual General Meeting Recap",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game&#x27;s first star, as",
+    images: ["/assets/images/news_1.jpg"],
+    createdAt: "2024-07-07T16:20:28.623Z",
+    updatedAt: "2024-07-07T16:20:28.623Z",
+    newsId: 1,
+    __v: 0,
+  },
+  {
+    _id: "668ac0bd7c530c1138b05e22",
+    date: "2024-05-25T00:00:00.000Z",
+    title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_2.jpg"],
+    createdAt: "2024-07-07T16:22:21.158Z",
+    updatedAt: "2024-07-07T16:22:21.158Z",
+    newsId: 2,
+    __v: 0,
+  },
+  {
+    _id: "668ac1607c530c1138b05e28",
+    date: "2024-04-08T00:00:00.000Z",
+    title: "2023 BCHL Annual General Meeting Recap",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_3.jpg"],
+    createdAt: "2024-07-07T16:25:04.134Z",
+    updatedAt: "2024-07-07T16:25:04.134Z",
+    newsId: 4,
+    __v: 0,
+  },
+  {
+    _id: "668ac1ad7c530c1138b05e2e",
+    date: "2024-06-01T00:00:00.000Z",
+    title: "Brooks Bandits win 2023 Rocky Mountain Challenge",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_4.jpg"],
+    createdAt: "2024-07-07T16:26:21.920Z",
+    updatedAt: "2024-07-07T16:26:21.920Z",
+    newsId: 6,
+    __v: 0,
+  },
+  {
+    _id: "668ac1fe7c530c1138b05e34",
+    date: "2024-05-25T00:00:00.000Z",
+    title: "Brooks Bandits win 2022 Rocky Mountain Challenge",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_5.jpg"],
+    createdAt: "2024-07-07T16:27:42.546Z",
+    updatedAt: "2024-07-07T16:27:42.546Z",
+    newsId: 8,
+    __v: 0,
+  },
+  {
+    _id: "668ac290e54fcbf864f5b122",
+    date: "2021-04-08T00:00:00.000Z",
+    title: "Brooks Bandits win 2021 Rocky Mountain Challenge",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_6.jpg"],
+    createdAt: "2024-07-07T16:30:08.038Z",
+    updatedAt: "2024-07-07T16:30:08.038Z",
+    newsId: 9,
+    __v: 0,
+  },
+];
 
-export const mockLatestNews = {
-  news: [
-    {
-      _id: "668ac1ad7c530c1138b05e2e",
-      date: "2024-06-01T00:00:00.000Z",
-      title: "Brooks Bandits win 2023 Rocky Mountain Challenge",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_4.jpg"],
-      createdAt: "2024-07-07T16:26:21.920Z",
-      updatedAt: "2024-07-07T16:26:21.920Z",
-      newsId: 6,
-      __v: 0,
-    },
-    {
-      _id: "668ac04c7c530c1138b05e1f",
-      date: "2024-06-01T00:00:00.000Z",
-      title: "2024 BCHL Annual General Meeting Recap",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game&#x27;s first star, as",
-      images: ["/assets/images/news_1.jpg"],
-      createdAt: "2024-07-07T16:20:28.623Z",
-      updatedAt: "2024-07-07T16:20:28.623Z",
-      newsId: 1,
-      __v: 0,
-    },
-    {
-      _id: "668ac1fe7c530c1138b05e34",
-      date: "2024-05-25T00:00:00.000Z",
-      title: "Brooks Bandits win 2022 Rocky Mountain Challenge",
-      content:
-        "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-      images: ["/assets/images/news_5.jpg"],
-      createdAt: "2024-07-07T16:27:42.546Z",
-      updatedAt: "2024-07-07T16:27:42.546Z",
-      newsId: 8,
-      __v: 0,
-    },
-  ],
-};
+export const mockLatestNews = [
+  {
+    _id: "668ac1ad7c530c1138b05e2e",
+    date: "2024-06-01T00:00:00.000Z",
+    title: "Brooks Bandits win 2023 Rocky Mountain Challenge",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_4.jpg"],
+    createdAt: "2024-07-07T16:26:21.920Z",
+    updatedAt: "2024-07-07T16:26:21.920Z",
+    newsId: 6,
+    __v: 0,
+  },
+  {
+    _id: "668ac04c7c530c1138b05e1f",
+    date: "2024-06-01T00:00:00.000Z",
+    title: "2024 BCHL Annual General Meeting Recap",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game&#x27;s first star, as",
+    images: ["/assets/images/news_1.jpg"],
+    createdAt: "2024-07-07T16:20:28.623Z",
+    updatedAt: "2024-07-07T16:20:28.623Z",
+    newsId: 1,
+    __v: 0,
+  },
+  {
+    _id: "668ac1fe7c530c1138b05e34",
+    date: "2024-05-25T00:00:00.000Z",
+    title: "Brooks Bandits win 2022 Rocky Mountain Challenge",
+    content:
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
+    images: ["/assets/images/news_5.jpg"],
+    createdAt: "2024-07-07T16:27:42.546Z",
+    updatedAt: "2024-07-07T16:27:42.546Z",
+    newsId: 8,
+    __v: 0,
+  },
+];
 
 export const mockProducts = [
   {
