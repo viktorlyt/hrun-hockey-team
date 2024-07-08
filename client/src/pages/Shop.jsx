@@ -15,6 +15,7 @@ export const loader = async ({ request }) => {
       console.log("Using mock data");
       return { data: { products: mockProducts } };
     }
+    console.log("Fetching from API");
     const { data } = await customFetch.get("/products");
     return {
       data,

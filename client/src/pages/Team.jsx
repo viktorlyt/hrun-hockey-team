@@ -12,7 +12,6 @@ const useMockData = true;
 export const loader = async ({ request }) => {
   try {
     if (useMockData) {
-      console.log(`coaches: ${{ data: { teamMembers: mockCoaches } }}`);
       return { data: { teamMembers: mockCoaches } };
     }
     const { data } = await customFetch.get("/coaches");

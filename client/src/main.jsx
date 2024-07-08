@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 const response = await axios.get("");
-console.log(response);
+// console.log(response);
 
 extendStringPrototype();
 
