@@ -10,14 +10,14 @@ import {
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Wrapper from "../assets/wrappers/ProductDetail";
-import { useMockData } from "../utils/environment";
+import { shouldUseMockData } from "../utils/environment";
 import { mockProduct } from "../data/mockData.js";
 
 export const loader = async ({ params }) => {
   const productId = params.id;
 
   try {
-    if (useMockData) {
+    if (shouldUseMockData) {
       return { data: { product: mockProduct } };
     }
 

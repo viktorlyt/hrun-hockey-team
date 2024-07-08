@@ -7,12 +7,12 @@ import ContactFormSection from "../components/ContactFormSection";
 import Logo from "../components/Logo";
 import { useLoaderData } from "react-router-dom";
 import customFetch from "../utils/customFetch.js";
-import { useMockData } from "../utils/environment.js";
+import { shouldUseMockData } from "../utils/environment.js";
 import { mockLatestNews } from "../data/mockData.js";
 
 export const loader = async ({ request }) => {
   try {
-    if (useMockData) {
+    if (shouldUseMockData) {
       return { data: { news: mockLatestNews } };
     }
     const { data } = await customFetch.get("/news/recent");

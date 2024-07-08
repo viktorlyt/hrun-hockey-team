@@ -6,12 +6,13 @@ import ProductCardShop from "../components/ProductCardShop";
 import ContactFormSection from "../components/ContactFormSection";
 import customFetch from "../utils/customFetch";
 import { categories, types } from "../utils/clientConstants";
-import { useMockData } from "../utils/environment";
+import { shouldUseMockData } from "../utils/environment";
 import { mockProducts } from "../data/mockData.js";
 
 export const loader = async ({ request }) => {
   try {
-    if (useMockData) {
+    if (shouldUseMockData) {
+      console.log("Using mock data");
       return { data: { products: mockProducts } };
     }
     const { data } = await customFetch.get("/products");
@@ -19,6 +20,7 @@ export const loader = async ({ request }) => {
       data,
     };
   } catch (error) {
+    console.error("Error in loader:", error);
     toast.error(error?.response?.data?.msg);
     return error;
   }
