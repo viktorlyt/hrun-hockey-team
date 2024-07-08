@@ -12,16 +12,13 @@ import { mockProducts } from "../data/mockData.js";
 export const loader = async ({ request }) => {
   try {
     if (shouldUseMockData) {
-      console.log("Using mock data");
       return { data: { products: mockProducts } };
     }
-    console.log("Fetching from API");
     const { data } = await customFetch.get("/products");
     return {
       data,
     };
   } catch (error) {
-    console.error("Error in loader:", error);
     toast.error(error?.response?.data?.msg);
     return error;
   }

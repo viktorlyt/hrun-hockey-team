@@ -10,6 +10,7 @@ import { mockNews } from "../data/mockData.js";
 export const loader = async ({ request }) => {
   try {
     if (shouldUseMockData) {
+      console.log("Using mock data");
       return { data: { news: mockNews } };
     }
     const { data } = await customFetch.get("/news");
@@ -25,6 +26,8 @@ export const loader = async ({ request }) => {
 const News = () => {
   const { data } = useLoaderData();
   const news = data.news || [];
+
+  console.log(`${news}`);
 
   return (
     <Wrapper>
