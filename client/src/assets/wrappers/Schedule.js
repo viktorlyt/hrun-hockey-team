@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   }
 
   .calendar-footer-container {
+    width: fit-content;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -329,6 +330,12 @@ const Wrapper = styled.div`
     .calendar-day {
       height: 170px;
       margin: 0 1rem 0 auto;
+    }
+
+    .calendar-footer-container {
+      padding-left: 0.5rem;
+      font-size: 0.85rem;
+      justify-content: center;
     }
   }
 `;
