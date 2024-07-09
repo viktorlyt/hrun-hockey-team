@@ -1,21 +1,77 @@
 //return import.meta.env.DEV ? `/public/assets/images/${imageName}`  : `/assets/images/${imageName}`;
 
-export const mockEvents = [
+export const mockGames = [
   {
-    eventId: 1,
+    gameId: 1,
     team1: "Team A",
     team2: "Team B",
     team1Logo: "/assets/images/logo.jpg",
     team2Logo: "/assets/images/logo.jpg",
-    datetime: "2024-07-10T15:00:00Z",
+    datetime: "2024-04-10T15:00:00-03:00",
   },
   {
-    eventId: 2,
+    gameId: 2,
     team1: "Team C",
     team2: "Team D",
     team1Logo: "/assets/images/logo.jpg",
     team2Logo: "/assets/images/logo.jpg",
-    datetime: "2024-07-15T18:30:00Z",
+    datetime: "2024-07-15T18:30:00-03:00",
+  },
+  {
+    gameId: 3,
+    team1: "Team C",
+    team2: "Team A",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-07-07T09:30:00-03:00",
+  },
+  {
+    gameId: 4,
+    team1: "Team D",
+    team2: "Team A",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2023-12-10T11:30:00-04:00",
+  },
+  {
+    gameId: 5,
+    team1: "Boston",
+    team2: "Los Angeles",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-10-02T19:00:00-03:00",
+  },
+  {
+    gameId: 6,
+    team1: "Boston",
+    team2: "Los Angeles",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-10-10T11:00:00-03:00",
+  },
+  {
+    gameId: 7,
+    team1: "Boston",
+    team2: "Los Angeles",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-10-15T13:00:00-03:00",
+  },
+  {
+    gameId: 8,
+    team1: "Boston",
+    team2: "Los Angeles",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-10-24T19:00:00-03:00",
+  },
+  {
+    gameId: 9,
+    team1: "Boston",
+    team2: "Los Angeles",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-10-29T17:00:00-03:00",
   },
 ];
 

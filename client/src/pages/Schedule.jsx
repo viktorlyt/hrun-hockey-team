@@ -1,6 +1,8 @@
-import React from "react";
+import { useState } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   format,
   startOfMonth,
@@ -11,20 +13,24 @@ import {
   isSameDay,
   startOfWeek,
   endOfWeek,
+  parseISO,
+  min,
+  max,
+  addMonths,
 } from "date-fns";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Wrapper from "../assets/wrappers/Schedule";
 import customFetch from "../utils/customFetch";
 import { shouldUseMockData } from "../utils/environment";
-import { mockEvents } from "../data/mockData.js";
+import { mockGames } from "../data/mockData.js";
 
 export const loader = async ({ request }) => {
   try {
     if (shouldUseMockData) {
       console.log("Using mock data");
-      return { data: { events: mockEvents } };
+      return { data: { games: mockGames } };
     }
-    const { data } = await customFetch.get("/events");
+    const { data } = await customFetch.get("/games");
     return {
       data,
     };
@@ -36,11 +42,16 @@ export const loader = async ({ request }) => {
 
 const Schedule = () => {
   const { data } = useLoaderData();
-  const events = data.events || [];
+  const games = data.games || [];
 
-  const today = new Date();
-  const monthStart = startOfMonth(today);
-  const monthEnd = endOfMonth(today);
+  const gameDates = games.map((game) => parseISO(game.datetime));
+  const earliestDate = min(gameDates);
+  const latestDate = max(gameDates);
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const monthStart = startOfMonth(currentDate);
+  const monthEnd = endOfMonth(currentDate);
   const calendarStart = startOfWeek(monthStart);
   const calendarEnd = endOfWeek(addDays(monthEnd, 7));
 
@@ -49,8 +60,8 @@ const Schedule = () => {
     end: calendarEnd,
   }).slice(0, 35);
 
-  const getEventsForDay = (day) => {
-    return events.filter((event) => isSameDay(new Date(event.datetime), day));
+  const getGamesForDay = (day) => {
+    return games.filter((game) => isSameDay(new Date(game.datetime), day));
   };
 
   const weekDays = [
@@ -63,13 +74,52 @@ const Schedule = () => {
     "Saturday",
   ];
 
+  const weekDaysShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const handleDateChange = (date) => {
+    if (date >= earliestDate && date <= latestDate) {
+      setCurrentDate(date);
+    }
+  };
+
+  const handlePrevMonth = () => {
+    const newDate = addMonths(currentDate, -1);
+    if (startOfMonth(newDate) >= startOfMonth(earliestDate)) {
+      setCurrentDate(newDate);
+    }
+  };
+
+  const handleNextMonth = () => {
+    const newDate = addMonths(currentDate, 1);
+    if (startOfMonth(newDate) <= startOfMonth(latestDate)) {
+      setCurrentDate(newDate);
+    }
+  };
+
+  const isPrevMonthDisabled =
+    startOfMonth(currentDate) <= startOfMonth(earliestDate);
+  const isNextMonthDisabled = endOfMonth(currentDate) >= endOfMonth(latestDate);
+
   return (
     <Wrapper>
       <div className="calendar-container">
         <div className="calendar-header-container">
-          <MdKeyboardArrowLeft className="arrow" />
-          <h4 className="calendar-header">{format(today, "MMMM yyyy")}</h4>
-          <MdKeyboardArrowRight className="arrow" />
+          <MdKeyboardArrowLeft
+            className={`arrow ${isPrevMonthDisabled ? "disabled" : ""}`}
+            onClick={handlePrevMonth}
+          />
+          <DatePicker
+            selected={currentDate}
+            onChange={handleDateChange}
+            dateFormat="MMM yyyy"
+            showMonthYearPicker
+            minDate={earliestDate}
+            maxDate={latestDate}
+          />
+          <MdKeyboardArrowRight
+            className={`arrow ${isNextMonthDisabled ? "disabled" : ""}`}
+            onClick={handleNextMonth}
+          />
         </div>
         <div className="weekday-header">
           {weekDays.map((day, index) => (
@@ -83,41 +133,64 @@ const Schedule = () => {
             <div
               key={index}
               className={`calendar-day ${
-                !isSameMonth(day, today) ? "next-month" : ""
-              } ${getEventsForDay(day).length > 0 ? "has-event" : ""}`}
+                !isSameMonth(day, currentDate) ? "next-month" : ""
+              } ${getGamesForDay(day).length > 0 ? "has-game" : ""}`}
             >
-              <div className="day-number">{format(day, "d")}</div>
-              {getEventsForDay(day).map((event) => (
+              <div className="day-info">
+                <span className="day-number">{format(day, "d")}</span>
+                <span className="weekday-label">{format(day, "EEE")}</span>
+              </div>
+              {getGamesForDay(day).map((game) => (
                 <Link
-                  to={`/events/${event.eventId}`}
-                  key={event.eventId}
-                  className="event-link"
+                  to={`/games/${game.gameId}`}
+                  key={game.gameId}
+                  className="game-link"
                 >
-                  <div className="event">
-                    <div className="event-teams-logo">
+                  <div className="game">
+                    <div className="game-teams-logo">
                       <img
-                        src={event.team1Logo}
-                        alt={event.team1}
+                        src={game.team1Logo}
+                        alt={game.team1}
                         className="team-logo"
                       />
                       <span>@</span>
                       <img
-                        src={event.team2Logo}
-                        alt={event.team2}
+                        src={game.team2Logo}
+                        alt={game.team2}
                         className="team-logo"
                       />
                     </div>
-                    <div className="event-teams-names">
-                      {event.team1} @ {event.team2}
+                    <div className="game-teams-names">
+                      {game.team1} @ {game.team2}
                     </div>
-                    <div className="event-time">
-                      {format(new Date(event.datetime), "HH:mm")}
+                    <div className="game-time">
+                      {format(new Date(game.datetime), "hh:mm a")}
                     </div>
                   </div>
                 </Link>
               ))}
             </div>
           ))}
+        </div>
+        <div className="calendar-footer-container">
+          <div
+            className={`left ${isPrevMonthDisabled ? "disabled" : ""}`}
+            onClick={handlePrevMonth}
+          >
+            <MdKeyboardArrowLeft className="arrow" />
+            <h4 className="calendar-footer">
+              {format(addMonths(currentDate, -1), "MMM yyyy")}
+            </h4>
+          </div>
+          <div
+            className={`right ${isNextMonthDisabled ? "disabled" : ""}`}
+            onClick={handleNextMonth}
+          >
+            <h4 className="calendar-footer">
+              {format(addMonths(currentDate, 1), "MMM yyyy")}
+            </h4>
+            <MdKeyboardArrowRight className="arrow" />
+          </div>
         </div>
       </div>
     </Wrapper>
