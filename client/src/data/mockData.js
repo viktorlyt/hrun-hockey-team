@@ -1,5 +1,24 @@
 //return import.meta.env.DEV ? `/public/assets/images/${imageName}`  : `/assets/images/${imageName}`;
 
+export const mockEvents = [
+  {
+    eventId: 1,
+    team1: "Team A",
+    team2: "Team B",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-07-10T15:00:00Z",
+  },
+  {
+    eventId: 2,
+    team1: "Team C",
+    team2: "Team D",
+    team1Logo: "/assets/images/logo.jpg",
+    team2Logo: "/assets/images/logo.jpg",
+    datetime: "2024-07-15T18:30:00Z",
+  },
+];
+
 export const mockNews = [
   {
     _id: "668ac04c7c530c1138b05e1f",

@@ -7,6 +7,13 @@ import {
   RxDoubleArrowLeft,
   RxDoubleArrowRight,
 } from "react-icons/rx";
+import {
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardDoubleArrowUp,
+  MdKeyboardDoubleArrowDown,
+} from "react-icons/md";
+
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Wrapper from "../assets/wrappers/ProductDetail";
@@ -184,7 +191,11 @@ const ProductDetail = () => {
       <div className="product-container">
         <div className="images-container-wrapper">
           <button className="scroll-button" onClick={() => handleScroll("up")}>
-            {windowWidth <= 768 ? <RxDoubleArrowLeft /> : <RxDoubleArrowUp />}
+            {windowWidth <= 768 ? (
+              <MdKeyboardDoubleArrowLeft />
+            ) : (
+              <MdKeyboardDoubleArrowUp />
+            )}
           </button>
           <div className="images-container" ref={imagesContainerRef}>
             {processedProduct.images.map((img, index) => (
@@ -205,9 +216,9 @@ const ProductDetail = () => {
             onClick={() => handleScroll("down")}
           >
             {windowWidth <= 768 ? (
-              <RxDoubleArrowRight />
+              <MdKeyboardDoubleArrowRight />
             ) : (
-              <RxDoubleArrowDown />
+              <MdKeyboardDoubleArrowDown />
             )}
           </button>
         </div>

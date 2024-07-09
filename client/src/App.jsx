@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import Events from "./pages/Events";
 import HockeySchool from "./pages/HockeySchool";
 import News, { loader as newsLoader } from "./pages/News";
-import Schedule from "./pages/Schedule";
+import Schedule, { loader as scheduleLoader } from "./pages/Schedule";
 import Shop, { loader as productsLoader } from "./pages/Shop";
 import ProductDetail, { loader as productLoader } from "./pages/ProductDetail";
 import Stats from "./pages/Stats";
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       { path: "team", element: <Team />, loader: coachesLoader },
       { path: "shop", element: <Shop />, loader: productsLoader },
       { path: "shop/:id", element: <ProductDetail />, loader: productLoader },
-      { path: "schedule", element: <Schedule /> },
+      { path: "schedule", element: <Schedule />, loader: scheduleLoader },
       { path: "community", element: <Community /> },
       { path: "school", element: <HockeySchool /> },
       { path: "events", element: <Events /> },
