@@ -20,6 +20,7 @@ import {
 } from "date-fns";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Wrapper from "../assets/wrappers/Schedule";
+import CalendarDay from "../components/CalendarDay";
 import customFetch from "../utils/customFetch";
 import { shouldUseMockData } from "../utils/environment";
 import { mockGames } from "../data/mockData.js";
@@ -59,10 +60,6 @@ const Schedule = () => {
     start: calendarStart,
     end: calendarEnd,
   }).slice(0, 35);
-
-  const getGamesForDay = (day) => {
-    return games.filter((game) => isSameDay(new Date(game.datetime), day));
-  };
 
   const weekDays = [
     "Sunday",
@@ -130,46 +127,12 @@ const Schedule = () => {
         </div>
         <div className="calendar-grid">
           {days.map((day, index) => (
-            <div
+            <CalendarDay
               key={index}
-              className={`calendar-day ${
-                !isSameMonth(day, currentDate) ? "next-month" : ""
-              } ${getGamesForDay(day).length > 0 ? "has-game" : ""}`}
-            >
-              <div className="day-info">
-                <span className="day-number">{format(day, "d")}</span>
-                <span className="weekday-label">{format(day, "EEE")}</span>
-              </div>
-              {getGamesForDay(day).map((game) => (
-                <Link
-                  to={`/games/${game.gameId}`}
-                  key={game.gameId}
-                  className="game-link"
-                >
-                  <div className="game">
-                    <div className="game-teams-logo">
-                      <img
-                        src={game.team1Logo}
-                        alt={game.team1}
-                        className="team-logo"
-                      />
-                      <span>@</span>
-                      <img
-                        src={game.team2Logo}
-                        alt={game.team2}
-                        className="team-logo"
-                      />
-                    </div>
-                    <div className="game-teams-names">
-                      {game.team1} @ {game.team2}
-                    </div>
-                    <div className="game-time">
-                      {format(new Date(game.datetime), "hh:mm a")}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+              day={day}
+              currentDate={currentDate}
+              games={games}
+            />
           ))}
         </div>
         <div className="calendar-footer-container">
