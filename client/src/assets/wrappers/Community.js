@@ -13,8 +13,7 @@ const Wrapper = styled.div`
 
   .larger-font {
     font-size: 1.5rem;
-    margin: 0;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0;
   }
 
   img {
@@ -36,27 +35,23 @@ const Wrapper = styled.div`
   }
 
   .community-container .larger-font {
-    margin: 0;
     width: 45%;
   }
 
   .community-images {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     gap: 4%;
   }
 
   .community-images img {
     width: 48%;
-    aspect-ratio: 16 / 9; // Adjust this ratio as needed
+    aspect-ratio: 16 / 9;
   }
 
   .donations-container {
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    width: 100%;
     gap: 4%;
   }
 
@@ -73,7 +68,6 @@ const Wrapper = styled.div`
 
   .donations-container .image-container img {
     width: 100%;
-    /* aspect-ratio: 16 / 9;  */
   }
 
   .download {
@@ -83,6 +77,48 @@ const Wrapper = styled.div`
     margin-top: 1rem;
     margin-left: 0;
     margin-right: auto;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 2rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .larger-font {
+      font-size: 1.2rem;
+    }
+
+    .community-container .larger-font {
+      width: 100%;
+    }
+
+    .community-images {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .community-images img {
+      width: 100%;
+    }
+
+    .donations-container {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 1rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .larger-font {
+      font-size: 1rem;
+    }
   }
 `;
 
