@@ -133,7 +133,8 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+button,
+.button {
   display: block;
   margin: 0 auto;
   background-color: var(--primary-500);
@@ -146,22 +147,34 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   background-color: var(--primary-600);
 }
 
 button:focus,
-button:focus-visible {
+button:focus-visible,
+.button:focus,
+.button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-button:disabled {
+button:disabled,
+.button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
 .bold {
   font-weight: bold;
+}
+
+.capitalize-first {
+  text-transform: lowercase;
+}
+
+.capitalize-first::first-letter {
+  text-transform: uppercase;
 }
 
 .site-wrapper {
