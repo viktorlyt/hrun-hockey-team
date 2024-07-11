@@ -1,5 +1,106 @@
 //return import.meta.env.DEV ? `/public/assets/images/${imageName}`  : `/assets/images/${imageName}`;
 
+export const mockGroups = [
+  {
+    groupId: 1,
+    name: "Juniors",
+    minAge: 6,
+    maxAge: 8,
+    decription: "This group has schedule 2 times a week. for 2 hours.",
+    img: "/assets/images/logo.jpg",
+    startDate: "2024-06-25",
+    endDate: "2024-09-05",
+    schedule: [
+      {
+        weekday: "Tuesday",
+        startTime: "17:00:00",
+        endTime: "18:00:00",
+      },
+      {
+        weekday: "Saturday",
+        startTime: "10:00:00",
+        endTime: "11:00:00",
+      },
+    ],
+  },
+  {
+    groupId: 2,
+    name: "Jaguars",
+    minAge: 6,
+    maxAge: 8,
+    decription: "This group has schedule 2 times a week. for 2 hours.",
+    img: "/assets/images/logo.jpg",
+    startDate: "2024-06-25",
+    endDate: "2024-09-05",
+    schedule: [
+      {
+        weekday: "Wednesday",
+        startTime: "17:00:00",
+        endTime: "18:00:00",
+      },
+      {
+        weekday: "Saturday",
+        startTime: "10:00:00",
+        endTime: "11:00:00",
+      },
+    ],
+  },
+  {
+    groupId: 3,
+    name: "Lions",
+    minAge: 10,
+    maxAge: 12,
+    decription: "This group has schedule 3 times a week. for 2 hours.",
+    img: "/assets/images/logo.jpg",
+    startDate: "2024-06-25",
+    endDate: "2024-09-05",
+    schedule: [
+      {
+        weekday: "Monday",
+        startTime: "17:00:00",
+        endTime: "18:00:00",
+      },
+      {
+        weekday: "Thursday",
+        startTime: "17:00:00",
+        endTime: "18:00:00",
+      },
+      {
+        weekday: "Saturday",
+        startTime: "10:00:00",
+        endTime: "11:00:00",
+      },
+    ],
+  },
+  {
+    groupId: 4,
+    name: "Teens",
+    minAge: 12,
+    maxAge: 14,
+    decription: "This group has schedule 3 times a week. for 2 hours.",
+    img: "/assets/images/logo.jpg",
+    startDate: "2024-06-25",
+    endDate: "2024-09-05",
+    schedule: [
+      {
+        weekday: "Tuesday",
+        startTime: "17:00:00",
+        endTime: "18:00:00",
+      },
+      {
+        weekday: "Thursday",
+        startTime: "17:00:00",
+        endTime: "18:00:00",
+      },
+      {
+        weekday: "Saturday",
+        startTime: "10:00:00",
+        endTime: "11:00:00",
+      },
+    ],
+  },
+];
+
 export const mockGames = [
   {
     gameId: 1,

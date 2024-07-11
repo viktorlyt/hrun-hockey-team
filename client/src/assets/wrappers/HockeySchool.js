@@ -16,35 +16,28 @@ const Wrapper = styled.div`
     margin: 0 0 1rem 0;
   }
 
-  img {
-    border-radius: 10px;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .community-container {
+  .groups {
     display: flex;
-    flex-direction: column;
     justify-content: start;
     align-items: stretch;
     padding: 0;
     gap: 2rem;
+    margin-top: 2rem;
     margin-bottom: 4rem;
     width: 100%;
   }
 
-  .community-container .larger-font {
+  .groups-container .larger-font {
     width: 45%;
   }
 
-  .community-images {
+  .groups-images {
     display: flex;
     justify-content: space-between;
     gap: 4%;
   }
 
-  .community-images img {
+  .groups-images img {
     width: 48%;
     aspect-ratio: 16 / 9;
   }

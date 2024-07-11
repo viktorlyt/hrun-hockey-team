@@ -25,5 +25,15 @@ export const PRODUCT_COLORS = {
   MULTI: "Multicolor",
 };
 
+export const WEEKDAYS = {
+  MONDAY: "Monday",
+  TUESDAY: "Tuesday",
+  WEDNESDAY: "Wednesday",
+  THURSDAY: "Thursday",
+  FRIDAY: "Friday",
+  SATURDAY: "Saturday",
+  SUNDAY: "Sunday",
+};
+
 export const categories = Object.values(PRODUCT_CATEGORY);
 export const types = Object.values(PRODUCT_TYPE);
