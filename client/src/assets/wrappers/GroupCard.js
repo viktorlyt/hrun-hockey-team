@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 2rem;
   border: 1px solid var(--text-color);
   padding-bottom: 1rem;
@@ -18,10 +14,9 @@ const Wrapper = styled.div`
   }
 
   .info {
-    padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 
@@ -32,13 +27,17 @@ const Wrapper = styled.div`
   }
 
   .desc {
-    width: 80%;
+    width: 70%;
   }
 
   .registration {
     display: inline-block;
     margin: 0;
-    width: 80%;
+    width: 70%;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
   }
 `;
 
