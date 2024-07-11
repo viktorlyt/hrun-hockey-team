@@ -128,6 +128,11 @@ const Wrapper = styled.div`
     .schedule-table td {
       padding: 0.5rem;
     }
+
+    h1,
+    p {
+      width: 90%;
+    }
   }
 
   @media (max-width: 768px) {

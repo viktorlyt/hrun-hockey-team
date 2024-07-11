@@ -44,7 +44,7 @@ const HockeySchool = () => {
   return (
     <Wrapper>
       <h1>Welcome to our Castors Hockey school</h1>
-      <div className="groups-container">
+      <div className="content-container">
         <p className="larger-font">
           We're thrilled to have you here! Whether you're a die-hard fan, a new
           supporter, or a curious visitor, our team welcomes you with open arms.

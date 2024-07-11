@@ -1,5 +1,44 @@
 //return import.meta.env.DEV ? `/public/assets/images/${imageName}`  : `/assets/images/${imageName}`;
 
+export const mockEvents = [
+  {
+    eventId: 1,
+    name: "Rockiest Fest 2024",
+    startDate: "2024-06-14T11:00:00-3:00",
+    endDate: "2024-06-15T20:00:00-3:00",
+    location: "Western Financial Place",
+    price: 99.95,
+    img: "/assets/images/logo.jpg",
+  },
+  {
+    eventId: 2,
+    name: "Rockiest Fest 2024",
+    startDate: "2024-06-14T11:00:00-3:00",
+    endDate: "2024-06-15T20:00:00-3:00",
+    location: "Western Financial Place",
+    price: 99.95,
+    img: "/assets/images/logo.jpg",
+  },
+  {
+    eventId: 3,
+    name: "Rockiest Fest 2024",
+    startDate: "2024-06-14T11:00:00-3:00",
+    endDate: "2024-06-15T20:00:00-3:00",
+    location: "Western Financial Place",
+    price: 99.95,
+    img: "/assets/images/logo.jpg",
+  },
+  {
+    eventId: 4,
+    name: "Rockiest Fest 2024",
+    startDate: "2024-06-14T11:00:00-3:00",
+    endDate: "2024-06-15T20:00:00-3:00",
+    location: "Western Financial Place",
+    price: 99.95,
+    img: "/assets/images/logo.jpg",
+  },
+];
+
 export const mockGroups = [
   {
     groupId: 1,
