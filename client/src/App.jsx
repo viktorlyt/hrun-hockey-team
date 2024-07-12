@@ -11,7 +11,12 @@ import News, { loader as newsLoader } from "./pages/News";
 import Schedule, { loader as scheduleLoader } from "./pages/Schedule";
 import Shop, { loader as productsLoader } from "./pages/Shop";
 import ProductDetail, { loader as productLoader } from "./pages/ProductDetail";
-import Stats from "./pages/Stats";
+import StatsLayout from "./components/StatsLayout";
+import Dashboard from "./pages/Stats/Dashboard";
+import StatsSkaters from "./pages/Stats/StatsSkaters";
+import StatsGoalies from "./pages/Stats/StatsGoalies";
+import StatsTeams from "./pages/Stats/StatsTeams";
+import StatsGlossary from "./pages/Stats/StatsGlossary";
 import Team, { loader as coachesLoader } from "./pages/Team";
 import Tickets from "./pages/Tickets";
 import NotFound from "./pages/NotFound";
@@ -33,7 +38,17 @@ const router = createBrowserRouter([
       { path: "events", element: <Events /> },
       { path: "contact", element: <Contact /> },
       { path: "cart", element: <Cart /> },
-      { path: "stats", element: <Stats /> },
+      {
+        path: "stats/",
+        element: <StatsLayout />,
+        children: [
+          { index: true, element: <Dashboard /> },
+          { path: "skaters", element: <StatsSkaters /> },
+          { path: "goalies", element: <StatsGoalies /> },
+          { path: "teams", element: <StatsTeams /> },
+          { path: "glossary", element: <StatsGlossary /> },
+        ],
+      },
       { path: "tickets", element: <Tickets /> },
       { path: "*", element: <NotFound /> },
     ],

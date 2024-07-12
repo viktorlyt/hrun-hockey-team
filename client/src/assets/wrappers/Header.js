@@ -32,9 +32,9 @@ const Wrapper = styled.header`
   }
 
   .logo-container img {
-    height: 6rem; // Fixed height, adjust this value as needed
+    height: 6rem;
     width: auto;
-    max-width: none; // Remove max-width constraint
+    max-width: none;
     object-fit: contain;
   }
 
@@ -52,7 +52,6 @@ const Wrapper = styled.header`
     gap: 1rem;
   }
 
-  .nav-center a,
   .nav-center NavLink {
     text-decoration: none;
     font-weight: bold;
@@ -179,10 +178,9 @@ const Wrapper = styled.header`
     }
   }
 
-  /* @media (max-width: 1200px) { */
   @media (max-width: 768px) {
     height: 5rem;
-    position: fixed; // Change to fixed positioning
+    position: fixed;
     width: 100%;
 
     .logo-container img {
@@ -190,8 +188,8 @@ const Wrapper = styled.header`
     }
 
     .nav-center {
-      position: fixed; // Change to fixed positioning
-      top: 5rem; // Match the header height
+      position: fixed;
+      top: 5rem;
       left: 0;
       right: 0;
       flex-direction: column;

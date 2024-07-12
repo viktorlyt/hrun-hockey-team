@@ -283,7 +283,7 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 510px) {
     .home-page-section {
       padding: 1rem;
     }

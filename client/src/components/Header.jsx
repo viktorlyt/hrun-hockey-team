@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "./Logo";
@@ -86,12 +87,27 @@ export default function Header() {
           Events
         </NavLink>
         <NavLink
+          to="/stats"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+          onClick={closeMenu}
+        >
+          Stats
+        </NavLink>
+        {/* <NavLink
           to="/contact"
           className={({ isActive }) => (isActive ? "active-link" : "")}
           onClick={closeMenu}
         >
           Contact us
-        </NavLink>
+        </NavLink> */}
+        <HashLink
+          smooth
+          to="/#contact-us-section"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+          onClick={closeMenu}
+        >
+          Contact Us
+        </HashLink>
       </nav>
       <div className="right-side">
         <LanguageSwitcher />
