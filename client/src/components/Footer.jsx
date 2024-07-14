@@ -1,5 +1,6 @@
 import Wrapper from "../assets/wrappers/Footer";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Logo from "./Logo";
 import Socials from "./Socials";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -30,7 +31,10 @@ export default function Footer() {
                   <Link to="/school">Hockey School</Link>
                   <Link to="/events">Events</Link>
                   <Link to="/schedule">Schedule</Link>
-                  <Link to="/home#contact-us">Contact us</Link>
+                  {/* <Link to="/#contact-us-section">Contact us</Link> */}
+                  <HashLink smooth to="/#contact-us-section">
+                    Contact Us
+                  </HashLink>
                 </div>
               </section>
               <section>

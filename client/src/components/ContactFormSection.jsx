@@ -29,20 +29,21 @@ const ContactFormSection = () => {
         <div className="form-section">
           <div className="form-info">
             <div className="content">
-              <h2 className="section-title">How can we help you today?</h2>
-              <p>
-                Feel free to message us and we will get back to you as soon as
-                possible.
+              {/* <h2 className="section-title">How can we help you today?</h2> */}
+              <h2 className="section-title">Get in touch</h2>
+              <p className="get-in-touch-message">
+                We value your feedback, questions, and inquiries. Whether you
+                have a suggestion, require assistance, or just want to reach out
+                to us, we are always here to provide support and assistance.
+              </p>
+              <p className="icons-info">
+                <LuPhone /> <b>{phone}</b>
+              </p>
+              <p className="icons-info">
+                <LuMail /> <b>{email}</b>
               </p>
               <p className="address" style={{ whiteSpace: "pre-line" }}>
                 {address}
-              </p>
-              <p className="icons-info">
-                <LuPhone /> {phone}
-              </p>
-              <p className="icons-info">
-                {" "}
-                <LuMail /> {email}
               </p>
             </div>
           </div>
@@ -71,7 +72,8 @@ const ContactFormSection = () => {
               name="message"
               isLabeled={true}
               labelIcon={<LuPen />}
-              labelText="How can our team help you?"
+              // labelText="How can our team help you?"
+              labelText="How we can help you? Feel free to get in touch!"
               isPlaceholder={false}
               value={formData.message}
               onChange={handleInputChange}
@@ -86,7 +88,8 @@ const ContactFormSection = () => {
             />
 
             <button type="submit" className="contact-us-btn">
-              Contact us
+              {/* Contact us */}
+              Get in touch
             </button>
           </form>
         </div>

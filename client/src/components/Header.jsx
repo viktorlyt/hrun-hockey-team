@@ -86,13 +86,6 @@ export default function Header() {
         >
           Events
         </NavLink>
-        <NavLink
-          to="/stats"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
-          onClick={closeMenu}
-        >
-          Stats
-        </NavLink>
         {/* <NavLink
           to="/contact"
           className={({ isActive }) => (isActive ? "active-link" : "")}

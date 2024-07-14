@@ -88,6 +88,10 @@ const Wrapper = styled.div`
     width: 85%;
   }
 
+  .get-in-touch-message {
+    margin-bottom: 3rem;
+  }
+
   .icons-info {
     display: flex;
     align-items: center;

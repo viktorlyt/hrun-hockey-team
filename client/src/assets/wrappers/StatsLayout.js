@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.header`
   padding: 1rem;
   padding-top: 8rem;
-  margin: 2rem 4rem;
+  margin: 1rem 4rem;
 
   h1,
   p {
@@ -26,10 +26,10 @@ const Wrapper = styled.header`
     margin: 2rem 1rem;
   }
 
-  .nav NavLink {
+  .nav NavLink,
+  .nav a {
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     white-space: nowrap;
   }
 
@@ -37,6 +37,7 @@ const Wrapper = styled.header`
   .nav NavLink:hover {
     color: var(--primary-500);
     text-decoration: underline;
+    font-weight: bold;
   }
 
   .active-link {
