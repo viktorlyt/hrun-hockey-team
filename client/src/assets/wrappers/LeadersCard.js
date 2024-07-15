@@ -115,7 +115,7 @@ const Wrapper = styled.div`
     padding: 0.5rem 1rem;
     margin: 0.5rem 0;
     border-radius: 0.5rem;
-    border: 1px solid var(--text-color-transparent-secondary);
+    border: 1px solid var(--grey-200);
     box-sizing: border-box;
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;

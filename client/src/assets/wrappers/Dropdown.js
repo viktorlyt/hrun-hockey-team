@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0.3rem 0;
-    border: 1px solid var(--text-color-transparent-secondary);
+    border: 1px solid var(--grey-200);
     border-radius: 0.5rem;
     background: transparent;
     cursor: pointer;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { LiaShoppingCartSolid } from "react-icons/lia";
@@ -11,6 +11,16 @@ import Wrapper from "../assets/wrappers/Header";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,7 +62,7 @@ export default function Header() {
         >
           Team
         </NavLink> */}
-        <TeamDropdown closeMenu={closeMenu} />
+        <TeamDropdown closeMenu={closeMenu} isMobile={isMobile} />
         <NavLink
           to="/shop"
           className={({ isActive }) => (isActive ? "active-link" : "")}

@@ -22,7 +22,7 @@ const Wrapper = styled.header`
     justify-content: start;
     gap: 4rem;
     width: fit-content;
-    border-bottom: 1px solid var(--text-color-transparent-secondary);
+    border-bottom: 1px solid var(--grey-200);
     margin: 2rem 1rem;
   }
 

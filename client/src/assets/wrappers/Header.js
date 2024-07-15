@@ -41,6 +41,7 @@ const Wrapper = styled.header`
     display: flex;
     flex: 1;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     margin: 1rem 10rem;
   }
@@ -51,24 +52,53 @@ const Wrapper = styled.header`
     gap: 1rem;
   }
 
-  .nav-center NavLink {
+  .nav-center NavLink,
+  /* .nav-center a, */
+  .dropdown {
     text-decoration: none;
-    font-weight: bold;
     padding: 0.5rem;
     font-size: 1.1rem;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .dropdown {
+    position: relative;
+    /* display: inline-flex;
+    align-items: center;
+    height: 100%; */
+    padding: 0;
+  }
+
+  .dropbtn {
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    outline: none;
+    height: 100%;
+    padding: 0;
   }
 
   .nav-center a:hover,
-  .nav-center NavLink:hover,
-  .dropdown:hover,
-  .active-link {
+  .nav-center .nav-center NavLink:hover,
+  .dropbtn:hover,
+  .active-link,
+  .dropbtn.active-link,
+  .dropdown-content .active-link {
     color: var(--primary-500);
     text-decoration: underline;
   }
 
   .active-link {
     font-weight: 800;
+    text-decoration: underline;
   }
 
   .shop-btn {
@@ -81,31 +111,12 @@ const Wrapper = styled.header`
     outline: none;
   }
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropbtn {
-    background-color: transparent;
-    color: inherit;
-    padding: 16px;
-    font-size: inherit;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    outline: none;
-    padding: 0.25rem 0;
-  }
-
   .dropdown-content {
     position: absolute;
     top: 100%;
     left: 0;
     background-color: var(--background-color-transparent);
-    min-width: 160px;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1001; // Increased z-index to be above the header
     display: none; // Changed from 'block' to 'none'
@@ -126,11 +137,6 @@ const Wrapper = styled.header`
 
   .dropdown-content a:hover {
     background-color: var(--grey-200);
-  }
-
-  .active-link {
-    color: var(--primary-500);
-    font-weight: bold;
   }
 
   @media (max-width: 1820px) {
@@ -169,6 +175,10 @@ const Wrapper = styled.header`
       padding: 0.5rem 0.3rem;
       font-size: 1rem;
     }
+
+    .dropbtn {
+      font-size: 1rem;
+    }
   }
 
   @media (max-width: 1200px) {
@@ -178,7 +188,8 @@ const Wrapper = styled.header`
     }
 
     .nav-center a,
-    .nav-center NavLink {
+    .nav-center NavLink,
+    .dropbtn {
       font-size: 0.9rem;
     }
 
@@ -208,6 +219,10 @@ const Wrapper = styled.header`
       font-size: 0.8rem;
       margin-left: 0;
       margin-right: 0;
+    }
+
+    .dropbtn {
+      font-size: 0.8rem;
     }
 
     .language-dropdown {
@@ -254,6 +269,7 @@ const Wrapper = styled.header`
 
     .nav-center.show-menu {
       display: flex;
+      align-items: start;
     }
 
     .nav-center a,
@@ -287,11 +303,29 @@ const Wrapper = styled.header`
       min-width: 2.5rem;
     }
 
+    .dropdown {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .dropbtn {
+      width: 100%;
+      text-align: left;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     .dropdown-content {
       position: static;
       display: none;
-      background-color: transparent;
       box-shadow: none;
+      padding-left: 1rem;
+      width: 100%;
+      background-color: transparent;
     }
 
     .dropdown.open .dropdown-content {

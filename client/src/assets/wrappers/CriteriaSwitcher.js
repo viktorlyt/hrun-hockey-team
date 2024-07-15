@@ -8,7 +8,7 @@ const Wrapper = styled.ul`
   justify-content: start;
   gap: 3rem;
   padding: 0;
-  border-bottom: 1px solid var(--text-color-transparent-secondary);
+  border-bottom: 1px solid var(--grey-200);
 
   li {
     position: relative;

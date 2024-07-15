@@ -2,12 +2,16 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 
-const TeamDropdown = ({ closeMenu }) => {
+const TeamDropdown = ({ closeMenu, isMobile }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => {
+    if (isMobile) {
+      setIsOpen(!isOpen);
+    }
+  };
 
   const isActive = () => {
     const teamRoutes = ["/team", "/history", "/standings", "/stats"];
@@ -21,11 +25,13 @@ const TeamDropdown = ({ closeMenu }) => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    if (!isMobile) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className={`dropdown ${isOpen ? "open" : ""}`} ref={dropdownRef}>
@@ -38,6 +44,7 @@ const TeamDropdown = ({ closeMenu }) => {
       <div className="dropdown-content">
         <NavLink
           to="/team"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
           onClick={() => {
             closeMenu();
             setIsOpen(false);
@@ -47,6 +54,7 @@ const TeamDropdown = ({ closeMenu }) => {
         </NavLink>
         <NavLink
           to="/history"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
           onClick={() => {
             closeMenu();
             setIsOpen(false);
@@ -56,6 +64,7 @@ const TeamDropdown = ({ closeMenu }) => {
         </NavLink>
         <NavLink
           to="/standings"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
           onClick={() => {
             closeMenu();
             setIsOpen(false);
@@ -65,6 +74,7 @@ const TeamDropdown = ({ closeMenu }) => {
         </NavLink>
         <NavLink
           to="/stats"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
           onClick={() => {
             closeMenu();
             setIsOpen(false);
