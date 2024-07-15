@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Wrapper from "../../assets/wrappers/Dashboard";
 import Dropdown from "../../components/Dropdown";
@@ -12,16 +12,24 @@ const stats = mockTeamStats;
 
 const Dashboard = () => {
   const seasons = [...new Set(stats.map((s) => s.season))];
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [filters, setFilters] = useState({
-    season: seasons[0],
-    // gameType: Object.keys(GAME_TYPE)[0],
-    gameType: GAME_TYPE.REGULAR,
-    franchise: Object.keys(FRANCHISES)[0],
+    season: searchParams.get("season") || seasons[0],
+    gameType: searchParams.get("gameType") || GAME_TYPE.REGULAR,
+    franchise: searchParams.get("franchise") || Object.keys(FRANCHISES)[0],
   });
 
   const [skaterCriteria, setSkaterCriteria] = useState("points");
-  const [goalieCriteria, setGoalieCriteria] = useState("savePercentage");
+  const [goalieCriteria, setGoalieCriteria] = useState("sv");
+
+  useEffect(() => {
+    const newSearchParams = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+      newSearchParams.set(key, value);
+    });
+    setSearchParams(newSearchParams);
+  }, [filters, setSearchParams]);
 
   const filterOptions = [
     {
@@ -33,7 +41,6 @@ const Dashboard = () => {
       name: "gameType",
       label: "Game type",
       options: Object.entries(GAME_TYPE).map(([key, value]) => ({
-        // value: key,
         value: value,
         label: value,
       })),
@@ -51,36 +58,85 @@ const Dashboard = () => {
   const filteredStats = useMemo(() => {
     return stats.filter(
       (s) => s.season === filters.season && s.gameType === filters.gameType
-      // && stat.franchise === filters.franchise
+      // && s.franchise === filters.franchise
     );
   }, [stats, filters]);
 
+  const sumSkaterStats = (players) => {
+    return players.reduce((acc, player) => {
+      const key = `${player.firstName} ${player.lastName}`;
+      if (!acc[key]) {
+        acc[key] = {
+          ...player,
+          gamesPlayed: 0,
+          points: 0,
+          goals: 0,
+          assists: 0,
+        };
+      }
+      acc[key].gamesPlayed += player.gamesPlayed;
+      acc[key].points += player.points;
+      acc[key].goals += player.goals;
+      acc[key].assists += player.assists;
+      return acc;
+    }, {});
+  };
+
+  const sumGoalieStats = (players) => {
+    return players.reduce((acc, player) => {
+      const key = `${player.firstName} ${player.lastName}`;
+      if (!acc[key]) {
+        acc[key] = {
+          ...player,
+          gamesPlayed: 0,
+          saves: 0,
+          shotsAgainst: 0,
+          goalsAgainst: 0,
+          shutouts: 0,
+        };
+      }
+      acc[key].gamesPlayed += player.gamesPlayed;
+      acc[key].saves += player.saves;
+      acc[key].shotsAgainst += player.shotsAgainst;
+      acc[key].goalsAgainst += player.goalsAgainst;
+      acc[key].shutouts += player.shutouts;
+      return acc;
+    }, {});
+  };
+
   const skaters = useMemo(() => {
-    return filteredStats
-      .filter((player) => player.playerType === "skater")
+    const skatersData = filteredStats.filter(
+      (player) => player.playerType === "skater"
+    );
+    const summedSkaters = Object.values(sumSkaterStats(skatersData));
+    return summedSkaters
+      .map((player) => ({ ...player }))
       .sort((a, b) => b[skaterCriteria] - a[skaterCriteria])
       .slice(0, 5);
   }, [filteredStats, skaterCriteria]);
 
   const goalies = useMemo(() => {
-    return filteredStats
-      .filter((player) => player.playerType === "goalie")
+    const goaliesData = filteredStats.filter(
+      (player) => player.playerType === "goalie"
+    );
+    const summedGoalies = Object.values(sumGoalieStats(goaliesData));
+    return summedGoalies
+      .map((player) => ({
+        ...player,
+        sv: player.shotsAgainst ? player.saves / player.shotsAgainst : 0,
+        gaa: player.timeOnIce
+          ? // ? Math.round((player.goalsAgainst / (player.timeOnIce / 60)) * 100)
+            player.goalsAgainst / (player.timeOnIce / 60)
+          : 0,
+      }))
       .sort((a, b) => {
-        if (goalieCriteria === "savePercentage" || goalieCriteria === "gaa") {
+        if (goalieCriteria === "sv" || goalieCriteria === "gaa") {
           return a[goalieCriteria] - b[goalieCriteria];
         }
         return b[goalieCriteria] - a[goalieCriteria];
       })
       .slice(0, 5);
   }, [filteredStats, goalieCriteria]);
-
-  const handleFilterChange = (name, value) => {
-    setFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
-  };
-
-  console.log(`stats: ${JSON.stringify(stats, null, 2)}`);
-  console.log(`filteredStats: ${JSON.stringify(filteredStats, null, 2)}`);
-  console.log(`goalies: ${JSON.stringify(goalies, null, 2)}`);
 
   return (
     <Wrapper>
@@ -127,7 +183,7 @@ const Dashboard = () => {
           <CriteriaSwitcher
             criteria={goalieCriteria}
             setCriteria={setGoalieCriteria}
-            options={["savePercentage", "gaa", "shutouts"]}
+            options={["gaa", "sv", "shutouts"]}
           />
           <LeadersCard
             skaterType="goalie"

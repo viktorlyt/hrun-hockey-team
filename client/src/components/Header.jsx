@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { LiaShoppingCartSolid } from "react-icons/lia";
@@ -6,6 +6,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
+import TeamDropdown from "./TeamDropdown ";
 import Wrapper from "../assets/wrappers/Header";
 
 export default function Header() {
@@ -44,13 +45,14 @@ export default function Header() {
         >
           News
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/team"
           className={({ isActive }) => (isActive ? "active-link" : "")}
           onClick={closeMenu}
         >
           Team
-        </NavLink>
+        </NavLink> */}
+        <TeamDropdown closeMenu={closeMenu} />
         <NavLink
           to="/shop"
           className={({ isActive }) => (isActive ? "active-link" : "")}

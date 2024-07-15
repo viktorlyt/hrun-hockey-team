@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: inline-block;
   cursor: pointer;
 
-  .dropdown {
+  .language-dropdown {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     margin-left: 1px;
   }
 
-  .dropdown-menu {
+  .language-dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -31,17 +31,17 @@ const Wrapper = styled.div`
     z-index: 1;
   }
 
-  .dropdown-menu div {
+  .language-dropdown-menu div {
     padding: 7px 15px;
     cursor: pointer;
   }
 
-  .dropdown-menu div:hover {
+  .language-dropdown-menu div:hover {
     background-color: #f1f1f1;
   }
 
   @media (max-width: 768px) {
-    .dropdown-menu {
+    .language-dropdown-menu {
       right: 0;
       left: auto;
     }
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
       min-width: 2rem;
     }
 
-    .dropdown-menu div {
+    .language-dropdown-menu div {
       padding: 5px 10px;
     }
   }

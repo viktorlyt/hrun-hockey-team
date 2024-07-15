@@ -16,7 +16,6 @@ const Wrapper = styled.header`
   box-sizing: border-box;
   font-size: 1.1rem;
   max-width: 100%;
-  overflow-x: hidden;
 
   .left-side {
     display: flex;
@@ -61,15 +60,15 @@ const Wrapper = styled.header`
   }
 
   .nav-center a:hover,
-  .nav-center NavLink:hover {
+  .nav-center NavLink:hover,
+  .dropdown:hover,
+  .active-link {
     color: var(--primary-500);
     text-decoration: underline;
   }
 
   .active-link {
     font-weight: 800;
-    text-decoration: underline;
-    color: var(--primary-500);
   }
 
   .shop-btn {
@@ -80,6 +79,58 @@ const Wrapper = styled.header`
   .menu-toggle {
     display: none;
     outline: none;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn {
+    background-color: transparent;
+    color: inherit;
+    padding: 16px;
+    font-size: inherit;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    outline: none;
+    padding: 0.25rem 0;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--background-color-transparent);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1001; // Increased z-index to be above the header
+    display: none; // Changed from 'block' to 'none'
+    padding-top: 0.5rem; // Add some padding to separate from the header
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap; // Prevent wrapping of long text
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--grey-200);
+  }
+
+  .active-link {
+    color: var(--primary-500);
+    font-weight: bold;
   }
 
   @media (max-width: 1820px) {
@@ -159,7 +210,7 @@ const Wrapper = styled.header`
       margin-right: 0;
     }
 
-    .dropdown {
+    .language-dropdown {
       margin-right: 0.1rem;
     }
 
@@ -234,6 +285,17 @@ const Wrapper = styled.header`
     .language {
       font-size: 1.1rem;
       min-width: 2.5rem;
+    }
+
+    .dropdown-content {
+      position: static;
+      display: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .dropdown.open .dropdown-content {
+      display: block;
     }
   }
 

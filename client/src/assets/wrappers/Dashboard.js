@@ -14,20 +14,19 @@ const Wrapper = styled.div`
 
   .filters-container .filter {
     margin: 0;
-    /* background-color: var(--text-secondary-color); */
-  }
-
-  .filters-container > button:hover,
-  .type.selected {
-    /* background-color: var(--primary-600); */
   }
 
   .players-container {
     display: flex;
     flex-direction: row;
     align-items: start;
-    /* justify-content: space-between; */
     gap: 3rem;
+  }
+
+  .skaters-container,
+  .goalies-container {
+    flex: 1;
+    min-width: 0; // This prevents flex items from overflowing
   }
 
   .custom-link {
@@ -36,8 +35,8 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: fit-content;
+    justify-content: start;
+    width: 100%;
   }
 
   .link-text,
@@ -55,7 +54,7 @@ const Wrapper = styled.div`
 
   .link-icon svg {
     vertical-align: middle;
-    margin-top: 0.15em; /* Fine-tune vertical alignment */
+    margin-top: 0.15em;
   }
 `;
 

@@ -6,19 +6,41 @@ const Wrapper = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  /* width: fit-content; */
   gap: 3rem;
   padding: 0;
   border-bottom: 1px solid var(--text-color-transparent-secondary);
 
+  li {
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  li::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-500);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
   li:hover,
   li.active {
     color: var(--primary-500);
-    text-decoration: underline;
-    font-weight: bold;
   }
 
-  li {
+  li:hover::after,
+  li.active::after {
+    transform: scaleX(1);
+  }
+
+  li.active::after {
+    height: 3px;
   }
 `;
 

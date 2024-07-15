@@ -15,12 +15,12 @@ export default function LanguageSwitcher() {
 
   return (
     <Wrapper>
-      <div className="dropdown" onClick={toggleDropdown}>
+      <div className="language-dropdown" onClick={toggleDropdown}>
         <span className="language">{language}</span>
         <span className="arrow">&#x25BE;</span>
       </div>
       {isOpen && (
-        <div className="dropdown-menu">
+        <div className="language-dropdown-menu">
           <div onClick={() => handleLanguageChange("Eng")}>Eng</div>
           <div onClick={() => handleLanguageChange("Fr")}>Fr</div>
         </div>

@@ -26,29 +26,36 @@ const Wrapper = styled.header`
     margin: 2rem 1rem;
   }
 
-  .nav NavLink,
-  .nav a {
+  nav a {
     text-decoration: none;
     font-size: 1.2rem;
     white-space: nowrap;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease, font-weight 0.3s ease;
   }
 
-  .nav a:hover,
-  .nav NavLink:hover {
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-500);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  nav a:hover,
+  nav a.active-link {
     color: var(--primary-500);
-    text-decoration: underline;
     font-weight: bold;
   }
 
-  .active-link {
-    font-weight: 800;
-    text-decoration: underline;
-    color: var(--primary-500);
-  }
-
-  @media (max-width: 1820px) {
-    .nav {
-    }
+  nav a:hover::after,
+  nav a.active-link::after {
+    transform: scaleX(1);
   }
 
   @media (max-width: 1600px) {

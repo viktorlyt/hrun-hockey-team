@@ -4,21 +4,44 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: start;
+  align-items: stretch; // Changed from 'start' to 'stretch'
   box-sizing: border-box;
-  gap: 4rem;
+  gap: 2rem;
   padding: 1rem;
+  height: 100%; // Added to ensure the wrapper takes full height of its container
 
   img {
     border-radius: 50%;
   }
 
   .player-container {
+    flex: 1;
+    max-width: calc(37% - 1rem); // 1/3 width minus half of the gap
+    height: 370px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // Changed from center to flex-start
+    align-items: center; */
+    overflow: hidden;
+    position: relative; // For absolute positioning of child elements
+  }
+
+  .player-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    /* color: var(--text-color-transparent-secondary); */
+    justify-content: flex-start;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .player-info.active {
+    opacity: 1;
   }
 
   h2 {
@@ -29,7 +52,7 @@ const Wrapper = styled.div`
   }
 
   .player-image {
-    width: 100px;
+    width: 120px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
@@ -39,7 +62,6 @@ const Wrapper = styled.div`
   .details {
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
     color: var(--text-secondary-color);
     margin-top: 1rem;
   }
@@ -49,6 +71,7 @@ const Wrapper = styled.div`
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 0.5rem;
   }
 
   .result-name {
@@ -65,10 +88,12 @@ const Wrapper = styled.div`
   }
 
   .players-list {
+    flex: 2;
+    max-width: calc(62% - 1rem);
     display: flex;
     flex-direction: column;
-    align-items: end;
     justify-content: space-between;
+    min-height: 0;
   }
 
   ol {
@@ -76,26 +101,38 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: start;
     justify-content: start;
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 1rem;
   }
 
   li {
-    width: 300px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-    margin: 0.5rem;
+    margin: 0.5rem 0;
     border-radius: 0.5rem;
     border: 1px solid var(--text-color-transparent-secondary);
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
   }
 
   li:hover,
-  li:active {
-    border: none;
+  li:active,
+  li.selected {
     background-color: var(--blue);
     color: var(--background-color);
+    border: none;
   }
 
-  button {
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 
   @media (max-width: 768px) {
@@ -110,4 +147,5 @@ const Wrapper = styled.div`
     }
   }
 `;
+
 export default Wrapper;
