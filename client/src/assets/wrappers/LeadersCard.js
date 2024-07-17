@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   justify-content: start;
   align-items: stretch; // Changed from 'start' to 'stretch'
   box-sizing: border-box;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1rem;
   height: 100%; // Added to ensure the wrapper takes full height of its container
 
@@ -16,26 +16,26 @@ const Wrapper = styled.div`
 
   .player-container {
     flex: 1;
-    max-width: calc(37% - 1rem); // 1/3 width minus half of the gap
-    height: 370px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-start; // Changed from center to flex-start
-    align-items: center; */
+    max-width: calc(42% - 0.5rem);
+    min-height: 410px;
     overflow: hidden;
     position: relative; // For absolute positioning of child elements
+
+    display: flex; // Add this
+    flex-direction: column; // Add this
   }
 
   .player-info {
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
   }
@@ -44,26 +44,41 @@ const Wrapper = styled.div`
     opacity: 1;
   }
 
-  h2 {
-    font-weight: bold;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-
   .player-image {
     width: 120px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 0.5rem;
+  }
+
+  .first-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second-part {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+  }
+
+  .name > h2 {
+    margin: 0%;
   }
 
   .details {
     display: flex;
     flex-direction: row;
     color: var(--text-secondary-color);
-    margin-top: 1rem;
+    margin-bottom: 3rem;
   }
 
   .team-logo {
@@ -72,28 +87,31 @@ const Wrapper = styled.div`
     border-radius: 50%;
     object-fit: cover;
     margin-right: 0.5rem;
+    display: inline-block;
   }
 
   .result-name {
     color: var(--text-secondary-color);
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
   }
 
-  h1 {
+  h1.result-value {
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 0;
+    margin: 0;
+    width: 100%;
+    overflow-wrap: break-word;
   }
 
   .players-list {
     flex: 2;
-    max-width: calc(62% - 1rem);
+    max-width: calc(58% - 0.5rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 0;
   }
 
   ol {
@@ -106,6 +124,8 @@ const Wrapper = styled.div`
     width: 100%;
     padding-left: 0;
     margin-bottom: 1rem;
+
+    min-height: 0;
   }
 
   li {
@@ -135,16 +155,115 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
+  @media (max-width: 1600px) {
+    .player-container {
+      max-width: calc(52% - 0.5rem);
+    }
+    .players-list {
+      max-width: calc(48% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 1600px) {
+    .player-container {
+      max-width: calc(60% - 0.5rem);
+    }
+    .players-list {
+      max-width: calc(40% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .player-container {
+      max-width: calc(45% - 0.5rem);
+    }
+    .players-list {
+      flex: 2;
+      max-width: calc(55% - 0.5rem);
+    }
+  }
+
+  @media (max-width: 943px) {
+    .player-container {
+      max-width: calc(60% - 0.5rem);
+    }
+    .players-list {
+      max-width: calc(40% - 0.5rem);
+    }
+  }
+
   @media (max-width: 768px) {
-    img {
-      max-height: 300px;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    margin-top: 1rem;
+    gap: 0rem;
+
+    .player-container,
+    .players-list {
+      max-width: 100%;
+      height: auto;
+      min-height: 50px;
+    }
+
+    .player-info {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .first-part {
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      gap: 0.5rem;
+    }
+
+    .player-image {
+      width: 50px;
+    }
+
+    .name {
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+
+    .name > h2 {
+      font-size: 1.1rem;
+    }
+
+    .details {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 0;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .team-logo {
+      width: 25px;
+      height: 25px;
+    }
+
+    .second-part {
+      /* justify-content: end; */
+      align-items: end;
+      text-align: end;
+    }
+
+    .result-name {
+    }
+
+    h1.result-value {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: end;
     }
   }
 
   @media (max-width: 480px) {
-    img {
-      max-height: 200px;
-    }
   }
 `;
 

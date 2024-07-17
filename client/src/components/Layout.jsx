@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useTheme } from "../context/ThemeContext";
 import Socials from "./Socials";
 
 export default function Layout() {

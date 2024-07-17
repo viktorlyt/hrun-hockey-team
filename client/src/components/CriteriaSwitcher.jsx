@@ -6,13 +6,11 @@ const CriteriaSwitcher = ({ criteria, setCriteria, options }) => (
       let displayOption = option;
       let className = "capitalize-first";
 
-      // Check if option is 'sv' or 'gaa'
       if (option === "sv" || option === "gaa") {
         className = "capitalize-all";
         displayOption = option.toUpperCase();
       }
 
-      // Add '%' if option is 'sv'
       if (option === "sv") {
         displayOption += " %";
       }

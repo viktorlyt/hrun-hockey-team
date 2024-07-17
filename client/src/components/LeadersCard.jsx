@@ -7,7 +7,6 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
   const [previousPlayer, setPreviousPlayer] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Effect to reset selected player when criteria changes
   useEffect(() => {
     setSelectedPlayer(players[0]);
     setPreviousPlayer(null);
@@ -43,25 +42,37 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
 
   const renderPlayerInfo = (player, isActive) => (
     <div className={`player-info ${isActive ? "active" : ""}`}>
-      <img
-        src={player.img}
-        className="player-image"
-        alt={`${player.firstName} ${player.lastName}`}
-      />
-      <h2>{player.firstName}</h2>
-      <h2>{player.lastName}</h2>
-      <div className="details">
-        <img src={player.img} className="team-logo" alt="Castors' Logo" />
-        CASTORS • #{player.number} • {player.position}
+      <div className="first-part">
+        <img
+          src={player.img}
+          className="player-image"
+          alt={`${player.firstName} ${player.lastName}`}
+        />
+        <div className="text-info">
+          <div className="name">
+            <h2>{player.firstName}</h2>
+            <h2>{player.lastName}</h2>
+          </div>
+          <div className="details">
+            <img src={player.img} className="team-logo" alt="Castors' Logo" />
+            CASTORS • #{player.number} • {player.position}
+          </div>
+        </div>
       </div>
-      <h3 className="result-name">{criteria.toUpperCase()}</h3>
-      <h1 className="result-value">
-        {formatValue(player[criteria], criteria)}
-      </h1>
+      <div className="second-part">
+        <h4 className="result-name">{criteria.toUpperCase()}</h4>
+        <h1 className="result-value">
+          {formatValue(player[criteria], criteria)}
+        </h1>
+      </div>
     </div>
   );
 
-  return (
+  return players.length <= 0 ? (
+    <Wrapper>
+      <div>There are no players that meet the requirements.</div>
+    </Wrapper>
+  ) : (
     <Wrapper>
       <div className="player-container">
         {renderPlayerInfo(selectedPlayer, true)}

@@ -59,91 +59,73 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 1600px) {
-    .nav {
+    nav {
       margin: 1rem 4rem;
     }
   }
 
   @media (max-width: 1450px) {
-    .nav {
+    nav {
       margin: 1rem 3rem;
     }
   }
 
   @media (max-width: 1343px) {
-    padding: 0.5rem 1rem;
-    height: 6rem;
+    padding: 4rem 1rem;
 
-    .nav {
-      margin: 1rem 2rem;
+    nav {
+      margin: 1rem 1rem;
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    nav {
+      margin: 1rem 1rem;
       padding: 0;
     }
 
-    .nav a,
-    .nav NavLink {
+    nav a,
+    nav NavLink {
       padding: 0.5rem 0.3rem;
       font-size: 1rem;
     }
   }
 
-  @media (max-width: 1200px) {
-    .nav {
-      margin: 1rem 1rem;
-      padding: 0;
-    }
-
-    .nav a,
-    .nav NavLink {
-      font-size: 0.9rem;
-    }
-  }
-
   @media (max-width: 960px) {
-    .nav {
+    nav {
       margin: 1rem 0.2rem;
       padding: 0;
+      gap: 2.5rem;
     }
-    .nav a,
-    .nav NavLink {
-      padding: 0.5rem 0.1rem;
-      font-size: 0.8rem;
-      margin-left: 0;
-      margin-right: 0;
+
+    /* nav a,
+    nav NavLink {
+      padding: 0;
+      margin: 0.5rem 0;
+    } */
+
+    nav a,
+    nav NavLink {
+      padding: 0 0 0.5rem 0;
+      margin: 0;
     }
   }
 
   @media (max-width: 768px) {
-    height: 5rem;
-    position: fixed;
-    width: 100%;
+    margin: 1rem;
 
-    .nav {
-      position: fixed;
-      top: 5rem;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      background-color: var(--background-color);
-      padding: 0.5rem 0;
-      display: none;
-      z-index: 1000;
-      max-height: calc(100vh - 5rem);
-      overflow-y: auto;
-    }
-
-    .nav.show-menu {
-      display: flex;
-    }
-
-    .nav a,
-    .nav NavLink {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
+    nav {
+      gap: 2rem;
     }
   }
 
-  @media (max-width: 480px) {
-    padding: 0.5rem;
+  @media (max-width: 510px) {
+    padding: 2rem 0.5rem;
+
+    nav {
+      gap: 1rem;
+    }
   }
 `;
 
