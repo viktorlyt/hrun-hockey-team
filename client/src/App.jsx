@@ -17,7 +17,7 @@ import StatsSummary from "./pages/Stats/StatsSummary";
 import StatsTeams from "./pages/Stats/StatsTeams";
 import StatsGlossary from "./pages/Stats/StatsGlossary";
 import Team, { loader as coachesLoader } from "./pages/Team";
-import TeamHistory from "./pages/TeamHistory";
+import TeamHistory, { loader as milestonesLoader } from "./pages/TeamHistory";
 import Tickets from "./pages/Tickets";
 import NotFound from "./pages/NotFound";
 import "./App.css";
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home />, loader: latestNewsLoader },
       { path: "news", element: <News />, loader: newsLoader },
       { path: "team", element: <Team />, loader: coachesLoader },
-      { path: "history", element: <TeamHistory /> },
+      { path: "history", element: <TeamHistory />, loader: milestonesLoader },
       {
         path: "stats/",
         element: <StatsLayout />,

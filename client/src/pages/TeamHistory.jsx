@@ -2,19 +2,17 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Wrapper from "../assets/wrappers/TeamHistory.js";
-import FactCard from "../components/FactCard.jsx";
-import CoachCard from "../components/CoachCard.jsx";
-// import { useMockData } from "../utils/environment";
-import { mockCoaches } from "../data/mockData.js";
+import MilestoneCard from "../components/MilestoneCard.jsx";
+import { mockMilestones } from "../data/mockData.js";
 
 const useMockData = true;
 
 export const loader = async ({ request }) => {
   try {
     if (useMockData) {
-      return { data: { teamMembers: mockCoaches } };
+      return { data: { milestones: mockMilestones } };
     }
-    const { data } = await customFetch.get("/coaches");
+    const { data } = await customFetch.get("/milestones");
     return {
       data,
     };
@@ -24,61 +22,44 @@ export const loader = async ({ request }) => {
   }
 };
 
-const facts = [
-  {
-    total: "350",
-    title: "matches",
-    content: "We are playing from now total 350 matches",
-  },
-  {
-    total: "50",
-    title: "players",
-    content: "50 best players available in our club",
-  },
-  {
-    total: "20",
-    title: "awards",
-    content: "We have achieved 22 winner awards ",
-  },
-];
-
 const TeamHistory = () => {
   const { data } = useLoaderData();
-  const coaches = data.teamMembers || [];
+  const milestones = data.milestones || [];
 
   return (
     <Wrapper>
-      <h1>Our Team</h1>
-      <div className="team-container">
-        <div className="about">
-          <p className="larger-font">
-            Welcome to Castors Team, where passion for hockey meets community
-            spirit. Our team is more than just a group of players; we are a
-            family united by our love for the game and our commitment to
-            excellence both on and off the ice.
+      <h1>Our Team History</h1>
+      <div className="history-container">
+        <div className="text">
+          <p className="first larger-font">
+            Founded in [Year], [Your Team's Name] has grown from humble
+            beginnings into a formidable force in the hockey world. Our journey
+            started when a group of passionate hockey enthusiasts came together
+            with a shared dream: to create a team that embodies dedication,
+            sportsmanship, and the spirit of the game.
           </p>
-          <div className="facts-container">
-            {facts.map((f) => (
-              <FactCard
-                key={f.title}
-                total={f.total}
-                title={f.title}
-                content={f.content}
-              />
-            ))}
+          <div className="second">
+            <h2>Early Years</h2>
+            <p className="larger-font">
+              In the early years, our team faced many challenges, from securing
+              funding to finding a permanent home rink. Despite these obstacles,
+              our players' passion and perseverance paid off. Through hard work
+              and determination, we began to make a name for ourselves in local
+              leagues, earning respect and recognition for our competitive
+              spirit and sportsmanship.
+            </p>
           </div>
         </div>
-        <img src="/assets/images/main-picture.jpg" alt="Team Image" />
+        <img src="/assets/images/history_summary.png" alt="Team Image" />
       </div>
-      <h1>Coaching Staff</h1>
-      <div className="coaches-container">
-        {coaches.map((c) => (
-          <CoachCard
-            key={c.id}
-            firstName={c.firstName}
-            lastName={c.lastName}
-            position={c.position}
-            bio={c.bio}
+      <h2>Achievements and Milestones</h2>
+      <div className="milestones-container">
+        {milestones.map((m) => (
+          <MilestoneCard
+            key={m.id}
+            title={m.title}
+            desc={m.description}
+            img={m.img}
           />
         ))}
       </div>
@@ -92,7 +73,7 @@ const TeamHistory = () => {
             its finest. Stay tuned to our website for the latest news, game
             schedules, player updates, and more. Together, we are unstoppable.
           </p>
-          <button className="contact-us">
+          <button className="button selected contact-us">
             <HashLink smooth to="/#contact-us-section">
               Contact Us
             </HashLink>
