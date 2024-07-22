@@ -76,6 +76,26 @@ const Wrapper = styled.div`
   .options-list li.selected {
     background-color: var(--text-color-transparent-secondary);
   }
+
+  .date-picker-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--text-color-transparent-secondary);
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 0.5rem;
+    z-index: 10;
+  }
+
+  .date-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--grey-200);
+    border-radius: 0.25rem;
+  }
 `;
 
 export default Wrapper;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -10,6 +10,9 @@ import TeamDropdown from "./TeamDropdown ";
 import Wrapper from "../assets/wrappers/Header";
 
 export default function Header() {
+  const location = useLocation();
+  const isContactActive = location.hash === "#contact-us-section";
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -108,7 +111,7 @@ export default function Header() {
         <HashLink
           smooth
           to="/#contact-us-section"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
+          className={isContactActive ? "active-link" : ""}
           onClick={closeMenu}
         >
           Contact Us

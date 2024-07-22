@@ -13,11 +13,11 @@ import Shop, { loader as productsLoader } from "./pages/Shop";
 import ProductDetail, { loader as productLoader } from "./pages/ProductDetail";
 import StatsLayout from "./components/StatsLayout";
 import Dashboard from "./pages/Stats/Dashboard";
-import StatsSkaters from "./pages/Stats/StatsSkaters";
-import StatsGoalies from "./pages/Stats/StatsGoalies";
+import StatsSummary from "./pages/Stats/StatsSummary";
 import StatsTeams from "./pages/Stats/StatsTeams";
 import StatsGlossary from "./pages/Stats/StatsGlossary";
 import Team, { loader as coachesLoader } from "./pages/Team";
+import TeamHistory from "./pages/TeamHistory";
 import Tickets from "./pages/Tickets";
 import NotFound from "./pages/NotFound";
 import "./App.css";
@@ -30,6 +30,18 @@ const router = createBrowserRouter([
       { index: true, element: <Home />, loader: latestNewsLoader },
       { path: "news", element: <News />, loader: newsLoader },
       { path: "team", element: <Team />, loader: coachesLoader },
+      { path: "history", element: <TeamHistory /> },
+      {
+        path: "stats/",
+        element: <StatsLayout />,
+        children: [
+          { index: true, element: <Dashboard /> },
+          { path: "skaters", element: <StatsSummary playerType="skater" /> },
+          { path: "goalies", element: <StatsSummary playerType="goalie" /> },
+          { path: "teams", element: <StatsTeams /> },
+          { path: "glossary", element: <StatsGlossary /> },
+        ],
+      },
       { path: "shop", element: <Shop />, loader: productsLoader },
       { path: "shop/:id", element: <ProductDetail />, loader: productLoader },
       { path: "schedule", element: <Schedule />, loader: scheduleLoader },
@@ -38,17 +50,6 @@ const router = createBrowserRouter([
       { path: "events", element: <Events /> },
       { path: "contact", element: <Contact /> },
       { path: "cart", element: <Cart /> },
-      {
-        path: "stats/",
-        element: <StatsLayout />,
-        children: [
-          { index: true, element: <Dashboard /> },
-          { path: "skaters", element: <StatsSkaters /> },
-          { path: "goalies", element: <StatsGoalies /> },
-          { path: "teams", element: <StatsTeams /> },
-          { path: "glossary", element: <StatsGlossary /> },
-        ],
-      },
       { path: "tickets", element: <Tickets /> },
       { path: "*", element: <NotFound /> },
     ],

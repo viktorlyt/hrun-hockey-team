@@ -28,7 +28,6 @@ import { mockGames } from "../data/mockData.js";
 export const loader = async ({ request }) => {
   try {
     if (shouldUseMockData) {
-      console.log("Using mock data");
       return { data: { games: mockGames } };
     }
     const { data } = await customFetch.get("/games");

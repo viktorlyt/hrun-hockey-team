@@ -23,7 +23,8 @@ const Wrapper = styled.header`
     gap: 4rem;
     width: fit-content;
     border-bottom: 1px solid var(--grey-200);
-    margin: 2rem 1rem;
+    margin: 2rem 0;
+    padding: 0 3rem;
   }
 
   nav a {
@@ -58,44 +59,78 @@ const Wrapper = styled.header`
     transform: scaleX(1);
   }
 
+  .game-range {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: start;
+    justify-content: start;
+    width: fit-content;
+    margin: 2rem 0;
+  }
+
+  .game-range > button {
+    padding: 0.7rem 2rem;
+  }
+
+  .range-type {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+  }
+
+  .range-type.selected {
+    background-color: var(--primary-500);
+    color: white;
+    border: none;
+    outline: none;
+  }
+
+  .filters-container {
+    display: flex;
+    justify-items: start;
+    align-items: center;
+    gap: 2.7rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .filters-container .filter {
+    margin: 0;
+  }
+
   @media (max-width: 1600px) {
     nav {
-      margin: 1rem 4rem;
+      margin: 1rem 0;
+      padding: 0 2rem;
     }
   }
 
   @media (max-width: 1450px) {
-    nav {
-      margin: 1rem 3rem;
-    }
   }
 
   @media (max-width: 1343px) {
     padding: 4rem 1rem;
 
     nav {
-      margin: 1rem 1rem;
-      padding: 0;
+      padding: 0 1rem;
     }
   }
 
   @media (max-width: 1200px) {
-    nav {
-      margin: 1rem 1rem;
-      padding: 0;
-    }
-
     nav a,
     nav NavLink {
       padding: 0.5rem 0.3rem;
       font-size: 1rem;
     }
+
+    .filters-container {
+      gap: 1rem;
+    }
   }
 
   @media (max-width: 960px) {
     nav {
-      margin: 1rem 0.2rem;
-      padding: 0;
       gap: 2.5rem;
     }
 
@@ -110,12 +145,48 @@ const Wrapper = styled.header`
       padding: 0 0 0.5rem 0;
       margin: 0;
     }
+
+    .dropdown-label,
+    .dropdown-input-container {
+      font-size: 0.9rem;
+    }
+
+    .dropdown-icon {
+      font-size: 1.4rem;
+    }
+
+    .selected-value {
+      padding: 0 1rem;
+    }
   }
 
   @media (max-width: 768px) {
     margin: 1rem;
 
     nav {
+      gap: 2rem;
+    }
+
+    .filters-container {
+      flex-direction: column;
+      justify-items: center;
+      align-items: stretch;
+      margin-bottom: 1rem;
+    }
+
+    .dropdown-label,
+    .dropdown-input-container {
+      font-size: 1rem;
+    }
+    .dropdown-icon {
+      font-size: 2rem;
+    }
+
+    .selected-value {
+      padding: 0 2rem;
+    }
+
+    .game-range {
       gap: 2rem;
     }
   }
@@ -125,6 +196,10 @@ const Wrapper = styled.header`
 
     nav {
       gap: 1rem;
+    }
+
+    .game-range > button {
+      padding: 0.7rem 1.4rem;
     }
   }
 `;

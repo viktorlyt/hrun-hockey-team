@@ -1,39 +1,36 @@
 :root {
-  /* colors */
-  --primary-50: #e9cbca;
-  --primary-100: #e4a19f;
-  --primary-200: #e47b77;
-  --primary-300: #e64b47;
-  --primary-400: #d21818;
-  --primary-500: #c23404;
-  --primary-600: #b31415;
-  --primary-700: #a31212;
-  --primary-800: #870e0e;
-  --primary-900: #5f0a0a;
+  --primary: #f3352c;
+  color: #f6f6f6;
+
+  /* secondary */
+  --blue-dark: #183038;
+  --ocean-dark: #3a7f8f;
+  --ocean: #6eb5c2;
+  --ocean-light: #cde5ea;
+  --green-blue: #cee7e9;
+  --blue-light: #f4f9fb;
 
   /* grey */
-  --grey-50: #f8fafc;
-  --grey-100: #f1f5f9;
-  --grey-200: #e2e8f0;
-  --grey-300: #cbd5e1;
-  --grey-400: #94a3b8;
-  --grey-500: #64748b;
-  --grey-600: #475569;
-  --grey-700: #334155;
-  --grey-800: #1e293b;
-  --grey-900: #0f172a;
+  --grey-0: #fff;
+  --grey-10: #f6f6f6;
+  --grey-20: #e7e7e7;
+  --grey-40: #b0b0b0;
+  --grey-60: #5d5d5d;
+  --grey-70: #545454;
+  --grey-100: #262626;
 
-  /* brown */
-  --brown-50: #d5baa1;
-  --brown-100: #a29c92;
-  --brown-200: #9a6e46;
-  --brown-300: #766d5e;
-  --brown-400: #675944;
-  --brown-500: #5e4942;
-  --brown-600: #4a3c27;
-  --brown-700: #3d2f1a;
-  --brown-800: #2b1e09;
-  --brown-900: #1a1001;
+  /* black */
+  --black-10: #f6f6f6;
+  --black-40: #b0b0b0;
+  --black-60: #5d5d5d;
+  --black-70: #454545;
+  --black-80: #262626;
+
+  /* system */
+  --error: #ff3b30;
+  --info: #4542fe;
+  --warning: #ffcc00;
+  --success: #099e20;
 
   /* rest of the colors */
   --black: #222;
@@ -56,11 +53,12 @@
   --semi-transparent-black-7: rgba(0, 0, 0, 0.7);
   --semi-transparent-brown-5: rgba(94, 73, 66, 0.3);
   --semi-transparent-brown-3: rgba(94, 73, 66, 0.3);
+  --semi-transparent-brown-3: rgba(62, 157, 235, 0.664);
 
   --small-text: 0.875rem;
   --extra-small-text: 0.7em;
-  /* rest of the vars */
 
+  /* rest of the vars */
   --border-radius: 2rem;
   --letter-spacing: 1px;
   --transition: 0.3s ease-in-out all;
@@ -68,6 +66,7 @@
   --fixed-width: 600px;
   --fluid-width: 90vw;
   --nav-height: 6rem;
+
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -77,7 +76,7 @@
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Oswald", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -89,25 +88,25 @@
 
 .site-wrapper.light {
   --background-color: #fff;
+  --background-secondary-color: var(--blue-light);
+  --text-color: var(--black-60);
+  --text-secondary-color: #000;
   --background-color-transparent: var(--semi-transparent-white-6);
   --background-color-transparent-secondary: var(--semi-transparent-white-2);
-  --text-color: var(--black);
   --text-color-transparent: var(--semi-transparent-brown-3);
   --text-color-transparent-secondary: var(--semi-transparent-black-2);
-  --background-secondary-color: var(--brown-light);
-  --text-secondary-color: var(--brown);
-  --text-color-blue: var(--blue);
+  --text-color-blue: var(--ocean-dark);
 }
 
 .site-wrapper.dark {
-  --background-color: var(--black);
+  --background-color: var(--blue-dark);
+  --background-secondary-color: var(--ocean-dark);
+  --text-color: var(--black-10);
+  --text-secondary-color: var(--black-40);
+  --text-color-transparent: var(--semi-transparent-white-6);
   --background-color-transparent: var(--semi-transparent-black-7);
   --background-color-transparent-secondary: var(--semi-transparent-black-3);
-  --text-color: #fff;
-  --text-color-transparent: var(--semi-transparent-white-6);
-  --background-secondary-color: var(--brown);
-  --text-secondary-color: var(--brown-light);
-  --text-color-blue: var(--blue-light);
+  --text-color-blue: var(--ocean-light);
 }
 
 html,
@@ -115,6 +114,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -128,6 +128,15 @@ body {
   padding-top: 8rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+
 h1 {
   font-size: 3.2rem;
   line-height: 1.1;
@@ -137,9 +146,9 @@ button,
 .button {
   display: block;
   margin: 0 auto;
-  background-color: var(--primary-500);
-  color: white;
-  border: none;
+  background-color: var(--background-color);
+  color: var(--primary);
+  border: 1px solid var(--primary);
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
   font-size: 1rem;
@@ -149,15 +158,44 @@ button,
 
 button:hover,
 .button:hover {
-  background-color: var(--primary-600);
+  background-color: var(--background-secondary-color);
 }
 
-button:focus,
+.button.selected {
+  background-color: var(--primary);
+  color: #000;
+}
+
+.button.selected:hover {
+  background-color: var(--error);
+}
+
+.button.secondary {
+  background-color: var(--background-color);
+  color: var(--green-blue);
+  border-color: var(--ocean-dark);
+}
+
+.button.secondary:hover {
+  background-color: var(--background-secondary-color);
+}
+
+.button.secondary.selected {
+  background-color: var(--ocean-dark);
+  color: var(--green-blue);
+  border-color: var(--ocean-dark);
+}
+
+.button.secondary.selected:hover {
+  background-color: var(--ocean);
+}
+
+/* button:focus,
 button:focus-visible,
 .button:focus,
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 button:disabled,
 .button:disabled {

@@ -3,19 +3,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   margin-left: 1rem;
 
-  .filters-container {
-    display: flex;
-    justify-items: start;
-    align-items: center;
-    gap: 2.7rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .filters-container .filter {
-    margin: 0;
-  }
-
   .players-container {
     display: flex;
     flex-direction: row;
@@ -67,9 +54,6 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1200px) {
-    .filters-container {
-      gap: 1rem;
-    }
     .players-container {
       flex-direction: column;
       justify-content: center;
@@ -85,39 +69,9 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 960px) {
-    .dropdown-label,
-    .dropdown-input-container {
-      font-size: 0.9rem;
-    }
-
-    .dropdown-icon {
-      font-size: 1.4rem;
-    }
-
-    .selected-value {
-      padding: 0 1rem;
-    }
   }
 
   @media (max-width: 768px) {
-    .filters-container {
-      flex-direction: column;
-      justify-items: center;
-      align-items: stretch;
-      margin-bottom: 1rem;
-    }
-
-    .dropdown-label,
-    .dropdown-input-container {
-      font-size: 1rem;
-    }
-    .dropdown-icon {
-      font-size: 2rem;
-    }
-
-    .selected-value {
-      padding: 0 2rem;
-    }
   }
 
   @media (max-width: 510px) {

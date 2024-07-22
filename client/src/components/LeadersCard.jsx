@@ -3,6 +3,15 @@ import Wrapper from "../assets/wrappers/LeadersCard";
 import { Link } from "react-router-dom";
 
 const LeadersCard = ({ skaterType, players, criteria }) => {
+  if (players.length === 0) {
+    console.log("No players available in LeadersCard");
+    return (
+      <Wrapper>
+        <div>There are no players that meet the requirements.</div>
+      </Wrapper>
+    );
+  }
+
   const [selectedPlayer, setSelectedPlayer] = useState(players[0]);
   const [previousPlayer, setPreviousPlayer] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -40,33 +49,37 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
     }
   }, [isTransitioning]);
 
-  const renderPlayerInfo = (player, isActive) => (
-    <div className={`player-info ${isActive ? "active" : ""}`}>
-      <div className="first-part">
-        <img
-          src={player.img}
-          className="player-image"
-          alt={`${player.firstName} ${player.lastName}`}
-        />
-        <div className="text-info">
-          <div className="name">
-            <h2>{player.firstName}</h2>
-            <h2>{player.lastName}</h2>
-          </div>
-          <div className="details">
-            <img src={player.img} className="team-logo" alt="Castors' Logo" />
-            CASTORS • #{player.number} • {player.position}
+  const renderPlayerInfo = (player, isActive) => {
+    if (!player) return null;
+
+    return (
+      <div className={`player-info ${isActive ? "active" : ""}`}>
+        <div className="first-part">
+          <img
+            src={player.img}
+            className="player-image"
+            alt={`${player.firstName} ${player.lastName}`}
+          />
+          <div className="text-info">
+            <div className="name">
+              <h2>{player.firstName}</h2>
+              <h2>{player.lastName}</h2>
+            </div>
+            <div className="details">
+              <img src={player.img} className="team-logo" alt="Castors' Logo" />
+              CASTORS • #{player.number} • {player.position}
+            </div>
           </div>
         </div>
+        <div className="second-part">
+          <h4 className="result-name">{criteria.toUpperCase()}</h4>
+          <h1 className="result-value">
+            {formatValue(player[criteria], criteria)}
+          </h1>
+        </div>
       </div>
-      <div className="second-part">
-        <h4 className="result-name">{criteria.toUpperCase()}</h4>
-        <h1 className="result-value">
-          {formatValue(player[criteria], criteria)}
-        </h1>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return players.length <= 0 ? (
     <Wrapper>
