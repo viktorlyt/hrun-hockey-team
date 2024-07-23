@@ -13,14 +13,14 @@ export const mockMilestones = [
     img: "/assets/images/milestone_2.png",
     title: "Notable Player's Name",
     description:
-      "Achieve greatness in professional leagues./nThe Castors capped off a four-game sweep of the South Grenville Rangers with a hard-fought 3-2 road victory on Saturday, April 2, facing Achieve greatness in professional leagues.",
+      "Achieve greatness in professional leagues.\nThe Castors capped off a four-game sweep of the South Grenville Rangers with a hard-fought 3-2 road victory on Saturday, April 2, facing Achieve greatness in professional leagues.",
   },
   {
     _id: "3",
     img: "/assets/images/milestone_3.png",
     title: "Milestone Year 2023",
     description:
-      "Celebrating our 10th anniversary with a record-breaking season./nThe South Grenville Rangers with a hard-fought 3-2 road victory on Saturday, April 2, facing Achieve greatness in professional leagues.",
+      "Celebrating our 10th anniversary with a record-breaking season.\nThe South Grenville Rangers with a hard-fought 3-2 road victory on Saturday, April 2, facing Achieve greatness in professional leagues.",
   },
 ];
 

@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
 import UpdatesSection from "../components/UpdatesSection";
@@ -5,7 +6,6 @@ import ProductsSection from "../components/ProductsSection";
 import NewsSection from "../components/NewsSection";
 import ContactFormSection from "../components/ContactFormSection";
 import Logo from "../components/Logo";
-import { useLoaderData } from "react-router-dom";
 import customFetch from "../utils/customFetch.js";
 import { shouldUseMockData } from "../utils/environment.js";
 import { mockLatestNews } from "../data/mockData.js";

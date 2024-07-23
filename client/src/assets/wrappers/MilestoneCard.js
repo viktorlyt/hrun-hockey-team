@@ -7,24 +7,24 @@ const Wrapper = styled.div`
   border-radius: 10px;
   height: 100%;
   overflow: hidden;
+  white-space: pre-line;
 
   img {
     width: 100%;
-    height: 200px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 10px 10px 0 0;
-  }
-
-  p {
-    margin: 0;
-    padding: 0 1rem 1rem;
-    text-align: center;
+    border-radius: 10px;
   }
 
   h2 {
     font-weight: bold;
     text-align: center;
     margin: 1rem 0;
+  }
+
+  p {
+    margin: 0;
+    text-align: start;
   }
 `;
 export default Wrapper;

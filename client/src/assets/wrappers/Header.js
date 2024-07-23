@@ -6,12 +6,13 @@ const Wrapper = styled.header`
   left: 0;
   right: 0;
   z-index: 10;
-  height: 8rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-  background-color: var(--background-color-transparent);
+  /* background-color: var(--background-color-transparent); */
+  background-color: transparent;
   color: var(--text-color);
   box-sizing: border-box;
   font-size: 1.1rem;
@@ -21,7 +22,7 @@ const Wrapper = styled.header`
     display: flex;
     align-items: center;
     gap: 1rem;
-    height: 100%;
+    height: 150%;
   }
 
   .logo-container {

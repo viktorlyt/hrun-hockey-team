@@ -28,7 +28,7 @@ const TeamHistory = () => {
 
   return (
     <Wrapper>
-      <h1>Our Team History</h1>
+      <h1 className="page-title">Our Team History</h1>
       <div className="history-container">
         <div className="text">
           <p className="first larger-font">
@@ -63,23 +63,25 @@ const TeamHistory = () => {
           />
         ))}
       </div>
-      <h1>Join Us</h1>
       <div className="join-container">
         <div className="about">
-          <p className="larger-font">
-            Whether you’re a die-hard fan, a curious newcomer, or a potential
-            player, we invite you to join the Castors family. Follow our
-            journey, support our games, and share in the excitement of hockey at
-            its finest. Stay tuned to our website for the latest news, game
-            schedules, player updates, and more. Together, we are unstoppable.
-          </p>
+          <div className="text">
+            <h1>Join Us</h1>
+            <p className="larger-font">
+              Whether you’re a die-hard fan, a curious newcomer, or a potential
+              player, we invite you to join the Castors family. Follow our
+              journey, support our games, and share in the excitement of hockey
+              at its finest. Stay tuned to our website for the latest news, game
+              schedules, player updates, and more. Together, we are unstoppable.
+            </p>
+          </div>
           <button className="button selected contact-us">
             <HashLink smooth to="/#contact-us-section">
               Contact Us
             </HashLink>
           </button>
         </div>
-        <img src="/assets/images/main-picture.jpg" alt="Join Us Image" />
+        <img src="/assets/images/history_join-us.png" alt="Join Us Image" />
       </div>
     </Wrapper>
   );

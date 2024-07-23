@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import Header from "./Header";
@@ -9,6 +9,11 @@ export default function Layout() {
   const { theme } = useTheme();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+
+  useEffect(() => {
+    const imageUrl = `url(/assets/images/main-picture_${theme}.png)`;
+    document.documentElement.style.setProperty("--main-picture", imageUrl);
+  }, [theme]);
 
   return (
     <div className={`site-wrapper ${theme}`}>

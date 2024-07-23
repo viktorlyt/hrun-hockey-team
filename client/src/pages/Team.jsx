@@ -98,7 +98,7 @@ const Team = () => {
             </HashLink>
           </button>
         </div>
-        <img src="/assets/images/main-picture.jpg" alt="Join Us Image" />
+        <img src="/assets/images/about_join-us.png" alt="Join Us Image" />
       </div>
     </Wrapper>
   );

@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.jpg";
+import logo from "../assets/images/logo_sm.png";
 import Wrapper from "../assets/wrappers/Logo";
 
 const Logo = () => {
