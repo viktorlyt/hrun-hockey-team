@@ -20,13 +20,15 @@ export default function Footer() {
               </Link>
               <Socials className="footer-socials" />
             </div>
-            <ThemeSwitcher />
+            <span className="theme-switcher">
+              <ThemeSwitcher />
+            </span>
           </div>
           <div className="footer-center">
             <div className="footer-sections">
               <section>
-                <h3>{teamName}</h3>
-                <div>
+                <h4>{teamName}</h4>
+                <div className="b1">
                   <Link to="/team">Team</Link>
                   <Link to="/school">Hockey School</Link>
                   <Link to="/events">Events</Link>
@@ -38,8 +40,8 @@ export default function Footer() {
                 </div>
               </section>
               <section>
-                <h3>Quick links</h3>
-                <div>
+                <h4>Quick links</h4>
+                <div className="b1">
                   <Link to="/news">News</Link>
                   <Link to="/shop">Shop</Link>
                   <Link to="/stats">Stats</Link>
@@ -48,8 +50,8 @@ export default function Footer() {
                 </div>
               </section>
               <section>
-                <h3>Location</h3>
-                <div>
+                <h4>Location</h4>
+                <div className="b1">
                   <p>{address}</p>
                   <a href={`mailto:${email}`}>{`Email: ${email}`}</a>
                   <p>{phone}</p>
@@ -58,13 +60,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer-copyright">
+        <div className="footer-copyright b4">
           {`© 2024 ${teamName}. All Rights Reserved.`}
         </div>
       </Wrapper>
-      <div className="created-by">
+      {/* <div className="created-by">
         <a href="https://hrun.pro/">Created by HRUN</a>
-      </div>
+      </div> */}
     </>
   );
 }

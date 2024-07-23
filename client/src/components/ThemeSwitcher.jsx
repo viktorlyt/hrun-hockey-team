@@ -1,12 +1,15 @@
+import { useLocation } from "react-router-dom";
 import Wrapper from "../assets/wrappers/ThemeSwitcher";
 import { useTheme } from "../context/ThemeContext";
 
 export default function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <Wrapper>
-      <label className="switch">
+      <label className={`switch ${isHomePage ? "home-page-switch" : ""}`}>
         <input
           type="checkbox"
           checked={theme === "light"}

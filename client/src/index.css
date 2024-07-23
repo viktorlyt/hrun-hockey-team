@@ -32,20 +32,6 @@
   --warning: #ffcc00;
   --success: #099e20;
 
-  /* rest of the colors */
-  --black: #222;
-  --white: #fff;
-  --grey: #f2f2f0;
-  --red: #c23404;
-  --red-light: #e4a19f;
-  --red-dark: #5f0a0a;
-  --brown: #53432c;
-  --brown-light: #91754d;
-  --brown-dark: #2a1e0f;
-  --blue: #0a3683;
-  --blue-light: #94b6f1;
-  --blue-dark: #02225a;
-
   --semi-transparent-white-2: rgba(255, 255, 255, 0.2);
   --semi-transparent-white-6: rgba(255, 255, 255, 0.6);
   --semi-transparent-black-3: rgba(0, 0, 0, 0.3);
@@ -84,29 +70,64 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* typography  */
+  --b1-font-size: 20pt;
+  --b1-line-height: 24pt;
+
+  --b2-font-size: 18pt;
+  --b2-line-height: 22pt;
+
+  --b3-font-size: 16pt;
+  --b3-line-height: 19pt;
+
+  --b4-font-size: 14pt;
+  --b4-line-height: 16pt;
+
+  --b5-font-size: 12pt;
+  --b5-line-height: 14pt;
+
+  --h1-font-size: 40pt;
+  --h1-line-height: 60pt;
+
+  --h2-font-size: 26pt;
+  --h2-line-height: 40pt;
+
+  --h3-font-size: 24pt;
+  --h3-line-height: 36pt;
+
+  --h4-font-size: 20pt;
+  --h4-line-height: 30pt;
+
+  --h5-font-size: 16pt;
+  --h5-line-height: 18pt;
 }
 
 .site-wrapper.light {
-  --background-color: #fff;
-  --background-secondary-color: var(--blue-light);
+  --bg-color: #fff;
+  --bg-color-secondary: var(--blue-light);
+  --bg-color-ocean: var(--ocean-light);
   --text-color: var(--black-60);
-  --text-secondary-color: #000;
-  --background-color-transparent: var(--semi-transparent-white-6);
-  --background-color-transparent-secondary: var(--semi-transparent-white-2);
+  --text-color-secondary: #000;
+  --bg-color-transparent: var(--semi-transparent-white-6);
+  --bg-color-transparent-secondary: var(--semi-transparent-white-2);
   --text-color-transparent: var(--semi-transparent-brown-3);
   --text-color-transparent-secondary: var(--semi-transparent-black-2);
   --text-color-blue: var(--ocean-dark);
+  --text-color-ocean-green: var(--ocean-dark);
 }
 
 .site-wrapper.dark {
-  --background-color: var(--blue-dark);
-  --background-secondary-color: var(--ocean-dark);
-  --text-color: var(--black-10);
-  --text-secondary-color: var(--black-40);
+  --bg-color: var(--blue-dark);
+  --bg-color-secondary: var(--blue-dark);
+  --bg-color-ocean: var(--ocean-dark);
+  --text-color: var(--black-40);
+  --text-color-secondary: var(--black-10);
   --text-color-transparent: var(--semi-transparent-white-6);
-  --background-color-transparent: var(--semi-transparent-black-7);
-  --background-color-transparent-secondary: var(--semi-transparent-black-3);
+  --bg-color-transparent: var(--semi-transparent-black-7);
+  --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-blue: var(--ocean-light);
+  --text-color-ocean-green: var(--green-blue);
 }
 
 html,
@@ -136,12 +157,78 @@ h4,
 h5,
 h6 {
   font-family: "Oswald", sans-serif;
-  color: var(--text-secondary-color);
+  color: var(--text-color-secondary);
+}
+
+.b1 {
+  font-size: var(--b1-font-size);
+  font-weight: normal;
+  line-height: var(--b1-line-height);
+  letter-spacing: 0;
+}
+
+.b2 {
+  font-size: var(--b2-font-size);
+  font-weight: normal;
+  line-height: var(--b2-line-height);
+  letter-spacing: 0;
+}
+
+.b3 {
+  font-size: var(--b3-font-size);
+  font-weight: normal;
+  line-height: var(--b3-line-height);
+  letter-spacing: 0;
+}
+
+.b4 {
+  font-size: var(--b4-font-size);
+  font-weight: normal;
+  line-height: var(--b4-line-height);
+  letter-spacing: 0;
+}
+
+.b5 {
+  font-size: var(--b5-font-size);
+  font-weight: normal;
+  line-height: var(--b5-line-height);
+  letter-spacing: 0;
 }
 
 h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
+  font-size: var(--h1-font-size);
+  font-weight: medium;
+  line-height: var(--h1-line-height);
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  font-weight: medium;
+  line-height: var(--h2-line-height);
+  letter-spacing: 0;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  font-weight: bold;
+  line-height: var(--h3-line-height);
+  letter-spacing: 0;
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+  font-weight: bold;
+  line-height: var(--h4-line-height);
+  letter-spacing: 0;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--h5-font-size);
+  font-weight: bold;
+  line-height: var(--h5-line-height);
+  letter-spacing: 0;
 }
 
 button,

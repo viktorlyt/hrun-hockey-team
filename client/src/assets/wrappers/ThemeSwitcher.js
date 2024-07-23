@@ -5,11 +5,15 @@ const Wrapper = styled.div`
   align-items: center;
   margin-left: 2rem;
 
+  .home-page-switch {
+  }
+
   .switch {
     position: relative;
     display: inline-block;
-    width: 75px;
-    height: 34px;
+    /* width: 75px; */
+    width: 96px;
+    height: 36px;
   }
 
   .switch input {
@@ -25,7 +29,8 @@ const Wrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--text-color);
+    background-color: var(--bg-color-secondary);
+    border: 1px solid var(--text-color-ocean-green);
     transition: 0.4s;
     display: flex;
     align-items: center;
@@ -36,23 +41,24 @@ const Wrapper = styled.div`
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 27px;
+    width: 27px;
     left: 4px;
-    bottom: 4px;
-    background-color: var(--background-color);
-    border: 2px solid var(--text-color); // Add a border
+    bottom: 3px;
+    /* background-color: var(--bg-secondary-color); */
+    background-color: var(--text-color-ocean-green);
+    border: 1px solid var(--text-color-ocean-green);
     box-sizing: border-box; // Include border in element's dimensions
     transition: 0.4s;
     z-index: 2;
   }
 
   input:checked + .slider:before {
-    transform: translateX(40px);
+    transform: translateX(61px);
   }
 
   .slider.round {
-    border-radius: 34px;
+    border-radius: 40px;
   }
 
   .slider.round:before {
@@ -60,9 +66,9 @@ const Wrapper = styled.div`
   }
 
   .switch-text {
-    color: var(--background-color);
-    font-size: 12px;
-    font-weight: bold;
+    color: var(--text-color-ocean-green);
+    /* font-size: 12px;
+    font-weight: bold; */
     z-index: 1;
     transition: 0.4s;
   }
@@ -75,9 +81,11 @@ const Wrapper = styled.div`
     transform: translateX(3px); // Move "Away" text to the left
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1450px) {
     margin-left: 0.5rem;
+  }
 
+  /* @media (max-width: 1200px) {
     .switch {
       width: 60px;
       height: 28px;
@@ -90,10 +98,6 @@ const Wrapper = styled.div`
 
     input:checked + .slider:before {
       transform: translateX(32px);
-    }
-
-    .switch-text {
-      font-size: 10px;
     }
 
     input:not(:checked) + .slider .switch-text {
@@ -143,7 +147,7 @@ const Wrapper = styled.div`
     .switch-text {
       font-size: 9px;
     }
-  }
+  } */
 `;
 
 export default Wrapper;

@@ -34,12 +34,12 @@ export default function Header() {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className="b3">
       <div className="left-side">
         <Link className="logo-container" to="/">
           <Logo />
         </Link>
-        <button className="menu-toggle" onClick={toggleMenu}>
+        <button className="menu-toggle b3" onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>

@@ -39,9 +39,9 @@ const TeamDropdown = ({ closeMenu, isMobile }) => {
         className={`dropbtn ${isActive() ? "active-link" : ""}`}
         onClick={toggleDropdown}
       >
-        Team <FaChevronDown />
+        <div className="b3">Team</div> <FaChevronDown />
       </button>
-      <div className="dropdown-content">
+      <div className="dropdown-content b3">
         <NavLink
           to="/team"
           className={({ isActive }) => (isActive ? "active-link" : "")}
