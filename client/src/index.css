@@ -107,6 +107,7 @@
   --bg-color: #fff;
   --bg-color-secondary: var(--blue-light);
   --bg-color-ocean: var(--ocean-light);
+  --text-color-light: var(--black-40);
   --text-color: var(--black-60);
   --text-color-secondary: #000;
   --bg-color-transparent: var(--semi-transparent-white-6);
@@ -121,6 +122,7 @@
   --bg-color: var(--blue-dark);
   --bg-color-secondary: var(--blue-dark);
   --bg-color-ocean: var(--ocean-dark);
+  --text-color-light: var(--black-40);
   --text-color: var(--black-40);
   --text-color-secondary: var(--black-10);
   --text-color-transparent: var(--semi-transparent-white-6);
@@ -250,32 +252,38 @@ button:hover,
   background-color: var(--background-secondary-color);
 }
 
-.button.selected {
+.button.selected,
+button.selected {
   background-color: var(--primary);
   color: #000;
 }
 
-.button.selected:hover {
+.button.selected:hover,
+button.selected:hover {
   background-color: var(--error);
 }
 
-.button.secondary {
+.button.secondary,
+button.secondary {
   background-color: var(--background-color);
   color: var(--green-blue);
   border-color: var(--ocean-dark);
 }
 
-.button.secondary:hover {
+.button.secondary:hover,
+button.secondary:hover {
   background-color: var(--background-secondary-color);
 }
 
-.button.secondary.selected {
+.button.secondary.selected,
+button.secondary.selected {
   background-color: var(--ocean-dark);
   color: var(--green-blue);
   border-color: var(--ocean-dark);
 }
 
-.button.secondary.selected:hover {
+.button.secondary.selected:hover,
+button.secondary.selected:hover {
   background-color: var(--ocean);
 }
 

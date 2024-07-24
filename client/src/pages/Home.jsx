@@ -35,7 +35,7 @@ const Home = () => {
         <div className="home-section-content">
           <div className="home-socials-container">
             <Socials className="column" />
-            <div className="socials-text">
+            <div className="socials-text b4">
               <div>We are available</div>
               <div>on the platform</div>
             </div>
@@ -43,11 +43,11 @@ const Home = () => {
         </div>
         <div className="tickets-section">
           <h3>Stay Ahead of All Events</h3>
-          <p>
+          <p className="b1">
             Be the first to know about upcoming events and never miss out on the
             excitement. Click below to buy your tickets today!
           </p>
-          <button className="buy-ticket">Buy A Ticket</button>
+          <button className="buy-ticket selected b2">Buy A Ticket</button>
         </div>
       </div>
       <UpdatesSection />

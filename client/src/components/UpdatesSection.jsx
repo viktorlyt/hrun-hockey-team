@@ -53,30 +53,30 @@ const UpdatesSection = () => {
     <Wrapper>
       <div className="home-page-section">
         <div className="section-title-container">
-          <h2 className="section-title">Hockey info and updates</h2>
+          <h1 className="section-title">Hockey info and updates</h1>
           <div className="upcoming-match">
             <div className="teams">
-              <p className="bold">Upcoming match</p>
-              <p>
+              <h4>Upcoming match</h4>
+              <p className="b4">
                 {upcomingMatch.team1} VS {upcomingMatch.team2}
               </p>
             </div>
             <div className="time-left-container">
-              <div className="time-left">
-                <p className="bold">{days}</p>
-                <p>Days</p>
+              <div className="time-left right-border">
+                <h4 className="bold">{days}</h4>
+                <p className="b4">Days</p>
+              </div>
+              <div className="time-left right-border">
+                <h4 className="bold">{hours}</h4>
+                <p className="b4">Hours</p>
+              </div>
+              <div className="time-left right-border">
+                <h4 className="bold">{minutes}</h4>
+                <p className="b4">Minutes</p>
               </div>
               <div className="time-left">
-                <p className="bold">{hours}</p>
-                <p>Hours</p>
-              </div>
-              <div className="time-left">
-                <p className="bold">{minutes}</p>
-                <p>Minutes</p>
-              </div>
-              <div className="time-left">
-                <p className="bold">{seconds}</p>
-                <p>Seconds</p>
+                <h4 className="bold">{seconds}</h4>
+                <p className="b4">Seconds</p>
               </div>
             </div>
           </div>

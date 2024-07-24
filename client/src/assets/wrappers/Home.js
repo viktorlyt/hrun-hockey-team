@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import mainPicture from "../images/main-picture.jpg";
 
 const Wrapper = styled.div`
   .home-section {
@@ -7,13 +6,11 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     background-image: var(--main-picture);
-    /* background-image: url("assets/images/main-picture_light.png"); */
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--background-color);
     text-align: center;
     overflow: hidden;
   }
@@ -21,36 +18,19 @@ const Wrapper = styled.div`
   .tickets-section {
     position: absolute;
     bottom: 4rem;
-    right: 4rem;
-    background-color: var(--background-color-transparent);
-    padding: 1.5rem;
+    right: calc(100vw / 9);
+    padding: 0;
     border-radius: 10px;
-    max-width: 300px;
+    max-width: 410px;
     text-align: left;
   }
 
-  .tickets-section h3 {
-    margin-top: 0;
-    color: var(--primary-300);
-  }
-
   .tickets-section p {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
+    margin-bottom: 3rem;
   }
 
   .buy-ticket {
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .buy-ticket:hover {
-    background-color: var(--primary-600);
+    width: 400px;
   }
 
   .home-section-content {
@@ -66,19 +46,18 @@ const Wrapper = styled.div`
 
   .home-socials-container {
     position: absolute;
-    left: 1rem;
-    top: 30%;
+    left: 2rem;
+    top: 28%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     margin-left: 3rem;
-    color: var(--text-color);
   }
 
   .home-socials-container .socials-container a {
-    background-color: var(--background-color-transparent-secondary);
+    /* background-color: var(--bg-color-transparent-secondary); */
     padding: 0.2rem;
     border-radius: 50%;
     transition: all 0.3s ease-in;
@@ -90,22 +69,20 @@ const Wrapper = styled.div`
   }
 
   .socials-container a {
+    font-size: 3rem;
+    color: var(--text-color-secondary);
+    /* background-color: var(--bg-color-transparent-secondary); */
     transform: scale(1.2);
-    background-color: var(--background-color-transparent-secondary);
   }
 
   .socials-text {
+    color: var(--text-color-secondary);
     writing-mode: vertical-rl;
     text-align: center;
     margin-bottom: 1rem;
     transform: rotate(180deg);
-    background-color: var(--background-color-transparent-secondary);
     padding: 0.5rem;
     border-radius: 1rem;
-  }
-
-  .socials-text div {
-    line-height: 1.2;
   }
 
   @media (max-width: 768px) {
@@ -151,11 +128,13 @@ const Wrapper = styled.div`
     }
 
     .tickets-section h3 {
-      font-size: 1.2rem;
+      font-size: calc(var(--h3-font-size) * 0.75);
+      line-height: calc(var(--h3-line-height) * 0.75);
     }
 
     .tickets-section p {
-      font-size: 0.8rem;
+      font-size: calc(var(--b1-font-size) * 0.75);
+      line-height: calc(var(--b1-line-height) * 0.75);
     }
   }
 `;

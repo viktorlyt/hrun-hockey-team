@@ -7,14 +7,11 @@ const Wrapper = styled.div`
   }
 
   .home-page-section .section-title {
-    font-size: 2rem;
-    color: var(--text-color);
     margin-bottom: 1rem;
-    width: 15%;
+    width: 32%;
   }
 
   .home-page-section p {
-    color: var(--text-secondary-color);
     margin-top: 0;
   }
 
@@ -33,13 +30,30 @@ const Wrapper = styled.div`
   }
 
   .upcoming-match {
-    border: 2px solid var(--grey-300);
+    box-shadow: var(--shadow-2);
+    border: 0.5px solid var(--black-10);
     border-radius: 5px;
     display: flex;
     justify-content: start;
     align-items: start;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem 0.5rem 3rem;
     gap: 2rem;
+  }
+
+  .upcoming-match h4 {
+    margin: 0;
+    margin-bottom: 0.7rem;
+  }
+
+  .upcoming-match .b4 {
+    color: var(--text-color-light);
+  }
+
+  .time-left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
   }
 
   .teams,
@@ -52,18 +66,20 @@ const Wrapper = styled.div`
 
   .time-left {
     align-items: center;
+    padding-right: 0.6rem;
   }
 
-  .time-left-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  .time-left p {
+    margin: 0;
+  }
+
+  .time-left.right-border {
+    border-right: 1px solid var(--text-color-secondary);
   }
 
   .form-section {
     margin-bottom: 2rem;
-    background-color: var(--background-color);
+    background-color: var(--bg-color);
     border-radius: 10px;
     box-shadow: var(--shadow-2);
     overflow: hidden;
