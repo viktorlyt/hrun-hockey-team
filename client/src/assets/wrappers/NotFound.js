@@ -17,19 +17,8 @@ const Wrapper = styled.div`
     margin-bottom: 2rem;
   }
 
-  .link-button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--primary);
+  .button {
     color: #fff;
-    text-decoration: none;
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease;
-    font-weight: 500;
-
-    &:hover {
-      background-color: var(--error);
-    }
   }
 
   @media (max-width: 768px) {
