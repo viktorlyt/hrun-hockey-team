@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 1rem 4rem;
-  padding-top: 8rem;
-  margin-bottom: 2rem;
-
   .page-title {
     text-align: start;
     margin-top: 3rem;
@@ -151,8 +147,6 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding-top: 6rem;
-
     h1 {
       font-size: 1.6rem;
     }

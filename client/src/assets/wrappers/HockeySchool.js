@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 1rem;
-  padding-top: 8rem;
-  margin: 2rem 4rem;
-
   h1,
   p {
     width: 50%;
@@ -102,8 +98,6 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1200px) {
-    margin: 0rem 3rem;
-
     h1 {
       font-size: 1.8rem;
       margin-top: 1rem;

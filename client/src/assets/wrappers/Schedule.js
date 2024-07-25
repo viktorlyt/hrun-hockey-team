@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 1rem;
-  padding-top: 8rem;
-  margin: 2rem 3rem;
-
   .calendar-container {
     padding: 2rem;
   }

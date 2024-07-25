@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-color);
-  padding: 2rem;
 
   .not-found-container {
     text-align: center;
@@ -22,15 +20,15 @@ const Wrapper = styled.div`
   .link-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: var(--primary-500);
-    color: var(--white);
+    background-color: var(--primary);
+    color: #fff;
     text-decoration: none;
     border-radius: 0.25rem;
     transition: background-color 0.3s ease;
     font-weight: 500;
 
     &:hover {
-      background-color: var(--primary-700);
+      background-color: var(--error);
     }
   }
 

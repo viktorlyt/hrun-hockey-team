@@ -6,7 +6,7 @@ const Wrapper = styled.header`
   left: 0;
   right: 0;
   z-index: 10;
-  height: 6rem;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

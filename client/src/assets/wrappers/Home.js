@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding-top: 6rem;
   background-color: var(--bg-color);
 
   .home-section {
