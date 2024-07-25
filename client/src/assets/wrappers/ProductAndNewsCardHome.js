@@ -2,86 +2,59 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled(Link)`
-  width: calc(33.333% - 1.334rem);
-  margin-bottom: 2rem;
-  background-color: var(--background-color);
-  border-radius: 10px;
-  box-shadow: var(--shadow-2);
   overflow: hidden;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-5px);
   }
 
   .image-container {
+    position: relative;
     width: 100%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 100%;
     overflow: hidden;
   }
 
   img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
   }
-
-  .container {
-    padding: 1rem;
+  .product-name,
+  .news-title {
+    color: var(--text-color-secondary);
+    padding-top: 1rem;
+    margin-bottom: 0.3rem;
     text-align: left;
   }
 
-  h5 {
-    margin: 0.5rem 0;
-    color: var(--text-color);
+  .price {
+    text-align: left;
   }
 
-  h5:first-child {
-    font-size: 1.2rem;
-    color: var(--primary-500);
-  }
-
-  .news-date {
+  .date-overlay {
+    position: absolute;
     display: inline-block;
-    border: 1px solid var(--text-color);
-    border-radius: 25px;
+    bottom: 1rem;
+    left: 1rem;
     padding: 0.5rem 1rem;
-  }
-
-  @media (max-width: 1024px) {
-    width: calc(50% - 1rem);
+    border-radius: 25px;
+    color: var(--text-color-secondary);
+    background-color: var(--transparent-white-6);
+    border: 1px solid var(--black-60);
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 1rem;
-
-    .products-section {
-      padding: 2rem;
-    }
-
-    .image-container {
-      height: 150px;
-    }
-
     .container {
       padding: 0.5rem;
     }
-
-    h5 {
-      font-size: 1rem;
-    }
-
-    h5:first-child {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    width: 100%;
   }
 `;
 

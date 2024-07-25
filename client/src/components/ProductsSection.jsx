@@ -1,44 +1,24 @@
-import React from "react";
 import ProductCardHome from "./ProductCardHome";
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/HomePageSections";
-import img from "../assets/images/logo.jpg";
 
-const topProducts = [
-  {
-    id: 1,
-    imageSrc: img,
-    price: 45,
-    name: "Men's Edmonton Oilers Fantastics Gray/White Hat",
-  },
-  {
-    id: 2,
-    imageSrc: img,
-    price: 90,
-    name: "Men's Edmonton Oilers Fantastics Sweatshirt ",
-  },
-  {
-    id: 3,
-    imageSrc: img,
-    price: 70,
-    name: "Unisex Edmonton Oilers Fantastics T-shirt ",
-  },
-];
-
-const ProductsSection = () => {
+const ProductsSection = ({ topProducts }) => {
   return (
     <Wrapper>
-      <div className="home-page-section">
-        <h1 className="section-title">Top products in our listing</h1>
-        <p>Explore our top products.</p>
-        <p>Discover our selection quality</p>
+      <div className="home-page-section products">
+        <div className="section-title-container">
+          <h1 className="section-title">Top products in our listing</h1>
+          <p className="b1 section-description">
+            Explore our top products. Discover our selection quality
+          </p>
+        </div>
         <div className="home-page-section-container">
           {topProducts.map((p) => (
             <ProductCardHome
-              key={p.id}
-              id={p.id}
-              imageSrc={p.imageSrc}
-              price={p.price}
+              key={p.productId}
+              id={p.productId}
+              imageSrc={p.images[0]}
+              price={p.mostPopularVariantPrice}
               name={p.name}
             />
           ))}

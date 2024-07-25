@@ -58,7 +58,7 @@ const UpdatesSection = () => {
   return (
     <Wrapper>
       <div className="home-page-section">
-        <div className="section-title-container">
+        <div className="section-title-container updates">
           <h1 className="section-title">Hockey info and updates</h1>
           <div className="upcoming-match">
             <div className="teams">

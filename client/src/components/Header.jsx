@@ -9,7 +9,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import TeamDropdown from "./TeamDropdown ";
 import Wrapper from "../assets/wrappers/Header";
 
-export default function Header() {
+const Header = ({ isHomePage }) => {
   const location = useLocation();
   const isContactActive = location.hash === "#contact-us-section";
 
@@ -34,7 +34,7 @@ export default function Header() {
   };
 
   return (
-    <Wrapper className="b3">
+    <Wrapper className="b3" isHomePage={isHomePage}>
       <div className="left-side">
         <Link className="logo-container" to="/">
           <Logo />
@@ -126,4 +126,6 @@ export default function Header() {
       </div>
     </Wrapper>
   );
-}
+};
+
+export default Header;

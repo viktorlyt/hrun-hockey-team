@@ -68,13 +68,22 @@ const ProductSchema = new mongoose.Schema(
           required: true,
           min: 0.01,
         },
+        soldQuantity: {
+          type: Number,
+          required: true,
+          min: 0,
+          validate: {
+            validator: Number.isInteger,
+            message: "{VALUE} is not an integer value for sold quantity",
+          },
+        },
         stockQuantity: {
           type: Number,
           required: true,
           min: 0,
           validate: {
             validator: Number.isInteger,
-            message: "{VALUE} is not an integer value for stockQuantity",
+            message: "{VALUE} is not an integer value for stock quantity",
           },
         },
       },

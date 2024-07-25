@@ -7,10 +7,8 @@ const ProductCard = ({ id, imageSrc, price, name }) => {
       <div className="image-container">
         <img src={imageSrc} alt="Product Picture" />
       </div>
-      <div className="container">
-        <h5>${price}</h5>
-        <h5>{name}</h5>
-      </div>
+      <p className="b1 product-name">{name}</p>
+      <p className="b2 price">{price}$</p>
     </Wrapper>
   );
 };

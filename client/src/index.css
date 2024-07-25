@@ -33,7 +33,7 @@
   --success: #099e20;
 
   --semi-transparent-white-2: rgba(255, 255, 255, 0.2);
-  --semi-transparent-white-6: rgba(255, 255, 255, 0.6);
+  --transparent-white-6: rgba(255, 255, 255, 0.6);
   --semi-transparent-black-3: rgba(0, 0, 0, 0.3);
   --semi-transparent-black-2: rgba(0, 0, 0, 0.2);
   --semi-transparent-black-7: rgba(0, 0, 0, 0.7);
@@ -108,6 +108,7 @@
 .site-wrapper.light {
   --bg-color: #fff;
   --bg-color-secondary: var(--blue-light);
+  --bg-color-dark: var(--green-blue);
   --bg-color-ocean: var(--ocean-light);
   --text-color-light: var(--black-40);
   --text-color: var(--black-60);
@@ -124,6 +125,7 @@
 .site-wrapper.dark {
   --bg-color: var(--blue-dark);
   --bg-color-secondary: var(--blue-dark);
+  --bg-color-dark: var(--blue-dark);
   --bg-color-ocean: var(--ocean-dark);
   --text-color-light: var(--black-40);
   --text-color: var(--black-40);
@@ -244,7 +246,7 @@ button,
   background-color: var(--background-color);
   color: var(--primary);
   border: 1px solid var(--primary);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 3rem;
   border-radius: var(--border-radius);
   font-size: 1rem;
   cursor: pointer;
@@ -374,24 +376,11 @@ a {
   :root {
     --nav-height: 4rem;
   }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 480px) {
   :root {
     --nav-height: 3rem;
-  }
-
-  h1 {
-    font-size: 2rem;
   }
 
   .home-page {

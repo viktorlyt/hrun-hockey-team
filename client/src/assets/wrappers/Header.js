@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -11,8 +11,8 @@ const Wrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-  /* background-color: var(--bg-color-transparent); */
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
   color: var(--text-color-secondary);
   box-sizing: border-box;
   max-width: 100%;

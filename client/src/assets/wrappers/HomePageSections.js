@@ -8,7 +8,6 @@ const Wrapper = styled.div`
 
   .home-page-section .section-title {
     margin-bottom: 1rem;
-    width: 32%;
   }
 
   .home-page-section p {
@@ -23,7 +22,22 @@ const Wrapper = styled.div`
     margin: 2rem 0;
   }
 
-  .section-title-container {
+  .products .home-page-section-container,
+  .news .home-page-section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .products .home-page-section-container > *,
+  .news .home-page-section-container > * {
+    width: calc(33.333% - 1.334rem);
+    max-width: calc(33.333% - 1.334rem);
+    min-width: 250px;
+  }
+
+  .section-title-container.updates {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,6 +94,16 @@ const Wrapper = styled.div`
   .update-cards {
     display: flex;
     justify-content: space-between;
+  }
+
+  .products .section-title,
+  .products .section-description {
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .products .section-description {
+    margin-top: 2rem;
   }
 
   .form-section {
@@ -233,14 +257,22 @@ const Wrapper = styled.div`
     .home-page-section .section-title {
       width: 100%;
       text-align: center;
+      margin-top: 0;
     }
 
     .home-page-section {
-      padding: 2rem;
+      padding: 2rem 2rem 0 2rem;
+    }
+
+    .products .section-title,
+    .products .section-description {
+      max-width: 100%;
+      margin-top: 0;
     }
 
     .section-title-container {
       flex-direction: column;
+      text-align: center;
     }
 
     .form-section {
@@ -255,11 +287,14 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 900px) {
-    .section-title-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    .home-page-section {
+      text-align: center;
+    }
+
+    .products .home-page-section-container > *,
+    .news .home-page-section-container > * {
+      flex: 0 0 calc(50% - 1rem);
+      max-width: calc(50% - 1rem);
     }
 
     .form-section {
@@ -289,7 +324,7 @@ const Wrapper = styled.div`
       padding: 2rem;
     }
 
-    .home-page-section-container {
+    .update-cards {
       flex-direction: column;
     }
 
@@ -322,13 +357,17 @@ const Wrapper = styled.div`
     }
   }
 
+  @media (max-width: 620px) {
+    .products .home-page-section-container > *,
+    .news .home-page-section-container > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
   @media (max-width: 510px) {
     .home-page-section {
       padding: 1rem;
-    }
-
-    .home-page-section .section-title {
-      /* font-size: 1.5rem; */
     }
 
     .form-section {

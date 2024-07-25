@@ -17,7 +17,7 @@ export default function Layout() {
 
   return (
     <div className={`site-wrapper ${theme}`}>
-      <Header />
+      <Header isHomePage={isHomePage} />
       <main className={isHomePage ? "home-page" : ""}>
         <Outlet />
       </main>

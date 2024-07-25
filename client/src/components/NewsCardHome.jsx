@@ -1,9 +1,8 @@
 import React from "react";
 import Wrapper from "../assets/wrappers/ProductAndNewsCardHome";
 
-const NewsCardHome = ({ id, date, title, description }) => {
+const NewsCardHome = ({ id, date, title, img }) => {
   const dateObject = new Date(date);
-
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
     dateObject
@@ -11,17 +10,11 @@ const NewsCardHome = ({ id, date, title, description }) => {
 
   return (
     <Wrapper to={`/news#${id}`}>
-      <div className="container">
-        <div className="news-date">{formattedDate}</div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="news-title">{title}</div>
+      <div className="image-container">
+        <img src={img} alt={title} />
+        <div className="date-overlay b1">{formattedDate}</div>
       </div>
+      <p className="b1 news-title">{title}</p>
     </Wrapper>
   );
 };
