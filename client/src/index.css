@@ -55,7 +55,9 @@
 
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  --shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-light: 0 4px 6px -1px rgba(255, 255, 255, 0.25),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -116,6 +118,7 @@
   --text-color-transparent-secondary: var(--semi-transparent-black-2);
   --text-color-blue: var(--ocean-dark);
   --text-color-ocean-green: var(--ocean-dark);
+  --shadow: var(--shadow-dark);
 }
 
 .site-wrapper.dark {
@@ -130,6 +133,7 @@
   --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-blue: var(--ocean-light);
   --text-color-ocean-green: var(--green-blue);
+  --shadow: var(--shadow-light);
 }
 
 html,

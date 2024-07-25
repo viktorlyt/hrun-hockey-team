@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   }
 
   .upcoming-match {
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--shadow);
     border: 0.5px solid var(--black-10);
     border-radius: 5px;
     display: flex;
@@ -75,6 +75,11 @@ const Wrapper = styled.div`
 
   .time-left.right-border {
     border-right: 1px solid var(--text-color-secondary);
+  }
+
+  .update-cards {
+    display: flex;
+    justify-content: space-between;
   }
 
   .form-section {
@@ -136,7 +141,7 @@ const Wrapper = styled.div`
   }
 
   .underlined-text {
-    text-decoration-color: var(--grey-400);
+    text-decoration-color: var(--black-40);
     text-decoration-thickness: 2px;
   }
 
@@ -158,9 +163,9 @@ const Wrapper = styled.div`
   .form-input-container > input,
   .form-input-container > textarea {
     width: 100%;
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--black-20);
     border-radius: 5px;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
     padding: 0.5rem 1rem;
   }
 
@@ -186,7 +191,7 @@ const Wrapper = styled.div`
   }
 
   .form-label {
-    color: var(--grey-500);
+    color: var(--black-40);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -194,7 +199,7 @@ const Wrapper = styled.div`
 
   .checkbox-lbl {
     margin-top: 0;
-    font-size: 0.8rem;
+    /* font-size: 0.8rem; */
     padding-top: 0;
     display: inline-flex;
     align-items: flex-start;
@@ -218,6 +223,12 @@ const Wrapper = styled.div`
     margin-top: 1rem;
   }
 
+  @media (max-width: 1450px) {
+    .update-cards {
+      justify-content: center;
+    }
+  }
+
   @media (max-width: 1200px) {
     .home-page-section .section-title {
       width: 100%;
@@ -226,6 +237,10 @@ const Wrapper = styled.div`
 
     .home-page-section {
       padding: 2rem;
+    }
+
+    .section-title-container {
+      flex-direction: column;
     }
 
     .form-section {
@@ -284,6 +299,10 @@ const Wrapper = styled.div`
       gap: 1rem;
     }
 
+    .teams {
+      align-items: center;
+    }
+
     .form {
       width: 100%;
       margin: 1rem 1rem;
@@ -299,7 +318,7 @@ const Wrapper = styled.div`
     }
 
     .checkbox-lbl {
-      font-size: 0.7rem;
+      /* font-size: 0.7rem; */
     }
   }
 
@@ -309,7 +328,7 @@ const Wrapper = styled.div`
     }
 
     .home-page-section .section-title {
-      font-size: 1.5rem;
+      /* font-size: 1.5rem; */
     }
 
     .form-section {

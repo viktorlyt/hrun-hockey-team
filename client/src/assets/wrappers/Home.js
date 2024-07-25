@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  background-color: var(--bg-color-secondary);
+
   .home-section {
     position: relative;
     width: 100%;

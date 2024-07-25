@@ -2,14 +2,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled(Link)`
-  width: calc(33.333% - 1.46rem);
-  margin-bottom: 2rem;
-  background-color: var(--background-color);
-  border-radius: 10px;
-  box-shadow: var(--shadow-2);
+  background-color: var(--blue-light);
+  border: 1px solid var(--ocean);
+  border-radius: 20px;
+  padding: 1rem 7rem;
   overflow: hidden;
   transition: transform 0.3s ease;
-  border: 1px solid var(--text-color);
 
   &:hover {
     transform: translateY(-5px);
@@ -26,6 +24,16 @@ const Wrapper = styled(Link)`
     flex-direction: column;
   }
 
+  .update-header h3 {
+    margin-bottom: 1rem;
+  }
+
+  h3,
+  h4 {
+    color: #000;
+    text-align: center;
+  }
+
   .update-results {
     display: flex;
     justify-content: center;
@@ -33,13 +41,35 @@ const Wrapper = styled(Link)`
     gap: 3rem;
   }
 
+  .league {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 1850px) {
+    padding: 1rem 5rem;
+  }
+
+  @media (max-width: 1650px) {
+    padding: 1rem 3rem;
+  }
+
+  @media (max-width: 1450px) {
+    padding: 1rem 7rem;
+  }
+
+  @media (max-width: 1260px) {
+    padding: 1rem 4rem;
+  }
+
   @media (max-width: 1024px) {
-    width: calc(50% - 1rem);
+    padding: 1rem 8rem;
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 1rem;
+    padding: 0 3rem;
 
     .update-results {
       gap: 1.5rem;
@@ -48,12 +78,10 @@ const Wrapper = styled(Link)`
 
   @media (max-width: 480px) {
     .update-header > p {
-      font-size: 0.9rem;
     }
 
     .update-results {
       gap: 1rem;
-      font-size: 0.9rem;
     }
   }
 `;

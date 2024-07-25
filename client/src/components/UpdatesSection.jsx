@@ -12,8 +12,10 @@ const recentUpdates = [
   {
     id: 1,
     title: "UEFA Champions League",
-    league1: "BCHL",
+    league1: "BB",
     league2: "NHL",
+    league1Img: "assets/images/league_logo_bb.png",
+    league2Img: "assets/images/league_logo_nhl.png",
     date: "May 12, 2024",
     league1Score: 4,
     league2Score: 5,
@@ -21,8 +23,10 @@ const recentUpdates = [
   {
     id: 2,
     title: "UEFA Champions League",
-    league1: "BCHL",
-    league2: "NHL",
+    league1: "DS",
+    league2: "TBL",
+    league1Img: "assets/images/league_logo_ds.png",
+    league2Img: "assets/images/league_logo_tbl.png",
     date: "May 12, 2024",
     league1Score: 4,
     league2Score: 5,
@@ -30,8 +34,10 @@ const recentUpdates = [
   {
     id: 3,
     title: "UEFA Champions League",
-    league1: "BCHL",
-    league2: "NHL",
+    league1: "BB",
+    league2: "SK",
+    league1Img: "assets/images/league_logo_bb.png",
+    league2Img: "assets/images/league_logo_sk.png",
     date: "May 12, 2024",
     league1Score: 4,
     league2Score: 5,
@@ -63,25 +69,25 @@ const UpdatesSection = () => {
             </div>
             <div className="time-left-container">
               <div className="time-left right-border">
-                <h4 className="bold">{days}</h4>
+                <h4>{days}</h4>
                 <p className="b4">Days</p>
               </div>
               <div className="time-left right-border">
-                <h4 className="bold">{hours}</h4>
+                <h4>{hours}</h4>
                 <p className="b4">Hours</p>
               </div>
               <div className="time-left right-border">
-                <h4 className="bold">{minutes}</h4>
+                <h4>{minutes}</h4>
                 <p className="b4">Minutes</p>
               </div>
               <div className="time-left">
-                <h4 className="bold">{seconds}</h4>
+                <h4>{seconds}</h4>
                 <p className="b4">Seconds</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="home-page-section-container">
+        <div className="home-page-section-container update-cards">
           {recentUpdates.map((u) => (
             <UpdateCard
               key={u.id}
@@ -89,6 +95,8 @@ const UpdatesSection = () => {
               title={u.title}
               league1={u.league1}
               league2={u.league2}
+              league1Img={u.league1Img}
+              league2Img={u.league2Img}
               date={u.date}
               league1Score={u.league1Score}
               league2Score={u.league2Score}
