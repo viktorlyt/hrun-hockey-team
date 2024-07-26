@@ -13,7 +13,7 @@ const Wrapper = styled.header`
   padding: 1rem 3rem;
   background-color: ${(props) =>
     props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
-  color: var(--text-color-secondary);
+  color: var(--text-color-o-b10);
   box-sizing: border-box;
   max-width: 100%;
 
@@ -116,8 +116,8 @@ const Wrapper = styled.header`
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1001; // Increased z-index to be above the header
-    display: none; // Changed from 'block' to 'none'
-    padding-top: 0.5rem; // Add some padding to separate from the header
+    display: none;
+    /* padding-top: 0.5rem;  */
   }
 
   .dropdown:hover .dropdown-content {
@@ -318,10 +318,6 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 768px) {
-    height: 5rem;
-    position: fixed;
-    width: 100%;
-
     .logo-container img {
       height: 4rem;
     }

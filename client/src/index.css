@@ -104,6 +104,7 @@
   --bg-color-secondary: var(--blue-light);
   --bg-color-dark: var(--green-blue);
   --bg-color-ocean: var(--ocean-light);
+  --bg-color-o-b: var(--ocean-light);
   --text-color-light: var(--black-40);
   --text-color: var(--black-60);
   --text-color-secondary: #000;
@@ -112,6 +113,8 @@
   --text-color-transparent: var(--semi-transparent-brown-3);
   --text-color-transparent-secondary: var(--semi-transparent-black-2);
   --text-color-blue: var(--ocean-dark);
+  --text-color-o-b10: var(--ocean-dark);
+  --text-color-o-b40: var(--ocean-dark);
   --text-color-ocean-green: var(--ocean-dark);
   --shadow: var(--shadow-dark);
 }
@@ -121,6 +124,7 @@
   --bg-color-secondary: var(--blue-dark);
   --bg-color-dark: var(--blue-dark);
   --bg-color-ocean: var(--ocean-dark);
+  --bg-color-o-b: var(--blue-dark);
   --text-color-light: var(--black-40);
   --text-color: var(--black-40);
   --text-color-secondary: var(--black-10);
@@ -128,6 +132,8 @@
   --bg-color-transparent: var(--semi-transparent-black-7);
   --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-blue: var(--ocean-light);
+  --text-color-o-b10: var(--black-10);
+  --text-color-o-b40: var(--black-40);
   --text-color-ocean-green: var(--green-blue);
   --shadow: var(--shadow-light);
 }
@@ -286,13 +292,6 @@ button.secondary.selected:hover {
   background-color: var(--ocean);
 }
 
-/* button:focus,
-button:focus-visible,
-.button:focus,
-.button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
 button:disabled,
 .button:disabled {
   opacity: 0.7;
@@ -366,15 +365,16 @@ a {
   color: var(--text-color-secondary);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1343px) {
   main {
-    padding-top: 4.9rem;
+    padding-top: 6rem;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   main {
     margin: 2rem 0;
+    padding-top: 3rem;
   }
 }
 

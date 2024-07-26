@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
+import HeroSection from "../components/HeroSection";
 import UpdatesSection from "../components/UpdatesSection";
 import ProductsSection from "../components/ProductsSection";
 import NewsSection from "../components/NewsSection";
@@ -77,14 +78,12 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <div className="home-section">
-        <div className="home-section-content">
-          <div className="home-socials-container">
-            <Socials className="column" />
-            <div className="socials-text b4">
-              <div>We are available</div>
-              <div>on the platform</div>
-            </div>
+      {/* <div className="home-section">
+        <div className="home-socials-container">
+          <Socials className="column" />
+          <div className="socials-text b4">
+            <div>We are available</div>
+            <div>on the platform</div>
           </div>
         </div>
         <div className="tickets-section">
@@ -95,7 +94,8 @@ const Home = () => {
           </p>
           <button className="buy-ticket selected b2">Buy A Ticket</button>
         </div>
-      </div>
+      </div> */}
+      <HeroSection />
       <UpdatesSection />
       <ProductsSection topProducts={topProducts} />
       <NewsSection latestNews={latestNews} />
