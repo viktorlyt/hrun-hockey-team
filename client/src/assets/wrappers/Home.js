@@ -8,13 +8,40 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     background-image: var(--main-picture);
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: start;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     overflow: hidden;
+  }
+
+  .home-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--main-picture);
+    background-size: cover;
+    background-position: start;
+    filter: blur(10px);
+    z-index: -1;
+  }
+
+  @media (min-aspect-ratio: 16/9) {
+    .home-section {
+      background-size: cover;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    .home-section {
+      background-size: contain;
+    }
   }
 
   .tickets-section {
@@ -32,7 +59,7 @@ const Wrapper = styled.div`
   }
 
   .buy-ticket {
-    width: 400px;
+    width: 100%;
   }
 
   .home-section-content {
@@ -100,6 +127,10 @@ const Wrapper = styled.div`
       margin-left: 0;
     }
 
+    .socials-container a {
+      font-size: 2rem;
+    }
+
     .socials-text {
       display: none;
     }
@@ -110,17 +141,17 @@ const Wrapper = styled.div`
       height: calc(100vh - 5rem);
     }
 
-    .home-socials-container {
+    /* .home-socials-container {
       top: auto;
       bottom: 5rem;
       left: 1rem;
       right: 1rem;
       flex-direction: row;
-    }
+    } */
 
-    .socials-container {
+    /* .socials-container {
       flex-direction: row;
-    }
+    } */
 
     .tickets-section {
       bottom: 1rem;

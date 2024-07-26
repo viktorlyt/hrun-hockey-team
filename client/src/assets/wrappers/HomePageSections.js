@@ -373,6 +373,10 @@ const Wrapper = styled.div`
     .form-section {
       padding: 1rem;
     }
+
+    .upcoming-match {
+      padding: 1rem 1rem 0.5rem 1rem;
+    }
   }
 `;
 
