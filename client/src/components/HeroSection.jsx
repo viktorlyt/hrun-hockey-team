@@ -27,6 +27,27 @@ const HeroSection = () => {
       </div>
     </Wrapper>
   );
+
+  // return (
+  //   <Wrapper theme={theme}>
+  //     <div className="hero-image" />
+  //     <div className="home-socials-container">
+  //       <Socials className="column" />
+  //       <div className="socials-text">
+  //         <div>We are available</div>
+  //         <div>on the platform</div>
+  //       </div>
+  //     </div>
+  //     <div className="tickets-section">
+  //       <h3>Stay Ahead of All Events</h3>
+  //       <p className="b1">
+  //         Be the first to know about upcoming events and never miss out on the
+  //         excitement. Click below to buy your tickets today!
+  //       </p>
+  //       <button className="buy-ticket selected b2">Buy A Ticket</button>
+  //     </div>
+  //   </Wrapper>
+  // );
 };
 
 export default HeroSection;

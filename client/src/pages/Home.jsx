@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
 import HeroSection from "../components/HeroSection";
+// import HeroSection from "../components/HeroSection2";
 import UpdatesSection from "../components/UpdatesSection";
 import ProductsSection from "../components/ProductsSection";
 import NewsSection from "../components/NewsSection";
