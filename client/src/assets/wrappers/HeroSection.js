@@ -3,11 +3,8 @@ import heroImageDark from "../images/main-picture_dark.png";
 import heroImageLight from "../images/main-picture_light.png";
 
 const Wrapper = styled.div`
-  /* position: relative; */
-  /* width: 100%; */
   height: 90vh;
   overflow: hidden;
-  /* background-color: var(--bg-color-o-b); */
 
   @media (max-width: 1350px) {
     height: 75vh;
@@ -21,18 +18,13 @@ const Wrapper = styled.div`
     height: 32vh;
   }
 
-  @media (max-width: 400px) {
-    height: 53vh;
+  @media (max-width: 500px) {
+    height: 42vh;
   }
 
   .hero-image {
     position: relative;
     height: 106%;
-
-    /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; */
     background-image: ${(props) =>
       props.theme === "dark"
         ? `url(${heroImageDark})`
@@ -57,34 +49,20 @@ const Wrapper = styled.div`
       height: 32vh;
     }
 
-    @media (max-width: 400px) {
-      height: 33vh;
+    @media (max-width: 500px) {
+      height: 65%;
     }
   }
 
   .content-wrapper {
-    //border: 3px solid red;
-    //background-color: var(--bg-color-o-b);
-    //position: absolute;
-    //display: inline-block;
-    //display: flex;
-    //flex-direction: row;
-    //justify-content: space-between;
-    //top: 34%;
-
-    //@media (max-width: 1024px) {
-    // top: 50%;
-    //}
-  }
-
-  .content-wrapper {
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       background-color: var(--bg-color-o-b);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 1rem 1rem 1rem;
-      gap: 2rem;
+      padding: 0 3rem 1rem 3rem;
+      gap: 4rem;
+      margin-top: -0.2rem;
     }
   }
 
@@ -121,14 +99,13 @@ const Wrapper = styled.div`
       top: 26%;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       background-color: var(--bg-color-o-b);
       display: unset;
       flex-direction: unset;
       position: unset;
       top: unset;
       left: unset;
-      //padding: 0.5rem 1rem;
     }
 
     a {
@@ -167,8 +144,6 @@ const Wrapper = styled.div`
   }
 
   .tickets-section {
-    /* background-color: var(--bg-color-o-b); */
-
     position: absolute;
     top: 60%;
     right: calc(100vw / 12);
@@ -239,13 +214,12 @@ const Wrapper = styled.div`
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       background-color: var(--bg-color-o-b);
       position: unset;
       top: unset;
       right: unset;
       max-width: unset;
-      //padding: 0.5rem 1rem;
     }
 
     .buy-ticket {

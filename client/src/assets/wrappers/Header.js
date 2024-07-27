@@ -118,6 +118,7 @@ const Wrapper = styled.header`
     z-index: 1001; // Increased z-index to be above the header
     display: none;
     /* padding-top: 0.5rem;  */
+    margin-top: 0;
   }
 
   .dropdown:hover .dropdown-content {
