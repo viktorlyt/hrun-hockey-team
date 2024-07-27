@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 500px) {
-    height: 78vh;
+    height: 95vh;
     overflow: unset;
   }
 
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: 500px) {
-      height: 35%;
+      height: 32%;
     }
   }
 
