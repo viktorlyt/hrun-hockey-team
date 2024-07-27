@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/NewsCardNews";
 
@@ -17,14 +18,12 @@ const NewsCardNews = ({ id, date, img, title, content }) => {
 
   return (
     <Wrapper>
-      <div className="card-content">
-        <h3>{title}</h3>
-        <div className="image-container">
-          <img src={img} alt={title} />
-          <div className="date-overlay b1">{formattedDate}</div>
-        </div>
-        <p>{truncateContent(content, 302)}</p>
+      <h3>{title}</h3>
+      <div className="image-container">
+        <img src={img} alt={title} />
+        <div className="date-overlay b1">{formattedDate}</div>
       </div>
+      <p>{truncateContent(content, 305)}</p>
       <div className="button-container">
         <button className="read-more b2">
           <Link to={`/news/${id}`}>Read more</Link>

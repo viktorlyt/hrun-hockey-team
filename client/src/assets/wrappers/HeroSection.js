@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 500px) {
-    height: 50vh;
+    height: 54vh;
   }
 
   .hero-image {
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: 500px) {
-      height: 62%;
+      height: 50%;
     }
   }
 
@@ -60,9 +60,9 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 3rem 2rem 3rem;
-      gap: 4rem;
-      margin-top: -0.5rem;
+      padding: 0 1rem 1rem 1rem;
+      gap: 2rem;
+      margin-top: -2rem;
     }
   }
 

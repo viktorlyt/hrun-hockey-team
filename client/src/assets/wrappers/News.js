@@ -10,24 +10,20 @@ const Wrapper = styled.div`
   }
 
   .news-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 0 3rem;
   }
 
-  .news-item {
-    flex: 0 0 calc(50% - 0.75rem);
-    display: flex;
-  }
-
   @media (max-width: 768px) {
-    .news-item {
-      flex: 0 0 100%;
+    .news-container {
+      grid-template-columns: 1fr;
     }
 
+    .news-container,
     h3 {
-      margin-top: 0;
+      padding: 0 1rem;
     }
   }
 `;

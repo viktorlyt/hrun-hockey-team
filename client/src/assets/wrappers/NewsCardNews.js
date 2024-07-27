@@ -1,26 +1,23 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%; // Add this to make the card take full height
-
-  .card-content {
-    flex: 1; // This will make the content area grow to fill available space
-    display: flex;
-    flex-direction: column;
-  }
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 1rem;
+  height: 100%;
 
   h3 {
-    margin-bottom: 1rem;
-    flex: 1;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    /* Add these lines */
+    display: flex;
+    align-items: flex-start;
+    min-height: 3em; /* Adjust this value based on your font size and desired maximum title height */
   }
 
   .image-container {
     position: relative;
     width: 100%;
-    flex-shrink: 0; // Prevent the image from shrinking
   }
 
   img {
@@ -28,7 +25,6 @@ const Wrapper = styled.div`
     height: 40vh;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 0.5rem;
   }
 
   .date-overlay {
@@ -43,12 +39,15 @@ const Wrapper = styled.div`
   }
 
   p {
-    margin-bottom: 1rem;
-    flex: 1; // This will make the paragraph grow to fill available space
+    margin: 0;
+    overflow: hidden;
+    /* Add this line */
+    display: flex;
+    align-items: flex-start;
   }
 
   .button-container {
-    margin-top: auto; // This pushes the button to the bottom
+    align-self: end;
   }
 
   .read-more {
