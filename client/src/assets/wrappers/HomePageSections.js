@@ -195,6 +195,7 @@ const Wrapper = styled.div`
 
   .form-input-container > input,
   .form-input-container > textarea {
+    background-color: #fff;
     width: 100%;
     border: 1px solid var(--black-20);
     box-shadow: var(--shadow);
