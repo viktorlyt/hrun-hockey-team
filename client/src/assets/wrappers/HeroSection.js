@@ -114,7 +114,7 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: 600px) {
-      top: 25%;
+      top: 26%;
     }
 
     @media (max-width: 400px) {
@@ -217,12 +217,11 @@ const Wrapper = styled.div`
       p {
         font-size: calc(var(--b1-font-size) * 0.6);
         line-height: calc(var(--b1-line-height) * 0.6);
-        margin: 0.5rem 0;
       }
     }
 
     @media (max-width: 600px) {
-      top: 21%;
+      top: 22%;
       max-width: 180px;
 
       h3 {
@@ -233,7 +232,6 @@ const Wrapper = styled.div`
       p {
         font-size: calc(var(--b1-font-size) * 0.45);
         line-height: calc(var(--b1-line-height) * 0.45);
-        margin: 0.5rem 0;
       }
     }
 
