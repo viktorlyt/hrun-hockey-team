@@ -46,7 +46,7 @@ const Wrapper = styled(Link)`
     left: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 25px;
-    color: var(--text-color-secondary);
+    color: #000;
     background-color: var(--transparent-white-6);
     border: 1px solid var(--black-60);
   }

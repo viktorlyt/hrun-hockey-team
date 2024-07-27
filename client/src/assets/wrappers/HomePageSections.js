@@ -108,9 +108,9 @@ const Wrapper = styled.div`
 
   .form-section {
     margin-bottom: 2rem;
-    background-color: var(--bg-color);
+    background-color: var(--blue-light);
+    border: 1px solid var(--ocean);
     border-radius: 10px;
-    box-shadow: var(--shadow-2);
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
@@ -118,22 +118,29 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .form-info {
-    width: 40%;
+    width: 50%;
   }
 
   .form-info .content {
-    width: 72%;
+    width: 82%;
   }
 
   .form-info .section-title {
     width: 85%;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: #000;
   }
 
   .get-in-touch-message {
+    margin-bottom: 2rem;
+  }
+
+  .address {
     margin-bottom: 3rem;
   }
 
@@ -141,11 +148,13 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #000;
+    margin: 0.5rem 0;
   }
 
   .icons-info svg {
-    flex-shrink: 0; // Prevents the icon from shrinking
-    width: 1em; // Makes the icon size relative to the text size
+    flex-shrink: 0;
+    width: 1em;
     height: 1em;
   }
 
@@ -188,14 +197,16 @@ const Wrapper = styled.div`
   .form-input-container > textarea {
     width: 100%;
     border: 1px solid var(--black-20);
-    border-radius: 5px;
-    /* font-size: 1.2rem; */
+    box-shadow: var(--shadow);
+    border-radius: 20px;
     padding: 0.5rem 1rem;
+    outline: none;
   }
 
   .form-input-container > textarea {
-    min-height: 100px; // Adjust this value to make the textarea higher
-    resize: vertical; // Allows user to resize vertically
+    min-height: 50px;
+    border-radius: 30px;
+    resize: vertical;
   }
 
   .form-row.checkbox {
@@ -204,14 +215,24 @@ const Wrapper = styled.div`
 
   .form-input-container.checkbox {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 0.5rem;
   }
 
   .form-input-container.checkbox input[type="checkbox"] {
-    width: auto;
-    margin-top: 0.2rem; // Align checkbox with the first line of text
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    border-color: var(--black-20);
+    background-color: #fff;
+    border-radius: 3px;
+    width: 3px;
+    aspect-ratio: 1/1;
+    width: 14px;
+    padding: 0;
   }
 
   .form-label {
@@ -223,16 +244,14 @@ const Wrapper = styled.div`
 
   .checkbox-lbl {
     margin-top: 0;
-    /* font-size: 0.8rem; */
     padding-top: 0;
     display: inline-flex;
     align-items: flex-start;
-    line-height: 1.2;
+    flex-wrap: wrap;
   }
 
   .checkbox-label-content {
     display: flex;
-    flex-wrap: wrap;
   }
 
   .label-part-0 {
@@ -244,7 +263,8 @@ const Wrapper = styled.div`
   }
 
   .contact-us-btn {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-left: 0;
   }
 
   @media (max-width: 1450px) {
@@ -256,7 +276,6 @@ const Wrapper = styled.div`
   @media (max-width: 1200px) {
     .home-page-section .section-title {
       width: 100%;
-      text-align: center;
       margin-top: 0;
     }
 
@@ -288,7 +307,7 @@ const Wrapper = styled.div`
 
   @media (max-width: 900px) {
     .home-page-section {
-      text-align: center;
+      text-align: left;
     }
 
     .products .home-page-section-container > *,
@@ -307,7 +326,7 @@ const Wrapper = styled.div`
 
     .form-info,
     .form {
-      width: 70%;
+      width: 94%;
     }
 
     .form-info .content {

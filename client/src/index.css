@@ -252,6 +252,15 @@ button,
   transition: background-color 0.3s ease;
 }
 
+.button.long,
+button.long {
+  padding: 1rem 7rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem 6rem;
+  }
+}
+
 button:hover,
 .button:hover {
   background-color: var(--background-secondary-color);

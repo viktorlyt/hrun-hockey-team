@@ -29,21 +29,23 @@ const ContactFormSection = () => {
         <div className="form-section">
           <div className="form-info">
             <div className="content">
-              {/* <h2 className="section-title">How can we help you today?</h2> */}
-              <h2 className="section-title">Get in touch</h2>
-              <p className="get-in-touch-message">
-                We value your feedback, questions, and inquiries. Whether you
+              <h1 className="section-title">How can we help you today?</h1>
+              {/* <h2 className="section-title">Get in touch</h2> */}
+              <p className="get-in-touch-message b1">
+                {/* We value your feedback, questions, and inquiries. Whether you
                 have a suggestion, require assistance, or just want to reach out
-                to us, we are always here to provide support and assistance.
+                to us, we are always here to provide support and assistance. */}
+                Feel free to message us and we will get back to you as soon as
+                possible.
               </p>
-              <p className="icons-info">
+              <p className="address b1" style={{ whiteSpace: "pre-line" }}>
+                {address}
+              </p>
+              <p className="icons-info b1">
                 <LuPhone /> <b>{phone}</b>
               </p>
-              <p className="icons-info">
+              <p className="icons-info b1">
                 <LuMail /> <b>{email}</b>
-              </p>
-              <p className="address" style={{ whiteSpace: "pre-line" }}>
-                {address}
               </p>
             </div>
           </div>
@@ -73,7 +75,7 @@ const ContactFormSection = () => {
               isLabeled={true}
               labelIcon={<LuPen />}
               // labelText="How can our team help you?"
-              labelText="How we can help you? Feel free to get in touch!"
+              labelText="How we can help you?"
               isPlaceholder={false}
               value={formData.message}
               onChange={handleInputChange}
@@ -87,9 +89,9 @@ const ContactFormSection = () => {
               onChange={handleInputChange}
             />
 
-            <button type="submit" className="contact-us-btn">
-              {/* Contact us */}
-              Get in touch
+            <button type="submit" className="selected long b2 contact-us-btn">
+              Contact us
+              {/* Get in touch */}
             </button>
           </form>
         </div>

@@ -55,19 +55,19 @@ const FormRow = ({
   return (
     <div className={`form-row ${type}`}>
       {isLabeled && type !== "checkbox" && (
-        <label htmlFor={name} className="form-label">
+        <label htmlFor={name} className="form-label b1">
           {labelIcon || null}
           {labelText || name}
         </label>
       )}
       <div className={`form-input-container ${type}`}>
         {type === "textarea" ? (
-          <textarea {...inputProps} />
+          <textarea className="b3" {...inputProps} />
         ) : (
-          <input type={type} {...inputProps} />
+          <input className="b3" type={type} {...inputProps} />
         )}
         {isLabeled && type === "checkbox" && (
-          <label htmlFor={name} className="form-label checkbox-lbl">
+          <label htmlFor={name} className="form-label checkbox-lbl b3">
             {labelIcon || null}
             {renderLabel()}
           </label>
