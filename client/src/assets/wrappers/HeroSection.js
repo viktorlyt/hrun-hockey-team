@@ -17,6 +17,10 @@ const Wrapper = styled.div`
     height: 65vh;
   }
 
+  @media (max-width: 600px) {
+    height: 32vh;
+  }
+
   @media (max-width: 400px) {
     height: 53vh;
   }
