@@ -258,6 +258,7 @@ button.long {
 
   @media (max-width: 768px) {
     padding: 1rem 6rem;
+    width: 100%;
   }
 }
 

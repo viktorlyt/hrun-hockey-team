@@ -1682,12 +1682,12 @@ export const mockGames = [
 
 export const mockNews = [
   {
-    _id: "668ac04c7c530c1138b05e1f",
-    date: "2023-02-01T00:00:00.000Z",
-    title: "2024 BCHL Annual General Meeting Recap",
+    _id: "Byfield signs 5-year contract with Kings",
+    date: "2025-02-01T00:00:00.000",
+    title: "Byfield signs 5-year contract with Kings",
     content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game&#x27;s first star, as",
-    images: ["/assets/images/news_1.jpg"],
+      "The 21-year-old forward, who was a restricted free agent, set NHL career highs in goals (20), assists (35) and points (55) in 80 ",
+    images: ["/assets/images/news_1.png"],
     createdAt: "2024-07-07T16:20:28.623Z",
     updatedAt: "2024-07-07T16:20:28.623Z",
     newsId: 1,
@@ -1695,11 +1695,11 @@ export const mockNews = [
   },
   {
     _id: "668ac0bd7c530c1138b05e22",
-    date: "2023-12-25T00:00:00.000Z",
-    title: "Brooks Bandits win 2024 Rocky Mountain Challenge",
+    date: "2025-12-25T00:00:00.000",
+    title: "Kuznetsov placed on unconditional waivers by Hurricanes",
     content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-    images: ["/assets/images/news_2.jpg"],
+      "Evgeny Kuznetsov was placed on unconditional waivers by the Carolina Hurricanes on Wednesday for the purpose of terminating his contract. The 32-year-old forward had one season left on an eight-year, $62.4 million contract he signed with the Washington Capitals on July 2, 2017. It had an average annual value of $3.9 million ",
+    images: ["/assets/images/news_2.png"],
     createdAt: "2024-07-07T16:22:21.158Z",
     updatedAt: "2024-07-07T16:22:21.158Z",
     newsId: 2,
@@ -1707,11 +1707,11 @@ export const mockNews = [
   },
   {
     _id: "668ac1607c530c1138b05e28",
-    date: "2024-02-08T00:00:00.000Z",
+    date: "2024-02-08T00:00:00.000",
     title: "2023 BCHL Annual General Meeting Recap",
     content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-    images: ["/assets/images/news_3.jpg"],
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ",
+    images: ["/assets/images/news_3.png"],
     createdAt: "2024-07-07T16:25:04.134Z",
     updatedAt: "2024-07-07T16:25:04.134Z",
     newsId: 3,
@@ -1719,11 +1719,11 @@ export const mockNews = [
   },
   {
     _id: "668ac1ad7c530c1138b05e2e",
-    date: "2024-04-08T00:00:00.000Z",
+    date: "2024-04-08T00:00:00.000",
     title: "Fred Page Cup Finals Recap: Game 4",
     content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-    images: ["/assets/images/news_1.png"],
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ",
+    images: ["/assets/images/news_4.png"],
     createdAt: "2024-07-07T16:26:21.920Z",
     updatedAt: "2024-07-07T16:26:21.920Z",
     newsId: 4,
@@ -1731,11 +1731,11 @@ export const mockNews = [
   },
   {
     _id: "668ac1fe7c530c1138b05e34",
-    date: "2024-05-31T00:00:00.000Z",
+    date: "2024-06-30T00:00:00.000",
     title: "Brooks Bandits win 2021 Rocky Mountain Challenge",
     content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-    images: ["/assets/images/news_2.png"],
+      "The 21-year-old forward, who was a restricted free agent, set NHL career highs in goals (20), assists (35) and points (55) in 80 ",
+    images: ["/assets/images/news_5.png"],
     createdAt: "2024-07-07T16:27:42.546Z",
     updatedAt: "2024-07-07T16:27:42.546Z",
     newsId: 5,
@@ -1743,11 +1743,11 @@ export const mockNews = [
   },
   {
     _id: "668ac290e54fcbf864f5b122",
-    date: "2024-06-01T00:00:00.000Z",
-    title: "Brooks Bandits win 2021 Rocky Mountain Challenge",
+    date: "2024-06-01T00:00:00.000",
+    title: "Fred Page Cup Finals Recap: Game 4",
     content:
-      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ...",
-    images: ["/assets/images/news_1.png"],
+      "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ",
+    images: ["/assets/images/news_6.png"],
     createdAt: "2024-07-07T16:30:08.038Z",
     updatedAt: "2024-07-07T16:30:08.038Z",
     newsId: 6,

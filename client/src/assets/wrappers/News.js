@@ -10,11 +10,25 @@ const Wrapper = styled.div`
   }
 
   .news-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    justify-items: start;
     padding: 0 3rem;
+  }
+
+  .news-item {
+    flex: 0 0 calc(50% - 0.75rem);
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    .news-item {
+      flex: 0 0 100%;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
   }
 `;
 

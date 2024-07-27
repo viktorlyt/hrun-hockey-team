@@ -383,6 +383,10 @@ const Wrapper = styled.div`
       flex: 0 0 100%;
       max-width: 100%;
     }
+
+    .form-section {
+      gap: 0;
+    }
   }
 
   @media (max-width: 510px) {

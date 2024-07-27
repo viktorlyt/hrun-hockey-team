@@ -123,6 +123,10 @@ const Wrapper = styled.div`
       @media (max-width: 600px) {
         font-size: 1.6rem;
       }
+
+      @media (max-width: 500px) {
+        font-size: 2.5rem;
+      }
     }
 
     a:hover {
@@ -220,6 +224,16 @@ const Wrapper = styled.div`
       top: unset;
       right: unset;
       max-width: unset;
+
+      h3 {
+        font-size: calc(var(--h3-font-size) * 1);
+        line-height: calc(var(--h3-line-height) * 1);
+      }
+
+      p {
+        font-size: calc(var(--b1-font-size) * 1);
+        line-height: calc(var(--b1-line-height) * 1);
+      }
     }
 
     .buy-ticket {
@@ -243,6 +257,11 @@ const Wrapper = styled.div`
         line-height: calc(var(--b2-line-height) * 0.45);
         padding-top: 0.3rem;
         padding-bottom: 0.3rem;
+      }
+
+      @media (max-width: 500px) {
+        font-size: calc(var(--b2-font-size) * 1);
+        line-height: calc(var(--b2-line-height) * 1);
       }
     }
   }

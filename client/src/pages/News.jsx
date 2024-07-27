@@ -26,21 +26,24 @@ const News = () => {
   const { data } = useLoaderData();
   const news = data.news || [];
 
+  const sortedNews = news.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   console.log(`${news}`);
 
   return (
     <Wrapper>
       <h1>Top Stories</h1>
       <div className="news-container">
-        {news.map((n) => (
-          <NewsCardNews
-            key={n.newsId}
-            id={n.newsId}
-            img={n.images[0]}
-            date={n.date}
-            title={n.title}
-            content={n.content}
-          />
+        {sortedNews.map((n) => (
+          <div className="news-item" key={n.newsId}>
+            <NewsCardNews
+              id={n.newsId}
+              img={n.images[0]}
+              date={n.date}
+              title={n.title}
+              content={n.content}
+            />
+          </div>
         ))}
       </div>
     </Wrapper>
