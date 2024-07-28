@@ -51,7 +51,7 @@ const Team = () => {
       <h1>Our Team</h1>
       <div className="team-container">
         <div className="about">
-          <p className="larger-font">
+          <p className="b1">
             Welcome to Castors Team, where passion for hockey meets community
             spirit. Our team is more than just a group of players; we are a
             family united by our love for the game and our commitment to
@@ -68,7 +68,7 @@ const Team = () => {
             ))}
           </div>
         </div>
-        <img src="/assets/images/main-picture.jpg" alt="Team Image" />
+        <img src="/assets/images/about_team.png" alt="Team Image" />
       </div>
       <h1>Coaching Staff</h1>
       <div className="coaches-container">
@@ -82,17 +82,17 @@ const Team = () => {
           />
         ))}
       </div>
-      <h1>Join Us</h1>
       <div className="join-container">
         <div className="about">
-          <p className="larger-font">
+          <h1>Join Us</h1>
+          <p className="b1">
             Whether you’re a die-hard fan, a curious newcomer, or a potential
             player, we invite you to join the Castors family. Follow our
             journey, support our games, and share in the excitement of hockey at
             its finest. Stay tuned to our website for the latest news, game
             schedules, player updates, and more. Together, we are unstoppable.
           </p>
-          <button className="contact-us">
+          <button className="contact-us selected long b2">
             <HashLink smooth to="/#contact-us-section">
               Contact Us
             </HashLink>

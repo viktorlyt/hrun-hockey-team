@@ -5,14 +5,14 @@ const CoachCard = ({ firstName, lastName, position, bio }) => {
   return (
     <Wrapper>
       <img
-        src={`/assets/images/coach_${firstName}_${lastName}.jpg`}
+        src={`/assets/images/coach_${firstName}_${lastName}.png`}
         alt={`${firstName} ${lastName}`}
       />
-      <h3>
+      <h2>
         {firstName} {lastName}
-      </h3>
-      <p>{position}</p>
-      <p>{bio}</p>
+      </h2>
+      <p className="b1">{position}</p>
+      <p className="b2">{bio}</p>
     </Wrapper>
   );
 };

@@ -1,57 +1,50 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  padding: 0 4rem;
+
   h1 {
     text-align: start;
-    margin-top: 3rem;
-    padding: 0 1rem;
-    font-size: 2.5rem;
-  }
-
-  .larger-font {
-    font-size: 1.6rem;
-    margin: 0;
     margin-bottom: 1rem;
   }
 
-  img {
-    border-radius: 10px;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  .b1 {
+    margin: 1rem 0 1rem 0;
   }
 
-  .team-container {
+  .team-container,
+  .join-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    padding: 0 1rem;
     gap: 1.5rem;
   }
 
-  .about,
-  .team-container > img {
-    flex: 1;
+  .about {
     display: flex;
     flex-direction: column;
-  }
-
-  .about {
+    align-items: flex-start;
     justify-content: space-between;
   }
 
   .facts-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: stretch;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 1.5rem;
   }
 
   .facts-container > div {
-    flex-basis: calc(33.33% - 1rem);
+    flex-basis: calc(33%-1rem);
+  }
+
+  img {
+    border-radius: 10px;
+    width: 40%;
+    height: auto;
+    object-fit: contain;
   }
 
   .coaches-container {
@@ -59,84 +52,60 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     justify-items: center;
-    padding: 0 1rem;
   }
 
   .join-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-
-  .join-container .about {
-    display: flex;
-    flex-direction: column;
+    margin-top: 2rem;
     align-items: flex-start;
-  }
 
-  .contact-us {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--text-color);
-    color: var(--background-color);
-    text-align: left;
-    margin-top: 1rem;
-    margin-left: 0;
-    margin-right: auto;
+    h1 {
+      margin: 0;
+    }
+
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    img {
+      width: 50%;
+    }
+
+    .contact-us {
+      display: inline-block;
+      margin-top: 1rem;
+      margin-left: 0;
+    }
   }
 
   @media (max-width: 1200px) {
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    .larger-font {
-      font-size: 1.3rem;
-    }
-
-    .team-container {
-      gap: 1rem;
-    }
-
-    .facts-container {
-      gap: 0.5rem;
-    }
+    padding: 0 3rem;
   }
 
-  @media (min-width: 768px) {
-    .team-container {
-      flex-direction: row;
+  @media (max-width: 1024px) {
+    .team-container,
+    .join-container {
+      flex-direction: column;
+
+      img {
+        width: 100%;
+      }
     }
 
-    .join-container {
-      grid-template-columns: repeat(2, 1fr);
+    img {
+      width: 100%;
     }
   }
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-      padding: 0;
-    }
-
-    .larger-font {
-      font-size: 1.2rem;
-    }
-
     .facts-container > div {
-      flex-basis: calc(50% - 0.5rem);
+      flex-basis: calc(50% - 2rem);
     }
   }
 
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    .larger-font {
-      font-size: 1.1rem;
-    }
+  @media (max-width: 510px) {
+    padding: 0 1rem;
 
     .facts-container > div {
       flex-basis: 100%;
@@ -144,6 +113,11 @@ const Wrapper = styled.div`
 
     .coaches-container {
       grid-template-columns: 1fr;
+
+      .b1 {
+        line-height: 24px;
+        margin: 0;
+      }
     }
   }
 `;

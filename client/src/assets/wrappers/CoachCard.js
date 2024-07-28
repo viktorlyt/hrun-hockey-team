@@ -12,19 +12,25 @@ const Wrapper = styled.div`
   padding: 1rem;
 
   img {
-    max-height: 400px;
-    width: 100%;
-    object-fit: cover;
+    min-width: 100%;
+    object-fit: contain;
   }
 
   p {
     margin: 0;
-    margin-bottom: 0.5rem;
   }
 
-  h3 {
-    font-weight: bold;
+  .b1 {
+    color: var(--text-color-blue);
+    height: 50pt;
     text-align: center;
+  }
+
+  .b2 {
+    font-family: "Inter";
+    font-size: 18px;
+    line-height: 22px;
+    text-align: justify;
   }
 
   @media (max-width: 768px) {

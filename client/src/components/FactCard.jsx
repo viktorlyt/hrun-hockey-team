@@ -4,9 +4,9 @@ import Wrapper from "../assets/wrappers/FactCard";
 const FactCard = ({ total, title, content }) => {
   return (
     <Wrapper>
-      <h3>{total}+</h3>
+      <h2>{total}+</h2>
       <h4>Total {title}</h4>
-      <p>{content}</p>
+      <p className="b2">{content}</p>
     </Wrapper>
   );
 };
