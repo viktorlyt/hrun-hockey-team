@@ -17,8 +17,8 @@ const Wrapper = styled.div`
   }
 
   .custom-link {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2.6rem;
+    color: var(--text-color-secondary);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,13 +30,13 @@ const Wrapper = styled.div`
   .link-icon {
     display: flex;
     align-items: center;
+    margin: 0;
   }
 
   .link-icon {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     display: flex;
     justify-content: center;
-    height: 100%;
   }
 
   .link-icon svg {

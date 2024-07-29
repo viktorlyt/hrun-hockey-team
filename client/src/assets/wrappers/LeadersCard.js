@@ -2,157 +2,150 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: stretch; // Changed from 'start' to 'stretch'
-  box-sizing: border-box;
-  gap: 1rem;
-  padding: 1rem;
-  height: 100%; // Added to ensure the wrapper takes full height of its container
+  flex-direction: column;
 
-  img {
-    border-radius: 50%;
-  }
-
-  .player-container {
-    flex: 1;
-    max-width: calc(42% - 0.5rem);
-    min-height: 410px;
-    overflow: hidden;
-    position: relative; // For absolute positioning of child elements
-
-    display: flex; // Add this
-    flex-direction: column; // Add this
-  }
-
-  .player-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0;
-  }
-
-  .player-info.active {
-    opacity: 1;
-  }
-
-  .player-image {
-    width: 120px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .first-part {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .second-part {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: stretch;
-  }
-
-  .name > h2 {
-    margin: 0%;
-  }
-
-  .details {
+  .player-wrapper {
     display: flex;
     flex-direction: row;
-    color: var(--text-secondary-color);
-    margin-bottom: 3rem;
-  }
-
-  .team-logo {
-    width: 30px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 0.5rem;
-    display: inline-block;
-  }
-
-  .result-name {
-    color: var(--text-secondary-color);
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  h1.result-value {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    width: 100%;
-    overflow-wrap: break-word;
-  }
-
-  .players-list {
-    flex: 2;
-    max-width: calc(58% - 0.5rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
     justify-content: start;
-    flex: 1;
-    overflow-y: auto;
-    width: 100%;
-    padding-left: 0;
-    margin-bottom: 1rem;
-
-    min-height: 0;
-  }
-
-  li {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0;
-    border-radius: 0.5rem;
-    border: 1px solid var(--grey-200);
+    align-items: stretch;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: pointer;
-  }
+    gap: 1rem;
+    height: 100%;
 
-  li:hover,
-  li:active,
-  li.selected {
-    background-color: var(--blue);
-    color: var(--background-color);
-    border: none;
+    img {
+      border-radius: 50%;
+    }
+
+    .player-container {
+      flex: 1;
+      max-width: calc(42% - 0.5rem);
+      height: 430px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      .player-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        justify-content: space-between;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+
+        .first-part {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .player-image {
+            width: 160px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: stretch;
+          }
+
+          .name > h4 {
+            margin: 0.5rem 0 1rem 0;
+          }
+
+          .details {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            color: var(--text-secondary-color);
+            margin-bottom: 3rem;
+          }
+
+          .team-logo {
+            width: 35px;
+            margin-right: 0.5rem;
+          }
+        }
+
+        .second-part {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          .result-name {
+            color: var(--text-secondary-color);
+            margin: 0;
+            text-align: center;
+            align-self: center;
+          }
+
+          h1.result-value {
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            overflow-wrap: break-word;
+          }
+        }
+      }
+
+      .player-info.active {
+        opacity: 1;
+      }
+    }
+
+    ol {
+      flex: 1;
+      max-width: calc(58% - 0.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-content: start;
+      gap: 0.7rem;
+      overflow-y: auto;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      min-height: 0;
+      list-style: none;
+      list-style-type: none;
+
+      li {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        margin: 0;
+        border-radius: 1rem;
+        border: 1.5px solid var(--black-20);
+        box-sizing: border-box;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+      }
+
+      li:hover,
+      li:active,
+      li.selected {
+        background-color: var(--text-color-blue);
+        color: var(--bg-color);
+        border: none;
+      }
+    }
   }
 
   .button-container {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
+    margin-top: 2rem;
   }
 
   @media (max-width: 1600px) {
@@ -230,16 +223,11 @@ const Wrapper = styled.div`
       gap: 0.5rem;
     }
 
-    .name > h2 {
-      font-size: 1.1rem;
-    }
-
     .details {
       flex-direction: row;
       align-items: center;
       margin-bottom: 0;
-      font-size: 0.8rem;
-      white-space: nowrap;
+      white-space: wrap;
     }
 
     .team-logo {
@@ -248,7 +236,6 @@ const Wrapper = styled.div`
     }
 
     .second-part {
-      /* justify-content: end; */
       align-items: end;
       text-align: end;
     }
@@ -257,8 +244,6 @@ const Wrapper = styled.div`
     }
 
     h1.result-value {
-      font-size: 2rem;
-      font-weight: bold;
       text-align: end;
     }
   }

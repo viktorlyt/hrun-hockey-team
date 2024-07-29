@@ -278,31 +278,31 @@ export default function StatsLayout() {
         <NavLink
           to="."
           end
-          className={({ isActive }) => (isActive ? "active-link" : "")}
+          className={({ isActive }) => `${isActive ? "active-link" : ""} b2`}
         >
           Home
         </NavLink>
         <NavLink
           to="skaters"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
+          className={({ isActive }) => `${isActive ? "active-link" : ""} b2`}
         >
           Skaters
         </NavLink>
         <NavLink
           to="goalies"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
+          className={({ isActive }) => `${isActive ? "active-link" : ""} b2`}
         >
           Goalies
         </NavLink>
         <NavLink
           to="teams"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
+          className={({ isActive }) => `${isActive ? "active-link" : ""} b2`}
         >
           Teams
         </NavLink>
         <NavLink
           to="glossary"
-          className={({ isActive }) => (isActive ? "active-link" : "")}
+          className={({ isActive }) => `${isActive ? "active-link" : ""} b2`}
         >
           Glossary
         </NavLink>
@@ -312,7 +312,9 @@ export default function StatsLayout() {
           {gameRangeTypes.map((t) => (
             <button
               key={t}
-              className={`range-type ${rangeType === t ? "selected" : ""}`}
+              className={`range-type btn-ocean ${
+                rangeType === t ? "selected" : ""
+              }`}
               onClick={() => handleRangeTypeChange(t)}
             >
               {t}

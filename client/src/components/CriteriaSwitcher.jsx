@@ -18,7 +18,7 @@ const CriteriaSwitcher = ({ criteria, setCriteria, options }) => (
       return (
         <li
           key={option}
-          className={`${className} ${criteria === option ? "active" : ""}`}
+          className={`b2 ${className} ${criteria === option ? "active" : ""}`}
           onClick={() => setCriteria(option)}
         >
           {displayOption}

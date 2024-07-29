@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.header`
+  padding: 0 4rem;
+
   h1,
   p {
     width: 50%;
@@ -10,7 +12,6 @@ const Wrapper = styled.header`
     text-align: start;
     margin-top: 2rem;
     margin-bottom: 0;
-    /* font-size: 2.5rem; */
   }
 
   nav {
@@ -18,14 +19,13 @@ const Wrapper = styled.header`
     justify-content: start;
     gap: 4rem;
     width: fit-content;
-    border-bottom: 1px solid var(--grey-200);
+    border-bottom: 1px solid var(--black-20);
     margin: 2rem 0;
-    padding: 0 3rem;
   }
 
   nav a {
     text-decoration: none;
-    font-size: 1.2rem;
+    color: var(--text-color-secondary);
     white-space: nowrap;
     position: relative;
     padding-bottom: 0.5rem;
@@ -39,15 +39,16 @@ const Wrapper = styled.header`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--primary-500);
+    background-color: var(--text-color-secondary);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
 
   nav a:hover,
   nav a.active-link {
-    color: var(--primary-500);
     font-weight: bold;
+    font-family: "Inter";
+    font-size: 18pt;
   }
 
   nav a:hover::after,
@@ -63,23 +64,6 @@ const Wrapper = styled.header`
     justify-content: start;
     width: fit-content;
     margin: 2rem 0;
-  }
-
-  .game-range > button {
-    padding: 0.7rem 2rem;
-  }
-
-  .range-type {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-  }
-
-  .range-type.selected {
-    background-color: var(--primary-500);
-    color: white;
-    border: none;
-    outline: none;
   }
 
   .filters-container {

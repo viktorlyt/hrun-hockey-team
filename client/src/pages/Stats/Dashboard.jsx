@@ -71,7 +71,7 @@ const Dashboard = () => {
     return summedSkaters
       .map((player) => ({ ...player }))
       .sort((a, b) => b[skaterCriteria] - a[skaterCriteria])
-      .slice(0, 5);
+      .slice(0, 6);
   }, [filteredStats, skaterCriteria]);
 
   const goalies = useMemo(() => {
@@ -95,7 +95,7 @@ const Dashboard = () => {
         }
         return b[goalieCriteria] - a[goalieCriteria];
       })
-      .slice(0, 5);
+      .slice(0, 6);
   }, [filteredStats, goalieCriteria]);
 
   return (
@@ -103,7 +103,7 @@ const Dashboard = () => {
       <div className="players-container">
         <div className="skaters-container">
           <Link to="/stats/skaters" className="custom-link">
-            <span className="link-text">Skaters</span>
+            <h2 className="link-text">Skaters</h2>
             <span className="link-icon">
               <MdKeyboardArrowRight />
             </span>
@@ -125,7 +125,7 @@ const Dashboard = () => {
         </div>
         <div className="goalies-container">
           <Link to="/stats/goalies" className="custom-link">
-            <span className="link-text">Goalies</span>
+            <h2 className="link-text">Goalies</h2>
             <span className="link-icon">
               <MdKeyboardArrowRight />
             </span>

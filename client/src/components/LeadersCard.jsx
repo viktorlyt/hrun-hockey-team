@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Wrapper from "../assets/wrappers/LeadersCard";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Wrapper from "../assets/wrappers/LeadersCard";
+import Logo from "./Logo";
+import { POSITION_SHORTCUTS } from "../utils/clientConstants";
 
 const LeadersCard = ({ skaterType, players, criteria }) => {
   if (players.length === 0) {
@@ -62,17 +64,23 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
           />
           <div className="text-info">
             <div className="name">
-              <h2>{player.firstName}</h2>
-              <h2>{player.lastName}</h2>
+              <h4>
+                {player.firstName} {player.lastName}
+              </h4>
             </div>
-            <div className="details">
-              <img src={player.img} className="team-logo" alt="Castors' Logo" />
-              CASTORS • #{player.number} • {player.position}
+            <div className="details b2">
+              <span className="team-logo">
+                <Logo />
+              </span>
+              CASTORS • #{player.number} •{" "}
+              {Object.keys(POSITION_SHORTCUTS).find(
+                (key) => POSITION_SHORTCUTS[key] === player.position
+              ) || ""}
             </div>
           </div>
         </div>
         <div className="second-part">
-          <h4 className="result-name">{criteria.toUpperCase()}</h4>
+          <p className="result-name b2">{criteria.toUpperCase()}</p>
           <h1 className="result-value">
             {formatValue(player[criteria], criteria)}
           </h1>
@@ -87,15 +95,15 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
     </Wrapper>
   ) : (
     <Wrapper>
-      <div className="player-container">
-        {renderPlayerInfo(selectedPlayer, true)}
-        {isTransitioning &&
-          previousPlayer &&
-          renderPlayerInfo(previousPlayer, false)}
-      </div>
-      <div className="players-list">
-        <ol>
-          {players.map((p) => (
+      <div className="player-wrapper">
+        <div className="player-container">
+          {renderPlayerInfo(selectedPlayer, true)}
+          {isTransitioning &&
+            previousPlayer &&
+            renderPlayerInfo(previousPlayer, false)}
+        </div>
+        <ol className="b2">
+          {players.map((p, index) => (
             <li
               key={p.playerId}
               onMouseEnter={() => handlePlayerHover(p)}
@@ -103,18 +111,20 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
                 p.playerId === selectedPlayer.playerId ? "selected" : ""
               }
             >
-              <div className="name">
-                {p.firstName} {p.lastName}
-              </div>
-              {formatValue(p[criteria], criteria)}
+              <span className="name">
+                {index + 1}. {p.firstName} {p.lastName}
+              </span>
+              <span className="value">
+                {formatValue(p[criteria], criteria)}
+              </span>
             </li>
           ))}
         </ol>
-        <div className="button-container">
-          <Link to={`/stats/${skaterType}s`}>
-            <button>See more</button>
-          </Link>
-        </div>
+      </div>
+      <div className="button-container">
+        <Link to={`/stats/${skaterType}s`}>
+          <button className="b2">Read more</button>
+        </Link>
       </div>
     </Wrapper>
   );

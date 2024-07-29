@@ -47,7 +47,7 @@ const Dropdown = ({
       <div className={`dropdown-container ${isFilter ? "filter" : "form-row"}`}>
         <label
           htmlFor={name}
-          className={`dropdown-label ${
+          className={`dropdown-label b2 ${
             isFilter ? "filter-label" : "form-label"
           }`}
         >
@@ -58,7 +58,7 @@ const Dropdown = ({
           className={`dropdown-input-container ${isFilter ? "filter" : ""}`}
         >
           <div className="custom-select" onClick={() => setIsOpen(!isOpen)}>
-            <div className="selected-value">{selectedLabel}</div>
+            <div className="selected-value b2">{selectedLabel}</div>
             <div className="dropdown-icon-container">
               <div className="dropdown-icon">
                 <MdKeyboardArrowDown />
@@ -71,7 +71,7 @@ const Dropdown = ({
                 <li
                   key={option.value}
                   onClick={() => handleOptionClick(option)}
-                  className={option.value === selectedValue ? "selected" : ""}
+                  className={`b3 option.value === selectedValue ? "selected" : ""`}
                 >
                   {option.label}
                 </li>

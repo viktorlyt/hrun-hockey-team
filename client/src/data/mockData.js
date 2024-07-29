@@ -33,7 +33,7 @@ export const mockTeamStats = [
     lastName: "Doe",
     position: "Center",
     number: 10,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/player_john_doe_10.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
