@@ -13,7 +13,7 @@ const Wrapper = styled.ul`
   li {
     position: relative;
     cursor: pointer;
-    padding-bottom: 0.5rem;
+    padding: 0 1rem 0.5rem 1rem;
     transition: color 0.3s ease;
     color: var(--text-color-secondary);
   }

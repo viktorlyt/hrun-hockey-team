@@ -263,8 +263,10 @@ button,
   border-color: var(--green-blue);
 }
 
-.btn-ocean:hover {
+.btn-ocean:hover,
+.btn-ocean:focus {
   background-color: var(--blue-light);
+  border-color: var(--green-blue);
 }
 
 .btn-ocean.selected,

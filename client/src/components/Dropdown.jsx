@@ -7,16 +7,17 @@ const Dropdown = ({
   labelText,
   options,
   defaultValue,
-  value,
   onChange,
   isRequired = true,
   isFilter = false,
 }) => {
-  const [selectedValue, setSelectedValue] = useState(
-    value || defaultValue || ""
-  );
+  const [selectedValue, setSelectedValue] = useState(defaultValue || "");
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    setSelectedValue(defaultValue || "");
+  }, [defaultValue]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -67,15 +68,20 @@ const Dropdown = ({
           </div>
           {isOpen && (
             <ul className="options-list">
-              {options.map((option) => (
+              {options.map((option) => {
+                console.log("option.value", option.value);
+                console.log("selectedValue", selectedValue);
+                console.log("defaultValue", defaultValue);
                 <li
                   key={option.value}
                   onClick={() => handleOptionClick(option)}
-                  className={`b3 option.value === selectedValue ? "selected" : ""`}
+                  className={`b3 ${
+                    option.value === defaultValue ? "selected" : ""
+                  }`}
                 >
                   {option.label}
-                </li>
-              ))}
+                </li>;
+              })}
             </ul>
           )}
         </div>

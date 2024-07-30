@@ -17,7 +17,7 @@ const Wrapper = styled.header`
   nav {
     display: flex;
     justify-content: start;
-    gap: 4rem;
+    gap: 3rem;
     width: fit-content;
     border-bottom: 1px solid var(--black-20);
     margin: 2rem 0;
@@ -28,7 +28,7 @@ const Wrapper = styled.header`
     color: var(--text-color-secondary);
     white-space: nowrap;
     position: relative;
-    padding-bottom: 0.5rem;
+    padding: 0 1rem 0.5rem 1rem;
     transition: color 0.3s ease, font-weight 0.3s ease;
   }
 
@@ -82,7 +82,6 @@ const Wrapper = styled.header`
   @media (max-width: 1600px) {
     nav {
       margin: 1rem 0;
-      padding: 0 2rem;
     }
   }
 
@@ -90,18 +89,13 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 1343px) {
-    padding: 4rem 1rem;
-
-    nav {
-      padding: 0 1rem;
-    }
+    padding: 0 3rem;
   }
 
   @media (max-width: 1200px) {
     nav a,
     nav NavLink {
       padding: 0.5rem 0.3rem;
-      font-size: 1rem;
     }
 
     .filters-container {
@@ -114,21 +108,10 @@ const Wrapper = styled.header`
       gap: 2.5rem;
     }
 
-    /* nav a,
-    nav NavLink {
-      padding: 0;
-      margin: 0.5rem 0;
-    } */
-
     nav a,
     nav NavLink {
       padding: 0 0 0.5rem 0;
       margin: 0;
-    }
-
-    .dropdown-label,
-    .dropdown-input-container {
-      font-size: 0.9rem;
     }
 
     .dropdown-icon {
@@ -154,10 +137,6 @@ const Wrapper = styled.header`
       margin-bottom: 1rem;
     }
 
-    .dropdown-label,
-    .dropdown-input-container {
-      font-size: 1rem;
-    }
     .dropdown-icon {
       font-size: 2rem;
     }
@@ -172,7 +151,7 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 510px) {
-    padding: 2rem 0.5rem;
+    padding: 1rem;
 
     nav {
       gap: 1rem;

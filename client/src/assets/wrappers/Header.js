@@ -93,11 +93,6 @@ const Wrapper = styled.header`
     /* text-decoration: underline; */
   }
 
-  .active-link {
-    font-weight: 800;
-    /* text-decoration: underline; */
-  }
-
   .shop-btn {
     margin-left: 0.5rem;
     font-size: 26pt;
@@ -113,11 +108,10 @@ const Wrapper = styled.header`
     top: 100%;
     left: 0;
     background-color: var(--bg-color-secondary);
-    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 100px;
     z-index: 1001; // Increased z-index to be above the header
     display: none;
-    /* padding-top: 0.5rem;  */
     margin-top: 0;
   }
 
@@ -126,7 +120,7 @@ const Wrapper = styled.header`
   }
 
   .dropdown-content a {
-    color: var(--text-color-secondary);
+    color: var(--text-color-o-b10);
     padding: 12px 16px;
     text-decoration: none;
     display: block;

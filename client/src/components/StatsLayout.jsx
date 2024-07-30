@@ -19,7 +19,7 @@ import { mockTeamStats } from "../data/mockData";
 const stats = mockTeamStats;
 
 function formatDate(date) {
-  return date.toISOString().split("T")[0]; // This will return "yyyy-MM-dd"
+  return date.toISOString().split("T")[0]; //  "yyyy-MM-dd"
 }
 
 export default function StatsLayout() {
@@ -91,7 +91,6 @@ export default function StatsLayout() {
           searchParams.get("endDate") || currentSeason.seasonEnd;
       }
     }
-
     return initialFilters;
   };
 
@@ -302,7 +301,7 @@ export default function StatsLayout() {
         </NavLink>
         <NavLink
           to="glossary"
-          className={({ isActive }) => `${isActive ? "active-link" : ""} b2`}
+          className={({ isActive }) => `b2 ${isActive ? "active-link" : ""}`}
         >
           Glossary
         </NavLink>
