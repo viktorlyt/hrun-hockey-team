@@ -153,8 +153,19 @@ const Wrapper = styled.header`
   @media (max-width: 510px) {
     padding: 1rem;
 
+    // TODO change style for mobile
     nav {
-      gap: 1rem;
+      gap: 0.8rem;
+
+      .b2 {
+        font-size: calc(var(--b2-font-size) * 0.6);
+        line-height: calc(var(--b2-line-height) * 0.6);
+      }
+    }
+
+    nav a:hover,
+    nav a.active-link {
+      font-size: 12pt;
     }
 
     .game-range > button {

@@ -43,6 +43,21 @@ const Wrapper = styled.ul`
   li.active::after {
     height: 3px;
   }
+
+  @media (max-width: 510px) {
+    // TODO change style for mobile
+    gap: 0.8rem;
+    justify-content: space-between;
+
+    li {
+      padding: 0 0.5rem 0.5rem 0.5rem;
+    }
+
+    .b2 {
+      font-size: calc(var(--b2-font-size) * 0.6);
+      line-height: calc(var(--b2-line-height) * 0.6);
+    }
+  }
 `;
 
 export default Wrapper;
