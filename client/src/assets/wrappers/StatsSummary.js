@@ -5,34 +5,88 @@ const Wrapper = styled.div`
 
   h2 {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
   }
 
   .table-container {
     width: 100%;
     overflow-x: auto;
     margin-bottom: 1rem;
+    background-color: var(--bg-color);
+
+    /* For Firefox */
+    /* @supports (scrollbar-width: thin) {
+      scrollbar-width: thin;
+      scrollbar-color: var(--bg-color-g-o) var(--black-10);
+    } */
+
+    /* For WebKit browsers (Chrome, Safari, etc.) */
+    &::-webkit-scrollbar {
+      height: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--bg-color-g-o);
+      border: 3px solid var(--black-10);
+      border-radius: 15px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--black-10);
+    }
+
+    &::-webkit-scrollbar-button {
+      background-color: var(--black-10);
+      color: #000;
+      height: 25px;
+      width: 30px;
+    }
+
+    &::-webkit-scrollbar-button:horizontal:start:decrement,
+    &::-webkit-scrollbar-button:horizontal:end:increment {
+      display: block;
+    }
+
+    &::-webkit-scrollbar-button:start:decrement {
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+
+    &::-webkit-scrollbar-button:end:increment {
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+    }
+
+    &::-webkit-scrollbar-button:horizontal:start:decrement {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -2 20 20'%3E%3Cpath stroke='%23000000' fill='none' stroke-width='2' d='M10 2l-6 6 6 6'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &::-webkit-scrollbar-button:horizontal:end:increment {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -2 20 20'%3E%3Cpath stroke='%23000000' fill='none' stroke-width='2' d='M6 2l6 6-6 6'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 
   .players-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
     white-space: nowrap;
+    color: var(--text-color-secondary);
+    background: var(--bg-color);
   }
 
   .players-table th,
   .players-table td {
     padding: 0.5rem;
     text-align: left;
-    border-bottom: 1px solid var(--grey-200);
     position: relative;
   }
 
   .players-table th {
-    background-color: var(--primary-500);
-    color: white;
-    font-weight: bold;
+    background-color: var(--green-blue);
+    color: #000;
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
@@ -48,7 +102,7 @@ const Wrapper = styled.div`
   }
 
   .players-table tbody .sorted-column {
-    background-color: rgba(62, 157, 235, 0.1);
+    background-color: var(--text-color-ocean-transperent);
   }
 
   .players-table th.no-data {
@@ -60,11 +114,11 @@ const Wrapper = styled.div`
   }
 
   .players-table tr:nth-child(even) {
-    background-color: var(--grey-50);
+    background-color: var(--bg-color-g-o);
   }
 
   .players-table tr:hover {
-    background-color: var(--grey-100);
+    background-color: var(--text-color-ocean-transperent);
   }
 
   .players-table th[title],

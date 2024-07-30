@@ -214,7 +214,7 @@ const StatsSummary = ({ playerType }) => {
             <thead>
               <tr>
                 {players.length === 0 ? (
-                  <th className="no-data"></th>
+                  <th className="no-data b3"></th>
                 ) : (
                   <>
                     {statsGeneralShortcuts.map((sg) => {
@@ -222,7 +222,9 @@ const StatsSummary = ({ playerType }) => {
                       return (
                         <th
                           key={sg}
-                          className={isSorted(key) ? "sorted-column" : ""}
+                          className={`b3 ${
+                            isSorted(key) ? "sorted-column" : ""
+                          }`}
                           title={getFullNameByShortcut(
                             sg,
                             STATS_SHORTCUTS_GENERAL,
@@ -239,7 +241,9 @@ const StatsSummary = ({ playerType }) => {
                       return (
                         <th
                           key={ss}
-                          className={isSorted(key) ? "sorted-column" : ""}
+                          className={`b3 ${
+                            isSorted(key) ? "sorted-column" : ""
+                          }`}
                           title={getFullNameByShortcut(
                             ss,
                             STATS_SHORTCUTS,
@@ -266,7 +270,7 @@ const StatsSummary = ({ playerType }) => {
                     {Object.keys(STATS_SHORTCUTS_GENERAL).map((sg) => (
                       <td
                         key={sg}
-                        className={isSorted(sg) ? "sorted-column" : ""}
+                        className={`b2 ${isSorted(sg) ? "sorted-column" : ""}`}
                       >
                         {renderCell(player, sg, index)}
                       </td>
@@ -276,7 +280,9 @@ const StatsSummary = ({ playerType }) => {
                       return (
                         <td
                           key={ss}
-                          className={isSorted(ss) ? "sorted-column" : ""}
+                          className={`b2 ${
+                            isSorted(ss) ? "sorted-column" : ""
+                          }`}
                           title={
                             ss === "PLAYER_POSITION"
                               ? POSITION_SHORTCUTS[cellValue] || player.position

@@ -11,10 +11,12 @@
   /* secondary */
   --blue-dark: #183038;
   --ocean-dark: #3a7f8f;
+  --ocean-dark-transperent: rgb(58, 127, 143, 0.2);
   --ocean: #6eb5c2;
   --ocean-light: #cde5ea;
   --green-blue: #cee7e9;
   --blue-light: #f4f9fb;
+  --blue-light-transperent: rgba(244, 249, 251, 0.3);
 
   /* grey */
   --grey-20: #e7e7e7;
@@ -107,6 +109,7 @@
   --bg-color-secondary: var(--blue-light);
   --bg-color-dark: var(--green-blue);
   --bg-color-ocean: var(--ocean-light);
+  --bg-color-g-o: var(--black-20);
   --bg-color-o-b: var(--ocean-light);
   --text-color-light: var(--black-40);
   --text-color: var(--black-60);
@@ -119,7 +122,9 @@
   --text-color-o-b10: var(--ocean-dark);
   --text-color-o-b40: var(--ocean-dark);
   --text-color-ocean-green: var(--ocean-dark);
+  --text-color-ocean-transperent: var(--ocean-dark-transperent);
   --black: var(--black-70);
+  --grey: var(--black-20);
   --shadow: var(--shadow-dark);
 }
 
@@ -128,6 +133,7 @@
   --bg-color-secondary: var(--blue-dark);
   --bg-color-dark: var(--blue-dark);
   --bg-color-ocean: var(--ocean-dark);
+  --bg-color-g-o: var(--ocean-dark);
   --bg-color-o-b: var(--blue-dark);
   --text-color-light: var(--black-40);
   --text-color: var(--black-40);
@@ -139,7 +145,9 @@
   --text-color-o-b10: var(--black-10);
   --text-color-o-b40: var(--black-40);
   --text-color-ocean-green: var(--green-blue);
+  --text-color-ocean-transperent: var(--blue-light-transperent);
   --black: var(--black-40);
+  --grey: var(--black-70);
   --shadow: var(--shadow-light);
 }
 
@@ -266,11 +274,13 @@ button,
 .btn-ocean:hover,
 .btn-ocean:focus {
   background-color: var(--blue-light);
+  color: var(--ocean);
   border-color: var(--green-blue);
 }
 
 .btn-ocean.selected,
-.btn-ocean.selected:hover {
+.btn-ocean.selected:hover,
+.btn-ocean.selected:focus {
   background-color: var(--green-blue);
   color: var(--ocean-dark);
   border-color: var(--ocean-dark);

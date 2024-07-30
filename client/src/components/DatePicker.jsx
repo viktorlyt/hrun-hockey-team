@@ -73,13 +73,15 @@ const DatePicker = ({
           htmlFor={name}
           className={`datepicker-label ${
             isFilter ? "filter-label" : "form-label"
-          }`}
+          } b2`}
         >
           {labelText || name}
         </label>
         <div
           ref={datePickerRef}
-          className={`datepicker-input-container ${isFilter ? "filter" : ""}`}
+          className={`b2 datepicker-input-container ${
+            isFilter ? "filter" : ""
+          }`}
         >
           <div className="custom-select" onClick={toggleDatePicker}>
             <div className="selected-value">{formatDate(selectedDate)}</div>

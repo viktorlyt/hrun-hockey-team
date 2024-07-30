@@ -272,7 +272,7 @@ export default function StatsLayout() {
 
   return (
     <Wrapper>
-      <h1>Statistics</h1>
+      <h2>Statistics</h2>
       <nav className="nav">
         <NavLink
           to="."
@@ -311,7 +311,7 @@ export default function StatsLayout() {
           {gameRangeTypes.map((t) => (
             <button
               key={t}
-              className={`range-type btn-ocean ${
+              className={`b2 range-type btn-ocean ${
                 rangeType === t ? "selected" : ""
               }`}
               onClick={() => handleRangeTypeChange(t)}
