@@ -38,7 +38,7 @@ export const mockTeamStats = [
     skaterShoots: "L",
     gameId: "G20240315",
     gameType: "Regular Season",
-    season: "2023-2024",
+    season: "2022-2023",
     date: new Date("2024-03-15"),
     gamesPlayed: 1,
     timeOnIce: 18.5,

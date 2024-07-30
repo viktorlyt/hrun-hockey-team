@@ -58,7 +58,13 @@ const Dropdown = ({
           ref={dropdownRef}
           className={`dropdown-input-container ${isFilter ? "filter" : ""}`}
         >
-          <div className="custom-select" onClick={() => setIsOpen(!isOpen)}>
+          <div
+            className="custom-select"
+            onClick={() => {
+              console.log(`dropdown clicked ${isOpen}`);
+              setIsOpen(!isOpen);
+            }}
+          >
             <div className="selected-value b2">{selectedLabel}</div>
             <div className="dropdown-icon-container">
               <div className="dropdown-icon">
@@ -68,10 +74,7 @@ const Dropdown = ({
           </div>
           {isOpen && (
             <ul className="options-list">
-              {options.map((option) => {
-                console.log("option.value", option.value);
-                console.log("selectedValue", selectedValue);
-                console.log("defaultValue", defaultValue);
+              {options.map((option) => (
                 <li
                   key={option.value}
                   onClick={() => handleOptionClick(option)}
@@ -80,8 +83,8 @@ const Dropdown = ({
                   }`}
                 >
                   {option.label}
-                </li>;
-              })}
+                </li>
+              ))}
             </ul>
           )}
         </div>
