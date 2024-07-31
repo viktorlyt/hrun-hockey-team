@@ -249,6 +249,10 @@ const Wrapper = styled.div`
           }
         }
       }
+
+      ol {
+        max-width: 100%;
+      }
     }
   }
 

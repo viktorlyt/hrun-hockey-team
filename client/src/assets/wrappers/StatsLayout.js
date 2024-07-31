@@ -156,6 +156,8 @@ const Wrapper = styled.header`
     // TODO change style for mobile
     nav {
       justify-content: space-between;
+      gap: 0;
+      width: 100%;
 
       .b2 {
         font-size: calc(var(--b2-font-size) * 0.6);
@@ -163,10 +165,14 @@ const Wrapper = styled.header`
       }
     }
 
+    nav a {
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
+    }
+
     nav a:hover,
     nav a.active-link {
       font-size: 12pt;
-      padding: 0 0.5rem;
     }
 
     .game-range > button {
