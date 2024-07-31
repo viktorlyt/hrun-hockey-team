@@ -72,7 +72,7 @@ const LeadersCard = ({ skaterType, players, criteria }) => {
               <span className="team-logo">
                 <Logo />
               </span>
-              CASTORS • #{player.number} •{" "}
+              <span className="castors-text">CASTORS</span> • #{player.number} •{" "}
               {Object.keys(POSITION_SHORTCUTS).find(
                 (key) => POSITION_SHORTCUTS[key] === player.position
               ) || ""}

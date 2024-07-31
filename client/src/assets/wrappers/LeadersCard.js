@@ -186,69 +186,106 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    margin-top: 1rem;
-    gap: 0rem;
-
-    .player-container,
-    .players-list {
-      max-width: 100%;
-      height: auto;
-      min-height: 50px;
-    }
-
-    .player-info {
-      flex-direction: row;
+    .player-wrapper {
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
+      box-sizing: unset;
+      gap: 1rem;
+      height: 100%;
 
-    .first-part {
-      flex-direction: row;
-      align-items: center;
-      justify-content: start;
-      gap: 0.5rem;
-    }
+      .player-container {
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+        width: 100%;
+        max-width: unset;
+        height: 100%;
+        position: unset;
 
-    .player-image {
-      width: 50px;
-    }
+        .player-info {
+          position: unset;
+          flex-direction: row;
+          align-items: start;
+          justify-content: space-between;
+          width: 100%;
+          height: fit-content;
 
-    .name {
-      flex-direction: row;
-      gap: 0.5rem;
-    }
+          .first-part {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 78%;
 
-    .details {
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 0;
-      white-space: wrap;
-    }
+            .player-image {
+              width: 60px;
+            }
 
-    .team-logo {
-      width: 25px;
-      height: 25px;
-    }
+            .name > h4 {
+              margin: 0;
+            }
 
-    .second-part {
-      align-items: end;
-      text-align: end;
-    }
+            .details {
+              margin: 0;
+            }
+          }
 
-    .result-name {
-    }
+          .second-part {
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+            width: 22%;
+            max-width: 22%;
 
-    h1.result-value {
-      text-align: end;
+            .result-name {
+              text-align: right;
+              align-self: flex-start;
+              width: 100%;
+            }
+
+            h1.result-value {
+              text-align: right;
+            }
+          }
+        }
+      }
     }
   }
 
   @media (max-width: 480px) {
+    .player-wrapper {
+      .player-container {
+        .player-info {
+          .first-part {
+            .player-image {
+              width: 50px;
+            }
+            width: 70%;
+            max-width: 70%;
+
+            .details {
+              .castors-text {
+                display: none;
+              }
+            }
+          }
+          .second-part {
+            width: 30%;
+            max-width: 30%;
+
+            .result-name {
+              text-align: right;
+              align-self: flex-start;
+              width: 100%;
+            }
+
+            h1.result-value {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
