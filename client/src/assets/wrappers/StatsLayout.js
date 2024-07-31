@@ -175,8 +175,25 @@ const Wrapper = styled.header`
       font-size: 12pt;
     }
 
+    .game-range {
+      gap: 0;
+      justify-content: center;
+      align-items: center;
+    }
+
     .game-range > button {
-      padding: 0.7rem 1.4rem;
+      padding: 0.5rem;
+      border-radius: 0;
+    }
+
+    .game-range > button:first-child {
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+
+    .game-range > button:last-child {
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
     }
   }
 `;

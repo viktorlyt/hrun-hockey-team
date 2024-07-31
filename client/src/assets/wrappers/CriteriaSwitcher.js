@@ -46,7 +46,6 @@ const Wrapper = styled.ul`
 
   @media (max-width: 510px) {
     // TODO change style for mobile
-    gap: 0.8rem;
     justify-content: space-between;
 
     li {
