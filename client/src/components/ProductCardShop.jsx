@@ -15,10 +15,10 @@ const ProductCard = ({
   return (
     <Wrapper to={`/shop/${id}`}>
       <img src={imageSrc} alt="Product Picture" />
-      <p>
+      <p className="b1 product-name">
         {name} - {category}
       </p>
-      <p className="larger-font">
+      <p className="b2">
         {minPrice === maxPrice
           ? `${minPrice}`
           : `${minPrice} $CAD - ${maxPrice}`}{" "}

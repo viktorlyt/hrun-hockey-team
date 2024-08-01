@@ -17,16 +17,15 @@ const Wrapper = styled(Link)`
     margin-bottom: 0.5rem;
   }
 
-  p {
-    margin-bottom: 0.2rem;
+  p,
+  .b1,
+  .b2 {
+    margin: 0;
+    margin-top: 0.5rem;
   }
 
-  .larger-font {
-    font-size: 1.1rem;
-  }
-
-  .price {
-    font-size: 1.4rem;
+  .product-name {
+    color: var(--text-color-secondary);
   }
 
   @media (max-width: 1200px) {

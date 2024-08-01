@@ -1907,7 +1907,7 @@ export const mockProducts = [
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
     images: [
-      "/assets/images/logo.jpg",
+      "/assets/images/product_hoody_1.png",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
     ],
@@ -1978,7 +1978,7 @@ export const mockProducts = [
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
     images: [
-      "/assets/images/logo.jpg",
+      "/assets/images/product_jersey_logo_white_1.png",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
@@ -2064,7 +2064,7 @@ export const mockProducts = [
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
     images: [
-      "/assets/images/logo.jpg",
+      "/assets/images/product_jersey_black_1.png",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
@@ -2366,7 +2366,7 @@ export const mockProducts = [
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
     images: [
-      "/assets/images/logo.jpg",
+      "/assets/images/product_jersey_red_1.png",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",

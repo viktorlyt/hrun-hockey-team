@@ -113,7 +113,7 @@ const Shop = () => {
       <div className="product-section">
         <div className="product-category-filter">
           {categories.map((c) => (
-            <li
+            <h3
               key={c}
               onClick={() => handleFilterChange("category", c)}
               className={`category ${c} ${
@@ -129,11 +129,11 @@ const Shop = () => {
                   (searchParams.getAll("category").includes("Girls") ||
                     searchParams.getAll("category").includes("Boys")))
                   ? "selected"
-                  : ""
+                  : "b1"
               }`}
             >
               {c}
-            </li>
+            </h3>
           ))}
         </div>
 
@@ -144,7 +144,7 @@ const Shop = () => {
                 key={t}
                 type="button"
                 onClick={() => handleFilterChange("type", t)}
-                className={`type ${t} ${
+                className={`b2 btn-ocean type ${t} ${
                   searchParams.getAll("type").includes(t) ? "selected" : ""
                 }`}
               >
@@ -157,7 +157,7 @@ const Shop = () => {
                 onClick={() => {
                   setSearchParams({});
                 }}
-                className="clear-filters"
+                className="b2 clear-filters"
               >
                 Clear filters
               </button>

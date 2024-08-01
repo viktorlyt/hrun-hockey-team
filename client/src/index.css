@@ -180,6 +180,16 @@ h6 {
   color: var(--text-color-secondary);
 }
 
+.b1,
+.b2,
+.b3,
+.b4,
+.b5,
+.b6 {
+  font-family: "Roboto", sans-serif;
+  /* color: var(--text-color); */
+}
+
 .b1 {
   font-size: var(--b1-font-size);
   font-weight: 400;
