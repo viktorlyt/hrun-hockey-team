@@ -27,9 +27,6 @@ const Wrapper = styled.div`
   }
 
   .b2 {
-    font-family: "Inter";
-    font-size: 18px;
-    line-height: 22px;
     text-align: justify;
   }
 

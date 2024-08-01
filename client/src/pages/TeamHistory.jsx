@@ -28,10 +28,10 @@ const TeamHistory = () => {
 
   return (
     <Wrapper>
-      <h1 className="page-title">Our Team History</h1>
       <div className="history-container">
         <div className="text">
-          <p className="first larger-font">
+          <h1 className="page-title">Our Team History</h1>
+          <p className="first b1">
             Founded in [Year], [Your Team's Name] has grown from humble
             beginnings into a formidable force in the hockey world. Our journey
             started when a group of passionate hockey enthusiasts came together
@@ -40,7 +40,7 @@ const TeamHistory = () => {
           </p>
           <div className="second">
             <h2>Early Years</h2>
-            <p className="larger-font">
+            <p className="b1">
               In the early years, our team faced many challenges, from securing
               funding to finding a permanent home rink. Despite these obstacles,
               our players' passion and perseverance paid off. Through hard work
@@ -50,9 +50,17 @@ const TeamHistory = () => {
             </p>
           </div>
         </div>
-        <img src="/assets/images/history_summary.png" alt="Team Image" />
+        <img src="/assets/images/team_history.png" alt="Team Image" />
       </div>
       <h2>Achievements and Milestones</h2>
+      <div className="milestones-desc">
+        <p className="b1">
+          Our history is marked by numerous milestones and achievements. From
+          winning our first championship in [Year] to establishing a renowned
+          youth development program, each success has been a testament to our
+          team's hard work and unity. Highlights include:
+        </p>
+      </div>
       <div className="milestones-container">
         {milestones.map((m) => (
           <MilestoneCard
@@ -67,7 +75,7 @@ const TeamHistory = () => {
         <div className="about">
           <div className="text">
             <h1>Join Us</h1>
-            <p className="larger-font">
+            <p className="b1">
               Whether you’re a die-hard fan, a curious newcomer, or a potential
               player, we invite you to join the Castors family. Follow our
               journey, support our games, and share in the excitement of hockey
@@ -75,7 +83,7 @@ const TeamHistory = () => {
               schedules, player updates, and more. Together, we are unstoppable.
             </p>
           </div>
-          <button className="button selected contact-us">
+          <button className="button selected long contact-us">
             <HashLink smooth to="/#contact-us-section">
               Contact Us
             </HashLink>

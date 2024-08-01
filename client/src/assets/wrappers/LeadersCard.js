@@ -135,8 +135,8 @@ const Wrapper = styled.div`
       li:hover,
       li:active,
       li.selected {
-        background-color: var(--text-color-blue);
-        color: var(--bg-color);
+        background-color: var(--ocean);
+        /* color: var(--bg-color); */
         border: none;
       }
     }

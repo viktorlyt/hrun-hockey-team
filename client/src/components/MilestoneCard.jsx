@@ -6,7 +6,7 @@ const MilestoneCard = ({ title, desc, img }) => {
     <Wrapper>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <p>{desc}</p>
+      <p className="b2">{desc}</p>
     </Wrapper>
   );
 };

@@ -47,8 +47,6 @@ const Wrapper = styled.header`
   nav a:hover,
   nav a.active-link {
     font-weight: bold;
-    font-family: "Inter";
-    font-size: 18pt;
   }
 
   nav a:hover::after,

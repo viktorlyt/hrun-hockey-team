@@ -371,10 +371,6 @@ const Wrapper = styled.div`
     .form-row {
       margin-top: 1rem;
     }
-
-    .checkbox-lbl {
-      /* font-size: 0.7rem; */
-    }
   }
 
   @media (max-width: 620px) {
