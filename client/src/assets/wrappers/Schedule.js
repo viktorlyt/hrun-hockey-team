@@ -221,6 +221,10 @@ const Wrapper = styled.div`
   @media (max-width: 540px) {
     padding: 0 1rem;
 
+    .calendar-header-container {
+      padding: 0;
+    }
+
     .calendar-grid {
       gap: 0.5rem;
     }
