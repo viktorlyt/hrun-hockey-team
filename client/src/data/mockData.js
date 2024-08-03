@@ -1675,7 +1675,7 @@ export const mockGames = [
     team2: "Los Angeles",
     team1Logo: "/assets/images/league_logo_bb.png",
     team2Logo: "/assets/images/league_logo_kings.png",
-    datetime: "2024-08-02T19:00:00-03:00",
+    datetime: "2024-08-01T19:00:00-03:00",
   },
   {
     gameId: 11,
@@ -1683,7 +1683,7 @@ export const mockGames = [
     team2: "Los Angeles",
     team1Logo: "/assets/images/league_logo_fl.png",
     team2Logo: "/assets/images/league_logo_tl.png",
-    datetime: "2024-08-10T07:00:00-03:00",
+    datetime: "2024-08-07T07:00:00-03:00",
   },
   {
     gameId: 12,
@@ -1691,7 +1691,7 @@ export const mockGames = [
     team2: "Los Angeles",
     team1Logo: "/assets/images/league_logo_2.png",
     team2Logo: "/assets/images/league_logo_1.png",
-    datetime: "2024-08-15T13:00:00-03:00",
+    datetime: "2024-08-12T13:00:00-03:00",
   },
   {
     gameId: 13,
@@ -1699,7 +1699,7 @@ export const mockGames = [
     team2: "Los Angeles",
     team1Logo: "/assets/images/league_logo_fl.png",
     team2Logo: "/assets/images/league_logo_tl.png",
-    datetime: "2024-08-24T11:00:00-03:00",
+    datetime: "2024-08-21T11:00:00-03:00",
   },
   {
     gameId: 14,
@@ -1707,7 +1707,7 @@ export const mockGames = [
     team2: "Los Angeles",
     team1Logo: "/assets/images/league_logo_3.png",
     team2Logo: "/assets/images/league_logo_4.png",
-    datetime: "2024-08-29T19:00:00-03:00",
+    datetime: "2024-08-26T19:00:00-03:00",
   },
 ];
 

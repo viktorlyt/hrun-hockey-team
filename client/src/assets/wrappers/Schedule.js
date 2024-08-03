@@ -161,6 +161,10 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1600px) {
+    .month-selected {
+      margin-bottom: 1rem;
+    }
+
     .weekday-header {
       display: none;
     }
@@ -202,6 +206,10 @@ const Wrapper = styled.div`
     }
   }
 
+  @media (max-width: 992px) {
+    padding: 0 2rem;
+  }
+
   @media (max-width: 768px) {
     .calendar-grid,
     .weekday-header {
@@ -212,19 +220,27 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (max-width: 510px) {
-    .calendar-grid,
+  @media (max-width: 540px) {
+    padding: 0 1rem;
+
+    /* .calendar-grid,
     .weekday-header {
       grid-template-columns: 1fr;
     }
     .weekday-name:nth-child(n + 2) {
       display: none;
-    }
+    } */
 
     .calendar-footer-container {
       padding-left: 0.5rem;
-      font-size: 0.85rem;
       justify-content: center;
+    }
+
+    .left,
+    .right {
+      /* height: min-content; */
+      /* height: 3rem; */
+      width: fit-content;
     }
   }
 `;
