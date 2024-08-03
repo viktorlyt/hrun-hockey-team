@@ -114,8 +114,21 @@ const Wrapper = styled.div`
 
   @media (max-width: 510px) {
     .calendar-day {
-      height: 170px;
-      margin: 0 1rem 0 auto;
+      max-height: 170px;
+      /* padding: 0.5rem 0.8rem; */
+    }
+
+    .team-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .day-info {
+      margin-bottom: unset;
+    }
+
+    .game {
+      gap: 0;
     }
   }
 `;

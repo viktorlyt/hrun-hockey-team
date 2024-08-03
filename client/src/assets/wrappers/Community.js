@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  padding: 0 4rem;
+
   h1 {
     text-align: start;
     margin-top: 3rem;

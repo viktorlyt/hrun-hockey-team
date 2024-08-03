@@ -112,6 +112,7 @@ const Schedule = () => {
             showMonthYearPicker
             minDate={earliestDate}
             maxDate={latestDate}
+            className="b2"
           />
           <MdKeyboardArrowRight
             className={`arrow ${isNextMonthDisabled ? "disabled" : ""}`}

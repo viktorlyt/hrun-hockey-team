@@ -62,8 +62,6 @@ const Wrapper = styled.div`
     background-color: transparent;
     border: none;
     color: var(--text-secondary-color);
-    font-size: 1.2rem;
-    font-weight: bold;
     text-align: center;
     cursor: pointer;
   }
@@ -98,7 +96,7 @@ const Wrapper = styled.div`
   }
 
   .react-datepicker__day:hover {
-    /* background-color: var(--primary-500); */
+    /* background-color: var(--primary); */
   }
 
   .react-datepicker__day--selected {
@@ -223,13 +221,9 @@ const Wrapper = styled.div`
   @media (max-width: 540px) {
     padding: 0 1rem;
 
-    /* .calendar-grid,
-    .weekday-header {
-      grid-template-columns: 1fr;
+    .calendar-grid {
+      gap: 0.5rem;
     }
-    .weekday-name:nth-child(n + 2) {
-      display: none;
-    } */
 
     .calendar-footer-container {
       padding-left: 0.5rem;
