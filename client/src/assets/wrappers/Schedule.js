@@ -1,20 +1,31 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  padding: 0 4rem;
+
   .calendar-container {
-    padding: 2rem;
+    /* padding: 2rem; */
   }
 
   .calendar-header-container {
     width: fit-content;
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem;
     margin-bottom: 2rem;
-    border-radius: 3rem;
-    color: var(--text-secondary-color);
-    background-color: var(--text-color-transparent);
+    border-radius: 1rem;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+  }
+
+  .calendar-header-container,
+  .left,
+  .right {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
   }
 
   .calendar-footer-container {
@@ -30,14 +41,11 @@ const Wrapper = styled.div`
   .right {
     /* height: min-content; */
     height: 3rem;
-    width: 8rem;
+    width: 12rem;
     display: flex;
     justify-content: left;
     align-items: center;
     padding: 0 1rem;
-    border-radius: 3rem;
-    color: var(--text-secondary-color);
-    background-color: var(--text-color-transparent);
     cursor: pointer;
 
     &.disabled {
@@ -130,6 +138,10 @@ const Wrapper = styled.div`
     }
   }
 
+  .month-selected {
+    margin-bottom: 0;
+  }
+
   .weekday-header {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -139,7 +151,6 @@ const Wrapper = styled.div`
 
   .weekday-name {
     text-align: center;
-    font-weight: bold;
     color: var(--text-color);
   }
 

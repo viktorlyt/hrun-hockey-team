@@ -18,7 +18,7 @@ const CalendarDay = ({ day, currentDate, games }) => {
         } ${dayGames.length > 0 ? "has-game" : ""}`}
       >
         <div className="day-info">
-          <span className="day-number">{format(day, "d")}</span>
+          <span className="b3 day-number">{format(day, "d")}</span>
           <span className="weekday-label">{format(day, "EEE")}</span>
         </div>
         {dayGames.map((game) => (
@@ -28,7 +28,7 @@ const CalendarDay = ({ day, currentDate, games }) => {
             className="game-link"
           >
             <div className="game">
-              <div className="game-teams-logo">
+              <div className="b3 game-teams-logo">
                 <img
                   src={game.team1Logo}
                   alt={game.team1}
@@ -41,10 +41,10 @@ const CalendarDay = ({ day, currentDate, games }) => {
                   className="team-logo"
                 />
               </div>
-              <div className="game-teams-names">
+              <div className="b4 game-teams-names">
                 {game.team1} @ {game.team2}
               </div>
-              <div className="game-time">
+              <div className="b3 game-time">
                 {format(new Date(game.datetime), "hh:mm a")}
               </div>
             </div>

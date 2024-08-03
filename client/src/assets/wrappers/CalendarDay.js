@@ -3,34 +3,34 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   .calendar-day {
     aspect-ratio: 1/1;
-    background-color: var(--background-secondary-color);
+    background-color: var(--bg-color-blue);
     border-radius: var(--border-radius);
     padding: 1rem;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease-in-out;
-    box-shadow: var(--shadow-1);
     overflow: hidden;
     position: relative;
 
     &:hover {
-      box-shadow: var(--shadow-3);
+      box-shadow: var(--shadow);
     }
 
     &.has-game {
-      background-color: var(--blue);
-      color: white;
+      background-color: var(--green-blue);
 
       &:hover {
-        background-color: var(--primary-500);
+        background-color: var(--red-light);
       }
 
-      .day-number {
-        color: white;
+      .day-number,
+      .game-teams-names {
+        color: var(--black-60);
       }
 
-      .game-time {
-        color: white;
+      .game-time,
+      .game-teams-logo {
+        color: #000;
       }
     }
   }
@@ -47,12 +47,13 @@ const Wrapper = styled.div`
   }
 
   .next-month {
-    opacity: 0.5;
+    /* opacity: 0.5; */
+    .day-number {
+      color: transparent;
+    }
   }
 
   .day-number {
-    font-weight: bold;
-    color: var(--text-color);
     position: absolute;
     top: 1rem;
     left: 1.5rem;
@@ -71,7 +72,6 @@ const Wrapper = styled.div`
 
   .game {
     transition: all 0.3s ease-in-out;
-    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,21 +87,17 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-around;
     gap: 1rem;
-    font-weight: bold;
-    font-size: 0.9rem;
   }
 
   .team-logo {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: white;
+    width: 60px;
+    height: 60px;
+    /* border-radius: 50%; */
+    object-fit: contain;
+    background-color: transparent;
   }
 
   .game-time {
-    font-size: 0.8rem;
-    color: var(--text-color);
     text-align: center;
     margin-top: 0.25rem;
   }

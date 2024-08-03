@@ -107,6 +107,7 @@
 .site-wrapper.light {
   --bg-color: #fff;
   --bg-color-secondary: var(--blue-light);
+  --bg-color-blue: var(--blue-light);
   --bg-color-dark: var(--green-blue);
   --bg-color-ocean: var(--ocean-light);
   --bg-color-g-o: var(--black-20);
@@ -131,6 +132,7 @@
 .site-wrapper.dark {
   --bg-color: var(--blue-dark);
   --bg-color-secondary: var(--blue-dark);
+  --bg-color-blue: var(--ocean-dark);
   --bg-color-dark: var(--blue-dark);
   --bg-color-ocean: var(--ocean-dark);
   --bg-color-g-o: var(--ocean-dark);

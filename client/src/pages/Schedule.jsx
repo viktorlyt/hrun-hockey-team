@@ -98,6 +98,7 @@ const Schedule = () => {
 
   return (
     <Wrapper>
+      <h1>Schedule</h1>
       <div className="calendar-container">
         <div className="calendar-header-container">
           <MdKeyboardArrowLeft
@@ -117,11 +118,12 @@ const Schedule = () => {
             onClick={handleNextMonth}
           />
         </div>
+        <h2 className="month-selected">{format(currentDate, "MMMM")}</h2>
         <div className="weekday-header">
           {weekDays.map((day, index) => (
-            <div key={index} className="weekday-name">
+            <h5 key={index} className="weekday-name">
               {day}
-            </div>
+            </h5>
           ))}
         </div>
         <div className="calendar-grid">
@@ -134,23 +136,23 @@ const Schedule = () => {
             />
           ))}
         </div>
-        <div className="calendar-footer-container">
+        <div className="b2 calendar-footer-container">
           <div
             className={`left ${isPrevMonthDisabled ? "disabled" : ""}`}
             onClick={handlePrevMonth}
           >
             <MdKeyboardArrowLeft className="arrow" />
-            <h4 className="calendar-footer">
+            <span className="calendar-footer">
               {format(addMonths(currentDate, -1), "MMM yyyy")}
-            </h4>
+            </span>
           </div>
           <div
             className={`right ${isNextMonthDisabled ? "disabled" : ""}`}
             onClick={handleNextMonth}
           >
-            <h4 className="calendar-footer">
+            <span className="calendar-footer">
               {format(addMonths(currentDate, 1), "MMM yyyy")}
-            </h4>
+            </span>
             <MdKeyboardArrowRight className="arrow" />
           </div>
         </div>
