@@ -4,97 +4,104 @@ const Wrapper = styled.div`
   padding: 0 4rem;
 
   h1 {
-    text-align: start;
     margin-top: 3rem;
-    font-size: 2.5rem;
-  }
-
-  .larger-font {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
+    margin-bottom: 1rem;
   }
 
   img {
     border-radius: 10px;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .community-container {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: stretch;
     padding: 0;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    width: 100%;
-  }
+    margin-bottom: 6rem;
 
-  .community-container .larger-font {
-    width: 45%;
-  }
+    .b1 {
+      width: 50%;
+    }
 
-  .community-images {
-    display: flex;
-    justify-content: space-between;
-    gap: 4%;
-  }
+    .community-images {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
 
-  .community-images img {
-    width: 48%;
-    aspect-ratio: 16 / 9;
+      img {
+        width: calc(50% - 1rem);
+        max-width: 100%;
+        height: auto;
+        /* object-fit: cover; */
+      }
+    }
   }
 
   .donations-container {
     display: flex;
     justify-content: space-between;
-    gap: 4%;
+    gap: 2rem;
+
+    .about {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-between;
+
+      h1 {
+        margin: 0;
+      }
+
+      .download {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+
+    .image-container {
+      flex: 1;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 
-  .donations-container .about {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  @media (max-width: 1450px) {
+    .community-container {
+      .community-images {
+        justify-content: center;
 
-  .donations-container .image-container {
-    flex: 1;
-  }
-
-  .donations-container .image-container img {
-    width: 100%;
-  }
-
-  .download {
-    display: inline-block;
-    padding: 1rem 2rem;
-    text-align: left;
-    margin-top: 1rem;
-    margin-left: 0;
-    margin-right: auto;
+        img {
+          width: calc(50% - 1rem);
+        }
+      }
+    }
   }
 
   @media (max-width: 1024px) {
-    margin: 2rem 1rem;
+    padding: 0 2rem;
 
-    h1 {
-      font-size: 2rem;
-    }
+    .community-container {
+      margin-bottom: 3rem;
 
-    .larger-font {
-      font-size: 1.2rem;
-    }
+      .b1 {
+        width: 100%;
+      }
+      .community-images {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
 
-    .community-container .larger-font {
-      width: 100%;
-    }
-
-    .community-images {
-      flex-direction: column;
-      gap: 2rem;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
 
     .community-images img {
@@ -103,20 +110,19 @@ const Wrapper = styled.div`
 
     .donations-container {
       flex-direction: column;
-      gap: 2rem;
+      .b1 {
+        text-align: justify;
+      }
+    }
+
+    .donations-container .about h4 {
+      margin: 0;
+      margin-bottom: 1rem;
     }
   }
 
-  @media (max-width: 768px) {
-    margin: 1rem;
-
-    h1 {
-      font-size: 1.8rem;
-    }
-
-    .larger-font {
-      font-size: 1rem;
-    }
+  @media (max-width: 510px) {
+    padding: 0 1rem;
   }
 `;
 
