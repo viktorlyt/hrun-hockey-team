@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   border-radius: 2rem;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--ocean-dark);
   padding-bottom: 1rem;
 
   img {
     width: 100%;
     height: 40vh;
     object-fit: cover;
-    border-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
     margin-bottom: 0.5rem;
   }
 
@@ -18,22 +19,29 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 10% 1rem 10%;
   }
 
-  h3 {
+  h3,
+  h4,
+  p {
+    margin: 0;
   }
 
   h4 {
+    color: var(--black-40);
+    margin: 1rem 0;
   }
 
   .desc {
-    width: 70%;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
   .registration {
+    width: 100%;
     display: inline-block;
     margin: 0;
-    width: 70%;
   }
 
   @media (max-width: 768px) {

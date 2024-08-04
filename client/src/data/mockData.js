@@ -1502,7 +1502,7 @@ export const mockGroups = [
     minAge: 6,
     maxAge: 8,
     decription: "This group has schedule 2 times a week. for 2 hours.",
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/groups_juniors.png",
     startDate: "2024-06-25",
     endDate: "2024-09-05",
     schedule: [
@@ -1524,7 +1524,7 @@ export const mockGroups = [
     minAge: 6,
     maxAge: 8,
     decription: "This group has schedule 2 times a week. for 2 hours.",
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/groups_jaguars.png",
     startDate: "2024-06-25",
     endDate: "2024-09-05",
     schedule: [
@@ -1546,7 +1546,7 @@ export const mockGroups = [
     minAge: 10,
     maxAge: 12,
     decription: "This group has schedule 3 times a week. for 2 hours.",
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/groups_lions.png",
     startDate: "2024-06-25",
     endDate: "2024-09-05",
     schedule: [
@@ -1573,7 +1573,7 @@ export const mockGroups = [
     minAge: 12,
     maxAge: 14,
     decription: "This group has schedule 3 times a week. for 2 hours.",
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/groups_teens.png",
     startDate: "2024-06-25",
     endDate: "2024-09-05",
     schedule: [

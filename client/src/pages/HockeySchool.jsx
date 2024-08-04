@@ -36,16 +36,29 @@ const HockeySchool = () => {
     if (schedule) {
       const startTime = formatTime(schedule.startTime);
       const endTime = formatTime(schedule.endTime);
-      return `${startTime} - ${endTime}`;
+      return `${formatTimeWithoutZeroMinutes(
+        startTime
+      )} - ${formatTimeWithoutZeroMinutes(endTime)}`;
     }
     return "-";
+  };
+
+  const formatTimeWithoutZeroMinutes = (time) => {
+    const [timePart, period] = time.split(" ");
+    const [hours, minutes] = timePart.split(":");
+
+    if (minutes === "00") {
+      return `${hours} ${period}`;
+    }
+
+    return time;
   };
 
   return (
     <Wrapper>
       <h1>Welcome to our Castors Hockey school</h1>
       <div className="content-container">
-        <p className="larger-font">
+        <p className="b1">
           We're thrilled to have you here! Whether you're a die-hard fan, a new
           supporter, or a curious visitor, our team welcomes you with open arms.
           We invite you to join us in the excitement, passion, and camaraderie
@@ -67,7 +80,7 @@ const HockeySchool = () => {
       </div>
       <h1>Stay Updated with Our Schedule</h1>
       <div className="content-container">
-        <p className="larger-font">
+        <p className="b1">
           Our team is committed to excellence both on and off the ice. Be sure
           to check out our schedule to stay informed about upcoming games,
           practice sessions, and special events. You won't want to miss a single
@@ -76,19 +89,25 @@ const HockeySchool = () => {
         <div className="table-container">
           <table className="schedule-table">
             <thead>
-              <tr>
-                <th>Group/Day</th>
+              <tr className="">
+                <th>
+                  <h5 className="group-day-header">Group/Day</h5>
+                </th>
                 {weekdays.map((day) => (
-                  <th key={day}>{day}</th>
+                  <th key={day}>
+                    <h5>{day}</h5>
+                  </th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {groups.map((group) => (
                 <tr key={group.groupId}>
-                  <td>{group.name}</td>
+                  <td>
+                    <h4 className="group-name-header">{`${group.name} (${group.minAge} - ${group.maxAge} years)`}</h4>
+                  </td>
                   {weekdays.map((day) => (
-                    <td key={`${group.groupId}-${day}`}>
+                    <td key={`${group.groupId}-${day}`} className="b2">
                       {getTrainingTime(group, day)}
                     </td>
                   ))}

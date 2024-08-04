@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  padding: 0 4rem;
+
   h1,
   p {
     width: 50%;
@@ -9,38 +11,17 @@ const Wrapper = styled.div`
   h1 {
     text-align: start;
     margin-top: 3rem;
-    /* font-size: 2.5rem; */
   }
-
-  .larger-font {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
-  }
-
-  /* .groups {
-    display: flex;
-    justify-content: start;
-    align-items: stretch;
-    padding: 0;
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    width: 100%;
-  } */
 
   .groups {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-content: space-around;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
     gap: 2rem;
     margin-top: 2rem;
     margin-bottom: 4rem;
     width: 100%;
   }
-
-  /* .content-container .larger-font {
-    width: 45%;
-  } */
 
   .groups-images {
     display: flex;
@@ -62,7 +43,7 @@ const Wrapper = styled.div`
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
-    background-color: var(--text-color-transparent-secondary);
+    background-color: var(--blue-light);
     border-radius: 1rem;
     width: fit-content;
   }
@@ -74,8 +55,16 @@ const Wrapper = styled.div`
     text-align: center;
   }
 
-  .schedule-table th {
+  .schedule-table td {
+    color: var(--text-color-secondary);
+  }
+
+  .group-day-header {
     color: var(--text-color);
+  }
+
+  .group-name-header {
+    margin: 0;
   }
 
   @media (max-width: 1600px) {
@@ -87,8 +76,7 @@ const Wrapper = styled.div`
 
   @media (max-width: 1400px) {
     .groups {
-      /* gap: 1.5rem; */
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
 
     h1,
@@ -98,29 +86,21 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1200px) {
+    padding: 0 2rem;
+
     h1 {
-      font-size: 1.8rem;
-      margin-top: 1rem;
-    }
-
-    .larger-font {
-      font-size: 1rem;
-    }
-
-    .groups {
-      gap: 1rem;
-      grid-template-columns: repeat(2, 1fr);
+      margin-top: 2rem;
     }
   }
 
   @media (max-width: 1024px) {
-    .schedule-table {
-      font-size: 0.9rem;
-    }
-
     .schedule-table th,
     .schedule-table td {
       padding: 0.5rem;
+    }
+
+    .groups {
+      gap: 1rem;
     }
 
     h1,
@@ -130,14 +110,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 1.5rem;
-      margin-top: 0;
-    }
-
-    .larger-font {
-      font-size: 0.9rem;
-    }
+    padding: 0 1rem;
 
     .schedule-table {
       font-size: 0.8rem;
@@ -152,10 +125,6 @@ const Wrapper = styled.div`
   @media (max-width: 600px) {
     .groups {
       grid-template-columns: repeat(1, 1fr);
-    }
-
-    .schedule-table {
-      font-size: 0.7rem;
     }
 
     .schedule-table td {

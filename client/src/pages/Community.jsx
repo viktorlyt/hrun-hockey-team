@@ -32,7 +32,7 @@ const Community = () => {
           <h4 className="capitalize-all">
             PLEASE CLICK HERE TO DOWNLOAD YOUR DONATIONS REQUEST FORM
           </h4>
-          <button className="long selected download">
+          <button className="b2 long selected download">
             <a
               href="/assets/documents/donation_request_form.pdf"
               download="Donation_Request_Form.pdf"
