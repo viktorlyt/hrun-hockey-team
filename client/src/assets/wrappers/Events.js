@@ -1,20 +1,16 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  h1,
+  padding: 0 4rem;
+
+  /* h1,
   p {
     width: 50%;
-  }
+  } */
 
   h1 {
     text-align: start;
     margin-top: 3rem;
-    /* font-size: 2.5rem; */
-  }
-
-  .larger-font {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
   }
 
   .events {
@@ -27,33 +23,9 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
-  @media (max-width: 1600px) {
-    .events {
-      gap: 1.5rem;
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  @media (max-width: 1400px) {
-    .events {
-      /* gap: 1.5rem; */
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    h1,
-    p {
-      width: 70%;
-    }
-  }
-
   @media (max-width: 1200px) {
     h1 {
-      font-size: 1.8rem;
-      margin-top: 1rem;
-    }
-
-    .larger-font {
-      font-size: 1rem;
+      margin-top: 2rem;
     }
 
     .events {
@@ -63,6 +35,8 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 1024px) {
+    padding: 0 2rem;
+
     h1,
     p {
       width: 90%;
@@ -70,14 +44,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 1.5rem;
-      margin-top: 0;
-    }
-
-    .larger-font {
-      font-size: 0.9rem;
-    }
+    padding: 0 1rem;
   }
 
   @media (max-width: 600px) {

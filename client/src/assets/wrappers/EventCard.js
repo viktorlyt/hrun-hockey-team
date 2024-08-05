@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  border-radius: 2rem;
-  border: 1px solid var(--text-color-transparent-secondary);
-  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 
   img {
     width: 100%;
-    height: 40vh;
+    height: auto;
     object-fit: cover;
-    border-radius: 2rem;
-    margin-bottom: 0.5rem;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+    display: block; // removes space below the image
   }
 
   .info {
@@ -18,19 +18,25 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 0.5rem;
     gap: 1rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom: 1px solid var(--ocean-dark);
+    border-left: 1px solid var(--ocean-dark);
+    border-right: 1px solid var(--ocean-dark);
+    padding: 1rem;
   }
 
   h3,
   p {
     margin: 0;
     padding: 0;
+    width: 100%;
     text-align: center;
   }
 
-  .price {
-    font-size: 0.9rem;
+  .date-location {
+    color: var(--text-color-blue);
   }
 
   .buy-passes {

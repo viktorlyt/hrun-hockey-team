@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
-    background-color: var(--blue-light);
+    background-color: var(--bg-color-blue);
     border-radius: 1rem;
     width: fit-content;
   }

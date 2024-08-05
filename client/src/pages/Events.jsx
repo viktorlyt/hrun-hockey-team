@@ -20,9 +20,9 @@ const Events = () => {
     const end = parseDate(endDate);
 
     if (start.getMonth() === end.getMonth()) {
-      return `${format(start, "MMMM d")}-${format(end, "d")}`;
+      return `${format(start, "MMMM d")} - ${format(end, "d")}`;
     } else {
-      return `${format(start, "MMMM d")}-${format(end, "MMMM d")}`;
+      return `${format(start, "MMMM d")} - ${format(end, "MMMM d")}`;
     }
   };
 
