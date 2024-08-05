@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.footer`
-  background-color: var(--bg-color-ocean);
+  background-color: var(--bg-color-ocean-og);
   padding: 2rem 4rem;
   margin-top: 2rem;
   width: 100%;
@@ -42,7 +42,7 @@ const Wrapper = styled.footer`
     flex-direction: row;
     justify-content: space-between;
     padding-right: 3rem;
-    color: var(--text-color-ocean-green);
+    color: var(--ocean-dark);
   }
 
   .footer-socials a {

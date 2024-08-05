@@ -44,6 +44,7 @@ const Wrapper = styled.div`
   }
 
   .upcoming-match {
+    background-color: var(--bg-color-w-gb);
     box-shadow: var(--shadow);
     border: 0.5px solid var(--black-10);
     border-radius: 5px;
@@ -57,6 +58,7 @@ const Wrapper = styled.div`
   .upcoming-match h4 {
     margin: 0;
     margin-bottom: 0.7rem;
+    color: #000;
   }
 
   .upcoming-match .b4 {
@@ -88,7 +90,7 @@ const Wrapper = styled.div`
   }
 
   .time-left.right-border {
-    border-right: 1px solid var(--text-color-secondary);
+    border-right: 1px solid #000;
   }
 
   .update-cards {
@@ -108,7 +110,7 @@ const Wrapper = styled.div`
 
   .form-section {
     margin-bottom: 2rem;
-    background-color: var(--blue-light);
+    background-color: var(--bg-color-blue-gb);
     border: 1px solid var(--ocean);
     border-radius: 10px;
     overflow: hidden;
@@ -127,6 +129,10 @@ const Wrapper = styled.div`
 
   .form-info .content {
     width: 82%;
+    .get-in-touch-message,
+    .address {
+      color: var(--black-60);
+    }
   }
 
   .form-info .section-title {

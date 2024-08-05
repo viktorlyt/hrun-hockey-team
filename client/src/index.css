@@ -10,10 +10,11 @@
 
   /* secondary */
   --blue-dark: #183038;
-  --ocean-dark: #3a7f8f;
   --ocean-dark-transperent: rgb(58, 127, 143, 0.2);
   --ocean: #6eb5c2;
   --ocean-light: #cde5ea;
+  --ocean-dark: #3a7f8f;
+  --ocean-dark-green: #284a52;
   --green-blue: #cee7e9;
   --blue-light: #f4f9fb;
   --blue-light-transperent: rgba(244, 249, 251, 0.3);
@@ -107,9 +108,13 @@
 .site-wrapper.light {
   --bg-color: #fff;
   --bg-color-secondary: var(--blue-light);
-  --bg-color-blue: var(--blue-light);
-  --bg-color-dark: var(--green-blue);
   --bg-color-ocean: var(--ocean-light);
+  --bg-color-ocean-og: var(--ocean-light);
+  --bg-color-blue: var(--blue-light);
+  --bg-color-blue-gb: var(--blue-light);
+  --bg-color-card: #000;
+  --bg-color-dark: var(--green-blue);
+  --bg-color-w-gb: #fff;
   --bg-color-g-o: var(--black-20);
   --bg-color-o-b: var(--ocean-light);
   --text-color-light: var(--black-40);
@@ -120,6 +125,9 @@
   --text-color-transparent: var(--semi-transparent-brown-3);
   --text-color-transparent-secondary: var(--semi-transparent-black-2);
   --text-color-blue: var(--ocean-dark);
+  --text-color-black-gb: #000;
+  --text-color-grey-o: var(--black-60);
+  --text-color-o-gb: var(--ocean-dark);
   --text-color-o-b10: var(--ocean-dark);
   --text-color-o-b40: var(--ocean-dark);
   --text-color-ocean-green: var(--ocean-dark);
@@ -132,18 +140,25 @@
 .site-wrapper.dark {
   --bg-color: var(--blue-dark);
   --bg-color-secondary: var(--blue-dark);
-  --bg-color-blue: var(--ocean-dark);
-  --bg-color-dark: var(--blue-dark);
   --bg-color-ocean: var(--ocean-dark);
+  --bg-color-ocean-og: var(--ocean-dark-green);
+  --bg-color-blue: var(--ocean-dark);
+  --bg-color-blue-gb: var(--green-blue);
+  --bg-color-card: var(--blue-light);
+  --bg-color-dark: var(--blue-dark);
+  --bg-color-w-gb: var(--green-blue);
   --bg-color-g-o: var(--ocean-dark);
   --bg-color-o-b: var(--blue-dark);
-  --text-color-light: var(--black-40);
-  --text-color: var(--black-40);
+  --text-color-light: var(--black-60);
+  --text-color: var(--green-blue);
   --text-color-secondary: var(--black-10);
   --text-color-transparent: var(--semi-transparent-white-6);
   --bg-color-transparent: var(--semi-transparent-black-7);
   --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-blue: var(--ocean-light);
+  --text-color-black-gb: var(--green-blue);
+  --text-color-grey-o: var(--ocean);
+  --text-color-o-gb: var(--green-blue);
   --text-color-o-b10: var(--black-10);
   --text-color-o-b40: var(--black-40);
   --text-color-ocean-green: var(--green-blue);

@@ -13,7 +13,8 @@ const Wrapper = styled.header`
   padding: 1rem 3rem;
   background-color: ${(props) =>
     props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
-  color: var(--text-color-o-b10);
+  color: ${(props) =>
+    props.isHomePage ? "var(--text-color-o-gb)" : "var(--text-color-black-gb)"};
   box-sizing: border-box;
   max-width: 100%;
 

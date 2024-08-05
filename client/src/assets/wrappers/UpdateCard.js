@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled(Link)`
-  background-color: var(--blue-light);
+  background-color: var(--bg-color-secondary);
   border: 1px solid var(--ocean);
   border-radius: 20px;
   padding: 1rem 7rem;
@@ -30,8 +30,11 @@ const Wrapper = styled(Link)`
 
   h3,
   h4 {
-    color: #000;
     text-align: center;
+  }
+
+  .b3 {
+    color: var(--text-color-grey-o);
   }
 
   .update-results {
