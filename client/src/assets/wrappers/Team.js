@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   }
 
   .join-container {
-    margin-top: 2rem;
+    margin-top: 5rem;
     align-items: flex-start;
 
     h1 {

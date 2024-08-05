@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   }
 
   .b1 {
-    color: var(--text-color-blue);
+    color: var(--text-color-ocean);
     height: 50pt;
     text-align: center;
   }

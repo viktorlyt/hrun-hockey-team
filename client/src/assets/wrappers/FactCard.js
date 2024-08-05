@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   justify-content: start;
   align-items: start;
   padding: 0 1.5rem;
-  background-color: var(--blue-light);
+  background-color: var(--bg-color-secondary);
   border: 1px solid var(--ocean);
   border-radius: 15px;
   box-sizing: border-box;
@@ -19,11 +19,6 @@ const Wrapper = styled.div`
 
   h4 {
     margin: 0;
-    color: #000;
-  }
-
-  .b2 {
-    color: var(--black-60);
   }
 
   @media (max-width: 768px) {

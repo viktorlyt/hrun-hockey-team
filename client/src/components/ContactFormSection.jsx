@@ -30,7 +30,6 @@ const ContactFormSection = () => {
           <div className="form-info">
             <div className="content">
               <h1 className="section-title">How can we help you today?</h1>
-              {/* <h2 className="section-title">Get in touch</h2> */}
               <p className="get-in-touch-message b1">
                 {/* We value your feedback, questions, and inquiries. Whether you
                 have a suggestion, require assistance, or just want to reach out
