@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Wrapper from "../assets/wrappers/TeamHistory.js";
 import MilestoneCard from "../components/MilestoneCard.jsx";
+import Breadcrumb from "../components/Breadcrumb";
 import { mockMilestones } from "../data/mockData.js";
 
 const useMockData = true;
@@ -25,9 +26,14 @@ export const loader = async ({ request }) => {
 const TeamHistory = () => {
   const { data } = useLoaderData();
   const milestones = data.milestones || [];
+  const breadcrumbLinks = [
+    { address: "team", linkText: "Team" },
+    { address: "", linkText: `History` },
+  ];
 
   return (
     <Wrapper>
+      <Breadcrumb links={breadcrumbLinks} />
       <div className="history-container">
         <div className="text">
           <h1 className="page-title">Our Team History</h1>

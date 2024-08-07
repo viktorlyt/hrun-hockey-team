@@ -115,9 +115,16 @@
   --bg-color-o-b: var(--ocean-light);
   --bg-color-dark: var(--green-blue);
   --bg-color-w-gb: #fff;
+  --bg-color-b10-od: var(--black-10);
   --bg-color-g-o: var(--black-20);
+  --bg-color-g-od: var(--black-20);
+  --bg-color-g-gb: var(--black-20);
   --text-color-light: var(--black-40);
+  --text-color-b40-gb: var(--black-40);
   --text-color: var(--black-60);
+  --b60-bl: var(--black-60);
+  --b60-od: var(--black-60);
+  --b60-black: var(--black-60);
   --bg-color-card: #000;
   --text-color-secondary: #000;
   --text-color-black-gb: #000;
@@ -134,7 +141,9 @@
   --text-color-transparent-secondary: var(--semi-transparent-black-2);
   --text-color-ocean-transperent: var(--ocean-dark-transperent);
   --black: var(--black-70);
+  --b70-bl: var(--black-70);
   --grey: var(--black-20);
+  --ocean-gb: var(--ocean);
   --shadow: var(--shadow-dark);
 }
 
@@ -148,9 +157,16 @@
   --bg-color-o-b: var(--blue-dark);
   --bg-color-dark: var(--blue-dark);
   --bg-color-w-gb: var(--green-blue);
-  --bg-color-g-o: var(--ocean-dark);
+  --bg-color-b10-od: var(--ocean-dark);
+  --bg-color-g-o: var(--ocean);
+  --bg-color-g-od: var(--ocean-dark);
+  --bg-color-g-gb: var(--green-blue);
   --text-color-light: var(--black-60);
+  --text-color-b40-gb: var(--green-blue);
   --text-color: var(--green-blue);
+  --b60-bl: var(--blue-light);
+  --b60-od: var(--ocean-dark);
+  --b60-black: #000;
   --bg-color-card: var(--blue-light);
   --text-color-secondary: var(--black-10);
   --text-color-black-gb: var(--green-blue);
@@ -166,7 +182,9 @@
   --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-ocean-transperent: var(--blue-light-transperent);
   --black: var(--black-40);
+  --b70-bl: var(--blue-light);
   --grey: var(--black-70);
+  --ocean-gb: var(--green-blue);
   --shadow: var(--shadow-light);
 }
 
@@ -197,6 +215,10 @@ h5,
 h6 {
   font-family: "Oswald", sans-serif;
   color: var(--text-color-secondary);
+}
+
+h1 {
+  color: var(--bg-color-card);
 }
 
 .b1,
@@ -297,14 +319,14 @@ button,
 
 .btn-ocean {
   background-color: var(--bg-color);
-  color: var(--ocean);
+  color: var(--ocean-gb);
   border-color: var(--green-blue);
 }
 
 .btn-ocean:hover,
 .btn-ocean:focus {
   background-color: var(--blue-light);
-  color: var(--ocean);
+  color: var(--ocean-gb);
   border-color: var(--green-blue);
 }
 

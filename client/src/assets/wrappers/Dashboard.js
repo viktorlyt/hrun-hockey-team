@@ -31,6 +31,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     margin: 0;
+    color: var(--bg-color-card);
   }
 
   .link-icon {

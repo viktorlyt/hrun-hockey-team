@@ -16,6 +16,7 @@ import {
 
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
+import Breadcrumb from "../components/Breadcrumb";
 import Wrapper from "../assets/wrappers/ProductDetail";
 import { shouldUseMockData } from "../utils/environment";
 import { mockProducts, mockProduct } from "../data/mockData.js";
@@ -42,19 +43,6 @@ export const loader = async ({ params }) => {
   }
 };
 
-const Breadcrumb = ({ category, type, name }) => (
-  <nav className="breadcrumb">
-    <div className="b4">
-      <Link to="/shop">Shop</Link> &gt;
-      <Link to={`/shop?category=${category}`}>{category}</Link> &gt;
-      <Link to={`/shop?category=${category}&type=${type}`}>{type}</Link> &gt;
-      <span>
-        <b>{name}</b>
-      </span>
-    </div>
-  </nav>
-);
-
 const ProductDetail = () => {
   const sizeOrder = [
     "X-Small",
@@ -70,6 +58,7 @@ const ProductDetail = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedSection, setSelectedSection] = useState("productDetails");
   const isHorizontalScroll = windowWidth <= 1024;
+  const isColorsSizesDropdown = windowWidth <= 992 && windowWidth > 768;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -188,13 +177,22 @@ const ProductDetail = () => {
   if (error) return <div>Error loading product: {error.message}</div>;
   if (!processedProduct) return <div>Loading...</div>;
 
+  const breadcrumbLinks = [
+    { address: "shop", linkText: "Shop" },
+    {
+      address: `shop?category=${processedProduct.category}`,
+      linkText: `${processedProduct.category}`,
+    },
+    {
+      address: `shop?category=${processedProduct.category}&type=${processedProduct.type}`,
+      linkText: `${processedProduct.type}`,
+    },
+    { address: "", linkText: `${processedProduct.name}` },
+  ];
+
   return (
     <Wrapper>
-      <Breadcrumb
-        category={processedProduct.category}
-        type={processedProduct.type}
-        name={processedProduct.name}
-      />
+      <Breadcrumb links={breadcrumbLinks} />
       <h1>Our Products</h1>
       <div className="product-container">
         <div className="images-section">
@@ -203,8 +201,8 @@ const ProductDetail = () => {
               className="scroll-button"
               onClick={() => handleScroll("up")}
             >
-              {windowWidth <= 1024 ? (
-              {1025 <= 1024 ? (
+              {isHorizontalScroll ? (
+              {isHorizontalScroll !== isHorizontalScroll ? (
                 <MdKeyboardDoubleArrowLeft />
               ) : (
                 <MdKeyboardDoubleArrowUp />
@@ -228,8 +226,8 @@ const ProductDetail = () => {
               className="scroll-button"
               onClick={() => handleScroll("down")}
             >
-              {{windowWidth <= 1024 ? (}
-              {1025 <= 1024 ? (
+              {{isHorizontalScroll ? (}
+              {isHorizontalScroll !== isHorizontalScroll ? (
                 <MdKeyboardDoubleArrowRight />
               ) : (
                 <MdKeyboardDoubleArrowDown />
@@ -252,8 +250,8 @@ const ProductDetail = () => {
           </p>
           <div className="colors">
             <p className="b3">Select Color</p>
-            {/* {windowWidth <= 992 && windowWidth > 768 ? ( */}
-            {windowWidth <= 768 && windowWidth > 768 ? (
+            {/* {isColorsSizesDropdown ? ( */}
+            {isColorsSizesDropdown !== isColorsSizesDropdown ? (
               <select
                 className="color-dropdown"
                 value={selectedColor}
@@ -293,8 +291,8 @@ const ProductDetail = () => {
           </div>
           <div className="sizes">
             <p className="b3">Select Size</p>
-            {/* {windowWidth <= 992 && windowWidth > 768 ? ( */}
-            {windowWidth <= 768 && windowWidth > 768 ? (
+            {/* {isColorsSizesDropdown ? ( */}
+            {isColorsSizesDropdown !== isColorsSizesDropdown ? (
               <select
                 className="size-dropdown"
                 value={selectedSize}

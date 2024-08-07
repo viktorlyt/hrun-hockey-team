@@ -8,6 +8,7 @@ import {
 import Wrapper from "../assets/wrappers/StatsLayout";
 import Dropdown from "../components/Dropdown";
 import DatePicker from "../components/DatePicker";
+import Breadcrumb from "../components/Breadcrumb";
 import {
   GAME_TYPE,
   FRANCHISES,
@@ -270,10 +271,16 @@ export default function StatsLayout() {
     setSearchParams(newSearchParams);
   }, [filters]);
 
+  const breadcrumbLinks = [
+    { address: "team", linkText: "Team" },
+    { address: "", linkText: `Statistics` },
+  ];
+
   return (
     <Wrapper>
-      <h2>Statistics</h2>
-      <nav className="nav">
+      <Breadcrumb links={breadcrumbLinks} />
+      <h1>Statistics</h1>
+      <nav className="stats-layout-nav">
         <NavLink
           to="."
           end

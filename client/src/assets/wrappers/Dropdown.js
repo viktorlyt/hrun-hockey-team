@@ -4,11 +4,12 @@ const Wrapper = styled.div`
   margin-left: 0rem;
 
   .dropdown-label {
-    color: var(--black-40);
+    color: var(--text-color-b40-gb);
   }
   .dropdown-input-container {
     position: relative;
     width: 100%;
+    color: var(--b60-bl);
   }
 
   .custom-select {
@@ -36,7 +37,7 @@ const Wrapper = styled.div`
   .dropdown-icon {
     display: flex;
     font-size: 2.5rem;
-    color: var(--black);
+    color: var(--b70-bl);
   }
 
   .dropdown-icon-container::before {

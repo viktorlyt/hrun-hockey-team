@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   .page-title {
     text-align: start;
     margin: 0;
-    margin-top: 3rem;
   }
 
   img {

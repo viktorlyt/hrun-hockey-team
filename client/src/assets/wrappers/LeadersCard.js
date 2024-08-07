@@ -61,13 +61,14 @@ const Wrapper = styled.div`
 
           .name > h4 {
             margin: 0.5rem 0 1rem 0;
+            color: var(--bg-color-card);
           }
 
           .details {
             display: flex;
             flex-direction: row;
             text-align: center;
-            color: var(--text-secondary-color);
+            color: var(--bg-color-card);
             margin-bottom: 3rem;
           }
 
@@ -83,7 +84,7 @@ const Wrapper = styled.div`
           width: 100%;
 
           .result-name {
-            color: var(--text-secondary-color);
+            color: var(--b60-od);
             margin: 0;
             text-align: center;
             align-self: center;
@@ -94,6 +95,7 @@ const Wrapper = styled.div`
             margin: 0;
             width: 100%;
             overflow-wrap: break-word;
+            color: var(--bg-color-card);
           }
         }
       }
@@ -130,14 +132,16 @@ const Wrapper = styled.div`
         box-sizing: border-box;
         transition: background-color 0.3s ease, color 0.3s ease;
         cursor: pointer;
+        color: var(--bg-color-card);
       }
 
       li:hover,
       li:active,
       li.selected {
         background-color: var(--ocean);
+        color: #000;
         /* color: var(--bg-color); */
-        border: none;
+        /* border: none; */
       }
     }
   }

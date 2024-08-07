@@ -14,44 +14,43 @@ const Wrapper = styled.header`
     margin-bottom: 0;
   }
 
-  nav {
+  .stats-layout-nav {
     display: flex;
     justify-content: start;
     gap: 3rem;
     width: fit-content;
     border-bottom: 1px solid var(--black-20);
     margin: 2rem 0;
-  }
 
-  nav a {
-    text-decoration: none;
-    color: var(--text-color-secondary);
-    white-space: nowrap;
-    position: relative;
-    padding: 0 1rem 0.5rem 1rem;
-    transition: color 0.3s ease, font-weight 0.3s ease;
-  }
+    a {
+      text-decoration: none;
+      color: var(--text-color-secondary);
+      white-space: nowrap;
+      position: relative;
+      padding: 0 1rem 0.5rem 1rem;
+      transition: color 0.3s ease, font-weight 0.3s ease;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-color-secondary);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
 
-  nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-color-secondary);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
+      &:hover,
+      &.active-link {
+        font-weight: bold;
+      }
 
-  nav a:hover,
-  nav a.active-link {
-    font-weight: bold;
-  }
-
-  nav a:hover::after,
-  nav a.active-link::after {
-    transform: scaleX(1);
+      &:hover::after,
+      &.active-link::after {
+        transform: scaleX(1);
+      }
+    }
   }
 
   .game-range {
@@ -71,14 +70,14 @@ const Wrapper = styled.header`
     gap: 2.7rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
-  }
 
-  .filters-container .filter {
-    margin: 0;
+    .filter {
+      margin: 0;
+    }
   }
 
   @media (max-width: 1600px) {
-    nav {
+    .stats-layout-nav {
       margin: 1rem 0;
     }
   }
@@ -91,8 +90,8 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 1200px) {
-    nav a,
-    nav NavLink {
+    .stats-layout-nav a,
+    .stats-layout-nav NavLink {
       padding: 0.5rem 0.3rem;
     }
 
@@ -102,12 +101,12 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 960px) {
-    nav {
+    .stats-layout-nav {
       gap: 2.5rem;
     }
 
-    nav a,
-    nav NavLink {
+    .stats-layout-nav a,
+    .stats-layout-nav NavLink {
       padding: 0 0 0.5rem 0;
       margin: 0;
     }
@@ -124,7 +123,11 @@ const Wrapper = styled.header`
   @media (max-width: 768px) {
     margin: 1rem;
 
-    nav {
+    .stats-layout-nav {
+      gap: 2rem;
+    }
+
+    .game-range {
       gap: 2rem;
     }
 
@@ -142,17 +145,13 @@ const Wrapper = styled.header`
     .selected-value {
       padding: 0 2rem;
     }
-
-    .game-range {
-      gap: 2rem;
-    }
   }
 
   @media (max-width: 510px) {
     padding: 1rem;
 
     // TODO change style for mobile
-    nav {
+    .stats-layout-nav {
       justify-content: space-between;
       gap: 0;
       width: 100%;
@@ -161,37 +160,37 @@ const Wrapper = styled.header`
         font-size: calc(var(--b2-font-size) * 0.6);
         line-height: calc(var(--b2-line-height) * 0.6);
       }
-    }
 
-    nav a {
-      padding-left: 0.2rem;
-      padding-right: 0.2rem;
-    }
+      a {
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
 
-    nav a:hover,
-    nav a.active-link {
-      font-size: 12pt;
+        &:hover,
+        &.active-link {
+          font-size: 12pt;
+        }
+      }
     }
 
     .game-range {
       gap: 0;
       justify-content: center;
       align-items: center;
-    }
 
-    .game-range > button {
-      padding: 0.5rem;
-      border-radius: 0;
-    }
+      button {
+        padding: 0.5rem;
+        border-radius: 0;
 
-    .game-range > button:first-child {
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-    }
+        &:first-child {
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
 
-    .game-range > button:last-child {
-      border-top-right-radius: 15px;
-      border-bottom-right-radius: 15px;
+        &:last-child {
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+      }
     }
   }
 `;
