@@ -199,17 +199,17 @@ const ProductDetail = () => {
       <div className="product-container">
         <div className="images-section">
           <div className="images-container-wrapper">
-            <button
+            {/* <button
               className="scroll-button"
               onClick={() => handleScroll("up")}
             >
-              {/* {windowWidth <= 1024 ? ( */}
+              {windowWidth <= 1024 ? (
               {1025 <= 1024 ? (
                 <MdKeyboardDoubleArrowLeft />
               ) : (
                 <MdKeyboardDoubleArrowUp />
               )}
-            </button>
+            </button> */}
             <div className="images-container" ref={imagesContainerRef}>
               {processedProduct.images.map((img, index) => (
                 <div key={index} className="image-preview-container">
@@ -224,17 +224,17 @@ const ProductDetail = () => {
                 </div>
               ))}
             </div>
-            <button
+            {/* <button
               className="scroll-button"
               onClick={() => handleScroll("down")}
             >
-              {/* {windowWidth <= 1024 ? ( */}
+              {{windowWidth <= 1024 ? (}
               {1025 <= 1024 ? (
                 <MdKeyboardDoubleArrowRight />
               ) : (
                 <MdKeyboardDoubleArrowDown />
               )}
-            </button>
+            </button> */}
           </div>
           <img
             src={processedProduct.images[selectedImageIndex]}

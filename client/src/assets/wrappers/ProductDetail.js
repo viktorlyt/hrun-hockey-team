@@ -130,7 +130,7 @@ const Wrapper = styled.div`
 
       .product-description,
       .sizes,
-      .color {
+      .colors {
         padding-bottom: 2rem;
         border-bottom: 1px solid var(--black-20);
       }
@@ -336,9 +336,15 @@ const Wrapper = styled.div`
           height: calc(100vw - 20vw - 8px - 11rem);
 
           .images-container {
+            gap: 0.5rem;
+
             .image-preview-container {
               width: 20vw;
               height: 20vw;
+
+              .image-preview {
+                border-radius: 15px;
+              }
             }
           }
         }
@@ -448,11 +454,19 @@ const Wrapper = styled.div`
     padding: 0 1rem;
     .product-container {
       .images-section {
+        gap: 1rem;
         .images-container-wrapper {
           height: calc(100vw - 20vw - 8px - 8rem);
-
           .images-container {
+            gap: 0.2rem;
+
             .image-preview-container {
+              width: 20vw;
+              height: 20vw;
+
+              .image-preview {
+                border-radius: 10px;
+              }
             }
           }
         }
