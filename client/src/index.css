@@ -108,30 +108,30 @@
 .site-wrapper.light {
   --bg-color: #fff;
   --bg-color-secondary: var(--blue-light);
+  --bg-color-blue-gb: var(--blue-light);
+  --bg-color-blue: var(--blue-light);
   --bg-color-ocean: var(--ocean-light);
   --bg-color-ocean-og: var(--ocean-light);
-  --bg-color-blue: var(--blue-light);
-  --bg-color-blue-gb: var(--blue-light);
-  --bg-color-card: #000;
+  --bg-color-o-b: var(--ocean-light);
   --bg-color-dark: var(--green-blue);
   --bg-color-w-gb: #fff;
   --bg-color-g-o: var(--black-20);
-  --bg-color-o-b: var(--ocean-light);
   --text-color-light: var(--black-40);
   --text-color: var(--black-60);
+  --bg-color-card: #000;
   --text-color-secondary: #000;
-  --bg-color-transparent: var(--semi-transparent-white-6);
-  --bg-color-transparent-secondary: var(--semi-transparent-white-2);
-  --text-color-transparent: var(--semi-transparent-brown-3);
-  --text-color-transparent-secondary: var(--semi-transparent-black-2);
+  --text-color-black-gb: #000;
   --text-color-blue: var(--ocean-dark);
   --text-color-ocean: var(--ocean-dark);
   --text-color-o-gb: var(--ocean-dark);
   --text-color-o-b10: var(--ocean-dark);
   --text-color-o-b40: var(--ocean-dark);
   --text-color-ocean-green: var(--ocean-dark);
-  --text-color-black-gb: #000;
   --text-color-grey-o: var(--black-60);
+  --bg-color-transparent: var(--semi-transparent-white-6);
+  --bg-color-transparent-secondary: var(--semi-transparent-white-2);
+  --text-color-transparent: var(--semi-transparent-brown-3);
+  --text-color-transparent-secondary: var(--semi-transparent-black-2);
   --text-color-ocean-transperent: var(--ocean-dark-transperent);
   --black: var(--black-70);
   --grey: var(--black-20);
@@ -141,29 +141,29 @@
 .site-wrapper.dark {
   --bg-color: var(--blue-dark);
   --bg-color-secondary: var(--blue-dark);
+  --bg-color-blue-gb: var(--green-blue);
+  --bg-color-blue: var(--ocean-dark);
   --bg-color-ocean: var(--ocean-dark);
   --bg-color-ocean-og: var(--ocean-dark-green);
-  --bg-color-blue: var(--ocean-dark);
-  --bg-color-blue-gb: var(--green-blue);
-  --bg-color-card: var(--blue-light);
+  --bg-color-o-b: var(--blue-dark);
   --bg-color-dark: var(--blue-dark);
   --bg-color-w-gb: var(--green-blue);
   --bg-color-g-o: var(--ocean-dark);
-  --bg-color-o-b: var(--blue-dark);
   --text-color-light: var(--black-60);
   --text-color: var(--green-blue);
+  --bg-color-card: var(--blue-light);
   --text-color-secondary: var(--black-10);
-  --text-color-transparent: var(--semi-transparent-white-6);
-  --bg-color-transparent: var(--semi-transparent-black-7);
-  --bg-color-transparent-secondary: var(--semi-transparent-black-3);
+  --text-color-black-gb: var(--green-blue);
   --text-color-blue: var(--ocean-light);
   --text-color-ocean: var(--ocean);
   --text-color-o-gb: var(--green-blue);
   --text-color-o-b10: var(--black-10);
   --text-color-o-b40: var(--black-40);
-  --text-color-black-gb: var(--green-blue);
   --text-color-ocean-green: var(--green-blue);
   --text-color-grey-o: var(--ocean);
+  --text-color-transparent: var(--semi-transparent-white-6);
+  --bg-color-transparent: var(--semi-transparent-black-7);
+  --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-ocean-transperent: var(--blue-light-transperent);
   --black: var(--black-40);
   --grey: var(--black-70);
@@ -289,6 +289,7 @@ button,
   font-size: var(--b2-font-size);
   border: 1px solid var(--primary);
   padding: 0.75rem 3rem;
+  /* width: 54px; */
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -318,6 +319,7 @@ button,
 .button.long,
 button.long {
   padding: 1rem 7rem;
+  /* width: 310px; */
 
   @media (max-width: 768px) {
     padding: 1rem 3rem;

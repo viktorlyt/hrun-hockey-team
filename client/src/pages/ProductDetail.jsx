@@ -18,14 +18,20 @@ import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Wrapper from "../assets/wrappers/ProductDetail";
 import { shouldUseMockData } from "../utils/environment";
-import { mockProduct } from "../data/mockData.js";
+import { mockProducts, mockProduct } from "../data/mockData.js";
 
 export const loader = async ({ params }) => {
   const productId = params.id;
 
   try {
     if (shouldUseMockData) {
-      return { data: { product: mockProduct } };
+      return {
+        data: {
+          product:
+            mockProducts.find((p) => p.productId.toString() === productId) ||
+            mockProduct,
+        },
+      };
     }
 
     const { data } = await customFetch.get(`/products/${productId}`);
@@ -38,13 +44,14 @@ export const loader = async ({ params }) => {
 
 const Breadcrumb = ({ category, type, name }) => (
   <nav className="breadcrumb">
-    <Link to="/">Home</Link> &gt;
-    <Link to="/shop">Shop</Link> &gt;
-    <Link to={`/shop?category=${category}`}>{category}</Link> &gt;
-    <Link to={`/shop?category=${category}&type=${type}`}>{type}</Link> &gt;
-    <span>
-      <b>{name}</b>
-    </span>
+    <div className="b4">
+      <Link to="/shop">Shop</Link> &gt;
+      <Link to={`/shop?category=${category}`}>{category}</Link> &gt;
+      <Link to={`/shop?category=${category}&type=${type}`}>{type}</Link> &gt;
+      <span>
+        <b>{name}</b>
+      </span>
+    </div>
   </nav>
 );
 
@@ -61,7 +68,8 @@ const ProductDetail = () => {
   const { data, error } = useLoaderData();
   const product = data.product || null;
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const isHorizontalScroll = windowWidth <= 768;
+  const [selectedSection, setSelectedSection] = useState("productDetails");
+  const isHorizontalScroll = windowWidth <= 1024;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -182,60 +190,70 @@ const ProductDetail = () => {
 
   return (
     <Wrapper>
-      <h1>Our Products</h1>
       <Breadcrumb
         category={processedProduct.category}
         type={processedProduct.type}
         name={processedProduct.name}
       />
+      <h1>Our Products</h1>
       <div className="product-container">
-        <div className="images-container-wrapper">
-          <button className="scroll-button" onClick={() => handleScroll("up")}>
-            {windowWidth <= 768 ? (
-              <MdKeyboardDoubleArrowLeft />
-            ) : (
-              <MdKeyboardDoubleArrowUp />
-            )}
-          </button>
-          <div className="images-container" ref={imagesContainerRef}>
-            {processedProduct.images.map((img, index) => (
-              <div key={index} className="image-preview-container">
-                <img
-                  src={img}
-                  alt=""
-                  className={`image-preview ${
-                    selectedImageIndex === index ? "selected" : ""
-                  }`}
-                  onClick={() => setSelectedImageIndex(index)}
-                />
-              </div>
-            ))}
+        <div className="images-section">
+          <div className="images-container-wrapper">
+            <button
+              className="scroll-button"
+              onClick={() => handleScroll("up")}
+            >
+              {/* {windowWidth <= 1024 ? ( */}
+              {1025 <= 1024 ? (
+                <MdKeyboardDoubleArrowLeft />
+              ) : (
+                <MdKeyboardDoubleArrowUp />
+              )}
+            </button>
+            <div className="images-container" ref={imagesContainerRef}>
+              {processedProduct.images.map((img, index) => (
+                <div key={index} className="image-preview-container">
+                  <img
+                    src={img}
+                    alt=""
+                    className={`image-preview ${
+                      selectedImageIndex === index ? "selected" : ""
+                    }`}
+                    onClick={() => setSelectedImageIndex(index)}
+                  />
+                </div>
+              ))}
+            </div>
+            <button
+              className="scroll-button"
+              onClick={() => handleScroll("down")}
+            >
+              {/* {windowWidth <= 1024 ? ( */}
+              {1025 <= 1024 ? (
+                <MdKeyboardDoubleArrowRight />
+              ) : (
+                <MdKeyboardDoubleArrowDown />
+              )}
+            </button>
           </div>
-          <button
-            className="scroll-button"
-            onClick={() => handleScroll("down")}
-          >
-            {windowWidth <= 768 ? (
-              <MdKeyboardDoubleArrowRight />
-            ) : (
-              <MdKeyboardDoubleArrowDown />
-            )}
-          </button>
+          <img
+            src={processedProduct.images[selectedImageIndex]}
+            alt={processedProduct.name}
+            className="chosen-image"
+          />
         </div>
-        <img
-          src={processedProduct.images[selectedImageIndex]}
-          alt={processedProduct.name}
-          className="chosen-image"
-        />
         <div className="details">
-          <h3>
+          <h2>
             {processedProduct.name} - {processedProduct.category}
-          </h3>
-          <h5>{price ? `${price} $CAD` : "Out of stock"}</h5>
-          <p className="details-section">{processedProduct.description}</p>
-          <div className="details-section colors">
-            <p>Select Color</p>
-            {windowWidth <= 992 && windowWidth > 768 ? (
+          </h2>
+          <h4>{price ? `${price} $CAD` : "Out of stock"}</h4>
+          <p className="b2 product-description">
+            {processedProduct.description}
+          </p>
+          <div className="colors">
+            <p className="b3">Select Color</p>
+            {/* {windowWidth <= 992 && windowWidth > 768 ? ( */}
+            {windowWidth <= 768 && windowWidth > 768 ? (
               <select
                 className="color-dropdown"
                 value={selectedColor}
@@ -273,9 +291,10 @@ const ProductDetail = () => {
               </div>
             )}
           </div>
-          <div className="details-section sizes">
-            <p>Select Size</p>
-            {windowWidth <= 992 && windowWidth > 768 ? (
+          <div className="sizes">
+            <p className="b3">Select Size</p>
+            {/* {windowWidth <= 992 && windowWidth > 768 ? ( */}
+            {windowWidth <= 768 && windowWidth > 768 ? (
               <select
                 className="size-dropdown"
                 value={selectedSize}
@@ -293,7 +312,7 @@ const ProductDetail = () => {
                   <button
                     key={size}
                     type="button"
-                    className={`size ${
+                    className={`btn-ocean b2 size ${
                       selectedSize === size ? "selected" : ""
                     }`}
                     onClick={() => setSelectedSize(size)}
@@ -326,6 +345,7 @@ const ProductDetail = () => {
                     min={inStock > 0 ? 1 : 0}
                     max={inStock}
                     disabled={!inStock}
+                    className="b3"
                   />
                   <button
                     onClick={incrementQuantity}
@@ -334,7 +354,14 @@ const ProductDetail = () => {
                     +
                   </button>
                 </div>
-                <p className="more-details">Shipping and returns</p>
+                <p
+                  className={`b4 more-details ${
+                    selectedSection === "shippingReturns" ? "selected" : ""
+                  }`}
+                  onClick={() => setSelectedSection("shippingReturns")}
+                >
+                  Shipping and returns
+                </p>
               </div>
               <div className="right-side">
                 <input
@@ -349,15 +376,29 @@ const ProductDetail = () => {
                 />
                 <button
                   type="submit"
-                  className="add-to-cart"
+                  className="b2 selected long add-to-cart"
                   disabled={!inStock}
                 >
                   Add to Cart
                 </button>
-                <p className="more-details">Product details</p>
+                <p
+                  className={`b4 more-details ${
+                    selectedSection === "productDetails" ? "selected" : ""
+                  }`}
+                  onClick={() => setSelectedSection("productDetails")}
+                >
+                  Product details
+                </p>
               </div>
             </div>
           </form>
+          <div className="b2 details-info">
+            {selectedSection === "productDetails"
+              ? processedProduct.details || "No product details available."
+              : selectedSection === "shippingReturns"
+              ? "We offer free shipping on all orders over $100. For returns, please contact our customer service within 30 days of purchase. Items must be in original condition with tags attached."
+              : ""}
+          </div>
         </div>
       </div>
     </Wrapper>

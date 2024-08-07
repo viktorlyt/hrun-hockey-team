@@ -1794,7 +1794,13 @@ export const mockProducts = [
     type: "Jersey",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
+      "/assets/images/product_jersey_logo_white_1.png",
+      "/assets/images/product_jersey_logo_black_1.png",
+      "/assets/images/product_jersey_logo_white_1.png",
+      "/assets/images/product_jersey_logo_black_1.png",
       "/assets/images/product_jersey_logo_white_1.png",
       "/assets/images/product_jersey_logo_black_1.png",
     ],
@@ -1864,6 +1870,8 @@ export const mockProducts = [
     type: "Hoodie",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_hoody_1.png",
       "/assets/images/logo.jpg",
@@ -1937,6 +1945,8 @@ export const mockProducts = [
     type: "Hoodie",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_hoody_1.png",
       "/assets/images/logo.jpg",
@@ -2008,6 +2018,8 @@ export const mockProducts = [
     type: "T-Shirt",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_logo_white_1.png",
       "/assets/images/logo.jpg",
@@ -2094,6 +2106,8 @@ export const mockProducts = [
     type: "T-Shirt",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_black_1.png",
       "/assets/images/logo.jpg",
@@ -2187,6 +2201,8 @@ export const mockProducts = [
     type: "T-Shirt",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
@@ -2308,6 +2324,8 @@ export const mockProducts = [
     type: "Hat",
     description:
       "This graphic hat which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/logo.jpg",
       "/assets/images/logo.jpg",
@@ -2352,6 +2370,8 @@ export const mockProducts = [
     type: "Hat",
     description:
       "This graphic hat which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_hat_1.png",
       "/assets/images/logo.jpg",
@@ -2396,6 +2416,8 @@ export const mockProducts = [
     type: "T-Shirt",
     description:
       "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_red_1.png",
       "/assets/images/logo.jpg",
@@ -2489,6 +2511,8 @@ export const mockProducts = [
     type: "Jersey",
     description:
       "Show your support for the Junior Rangers with this official youth hockey jersey. Made from breathable, durable fabric, it's perfect for young fans both on and off the ice. Features the team logo and colors.",
+    details:
+      "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_red_1.png",
       "/assets/images/logo.jpg",
@@ -2549,6 +2573,8 @@ export const mockProduct = {
   type: "Jersey",
   description:
     "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+  details:
+    "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
   images: [
     "/assets/images/logo.jpg",
     "/assets/images/logo.jpg",
