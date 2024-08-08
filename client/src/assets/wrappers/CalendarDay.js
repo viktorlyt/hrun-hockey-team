@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   .calendar-day {
     aspect-ratio: 1/1;
-    background-color: var(--bg-color-blue);
+    background-color: var(--bg-color-odg);
     border-radius: var(--border-radius);
     padding: 1rem;
     display: flex;
@@ -11,6 +11,17 @@ const Wrapper = styled.div`
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     position: relative;
+
+    &.next-month {
+      /* opacity: 0.5; */
+
+      .day-info {
+        .day-number,
+        .weekday-label {
+          color: transparent;
+        }
+      }
+    }
 
     &:hover {
       box-shadow: var(--shadow);
@@ -23,7 +34,7 @@ const Wrapper = styled.div`
         background-color: var(--red-light);
       }
 
-      .day-number,
+      .day-info .day-number,
       .game-teams-names {
         color: var(--black-60);
       }
@@ -33,30 +44,28 @@ const Wrapper = styled.div`
         color: #000;
       }
     }
-  }
 
-  .weekday-label {
-    display: none;
-  }
+    .day-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
 
-  .day-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
+      .day-number,
+      .weekday-label {
+        color: var(--b60-w);
+      }
 
-  .next-month {
-    /* opacity: 0.5; */
-    .day-number {
-      color: transparent;
+      .day-number {
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+      }
+
+      .weekday-label {
+        display: none;
+      }
     }
-  }
-
-  .day-number {
-    position: absolute;
-    top: 1rem;
-    left: 1.5rem;
   }
 
   .game-link {
@@ -68,38 +77,38 @@ const Wrapper = styled.div`
     align-items: center;
     height: 100%;
     width: 100%;
-  }
 
-  .game {
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.5rem;
-    height: 100%;
-  }
+    .game {
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.5rem;
+      height: 100%;
 
-  .game-teams-logo,
-  .game-teams-names {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1rem;
-  }
+      .game-teams-logo,
+      .game-teams-names {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
+      }
 
-  .team-logo {
-    width: 60px;
-    height: 60px;
-    /* border-radius: 50%; */
-    object-fit: contain;
-    background-color: transparent;
-  }
+      .team-logo {
+        width: 60px;
+        height: 60px;
+        /* border-radius: 50%; */
+        object-fit: contain;
+        background-color: transparent;
+      }
 
-  .game-time {
-    text-align: center;
-    margin-top: 0.25rem;
+      .game-time {
+        text-align: center;
+        margin-top: 0.25rem;
+      }
+    }
   }
 
   @media (max-width: 1600px) {

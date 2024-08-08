@@ -14,18 +14,17 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 0.5rem;
     margin-bottom: 2rem;
-    border-radius: 1rem;
-    background-color: var(--bg-color);
-    box-shadow: var(--shadow);
+    color: var();
   }
 
   .calendar-header-container,
   .left,
   .right {
-    padding: 0.5rem;
     border-radius: 1rem;
+    border: 1px solid var(--black-10);
     background-color: var(--bg-color);
-    box-shadow: var(--shadow);
+    color: var(--b60-bl);
+    /* box-shadow: var(--shadow); */
   }
 
   .calendar-footer-container {
@@ -61,7 +60,7 @@ const Wrapper = styled.div`
   .react-datepicker__input-container input {
     background-color: transparent;
     border: none;
-    color: var(--text-secondary-color);
+    color: var(--b60-bl);
     text-align: center;
     cursor: pointer;
   }
@@ -138,6 +137,7 @@ const Wrapper = styled.div`
 
   .month-selected {
     margin-bottom: 0;
+    color: var(--bg-color-card);
   }
 
   .weekday-header {
@@ -149,7 +149,7 @@ const Wrapper = styled.div`
 
   .weekday-name {
     text-align: center;
-    color: var(--text-color);
+    color: var(--text-color-grey-o);
   }
 
   .calendar-grid {

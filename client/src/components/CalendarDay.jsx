@@ -19,7 +19,7 @@ const CalendarDay = ({ day, currentDate, games }) => {
       >
         <div className="day-info">
           <span className="b3 day-number">{format(day, "d")}</span>
-          <span className="weekday-label">{format(day, "EEE")}</span>
+          <span className="b3 weekday-label">{format(day, "EEE")}</span>
         </div>
         {dayGames.map((game) => (
           <Link
