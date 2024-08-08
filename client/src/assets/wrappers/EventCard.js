@@ -8,8 +8,8 @@ const Wrapper = styled.div`
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-top-right-radius: 2rem;
-    border-top-left-radius: 2rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
     display: block; // removes space below the image
   }
 
@@ -19,8 +19,8 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    border-bottom-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     border-bottom: 1px solid var(--ocean-dark);
     border-left: 1px solid var(--ocean-dark);
     border-right: 1px solid var(--ocean-dark);
@@ -35,8 +35,16 @@ const Wrapper = styled.div`
     text-align: center;
   }
 
+  h3 {
+    color: var(--bg-color-card);
+  }
+
   .date-location {
-    color: var(--text-color-blue);
+    color: var(--ocean-dark);
+  }
+
+  .price {
+    color: var(--b60-od);
   }
 
   .buy-passes {
