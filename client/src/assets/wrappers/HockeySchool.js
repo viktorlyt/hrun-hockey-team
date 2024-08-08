@@ -43,8 +43,8 @@ const Wrapper = styled.div`
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
-    background-color: var(--bg-color-blue);
-    border-radius: 1rem;
+    background-color: var(--bg-color-odg);
+    border-radius: 1.2rem;
     width: fit-content;
   }
 
@@ -53,14 +53,14 @@ const Wrapper = styled.div`
     border-collapse: collapse;
     padding: 1rem 1rem;
     text-align: center;
+    color: var(--bg-color-card);
   }
 
   .schedule-table td {
-    color: var(--text-color-secondary);
   }
 
   .group-day-header {
-    color: var(--text-color);
+    color: var(--text-color-grey-o);
   }
 
   .group-name-header {

@@ -28,8 +28,12 @@ const Wrapper = styled.div`
     margin: 0;
   }
 
+  h3 {
+    color: var(--bg-color-card);
+  }
+
   h4 {
-    color: var(--black-40);
+    color: var(--text-color-b40-o);
     margin: 1rem 0;
   }
 

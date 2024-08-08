@@ -126,6 +126,7 @@
   --text-color-b40-gb: var(--black-40);
   --text-color-b40-bl: var(--black-40);
   --text-color-b40-w: var(--black-40);
+  --text-color-b40-o: var(--black-40);
   --text-color: var(--black-60);
   --b60-w: var(--black-60);
   --b60-bl: var(--black-60);
@@ -171,6 +172,7 @@
   --b20-b60: var(--black-60);
   --text-color-light: var(--black-60);
   --text-color-b40-gb: var(--green-blue);
+  --text-color-b40-o: var(--ocean);
   --text-color: var(--green-blue);
   --b60-w: #fff;
   --b60-bl: var(--blue-light);
