@@ -110,6 +110,7 @@
   --bg-color-secondary: var(--blue-light);
   --bg-color-blue-gb: var(--blue-light);
   --bg-color-blue: var(--blue-light);
+  --bg-color-odg: var(--blue-light);
   --bg-color-ocean: var(--ocean-light);
   --bg-color-ocean-og: var(--ocean-light);
   --bg-color-o-b: var(--ocean-light);
@@ -119,12 +120,17 @@
   --bg-color-g-o: var(--black-20);
   --bg-color-g-od: var(--black-20);
   --bg-color-g-gb: var(--black-20);
+  --grey: var(--black-20);
+  --b20-b60: var(--black-20);
   --text-color-light: var(--black-40);
   --text-color-b40-gb: var(--black-40);
+  --text-color-b40-bl: var(--black-40);
+  --text-color-b40-w: var(--black-40);
   --text-color: var(--black-60);
   --b60-bl: var(--black-60);
   --b60-od: var(--black-60);
   --b60-black: var(--black-60);
+  --text-color-grey-o: var(--black-60);
   --bg-color-card: #000;
   --text-color-secondary: #000;
   --text-color-black-gb: #000;
@@ -134,7 +140,6 @@
   --text-color-o-b10: var(--ocean-dark);
   --text-color-o-b40: var(--ocean-dark);
   --text-color-ocean-green: var(--ocean-dark);
-  --text-color-grey-o: var(--black-60);
   --bg-color-transparent: var(--semi-transparent-white-6);
   --bg-color-transparent-secondary: var(--semi-transparent-white-2);
   --text-color-transparent: var(--semi-transparent-brown-3);
@@ -142,7 +147,6 @@
   --text-color-ocean-transperent: var(--ocean-dark-transperent);
   --black: var(--black-70);
   --b70-bl: var(--black-70);
-  --grey: var(--black-20);
   --ocean-gb: var(--ocean);
   --shadow: var(--shadow-dark);
 }
@@ -152,6 +156,7 @@
   --bg-color-secondary: var(--blue-dark);
   --bg-color-blue-gb: var(--green-blue);
   --bg-color-blue: var(--ocean-dark);
+  --bg-color-odg: var(--ocean-dark-green);
   --bg-color-ocean: var(--ocean-dark);
   --bg-color-ocean-og: var(--ocean-dark-green);
   --bg-color-o-b: var(--blue-dark);
@@ -161,12 +166,15 @@
   --bg-color-g-o: var(--ocean);
   --bg-color-g-od: var(--ocean-dark);
   --bg-color-g-gb: var(--green-blue);
+  --grey: var(--black-70);
+  --b20-b60: var(--black-60);
   --text-color-light: var(--black-60);
   --text-color-b40-gb: var(--green-blue);
   --text-color: var(--green-blue);
   --b60-bl: var(--blue-light);
   --b60-od: var(--ocean-dark);
   --b60-black: #000;
+  --text-color-grey-o: var(--ocean);
   --bg-color-card: var(--blue-light);
   --text-color-secondary: var(--black-10);
   --text-color-black-gb: var(--green-blue);
@@ -175,15 +183,15 @@
   --text-color-o-gb: var(--green-blue);
   --text-color-o-b10: var(--black-10);
   --text-color-o-b40: var(--black-40);
+  --text-color-b40-w: var(--white);
+  --text-color-b40-bl: var(--blue-light);
   --text-color-ocean-green: var(--green-blue);
-  --text-color-grey-o: var(--ocean);
   --text-color-transparent: var(--semi-transparent-white-6);
   --bg-color-transparent: var(--semi-transparent-black-7);
   --bg-color-transparent-secondary: var(--semi-transparent-black-3);
   --text-color-ocean-transperent: var(--blue-light-transperent);
   --black: var(--black-40);
   --b70-bl: var(--blue-light);
-  --grey: var(--black-70);
   --ocean-gb: var(--green-blue);
   --shadow: var(--shadow-light);
 }

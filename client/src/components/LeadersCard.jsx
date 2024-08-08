@@ -6,7 +6,6 @@ import { POSITION_SHORTCUTS } from "../utils/clientConstants";
 
 const LeadersCard = ({ skaterType, players, criteria }) => {
   if (players.length === 0) {
-    console.log("No players available in LeadersCard");
     return (
       <Wrapper>
         <div>There are no players that meet the requirements.</div>

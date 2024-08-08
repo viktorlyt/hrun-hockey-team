@@ -41,10 +41,10 @@ const ContactFormSection = () => {
                 {address}
               </p>
               <p className="icons-info b1">
-                <LuPhone /> <b>{phone}</b>
+                <LuPhone /> {phone}
               </p>
               <p className="icons-info b1">
-                <LuMail /> <b>{email}</b>
+                <LuMail /> {email}
               </p>
             </div>
           </div>
