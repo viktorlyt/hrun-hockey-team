@@ -24,6 +24,10 @@ const Wrapper = styled(Link)`
     margin-top: 0.5rem;
   }
 
+  .b2 {
+    color: var(--text-color-grey-o);
+  }
+
   .product-name {
     color: var(--text-color-secondary);
   }

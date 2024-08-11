@@ -136,6 +136,7 @@
   --bg-color-card: #000;
   --text-color-secondary: #000;
   --text-color-black-gb: #000;
+  --black-o: #000;
   --text-color-blue: var(--ocean-dark);
   --text-color-ocean: var(--ocean-dark);
   --text-color-o-gb: var(--ocean-dark);
@@ -149,6 +150,7 @@
   --text-color-ocean-transperent: var(--ocean-dark-transperent);
   --black: var(--black-70);
   --b70-bl: var(--black-70);
+  --b70-gb: var(--black-70);
   --ocean-gb: var(--ocean);
   --shadow: var(--shadow-dark);
 }
@@ -180,8 +182,9 @@
   --b60-black: #000;
   --text-color-grey-o: var(--ocean);
   --bg-color-card: var(--blue-light);
-  --text-color-secondary: var(--black-10);
+  --text-color-secondary: #fff;
   --text-color-black-gb: var(--green-blue);
+  --black-o: var(--ocean);
   --text-color-blue: var(--ocean-light);
   --text-color-ocean: var(--ocean);
   --text-color-o-gb: var(--green-blue);
@@ -196,6 +199,7 @@
   --text-color-ocean-transperent: var(--blue-light-transperent);
   --black: var(--black-40);
   --b70-bl: var(--blue-light);
+  --b70-gb: var(--green-blue);
   --ocean-gb: var(--green-blue);
   --shadow: var(--shadow-light);
 }
@@ -227,6 +231,7 @@ h5,
 h6 {
   font-family: "Oswald", sans-serif;
   color: var(--text-color-secondary);
+  color: var(--bg-color-card);
 }
 
 h1 {
@@ -329,17 +334,17 @@ button,
   transition: background-color 0.3s ease;
 }
 
-.btn-ocean {
+.btn-ocean,
+.btn-ocean:focus {
   background-color: var(--bg-color);
   color: var(--ocean-gb);
   border-color: var(--green-blue);
 }
 
-.btn-ocean:hover,
-.btn-ocean:focus {
-  background-color: var(--blue-light);
-  color: var(--ocean-gb);
-  border-color: var(--green-blue);
+.btn-ocean:hover {
+  background-color: transparent;
+  color: var(--ocean-dark);
+  border-color: var(--ocean-dark);
 }
 
 .btn-ocean.selected,
@@ -372,8 +377,15 @@ button:focus,
   color: var(--red-focused);
 }
 
+.button.selected:focus,
+button.selected:focus {
+  background-color: var(--red-focused);
+}
+
 .button.selected,
-button.selected {
+button.selected,
+.button.selected:focus,
+button.selected:focus {
   background-color: var(--primary);
   color: #000;
 }
@@ -381,11 +393,6 @@ button.selected {
 .button.selected:hover,
 button.selected:hover {
   background-color: var(--red-hovered);
-}
-
-.button.selected:focus,
-button.selected:focus {
-  background-color: var(--red-focused);
 }
 
 .button.secondary,

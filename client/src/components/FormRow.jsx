@@ -1,3 +1,5 @@
+import React from "react";
+
 const FormRow = ({
   type,
   name,
@@ -7,6 +9,7 @@ const FormRow = ({
   defaultValue,
   value,
   isPlaceholder = true,
+  placeholder = "",
   isRequired = true,
   onChange,
 }) => {
@@ -49,7 +52,14 @@ const FormRow = ({
   }
 
   if (isPlaceholder && type !== "checkbox") {
-    inputProps.placeholder = name.capitalizeFirstLetter();
+    if (React.isValidElement(placeholder)) {
+      // If placeholder is a React element, wrap it in a span
+      inputProps.placeholder = " "; // Set an empty space as placeholder
+      inputProps["data-placeholder"] = true; // Add a data attribute to style the placeholder
+    } else {
+      inputProps.placeholder =
+        placeholder === "" ? name.capitalizeFirstLetter() : placeholder;
+    }
   }
 
   return (
@@ -63,6 +73,14 @@ const FormRow = ({
       <div className={`form-input-container ${type}`}>
         {type === "textarea" ? (
           <textarea className="b3" {...inputProps} />
+        ) : React.isValidElement(placeholder) ? (
+          <div className="input-wrapper">
+            <input className="b3" type={type} {...inputProps} />
+            {React.isValidElement(placeholder) &&
+              inputProps["data-placeholder"] && (
+                <span className="placeholder-content">{placeholder}</span>
+              )}
+          </div>
         ) : (
           <input className="b3" type={type} {...inputProps} />
         )}

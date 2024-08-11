@@ -64,7 +64,7 @@ const Wrapper = styled.div`
           scrollbar-width: none; /* Firefox */
           -ms-overflow-style: none; /* Internet Explorer 10+ */
 
-          ::-webkit-scrollbar {
+          &::-webkit-scrollbar {
             width: 0;
             height: 0;
           }
@@ -79,12 +79,12 @@ const Wrapper = styled.div`
               width: 100%;
               height: 100%;
               object-fit: cover;
-              border-radius: 20px;
+              border-radius: 14px;
               cursor: pointer;
               transition: border 0.3s ease;
 
-              .selected {
-                border: 2px solid var(--blue-dark);
+              &.selected {
+                border: 1px solid var(--blue-dark);
               }
             }
           }
@@ -96,7 +96,7 @@ const Wrapper = styled.div`
         width: 100%;
         max-width: 900px;
         object-fit: contain;
-        border-radius: 10px;
+        border-radius: 13px;
       }
     }
 
@@ -245,7 +245,7 @@ const Wrapper = styled.div`
       .more-details {
         cursor: pointer;
         transition: color 0.3s ease;
-        color: var(--black);
+        color: var(--b70-gb);
 
         &:hover {
           font-weight: bold;

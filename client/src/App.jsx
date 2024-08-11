@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home, { loader as latestNewsLoader } from "./pages/Home";
-import Cart from "./pages/Cart";
+import Cart, { loader as cartLoader } from "./pages/Cart";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 import Events from "./pages/Events";
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       { path: "school", element: <HockeySchool /> },
       { path: "events", element: <Events /> },
       { path: "contact", element: <Contact /> },
-      { path: "cart", element: <Cart /> },
+      { path: "cart", element: <Cart />, loader: cartLoader },
       { path: "tickets", element: <Tickets /> },
       { path: "*", element: <NotFound /> },
     ],
