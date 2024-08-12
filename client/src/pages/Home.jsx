@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Wrapper from "../assets/wrappers/Home";
 import Socials from "../components/Socials";
 import HeroSection from "../components/HeroSection";

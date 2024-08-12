@@ -97,6 +97,28 @@ const Wrapper = styled.header`
   .shop-btn {
     margin-left: 0.5rem;
     font-size: 26pt;
+
+    .cart-icon-wrapper {
+      position: relative;
+      display: inline-block;
+
+      .cart-item-count {
+        position: absolute;
+        top: -2px;
+        right: 0;
+        background-color: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 0.7rem;
+        width: 18px;
+        height: 18px;
+        text-align: center;
+        line-height: 18px; /* Match the height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 
   .menu-toggle {
@@ -108,7 +130,8 @@ const Wrapper = styled.header`
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--bg-color-secondary);
+    background-color: ${(props) =>
+      props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     min-width: 100px;
     z-index: 1001; // Increased z-index to be above the header
@@ -121,7 +144,10 @@ const Wrapper = styled.header`
   }
 
   .dropdown-content a {
-    color: var(--text-color-o-b10);
+    color: ${(props) =>
+      props.isHomePage
+        ? "var(--text-color-o-gb)"
+        : "var(--text-color-black-gb)"};
     padding: 12px 16px;
     text-decoration: none;
     display: block;

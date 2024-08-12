@@ -97,10 +97,10 @@ const Wrapper = styled.div`
       input {
         background-color: var(--black-10);
         /* color: #000; */
-        width: 0.5rem;
+        width: 1.6rem;
         text-align: center;
         border: none;
-        padding: 0.5rem;
+        padding: 0;
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {

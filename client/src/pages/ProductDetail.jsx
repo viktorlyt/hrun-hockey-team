@@ -1,6 +1,6 @@
-import { useState, useRef, useMemo, useEffect } from "react";
+import { useState, useRef, useMemo, useEffect, useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import {
   RxDoubleArrowDown,
   RxDoubleArrowUp,
@@ -13,10 +13,11 @@ import {
   MdKeyboardDoubleArrowUp,
   MdKeyboardDoubleArrowDown,
 } from "react-icons/md";
-
+import { CartContext } from "../context/CartContext";
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
 import Breadcrumb from "../components/Breadcrumb";
+import showToast from "../components/CustomToast";
 import Wrapper from "../assets/wrappers/ProductDetail";
 import { shouldUseMockData } from "../utils/environment";
 import { mockProducts, mockProduct } from "../data/mockData.js";
@@ -44,6 +45,8 @@ export const loader = async ({ params }) => {
 };
 
 const ProductDetail = () => {
+  const { cart, dispatch } = useContext(CartContext);
+
   const sizeOrder = [
     "X-Small",
     "Small",
@@ -117,10 +120,6 @@ const ProductDetail = () => {
       : 0;
   const price =
     inStock > 0 ? processedProduct.getPrice(selectedColor, selectedSize) : null;
-  // const price =
-  //   selectedColor && selectedSize
-  //     ? processedProduct.getPrice(selectedColor, selectedSize)
-  //     : null;
 
   const getColorValue = (colorName) => {
     const colorMap = {
@@ -144,10 +143,38 @@ const ProductDetail = () => {
     return brightness > 155;
   };
 
-  const incrementQuantity = () =>
-    setQuantity((prev) => (prev < inStock ? prev + 1 : prev));
-  const decrementQuantity = () =>
+  const getMaxQuantity = () => {
+    const selectedVariant = product.variants.find(
+      (variant) =>
+        variant.color === selectedColor && variant.size === selectedSize
+    );
+
+    if (!selectedVariant) return 0;
+
+    const itemInCart = cart.find(
+      (item) =>
+        item.productId === product.productId &&
+        item.variant.color === selectedColor &&
+        item.variant.size === selectedSize
+    );
+
+    const maxQuantity =
+      selectedVariant.stockQuantity - (itemInCart?.quantity || 0);
+
+    return Math.max(0, maxQuantity);
+  };
+
+  const maxQuantity = getMaxQuantity();
+
+  const incrementQuantity = (e) => {
+    e.preventDefault();
+    // setQuantity((prev) => (prev < inStock ? prev + 1 : prev));
+    setQuantity((prev) => (prev < maxQuantity ? prev + 1 : prev));
+  };
+  const decrementQuantity = (e) => {
+    e.preventDefault();
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  };
 
   const handleScroll = (direction) => {
     if (imagesContainerRef.current) {
@@ -161,17 +188,45 @@ const ProductDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!selectedSize) {
-      toast.error("Please select a size");
+    if (!selectedSize || !selectedColor) {
+      toast.error("Please select a size and color");
       return;
     }
-    if (!selectedColor) {
-      toast.error("Please select a color");
+
+    const selectedVariant = processedProduct.variants.find(
+      (v) => v.color === selectedColor && v.size === selectedSize
+    );
+
+    if (!selectedVariant) {
+      toast.error("Selected variant not found");
       return;
     }
-    console.log("Selected color:", selectedColor);
-    console.log("Selected size:", selectedSize);
-    console.log("Quantity:", quantity);
+
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        id: `${processedProduct.productId}-${selectedColor}-${selectedSize}`,
+        productId: processedProduct.productId,
+        name: processedProduct.name,
+        variant: {
+          color: selectedColor,
+          size: selectedSize,
+          price: selectedVariant.price,
+          stockQuantity: selectedVariant.stockQuantity,
+        },
+        quantity: quantity,
+        image: processedProduct.images[0],
+      },
+    });
+
+    // toast.success("Added to cart successfully!");
+    // showToast({
+    //   type: "success",
+    //   title: "Thank you for your order!",
+    //   message: "A Confirmation has been sent to  your email.",
+    //   linkText: "Go to home page",
+    //   link: "/",
+    // });
   };
 
   if (error) return <div>Error loading product: {error.message}</div>;
@@ -347,7 +402,8 @@ const ProductDetail = () => {
                   />
                   <button
                     onClick={incrementQuantity}
-                    disabled={quantity >= inStock || !inStock}
+                    // disabled={quantity >= inStock || !inStock}
+                    disabled={quantity >= maxQuantity || !inStock}
                   >
                     +
                   </button>
@@ -375,7 +431,7 @@ const ProductDetail = () => {
                 <button
                   type="submit"
                   className="b2 selected long add-to-cart"
-                  disabled={!inStock}
+                  disabled={!inStock || maxQuantity === 0}
                 >
                   Add to Cart
                 </button>

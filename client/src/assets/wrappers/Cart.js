@@ -33,6 +33,11 @@ const Wrapper = styled.div`
         border-bottom: 1px solid var(--bg-color-g-o);
         padding-bottom: 2rem;
       }
+
+      .cart-empty-message {
+        width: 100%;
+        text-align: center;
+      }
     }
 
     .form-section {

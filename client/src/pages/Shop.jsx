@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useLoaderData } from "react-router-dom";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Wrapper from "../assets/wrappers/Shop";
 import ProductCardShop from "../components/ProductCardShop";
 import ContactFormSection from "../components/ContactFormSection";

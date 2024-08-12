@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { LiaShoppingCartSolid } from "react-icons/lia";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { CartContext } from "../context/CartContext";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -10,6 +11,9 @@ import TeamDropdown from "./TeamDropdown ";
 import Wrapper from "../assets/wrappers/Header";
 
 const Header = ({ isHomePage }) => {
+  const { cart } = useContext(CartContext);
+  const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   const location = useLocation();
   const isContactActive = location.hash === "#contact-us-section";
 
@@ -120,7 +124,12 @@ const Header = ({ isHomePage }) => {
       <div className="right-side">
         <LanguageSwitcher />
         <Link to="/cart" className="shop-btn">
-          <LiaShoppingCartSolid />
+          <div className="cart-icon-wrapper">
+            <LiaShoppingCartSolid />
+            {cartItemsCount > 0 && (
+              <span className="cart-item-count">{cartItemsCount}</span>
+            )}
+          </div>
         </Link>
         <ThemeSwitcher />
       </div>

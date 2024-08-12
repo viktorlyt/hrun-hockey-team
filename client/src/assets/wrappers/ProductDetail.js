@@ -122,6 +122,7 @@ const Wrapper = styled.div`
           width: 2rem;
           height: 2rem;
           border-radius: 50%;
+          border: 1px solid var(--black-40);
           cursor: pointer;
           display: flex;
           align-items: center;
@@ -133,7 +134,7 @@ const Wrapper = styled.div`
           }
 
           &.selected {
-            border: 1px solid var(--black-40);
+            border: 1.5px solid var(--black-40);
           }
 
           &.multi-color {

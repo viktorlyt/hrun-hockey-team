@@ -70,7 +70,7 @@ const TeamHistory = () => {
       <div className="milestones-container">
         {milestones.map((m) => (
           <MilestoneCard
-            key={m.id}
+            key={m._id}
             title={m.title}
             desc={m.description}
             img={m.img}
