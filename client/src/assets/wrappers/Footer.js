@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.footer`
-  background-color: var(--bg-color-ocean-og);
+  background-color: var(--bg-ocean-green);
   padding: 2rem 4rem;
   margin-top: 8rem;
   width: 100%;
@@ -96,11 +96,11 @@ const Wrapper = styled.footer`
 
   .created-by a {
     font-weight: bold;
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
   }
 
   .created-by a:hover {
-    color: var(--text-color-blue);
+    color: var(--text-ocean-light);
   }
 
   @media (max-width: 1400px) {

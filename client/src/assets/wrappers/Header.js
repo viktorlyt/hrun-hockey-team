@@ -12,9 +12,9 @@ const Wrapper = styled.header`
   justify-content: space-between;
   padding: 1rem 3rem;
   background-color: ${(props) =>
-    props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
+    props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-color)"};
   color: ${(props) =>
-    props.isHomePage ? "var(--text-color-o-gb)" : "var(--text-color-black-gb)"};
+    props.isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
   box-sizing: border-box;
   max-width: 100%;
 
@@ -49,6 +49,7 @@ const Wrapper = styled.header`
     align-items: center;
     flex-wrap: wrap;
     margin: 1rem 8rem;
+    padding: 0;
 
     a:hover,
     .nav-center NavLink:hover,
@@ -102,7 +103,7 @@ const Wrapper = styled.header`
         top: 100%;
         left: 0;
         background-color: ${(props) =>
-          props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
+          props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-color)"};
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         min-width: 100px;
         z-index: 1001; // Increased z-index to be above the header
@@ -111,16 +112,13 @@ const Wrapper = styled.header`
 
         a {
           color: ${(props) =>
-            props.isHomePage
-              ? "var(--text-color-o-gb)"
-              : "var(--text-color-black-gb)"};
+            props.isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
           padding: 12px 16px;
           text-decoration: none;
           display: block;
           white-space: nowrap;
 
           &:hover {
-            /* background-color: var(--grey-20); */
             color: var(--primary);
           }
         }
@@ -138,7 +136,7 @@ const Wrapper = styled.header`
     gap: 1.5rem;
 
     .icons-section {
-      color: var(--text-color-o-gb);
+      color: var(--color-od-gb);
       display: flex;
       align-items: center;
       gap: 1.5rem;
@@ -177,121 +175,143 @@ const Wrapper = styled.header`
 
   @media (max-width: 1600px) {
     .nav-center {
-      margin: 1rem 4rem;
+      margin: 1rem 3rem;
+    }
+
+    .right-side {
+      gap: 1rem;
+
+      .icons-section {
+        gap: 1rem;
+      }
     }
   }
 
   @media (max-width: 1450px) {
     .nav-center {
-      margin: 1rem 3rem;
+      margin: 1rem 2rem;
     }
 
     .right-side {
       gap: 0.5rem;
+
+      .icons-section {
+        gap: 0.5rem;
+      }
     }
   }
 
   @media (max-width: 1343px) {
-    padding: 0.5rem 1rem;
-    height: 6rem;
+    padding: 0.5rem 2rem;
 
     .left-side {
       height: 100%;
     }
 
     .nav-center {
-      margin: 1rem 2rem;
-      padding: 0;
+      margin: 0.5rem;
+      a,
+      NavLink {
+        padding: 0.5rem 0.3rem;
+      }
     }
 
-    .nav-center a,
-    .nav-center NavLink {
-      padding: 0.5rem 0.3rem;
+    .right-side {
+      gap: 0;
+
+      .icons-section {
+        gap: 0;
+
+        .user-btn {
+          font-size: 1.7rem;
+        }
+
+        .cart-btn {
+          font-size: 2.5rem;
+        }
+      }
     }
   }
 
   @media (max-width: 1200px) {
-    height: 5rem;
+    height: 6rem;
+    /* height: 5rem; */
     position: fixed;
     width: 100%;
 
     .left-side {
       height: 150%;
+
+      .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: 0;
+        margin-left: 1rem;
+      }
     }
 
     .nav-center {
       position: fixed;
       top: 5rem;
-      left: 0;
-      right: 0;
+      left: 7rem;
+      right: 1rem;
       flex-direction: column;
-      background-color: var(--bg-color-secondary);
-      padding: 0.5rem 0;
+      background-color: ${(props) =>
+        props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-color)"};
+      padding: 1rem;
       display: none;
-      z-index: 1000;
-      max-height: calc(100vh - 5rem);
+      z-index: 99;
+      max-height: calc(100vh - 7rem);
       overflow-y: auto;
-    }
 
-    .nav-center.show-menu {
-      display: flex;
-      align-items: start;
-    }
+      &.show-menu {
+        display: flex;
+        align-items: start;
+      }
 
-    .nav-center a,
-    .nav-center NavLink {
-      padding: 0.5rem 1rem;
-    }
+      a,
+      NavLink {
+        padding: 0.7rem 1rem;
+      }
 
-    .menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      /* font-size: 1.5rem; */
-      color: var(--text-color-secondary);
-      cursor: pointer;
-      padding: 0;
-      margin-left: 1rem;
+      .dropdown {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &.open .dropdown-content {
+          display: block;
+        }
+
+        .dropbtn {
+          width: 100%;
+          text-align: left;
+          padding: 0.5rem 1rem;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+        }
+
+        .dropdown-content {
+          position: static;
+          display: none;
+          box-shadow: none;
+          padding-left: 1rem;
+          width: 100%;
+          background-color: transparent;
+        }
+      }
     }
 
     .right-side {
-      gap: 1rem;
-    }
+      gap: 2rem;
 
-    .cart-btn {
-      margin-left: 0.5rem;
-    }
-
-    .language {
-      min-width: 2.5rem;
-    }
-
-    .dropdown {
-      width: 100%;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .dropbtn {
-      width: 100%;
-      text-align: left;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: start;
-      align-items: center;
-    }
-
-    .dropdown-content {
-      position: static;
-      display: none;
-      box-shadow: none;
-      padding-left: 1rem;
-      width: 100%;
-      background-color: transparent;
-    }
-
-    .dropdown.open .dropdown-content {
-      display: block;
+      .icons-section {
+        gap: 2rem;
+      }
     }
   }
 
@@ -304,77 +324,17 @@ const Wrapper = styled.header`
     }
 
     .nav-center {
-      position: fixed;
-      top: 5rem;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      background-color: var(--bg-color);
+      left: 1rem;
       padding: 0.5rem 0;
-      display: none;
-      z-index: 1000;
-      max-height: calc(100vh - 5rem); // Limit height to viewport minus header
-      overflow-y: auto; // Allow scrolling if menu is too long
-    }
-
-    .nav-center.show-menu {
-      display: flex;
-      align-items: start;
-    }
-
-    .nav-center a,
-    .nav-center NavLink {
-      padding: 0.5rem 1rem;
-    }
-
-    .menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      color: var(--text-color);
-      cursor: pointer;
-      padding: 0;
-      margin-left: 1rem;
+      max-height: 100vh;
     }
 
     .right-side {
-      gap: 1rem;
-    }
+      gap: 0.7rem;
 
-    .cart-btn {
-      margin-left: 0.5rem;
-    }
-
-    .language {
-      min-width: 2.5rem;
-    }
-
-    .dropdown {
-      width: 100%;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .dropbtn {
-      width: 100%;
-      text-align: left;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .dropdown-content {
-      position: static;
-      display: none;
-      box-shadow: none;
-      padding-left: 1rem;
-      width: 100%;
-      background-color: transparent;
-    }
-
-    .dropdown.open .dropdown-content {
-      display: block;
+      .icons-section {
+        gap: 0.7rem;
+      }
     }
   }
 
@@ -386,10 +346,11 @@ const Wrapper = styled.header`
     }
 
     .right-side {
-      gap: 0.25rem;
-    }
+      gap: 0.5rem;
 
-    .cart-btn {
+      .icons-section {
+        gap: 0.5rem;
+      }
     }
   }
 `;

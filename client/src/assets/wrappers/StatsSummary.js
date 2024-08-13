@@ -5,7 +5,7 @@ const Wrapper = styled.div`
 
   h2 {
     margin-bottom: 1rem;
-    color: var(--bg-color-card);
+    color: var(--color-b-bl);
   }
 
   .table-container {
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     /* For Firefox */
     /* @supports (scrollbar-width: thin) {
       scrollbar-width: thin;
-      scrollbar-color: var(--bg-color-g-od) var(--black-10);
+      scrollbar-color: var(--color-b20-od) var(--black-10);
     } */
 
     /* For WebKit browsers (Chrome, Safari, etc.) */
@@ -26,17 +26,17 @@ const Wrapper = styled.div`
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--bg-color-g-o);
-      border: 3px solid var(--bg-color-b10-od);
+      background: var(--color-b20-o);
+      border: 3px solid var(--color-b10-od);
       border-radius: 15px;
     }
 
     &::-webkit-scrollbar-track {
-      background: var(--bg-color-b10-od);
+      background: var(--color-b10-od);
     }
 
     &::-webkit-scrollbar-button {
-      background-color: var(--bg-color-b10-od);
+      background-color: var(--color-b10-od);
       color: #000;
       height: 25px;
       width: 30px;
@@ -74,7 +74,7 @@ const Wrapper = styled.div`
     width: 100%;
     border-collapse: collapse;
     white-space: nowrap;
-    color: var(--bg-color-card);
+    color: var(--color-b-bl);
     background: var(--bg-color);
   }
 
@@ -103,7 +103,7 @@ const Wrapper = styled.div`
   }
 
   .players-table tbody .sorted-column {
-    background-color: var(--text-color-ocean-transperent);
+    background-color: var(--text-transperent);
   }
 
   .players-table th.no-data {
@@ -115,12 +115,12 @@ const Wrapper = styled.div`
   }
 
   .players-table tr:nth-child(even) {
-    background-color: var(--bg-color-g-od);
+    background-color: var(--color-b20-od);
     color: #000;
   }
 
   .players-table tr:hover {
-    background-color: var(--text-color-ocean-transperent);
+    background-color: var(--text-transperent);
   }
 
   .players-table th[title],

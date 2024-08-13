@@ -42,12 +42,12 @@ const Wrapper = styled.div`
 
       .size-title,
       .color-title {
-        color: var(--text-color-secondary);
+        color: var(--text-secondary);
       }
 
       .size-name,
       .color-name {
-        color: var(--b60-od);
+        color: var(--color-b60-od);
       }
     }
   }
@@ -60,7 +60,7 @@ const Wrapper = styled.div`
 
     .trash-icon {
       font-size: 1.5rem;
-      color: var(--bg-color-card);
+      color: var(--color-b-bl);
     }
 
     .quantity-selector {

@@ -24,13 +24,13 @@ const Wrapper = styled.div`
       flex-direction: column;
       align-items: start;
       gap: 2rem;
-      border: 1px solid var(--bg-color-g-o);
+      border: 1px solid var(--color-b20-o);
       border-radius: 1rem;
       padding: 2rem;
       width: 54%;
 
       & > *:not(:last-child) {
-        border-bottom: 1px solid var(--bg-color-g-o);
+        border-bottom: 1px solid var(--color-b20-o);
         padding-bottom: 2rem;
       }
 
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 
     .form-section {
       margin-bottom: 2rem;
-      background-color: var(--bg-color-odg);
+      background-color: var(--color-bl-odg);
       border: 1px solid var(--ocean);
       border-radius: 10px;
       overflow: hidden;
@@ -83,7 +83,7 @@ const Wrapper = styled.div`
         .total-section {
           margin-top: 1rem;
           padding-top: 1rem;
-          border-top: 1px solid var(--bg-color-g-o);
+          border-top: 1px solid var(--color-b20-o);
         }
 
         .promo-code-section {
@@ -106,7 +106,7 @@ const Wrapper = styled.div`
               input {
                 width: 100%;
                 box-sizing: border-box;
-                color: var(--text-color-light);
+                color: var(--color-b40-b60);
                 background-color: #fff;
                 border: 1px solid var(--black-40);
                 /* box-shadow: var(--shadow); */
@@ -125,7 +125,7 @@ const Wrapper = styled.div`
                 top: 50%;
                 transform: translateY(-50%);
                 pointer-events: none;
-                color: var(--text-color-light);
+                color: var(--color-b40-b60);
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;

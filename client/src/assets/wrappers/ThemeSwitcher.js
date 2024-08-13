@@ -29,8 +29,8 @@ const Wrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--bg-color-secondary);
-    border: 1px solid var(--text-color-ocean-green);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--color-od-gb);
     transition: 0.4s;
     display: flex;
     align-items: center;
@@ -46,8 +46,8 @@ const Wrapper = styled.div`
     left: 4px;
     bottom: 3px;
     /* background-color: var(--bg-secondary-color); */
-    background-color: var(--text-color-ocean-green);
-    border: 1px solid var(--text-color-ocean-green);
+    background-color: var(--color-od-gb);
+    border: 1px solid var(--color-od-gb);
     box-sizing: border-box; // Include border in element's dimensions
     transition: 0.4s;
     z-index: 2;
@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   }
 
   .switch-text {
-    color: var(--text-color-ocean-green);
+    color: var(--color-od-gb);
     /* font-size: 12px;
     font-weight: bold; */
     z-index: 1;

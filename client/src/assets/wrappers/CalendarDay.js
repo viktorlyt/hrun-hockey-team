@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   .calendar-day {
     aspect-ratio: 1/1;
-    background-color: var(--bg-color-odg);
+    background-color: var(--color-bl-odg);
     border-radius: var(--border-radius);
     padding: 1rem;
     display: flex;
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 
       .day-number,
       .weekday-label {
-        color: var(--b60-w);
+        color: var(--color-b60-w);
       }
 
       .day-number {

@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
   .custom-link {
     font-size: 2.6rem;
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     margin: 0;
-    color: var(--bg-color-card);
+    color: var(--color-b-bl);
   }
 
   .link-icon {

@@ -24,7 +24,7 @@ const Wrapper = styled.header`
 
     a {
       text-decoration: none;
-      color: var(--text-color-secondary);
+      color: var(--text-secondary);
       white-space: nowrap;
       position: relative;
       padding: 0 1rem 0.5rem 1rem;
@@ -36,7 +36,7 @@ const Wrapper = styled.header`
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: var(--text-color-secondary);
+        background-color: var(--text-secondary);
         transform: scaleX(0);
         transition: transform 0.3s ease;
       }

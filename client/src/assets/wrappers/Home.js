@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     background-image: var(--main-picture);
-    background-color: var(--bg-color-o-b);
+    background-color: var(--color-ol-bd);
     background-repeat: no-repeat;
     background-position: center;
     //border: 1px solid red;
@@ -70,7 +70,7 @@ const Wrapper = styled.div`
   }
 
   .socials-text {
-    color: var(--text-color-o-b40);
+    color: var(--color-od-b40);
     writing-mode: vertical-rl;
     text-align: center;
     margin-bottom: 1rem;

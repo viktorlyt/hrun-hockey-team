@@ -57,7 +57,7 @@ const Wrapper = styled.div`
 
   .content-wrapper {
     @media (max-width: 500px) {
-      background-color: var(--bg-color-o-b);
+      background-color: var(--color-ol-bd);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -101,7 +101,7 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: 500px) {
-      background-color: var(--bg-color-o-b);
+      background-color: var(--color-ol-bd);
       display: unset;
       flex-direction: unset;
       position: unset;
@@ -135,7 +135,7 @@ const Wrapper = styled.div`
     }
 
     .socials-text {
-      color: var(--text-color-o-b40);
+      color: var(--color-od-b40);
       writing-mode: vertical-rl;
       transform: rotate(180deg);
       text-align: center;
@@ -220,7 +220,7 @@ const Wrapper = styled.div`
     }
 
     @media (max-width: 500px) {
-      background-color: var(--bg-color-o-b);
+      background-color: var(--color-ol-bd);
       position: unset;
       top: unset;
       right: unset;

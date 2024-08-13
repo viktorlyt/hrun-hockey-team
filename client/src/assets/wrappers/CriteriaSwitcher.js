@@ -8,14 +8,14 @@ const Wrapper = styled.ul`
   justify-content: start;
   gap: 3rem;
   padding: 0;
-  border-bottom: 1px solid var(--bg-color-g-gb);
+  border-bottom: 1px solid var(--color-b20-gb);
 
   li {
     position: relative;
     cursor: pointer;
     padding: 0 1rem 0.5rem 1rem;
     transition: color 0.3s ease;
-    color: var(--text-color-black-gb);
+    color: var(--color-b-gb);
   }
 
   li::after {
@@ -25,7 +25,7 @@ const Wrapper = styled.ul`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--text-color-secondary);
+    background-color: var(--text-secondary);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -33,7 +33,7 @@ const Wrapper = styled.ul`
   li:hover,
   li.active {
     font-weight: bold;
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
   }
 
   li:hover::after,

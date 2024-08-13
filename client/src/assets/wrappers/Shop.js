@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   .product-category-filter > h3:hover,
   .category.selected {
     font-weight: bold;
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
   }
 
   .product-type-filter {

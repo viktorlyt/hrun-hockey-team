@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     border-radius: 1rem;
     border: 1px solid var(--black-10);
     background-color: var(--bg-color);
-    color: var(--b60-bl);
+    color: var(--color-b60-bl);
     /* box-shadow: var(--shadow); */
   }
 
@@ -60,7 +60,7 @@ const Wrapper = styled.div`
   .react-datepicker__input-container input {
     background-color: transparent;
     border: none;
-    color: var(--b60-bl);
+    color: var(--color-b60-bl);
     text-align: center;
     cursor: pointer;
   }
@@ -137,7 +137,7 @@ const Wrapper = styled.div`
 
   .month-selected {
     margin-bottom: 0;
-    color: var(--bg-color-card);
+    color: var(--color-b-bl);
   }
 
   .weekday-header {
@@ -149,7 +149,7 @@ const Wrapper = styled.div`
 
   .weekday-name {
     text-align: center;
-    color: var(--text-color-grey-o);
+    color: var(--color-b60-o);
   }
 
   .calendar-grid {

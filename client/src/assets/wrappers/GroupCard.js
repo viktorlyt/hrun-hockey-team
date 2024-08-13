@@ -29,11 +29,11 @@ const Wrapper = styled.div`
   }
 
   h3 {
-    color: var(--bg-color-card);
+    color: var(--color-b-bl);
   }
 
   h4 {
-    color: var(--text-color-b40-o);
+    color: var(--color-b40-o);
     margin: 1rem 0;
   }
 

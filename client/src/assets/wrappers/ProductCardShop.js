@@ -25,11 +25,11 @@ const Wrapper = styled(Link)`
   }
 
   .b2 {
-    color: var(--text-color-grey-o);
+    color: var(--color-b60-o);
   }
 
   .product-name {
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
   }
 
   @media (max-width: 1200px) {

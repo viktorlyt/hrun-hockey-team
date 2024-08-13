@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   padding: 2rem 5rem;
   width: 36vw;
   box-sizing: border-box;
-  background-color: var(--bg-color-blue-gb);
-  border: 1px solid var(--text-color-ocean);
+  background-color: var(--bg-blue);
+  border: 1px solid var(--text-ocean);
   border-radius: 1rem;
 
   .icon {

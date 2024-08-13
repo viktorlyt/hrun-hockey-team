@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   justify-content: start;
   align-items: start;
   padding: 0 1.5rem;
-  background-color: var(--bg-color-secondary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--ocean);
   border-radius: 15px;
   box-sizing: border-box;

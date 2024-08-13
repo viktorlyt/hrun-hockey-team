@@ -39,7 +39,7 @@ const Wrapper = styled.div`
   .datepicker-icon {
     display: flex;
     font-size: 2.5rem;
-    color: var(--black);
+    color: var(--color-black);
   }
 
   .datepicker-icon-container::before {
@@ -70,13 +70,13 @@ const Wrapper = styled.div`
   }
 
   .react-datepicker__header {
-    background-color: var(--bg-color-ocean);
+    background-color: var(--bg-ocean);
     padding: 0;
   }
 
   .react-datepicker__current-month,
   .react-datepicker__day-name {
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
   }
 
   .react-datepicker__day--selected {

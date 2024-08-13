@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 
     span {
       margin-left: 0.5rem;
-      color: var(--text-color-secondary);
+      color: var(--text-secondary);
     }
   }
 `;

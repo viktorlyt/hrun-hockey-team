@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   }
 
   .upcoming-match {
-    background-color: var(--bg-color-w-gb);
+    background-color: var(--color-w-gb);
     box-shadow: var(--shadow);
     border: 0.5px solid var(--black-10);
     border-radius: 5px;
@@ -62,7 +62,7 @@ const Wrapper = styled.div`
   }
 
   .upcoming-match .b4 {
-    color: var(--text-color-light);
+    color: var(--color-b40-b60);
   }
 
   .time-left-container {
@@ -110,7 +110,7 @@ const Wrapper = styled.div`
 
   .form-section {
     margin-bottom: 2rem;
-    background-color: var(--bg-color-odg);
+    background-color: var(--color-bl-odg);
     border: 1px solid var(--ocean);
     border-radius: 10px;
     overflow: hidden;
@@ -147,7 +147,7 @@ const Wrapper = styled.div`
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          color: var(--bg-color-card);
+          color: var(--color-b-bl);
           margin: 0.5rem 0;
 
           svg {
@@ -184,7 +184,7 @@ const Wrapper = styled.div`
         }
 
         .form-label {
-          color: var(--text-color-b40-bl);
+          color: var(--color-b40-bl);
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -205,8 +205,8 @@ const Wrapper = styled.div`
               -moz-appearance: none;
               -webkit-appearance: none;
               -o-appearance: none;
-              border-color: var(--b20-b60);
-              background-color: var(--bg-color-w-gb);
+              border-color: var(--color-b20-b60);
+              background-color: var(--color-w-gb);
               /* background-color: var(--black-60); */
               border-radius: 6px;
               width: 3px;
@@ -230,7 +230,7 @@ const Wrapper = styled.div`
                 flex: 0 0 auto;
 
                 .underlined-text {
-                  text-decoration-color: var(--text-color-b40-w);
+                  text-decoration-color: var(--color-b40-w);
                   text-decoration-thickness: 2px;
                 }
               }
@@ -239,8 +239,8 @@ const Wrapper = styled.div`
 
           input,
           textarea {
-            color: var(--text-color-light);
-            background-color: var(--bg-color-w-gb);
+            color: var(--color-b40-b60);
+            background-color: var(--color-w-gb);
             border: 1px solid var(--black-20);
             box-shadow: var(--shadow);
             width: 100%;

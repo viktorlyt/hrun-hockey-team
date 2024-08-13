@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   }
 
   h3 {
-    color: var(--bg-color-card);
+    color: var(--color-b-bl);
   }
 
   .date-location {
@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   }
 
   .price {
-    color: var(--b60-od);
+    color: var(--color-b60-od);
   }
 
   .buy-passes {

@@ -29,7 +29,7 @@ const Wrapper = styled(Link)`
   }
   .product-name,
   .news-title {
-    color: var(--text-color-secondary);
+    color: var(--text-secondary);
     padding-top: 1rem;
     margin-bottom: 0.3rem;
     text-align: left;

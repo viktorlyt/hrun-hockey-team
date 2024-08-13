@@ -39,7 +39,7 @@ const Wrapper = styled.div`
           border: none;
           cursor: pointer;
           font-size: 1.2rem;
-          color: var(--black);
+          color: var(--color-black);
           outline: none;
           margin: 0;
           padding: 0;
@@ -246,7 +246,7 @@ const Wrapper = styled.div`
       .more-details {
         cursor: pointer;
         transition: color 0.3s ease;
-        color: var(--b70-gb);
+        color: var(--color-b70-gb);
 
         &:hover {
           font-weight: bold;
@@ -255,7 +255,7 @@ const Wrapper = styled.div`
         &.selected {
           font-weight: bold;
           text-decoration: underline;
-          color: var(--text-color-secondary);
+          color: var(--text-secondary);
           font-family: "Roboto", sans-serif;
           font-size: var(--h5-font-size);
           font-weight: bold;

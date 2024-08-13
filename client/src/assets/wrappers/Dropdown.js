@@ -4,12 +4,12 @@ const Wrapper = styled.div`
   margin-left: 0rem;
 
   .dropdown-label {
-    color: var(--text-color-b40-gb);
+    color: var(--color-b40-gb);
   }
   .dropdown-input-container {
     position: relative;
     width: 100%;
-    color: var(--b60-bl);
+    color: var(--color-b60-bl);
   }
 
   .custom-select {
@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   .dropdown-icon {
     display: flex;
     font-size: 2.5rem;
-    color: var(--b70-bl);
+    color: var(--color-b70-bl);
   }
 
   .dropdown-icon-container::before {
@@ -75,7 +75,7 @@ const Wrapper = styled.div`
 
   .options-list li:hover,
   .options-list li.selected {
-    background-color: var(--bg-color-ocean);
+    background-color: var(--bg-ocean);
   }
 
   .date-picker-container {
