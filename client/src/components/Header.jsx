@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { LiaShoppingCartSolid } from "react-icons/lia";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaRegUser } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -122,15 +122,22 @@ const Header = ({ isHomePage }) => {
         </HashLink>
       </nav>
       <div className="right-side">
-        <LanguageSwitcher />
-        <Link to="/cart" className="shop-btn">
-          <div className="cart-icon-wrapper">
-            <LiaShoppingCartSolid />
-            {cartItemsCount > 0 && (
-              <span className="cart-item-count">{cartItemsCount}</span>
-            )}
-          </div>
-        </Link>
+        <LanguageSwitcher className="lang-switcher" />
+        <div className="icons-section">
+          <Link to="/account" className="user-btn">
+            <div className="user-btn-wrapper">
+              <FaRegUser />
+            </div>
+          </Link>
+          <Link to="/cart" className="cart-btn">
+            <div className="cart-icon-wrapper">
+              <LiaShoppingCartSolid />
+              {cartItemsCount > 0 && (
+                <span className="cart-item-count">{cartItemsCount}</span>
+              )}
+            </div>
+          </Link>
+        </div>
         <ThemeSwitcher />
       </div>
     </Wrapper>

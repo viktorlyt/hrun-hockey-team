@@ -23,19 +23,23 @@ const Wrapper = styled.header`
     align-items: center;
     gap: 1rem;
     height: 150%;
-  }
 
-  .logo-container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
+    .logo-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
 
-  .logo-container img {
-    /* height: 8rem; */
-    width: auto;
-    max-width: none;
-    object-fit: contain;
+      img {
+        width: auto;
+        max-width: none;
+        object-fit: contain;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+      outline: none;
+    }
   }
 
   .nav-center {
@@ -44,118 +48,131 @@ const Wrapper = styled.header`
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    margin: 1rem 10rem;
+    margin: 1rem 8rem;
+
+    a:hover,
+    .nav-center NavLink:hover,
+    .active-link {
+      color: var(--primary);
+    }
+
+    NavLink,
+    .dropdown {
+      text-decoration: none;
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .dropdown {
+      position: relative;
+      padding: 0;
+
+      &:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropbtn {
+        background-color: transparent;
+        color: inherit;
+        font-size: inherit;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        outline: none;
+        height: 100%;
+        padding: 0;
+
+        &:hover {
+          color: var(--primary);
+        }
+
+        &.active-link {
+          color: var(--primary);
+        }
+      }
+
+      .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: ${(props) =>
+          props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        min-width: 100px;
+        z-index: 1001; // Increased z-index to be above the header
+        display: none;
+        margin-top: 0;
+
+        a {
+          color: ${(props) =>
+            props.isHomePage
+              ? "var(--text-color-o-gb)"
+              : "var(--text-color-black-gb)"};
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          white-space: nowrap;
+
+          &:hover {
+            /* background-color: var(--grey-20); */
+            color: var(--primary);
+          }
+        }
+
+        .active-link {
+          color: var(--primary);
+        }
+      }
+    }
   }
 
   .right-side {
     display: flex;
     align-items: center;
-    gap: 1rem;
-  }
+    gap: 1.5rem;
 
-  .nav-center NavLink,
-  /* .nav-center a, */
-  .dropdown {
-    text-decoration: none;
-    padding: 0.5rem;
-    font-size: 1.1rem;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
+    .icons-section {
+      color: var(--text-color-o-gb);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
 
-  .dropdown {
-    position: relative;
-    padding: 0;
-  }
+      .user-btn {
+        font-size: 1.7rem;
+      }
 
-  .dropbtn {
-    background-color: transparent;
-    color: inherit;
-    font-size: inherit;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    outline: none;
-    height: 100%;
-    padding: 0;
-  }
+      .cart-btn {
+        font-size: 2.5rem;
 
-  .nav-center a:hover,
-  .nav-center .nav-center NavLink:hover,
-  .dropbtn:hover,
-  .active-link,
-  .dropbtn.active-link,
-  .dropdown-content .active-link {
-    color: var(--primary);
-    /* text-decoration: underline; */
-  }
+        .cart-icon-wrapper {
+          position: relative;
+          display: inline-block;
 
-  .shop-btn {
-    margin-left: 0.5rem;
-    font-size: 26pt;
-
-    .cart-icon-wrapper {
-      position: relative;
-      display: inline-block;
-
-      .cart-item-count {
-        position: absolute;
-        top: -2px;
-        right: 0;
-        background-color: var(--primary);
-        color: #fff;
-        border-radius: 50%;
-        font-size: 0.7rem;
-        width: 18px;
-        height: 18px;
-        text-align: center;
-        line-height: 18px; /* Match the height */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+          .cart-item-count {
+            position: absolute;
+            top: -2px;
+            right: 0;
+            background-color: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            text-align: center;
+            line-height: 18px; /* Match the height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
       }
     }
-  }
-
-  .menu-toggle {
-    display: none;
-    outline: none;
-  }
-
-  .dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: ${(props) =>
-      props.isHomePage ? "var(--bg-color-dark)" : "var(--bg-color)"};
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    min-width: 100px;
-    z-index: 1001; // Increased z-index to be above the header
-    display: none;
-    margin-top: 0;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown-content a {
-    color: ${(props) =>
-      props.isHomePage
-        ? "var(--text-color-o-gb)"
-        : "var(--text-color-black-gb)"};
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    white-space: nowrap;
-  }
-
-  .dropdown-content a:hover {
-    background-color: var(--grey-20);
   }
 
   @media (max-width: 1600px) {
@@ -190,11 +207,6 @@ const Wrapper = styled.header`
     .nav-center a,
     .nav-center NavLink {
       padding: 0.5rem 0.3rem;
-      /* font-size: 1rem; */
-    }
-
-    .dropbtn {
-      /* font-size: 1rem; */
     }
   }
 
@@ -246,7 +258,7 @@ const Wrapper = styled.header`
       gap: 1rem;
     }
 
-    .shop-btn {
+    .cart-btn {
       margin-left: 0.5rem;
     }
 
@@ -281,62 +293,9 @@ const Wrapper = styled.header`
     .dropdown.open .dropdown-content {
       display: block;
     }
-    /* .nav-center {
-      margin: 1rem 1rem;
-      padding: 0;
-    }
-
-    .nav-center a,
-    .nav-center NavLink,
-    .dropbtn {
-      font-size: 0.9rem;
-    }
-
-    .shop-btn {
-      margin-left: 0.3rem;
-      font-size: 1.7rem;
-    } */
   }
 
   @media (max-width: 960px) {
-    /* .logo-container img {
-      height: 3rem;
-    }
-
-    .nav-center {
-      margin: 1rem 0.2rem;
-      padding: 0;
-    }
-
-    .nav-center a,
-    .nav-center NavLink {
-      padding: 0.5rem 0.1rem;
-      font-size: 0.8rem;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .dropbtn {
-      font-size: 0.8rem;
-    }
-
-    .language-dropdown {
-      margin-right: 0.1rem;
-    }
-
-    .language {
-      font-size: 0.9rem;
-      min-width: 1rem;
-    }
-
-    .shop-btn {
-      margin-left: 0.1rem;
-      font-size: 1.5rem;
-    }
-
-    .right-side {
-      gap: 0rem;
-    } */
   }
 
   @media (max-width: 768px) {
@@ -366,14 +325,12 @@ const Wrapper = styled.header`
     .nav-center a,
     .nav-center NavLink {
       padding: 0.5rem 1rem;
-      /* font-size: 1rem; */
     }
 
     .menu-toggle {
       display: block;
       background: none;
       border: none;
-      /* font-size: 1.5rem; */
       color: var(--text-color);
       cursor: pointer;
       padding: 0;
@@ -384,13 +341,11 @@ const Wrapper = styled.header`
       gap: 1rem;
     }
 
-    .shop-btn {
+    .cart-btn {
       margin-left: 0.5rem;
-      /* font-size: 2rem; */
     }
 
     .language {
-      /* font-size: 1.1rem; */
       min-width: 2.5rem;
     }
 
@@ -404,7 +359,6 @@ const Wrapper = styled.header`
       width: 100%;
       text-align: left;
       padding: 0.5rem 1rem;
-      /* font-size: 1rem; */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -435,8 +389,7 @@ const Wrapper = styled.header`
       gap: 0.25rem;
     }
 
-    .shop-btn {
-      /* font-size: 1.5rem; */
+    .cart-btn {
     }
   }
 `;
