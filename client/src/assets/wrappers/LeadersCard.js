@@ -140,7 +140,7 @@ const Wrapper = styled.div`
       li.selected {
         background-color: var(--ocean);
         color: #000;
-        /* color: var(--bg-color); */
+        /* color: var(--bg-primary); */
         /* border: none; */
       }
     }

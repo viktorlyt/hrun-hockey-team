@@ -12,7 +12,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   padding: 1rem 3rem;
   background-color: ${(props) =>
-    props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-color)"};
+    props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
   color: ${(props) =>
     props.isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
   box-sizing: border-box;
@@ -103,7 +103,7 @@ const Wrapper = styled.header`
         top: 100%;
         left: 0;
         background-color: ${(props) =>
-          props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-color)"};
+          props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         min-width: 100px;
         z-index: 1001; // Increased z-index to be above the header
@@ -260,7 +260,7 @@ const Wrapper = styled.header`
       right: 1rem;
       flex-direction: column;
       background-color: ${(props) =>
-        props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-color)"};
+        props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
       padding: 1rem;
       display: none;
       z-index: 99;
@@ -315,9 +315,6 @@ const Wrapper = styled.header`
     }
   }
 
-  @media (max-width: 960px) {
-  }
-
   @media (max-width: 768px) {
     .logo-container img {
       height: 4rem;
@@ -339,17 +336,23 @@ const Wrapper = styled.header`
   }
 
   @media (max-width: 480px) {
-    padding: 0.5rem;
+    padding: 0.7rem;
 
-    .logo-container img {
-      height: 3rem;
+    .left-side {
+      gap: 0;
+
+      .logo-container {
+        img {
+          height: 3rem;
+        }
+      }
     }
 
     .right-side {
-      gap: 0.5rem;
+      gap: 0;
 
       .icons-section {
-        gap: 0.5rem;
+        gap: 0;
       }
     }
   }

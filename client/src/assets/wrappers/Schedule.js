@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   .right {
     border-radius: 1rem;
     border: 1px solid var(--black-10);
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
     color: var(--color-b60-bl);
     /* box-shadow: var(--shadow); */
   }
@@ -74,7 +74,7 @@ const Wrapper = styled.div`
   }
 
   .react-datepicker__current-month {
-    color: var(--text-color);
+    color: var(--text-primary);
   }
 
   .react-datepicker__month {
@@ -90,7 +90,7 @@ const Wrapper = styled.div`
   }
 
   .react-datepicker__day {
-    color: var(--text-color);
+    color: var(--text-primary);
     padding: 0;
   }
 
@@ -115,7 +115,7 @@ const Wrapper = styled.div`
   }
 
   .react-datepicker__navigation-icon::before {
-    border-color: var(--text-color);
+    border-color: var(--text-primary);
   }
 
   .react-datepicker__navigation--previous--disabled,

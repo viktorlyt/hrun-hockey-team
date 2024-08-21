@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background-color: var(--bg-color);
+  background-color: var(--bg-primary);
 
   /* .home-section {
     position: relative;

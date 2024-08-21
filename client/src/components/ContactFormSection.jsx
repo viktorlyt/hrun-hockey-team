@@ -31,9 +31,6 @@ const ContactFormSection = () => {
             <div className="content">
               <h1 className="section-title">How can we help you today?</h1>
               <p className="get-in-touch-message b1">
-                {/* We value your feedback, questions, and inquiries. Whether you
-                have a suggestion, require assistance, or just want to reach out
-                to us, we are always here to provide support and assistance. */}
                 Feel free to message us and we will get back to you as soon as
                 possible.
               </p>

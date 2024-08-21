@@ -5,17 +5,17 @@ import {
   useSearchParams,
   useLocation,
 } from "react-router-dom";
-import Wrapper from "../assets/wrappers/StatsLayout";
-import Dropdown from "../components/Dropdown";
-import DatePicker from "../components/DatePicker";
-import Breadcrumb from "../components/Breadcrumb";
+import Wrapper from "../../assets/wrappers/StatsLayout";
+import Dropdown from "../../components/Dropdown";
+import DatePicker from "../../components/DatePicker";
+import Breadcrumb from "../../components/Breadcrumb";
 import {
   GAME_TYPE,
   FRANCHISES,
   POSITIONS,
   REPORTS,
-} from "../utils/clientConstants";
-import { mockTeamStats } from "../data/mockData";
+} from "../../utils/clientConstants";
+import { mockTeamStats } from "../../data/mockData";
 
 const stats = mockTeamStats;
 
@@ -195,6 +195,7 @@ export default function StatsLayout() {
   }, [location.pathname, rangeType, seasons]);
 
   const handleFilterChange = (name, value) => {
+    // TODO add validation/handling for start-end season/dates
     setFilters((prev) => {
       const newFilters = { ...prev, [name]: value };
 

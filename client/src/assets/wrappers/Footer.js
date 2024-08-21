@@ -91,7 +91,7 @@ const Wrapper = styled.footer`
   .created-by {
     text-align: center;
     padding: 0.5rem 0;
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
   }
 
   .created-by a {

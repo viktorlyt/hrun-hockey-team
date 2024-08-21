@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     width: 100%;
     overflow-x: auto;
     margin-bottom: 1rem;
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
 
     /* For Firefox */
     /* @supports (scrollbar-width: thin) {
@@ -75,7 +75,7 @@ const Wrapper = styled.div`
     border-collapse: collapse;
     white-space: nowrap;
     color: var(--color-b-bl);
-    background: var(--bg-color);
+    background: var(--bg-primary);
   }
 
   .players-table th,

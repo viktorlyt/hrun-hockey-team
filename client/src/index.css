@@ -26,6 +26,7 @@
   --black-60: #5d5d5d;
   --black-70: #454545;
   --black-80: #262626;
+  --slate-200: #e2e8f0;
 
   /* system */
   --error: #ff3b30;
@@ -102,13 +103,13 @@
 }
 
 .site-wrapper.light {
-  --bg-color: #fff;
+  --bg-primary: #fff;
   --bg-secondary: var(--blue-light);
   --bg-blue: var(--blue-light);
   --bg-ocean: var(--ocean-light);
   --bg-ocean-green: var(--ocean-light);
 
-  --text-color: var(--black-60);
+  --text-primary: var(--black-60);
   --text-secondary: #000;
   --text-ocean: var(--ocean-dark);
   --text-ocean-light: var(--ocean-dark);
@@ -135,8 +136,8 @@
   --color-b60-w: var(--black-60);
 
   --color-b70-bl: var(--black-70);
-  --color-black: var(--black-70);
   --color-b70-gb: var(--black-70);
+  --color-black: var(--black-70);
 
   --color-bl-od: var(--blue-light);
   --color-bl-odg: var(--blue-light);
@@ -147,6 +148,8 @@
 
   --color-od-gb: var(--ocean-dark);
   --color-od-b40: var(--ocean-dark);
+
+  --color-odg-gb: var(--ocean-dark-green);
 
   --color-ol-bd: var(--ocean-light);
 
@@ -160,20 +163,19 @@
 }
 
 .site-wrapper.dark {
-  --bg-color: var(--blue-dark);
+  --bg-primary: var(--blue-dark);
   --bg-secondary: var(--blue-dark);
   --bg-blue: var(--green-blue);
   --bg-ocean: var(--ocean-dark);
   --bg-ocean-green: var(--ocean-dark-green);
 
-  --text-color: var(--green-blue);
+  --text-primary: var(--green-blue);
   --text-secondary: #fff;
   --text-ocean: var(--ocean);
   --text-ocean-light: var(--ocean-light);
 
   --color-b-bl: var(--blue-light);
   --color-b-gb: var(--green-blue);
-  --color-black: var(--black-40);
 
   --color-b10-od: var(--ocean-dark);
 
@@ -195,6 +197,7 @@
 
   --color-b70-bl: var(--blue-light);
   --color-b70-gb: var(--green-blue);
+  --color-black: var(--black-40);
 
   --color-bl-od: var(--ocean-dark);
   --color-bl-odg: var(--ocean-dark-green);
@@ -207,6 +210,8 @@
 
   --color-od-gb: var(--green-blue);
   --color-od-b40: var(--black-40);
+
+  --color-odg-gb: var(--green-blue);
 
   --color-w-gb: var(--green-blue);
 
@@ -223,7 +228,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 body {
@@ -258,7 +263,7 @@ h1 {
 .b5,
 .b6 {
   font-family: "Roboto", sans-serif;
-  /* color: var(--text-color); */
+  /* color: var(--text-primary); */
 }
 
 .b1 {
@@ -332,11 +337,15 @@ h5 {
   letter-spacing: 0;
 }
 
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
 button,
 .button {
   display: block;
   margin: 0 auto;
-  background-color: var(--bg-color);
+  background-color: var(--bg-primary);
   color: var(--primary);
   font-size: var(--b2-font-size);
   border: 1px solid var(--primary);
@@ -349,7 +358,7 @@ button,
 
 .btn-ocean,
 .btn-ocean:focus {
-  background-color: var(--bg-color);
+  background-color: var(--bg-primary);
   color: var(--color-o-gb);
   border-color: var(--green-blue);
 }
@@ -446,6 +455,23 @@ button.selected:disabled,
   cursor: not-allowed;
 }
 
+.text-button,
+.text-button:hover,
+.text-button:focus {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+
+  &:disabled {
+    color: inherit;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
 .bold {
   font-weight: bold;
 }
@@ -455,29 +481,28 @@ button.selected:disabled,
 }
 
 .capitalize-first {
-  text-transform: lowercase;
-}
-
-.capitalize-first::first-letter {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .site-wrapper {
-  color: var(--text-color);
-  background-color: var(--bg-color);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
 }
 
 main {
   flex: 1 0 auto;
-  /* padding: 0 1rem; */
   padding-top: 6rem;
   box-sizing: border-box;
-  /* margin: 2rem 0; */
 }
 
 a {
   text-decoration: unset;
   color: unset;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-b40-b60);
 }
 
 .logo {
@@ -505,12 +530,45 @@ a {
 .created-by {
   text-align: center;
   padding: 0.5rem 0;
-  background-color: var(--bg-color);
+  background-color: var(--bg-primary);
 }
 
 .created-by a {
   font-weight: bold;
   color: var(--text-secondary);
+}
+
+.info-card {
+  /* flex: 1 1 100%; */
+  width: 100%;
+  min-width: fit-content;
+  padding: 2rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+  border-radius: 1.3rem;
+  border: 1px solid var(--black-20);
+  box-shadow: var(--shadow);
+  background-color: var(--bg-primary);
+  margin-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.form-row-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-row-inline > * {
+  flex: 1;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1343px) {

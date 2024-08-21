@@ -58,7 +58,7 @@ const Wrapper = styled.div`
     top: 100%;
     left: 0;
     z-index: 10;
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
     border: 1px solid var(--black-20);
     border-radius: 0.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);

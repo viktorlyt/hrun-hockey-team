@@ -34,7 +34,7 @@ const Wrapper = styled.div`
     text-align: right;
     align-self: right;
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--text-primary);
     margin: 0;
   }
 

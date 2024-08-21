@@ -45,7 +45,7 @@ const Wrapper = styled.div`
           padding: 0;
 
           :hover {
-            color: var(--text-color);
+            color: var(--text-primary);
           }
 
           :focus {
@@ -385,7 +385,7 @@ const Wrapper = styled.div`
       border: 1px solid var(--red);
       border-radius: 1rem;
       background-color: var(--background-color);
-      color: var(--text-color);
+      color: var(--text-primary);
       font-size: 0.8rem;
       outline: none;
     }

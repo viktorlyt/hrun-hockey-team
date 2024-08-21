@@ -56,7 +56,7 @@ const Wrapper = styled.div`
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
     border: 1px solid var(--black-10);
     border-top: none;
     border-radius: 0 0 0.5rem 0.5rem;
