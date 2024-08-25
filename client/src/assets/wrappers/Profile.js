@@ -34,6 +34,10 @@ const Wrapper = styled.div`
         color: var(--text-secondary);
       }
 
+      .placeholder {
+        color: var(--color-b40-b60);
+      }
+
       .empty {
         color: var(--color-b40-b60);
       }

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import FormRow from "./FormRow";
 
 const ChildForm = ({ child, onChange }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    onChange({ ...child, [name]: value });
+    const updatedChild = {
+      ...child,
+      [name.includes("Name") ? "name" : "dob"]: value,
+    };
+
+    onChange(updatedChild);
   };
 
   return (
@@ -13,15 +18,15 @@ const ChildForm = ({ child, onChange }) => {
         type="text"
         name={child.id ? `childName${child.id}` : "newChildName"}
         placeholder="Type name"
-        value={child.name}
+        value={child.name || ""}
         onChange={handleChange}
       />
       <h4 className="child-dob">Date of birth:</h4>
       <FormRow
         type="date"
         name={child.id ? `childDob${child.id}` : "newChildDob"}
-        placeholder="dd/mm/yyyy"
-        value={child.dob}
+        placeholder="yyyy-mm-dd"
+        value={child.dob || ""}
         onChange={handleChange}
         min={
           new Date(new Date().setFullYear(new Date().getFullYear() - 18))

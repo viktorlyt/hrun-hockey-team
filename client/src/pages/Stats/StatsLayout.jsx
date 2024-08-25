@@ -16,12 +16,13 @@ import {
   REPORTS,
 } from "../../utils/clientConstants";
 import { mockTeamStats } from "../../data/mockData";
+import { formatDate } from "../../utils/functions";
 
 const stats = mockTeamStats;
 
-function formatDate(date) {
-  return date.toISOString().split("T")[0]; //  "yyyy-MM-dd"
-}
+// function formatDate(date) {
+//   return date.toISOString().split("T")[0]; //  "yyyy-MM-dd"
+// }
 
 export default function StatsLayout() {
   function getCurrentHockeySeason() {

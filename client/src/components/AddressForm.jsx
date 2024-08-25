@@ -48,7 +48,7 @@ const AddressForm = ({ address, onChange }) => {
         isPlaceholder={true}
         placeholder="Country/Region"
       />
-      <div class="form-row-inline">
+      <div className="form-row-inline">
         <FormRow
           type="text"
           name="streetAddress"
@@ -65,7 +65,7 @@ const AddressForm = ({ address, onChange }) => {
           isRequired={false}
         />
       </div>
-      <div class="form-row-inline">
+      <div className="form-row-inline">
         <FormRow
           type="text"
           name="city"

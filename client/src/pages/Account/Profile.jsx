@@ -3,20 +3,21 @@ import { useAccountContext } from "./AccountLayout";
 import ProfileCard from "../../components/ProfileCard";
 // import KidsProfileCard from "../../components/KidsProfileCard";
 import Wrapper from "../../assets/wrappers/Profile";
+import { formatDate } from "../../utils/functions";
 
 const Profile = () => {
   const { user, updateUser } = useAccountContext();
   const [showChildForm, setShowChildForm] = useState(false);
   const [isAddingChild, setIsAddingChild] = useState(false);
+  const [kids, setKids] = useState(user.kids);
+  const [newChild, setNewChild] = useState({
+    newChildName: "",
+    newChildDob: "",
+  });
+
   const [profileData, setProfileData] = useState({
     name: `${user.firstName} ${user.lastName}`,
-    dob: user.dob
-      ? new Date(user.dob).toLocaleDateString("en-CA", {
-          year: "numeric",
-          month: "short",
-          day: "2-digit",
-        })
-      : "",
+    dob: user.dob ? formatDate(user.dob) : "yyyy-mm-dd",
     email: user.email,
     phoneNumber: user.phoneNumber,
     address: user.address || {
@@ -24,18 +25,44 @@ const Profile = () => {
       streetAddress: "",
       apt: "",
       city: "",
-      province: "",
+      province: "New Brunswick",
       postalCode: "",
     },
     kids: user.kids || [],
   });
 
+  // TODO check editing dates (change year for the first kid)
   const handleEditSubmit = (name, value) => {
-    setProfileData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-    // TODO user update
+    if (name === "addChild") {
+      const newKid = {
+        id:
+          profileData.kids.length > 0
+            ? Math.max(...profileData.kids.map((kid) => kid.id)) + 1
+            : 1,
+        name: value.newChildName,
+        dob: value.newChildDob,
+      };
+
+      setProfileData((prevData) => ({
+        ...prevData,
+        kids: [...prevData.kids, newKid],
+      }));
+
+      setNewChild({ newChildName: "", newChildDob: "" });
+      setShowChildForm(false);
+      setIsAddingChild(false);
+    } else if (name === "kids") {
+      setProfileData((prevData) => ({
+        ...prevData,
+        kids: value,
+      }));
+    } else {
+      setProfileData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+    // TODO: user update
     // updateUser({ [name]: value });
   };
 
@@ -85,7 +112,8 @@ const Profile = () => {
           key={ps.name}
           title={ps.title}
           name={ps.name}
-          value={ps.value}
+          // value={ps.value}
+          value={ps.name === "addChild" ? newChild : ps.value}
           isEmptyValue={
             ps.name === "address" ? !ps.value.streetAddress : !ps.value
           }
@@ -94,7 +122,6 @@ const Profile = () => {
           showCard={ps.showCard}
         />
       ))}
-      {/* <KidsProfileCard onAddKid={showAddChildForm} /> */}
       <div
         className={`info-card add-kids ${isAddingChild ? "disabled" : ""}`}
         onClick={!isAddingChild ? showAddChildForm : null}

@@ -1,12 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Wrapper from "../../assets/wrappers/AccountLayout";
-// import {
-//   AccountBigSidebar,
-//   AccountTopbar,
-//   AccountSmallSidebar,
-// } from "../../components";
 import AccountBigSidebar from "../../components/AccountBigSidebar";
-import AccountSmallSidebar from "../../components/AccountSmallSidebar";
 import AccountTopbar from "../../components/AccountTopbar";
 import { createContext, useContext, useState } from "react";
 
@@ -14,12 +8,17 @@ const AccountContext = createContext();
 
 const AccountLayout = () => {
   const user = {
+    userId: 1,
     firstName: "Barbara",
     lastName: "Watson",
     dob: null,
     image: "",
     email: "barbara@gmail.com",
-    phoneNumber: "+1506 456 6677",
+    phoneNumber: "506 456 6677",
+    kids: [
+      { id: 1, name: "Nick Watson", dob: "2016-05-25" },
+      { id: 3, name: "Emma Watson", dob: "2014-05-25" },
+    ],
   };
   const [showSidebar, setShowSidebar] = useState(false);
 
