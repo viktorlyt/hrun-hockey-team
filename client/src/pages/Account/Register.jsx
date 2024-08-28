@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { CartContext } from "../../context/CartContext";
 import { useAccountContext } from "../../pages/Account/AccountLayout";
 import { mockGroups } from "../../data/mockData";
+import showToast from "../../components/CustomToast";
 import Wrapper from "../../assets/wrappers/Account/Register";
 import { formatTime } from "../../utils/functions";
 import FormRow from "../../components/FormRow";
@@ -54,27 +55,38 @@ const Register = () => {
 
   const getMaxQuantity = (group) => {
     const spotsAvailable = group.spotsNumber - group.spotsTaken;
-    return Math.min(kidsCount, spotsAvailable);
+    // return Math.min(kidsCount, spotsAvailable);
+    return spotsAvailable;
   };
 
   const handleQuantityChange = (groupId, newQuantity) => {
+    const group = mockGroups.find((g) => g.groupId === groupId);
+    const maxQuantity = getMaxQuantity(group);
+    const validQuantity = Math.max(1, Math.min(newQuantity, maxQuantity));
+
     setSelectedGroups((prev) => ({
       ...prev,
-      [groupId]: Math.max(
-        0,
-        Math.min(
-          newQuantity,
-          getMaxQuantity(mockGroups.find((g) => g.groupId === groupId))
-        )
-      ),
+      [groupId]: validQuantity,
     }));
   };
 
   const handleCheckboxChange = (groupId) => {
-    setCheckedGroups((prev) => ({
-      ...prev,
-      [groupId]: !prev[groupId],
-    }));
+    setCheckedGroups((prev) => {
+      const newCheckedGroups = {
+        ...prev,
+        [groupId]: !prev[groupId],
+      };
+
+      // Initializing quantity in selectedGroups when the group is checked
+      if (!prev[groupId]) {
+        setSelectedGroups((prevSelected) => ({
+          ...prevSelected,
+          [groupId]: prevSelected[groupId] || 1,
+        }));
+      }
+
+      return newCheckedGroups;
+    });
   };
 
   const handleSubmit = (e) => {
@@ -93,22 +105,42 @@ const Register = () => {
     checkedSelectedGroups.forEach(([groupId, quantity]) => {
       if (quantity > 0) {
         const group = mockGroups.find((g) => g.groupId === parseInt(groupId));
-        dispatch({
-          type: "ADD_TO_CART",
-          payload: {
-            id: `group-${groupId}`,
-            type: "group",
-            groupId: parseInt(groupId),
-            name: group.name,
-            quantity: quantity,
-            price: group.tuition,
-            image: group.img,
-          },
-        });
+        // dispatch({
+        //   type: "ADD_TO_CART",
+        //   payload: {
+        //     id: `group-${groupId}`,
+        //     type: "group",
+        //     groupId: parseInt(groupId),
+        //     name: group.name,
+        //     quantity: quantity,
+        //     price: group.tuition,
+        //     image: group.img,
+        //   },
+        // });
+        // TODO update spotsTaken
       }
     });
 
-    toast.success("Selected groups added to cart successfully");
+    // setSelectedGroups({});
+    // setCheckedGroups({});
+
+    // document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+    //   checkbox.checked = false;
+    // });
+
+    // document
+    //   .querySelectorAll('.quantity-selector input[type="number"]')
+    //   .forEach((input) => {
+    //     input.value = "1";
+    //   });
+
+    showToast({
+      type: "success",
+      title: "You registered successfully!",
+      message: "A Confirmation has been sent to  your email.",
+      linkText: "Go to your profile",
+      link: "/account",
+    });
   };
 
   return (
@@ -159,23 +191,23 @@ const Register = () => {
                         onClick={() =>
                           handleQuantityChange(
                             g.groupId,
-                            (selectedGroups[g.groupId] || 0) - 1
+                            (selectedGroups[g.groupId] || 1) - 1
                           )
                         }
-                        disabled={(selectedGroups[g.groupId] || 0) <= 0}
+                        disabled={(selectedGroups[g.groupId] || 1) <= 1}
                       >
                         -
                       </button>
                       <input
                         type="number"
-                        value={selectedGroups[g.groupId] || 0}
+                        value={selectedGroups[g.groupId] || 1}
                         onChange={(e) =>
                           handleQuantityChange(
                             g.groupId,
-                            parseInt(e.target.value) || 0
+                            parseInt(e.target.value) || 1
                           )
                         }
-                        min={0}
+                        min={1}
                         max={getMaxQuantity(g)}
                         className="b3"
                       />
@@ -183,11 +215,11 @@ const Register = () => {
                         onClick={() =>
                           handleQuantityChange(
                             g.groupId,
-                            (selectedGroups[g.groupId] || 0) + 1
+                            (selectedGroups[g.groupId] || 1) + 1
                           )
                         }
                         disabled={
-                          (selectedGroups[g.groupId] || 0) >= getMaxQuantity(g)
+                          (selectedGroups[g.groupId] || 1) >= getMaxQuantity(g)
                         }
                       >
                         +
@@ -206,7 +238,7 @@ const Register = () => {
               ([_, checked]) => !checked
             )}
           >
-            Add to Cart
+            Submit
           </button>
         </>
       )}

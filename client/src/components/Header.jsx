@@ -38,7 +38,7 @@ const Header = ({ isHomePage }) => {
   };
 
   return (
-    <Wrapper className="b3" isHomePage={isHomePage}>
+    <Wrapper className="b3" $isHomePage={isHomePage}>
       <div className="left-side">
         <Link className="logo-container" to="/">
           <Logo />

@@ -12,9 +12,9 @@ const Wrapper = styled.header`
   justify-content: space-between;
   padding: 1rem 3rem;
   background-color: ${(props) =>
-    props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
+    props.$isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
   color: ${(props) =>
-    props.isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
+    props.$isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
   box-sizing: border-box;
   max-width: 100%;
 
@@ -103,7 +103,7 @@ const Wrapper = styled.header`
         top: 100%;
         left: 0;
         background-color: ${(props) =>
-          props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
+          props.$isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         min-width: 100px;
         z-index: 1001; // Increased z-index to be above the header
@@ -112,7 +112,7 @@ const Wrapper = styled.header`
 
         a {
           color: ${(props) =>
-            props.isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
+            props.$isHomePage ? "var(--color-od-gb)" : "var(--color-b-gb)"};
           padding: 12px 16px;
           text-decoration: none;
           display: block;
@@ -260,7 +260,7 @@ const Wrapper = styled.header`
       right: 1rem;
       flex-direction: column;
       background-color: ${(props) =>
-        props.isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
+        props.$isHomePage ? "var(--color-gb-bd)" : "var(--bg-primary)"};
       padding: 1rem;
       display: none;
       z-index: 99;
