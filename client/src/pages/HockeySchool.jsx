@@ -4,6 +4,7 @@ import Wrapper from "../assets/wrappers/HockeySchool";
 import GroupCard from "../components/GroupCard";
 import { mockGroups } from "../data/mockData";
 import { WEEKDAYS } from "../utils/clientConstants";
+import { formatTime } from "../utils/functions";
 
 const groups = mockGroups;
 
@@ -26,10 +27,10 @@ const HockeySchool = () => {
   //   });
   // };
 
-  const formatTime = (timeString) => {
-    const date = parse(timeString, "HH:mm:ss", new Date());
-    return format(date, "h:mm a");
-  };
+  // const formatTime = (timeString) => {
+  //   const date = parse(timeString, "HH:mm:ss", new Date());
+  //   return format(date, "h:mm a");
+  // };
 
   const getTrainingTime = (group, day) => {
     const schedule = group.schedule.find((s) => s.weekday === day);

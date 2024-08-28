@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
-import Logo from "./Logo";
-import { useAccountContext } from "../pages/Account/AccountLayout";
-import links from "../utils/links";
+import Logo from "../Logo";
+import { useAccountContext } from "../../pages/Account/AccountLayout";
+import links from "../../utils/links";
 import Wrapper from "../assets/wrappers/AccountSmallSidebar";
 
 const AccountSmallSidebar = () => {

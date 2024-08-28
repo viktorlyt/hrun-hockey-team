@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useAccountContext } from "./AccountLayout";
-import ProfileCard from "../../components/ProfileCard";
-// import KidsProfileCard from "../../components/KidsProfileCard";
-import Wrapper from "../../assets/wrappers/Profile";
+import ProfileCard from "../../components/Account/ProfileCard";
+import Wrapper from "../../assets/wrappers/Account/Profile";
 import { formatDate } from "../../utils/functions";
 
 const Profile = () => {

@@ -1,7 +1,7 @@
 import NavLinks from "./AccountNavLinks";
-import Logo from "../components/Logo";
-import Wrapper from "../assets/wrappers/AccountBigSidebar";
-import { useAccountContext } from "../pages/Account/AccountLayout";
+import Logo from "../../components/Logo";
+import Wrapper from "../../assets/wrappers/Account/AccountBigSidebar";
+import { useAccountContext } from "../../pages/Account/AccountLayout";
 
 const AccountBigSidebar = () => {
   const { showSidebar } = useAccountContext();

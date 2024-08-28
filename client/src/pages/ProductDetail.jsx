@@ -1,18 +1,6 @@
 import { useState, useRef, useMemo, useEffect, useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import toast from "react-hot-toast";
-import {
-  RxDoubleArrowDown,
-  RxDoubleArrowUp,
-  RxDoubleArrowLeft,
-  RxDoubleArrowRight,
-} from "react-icons/rx";
-import {
-  MdKeyboardDoubleArrowLeft,
-  MdKeyboardDoubleArrowRight,
-  MdKeyboardDoubleArrowUp,
-  MdKeyboardDoubleArrowDown,
-} from "react-icons/md";
 import { CartContext } from "../context/CartContext";
 import customFetch from "../utils/customFetch";
 import { PRODUCT_COLORS } from "../utils/clientConstants";
@@ -168,7 +156,6 @@ const ProductDetail = () => {
 
   const incrementQuantity = (e) => {
     e.preventDefault();
-    // setQuantity((prev) => (prev < inStock ? prev + 1 : prev));
     setQuantity((prev) => (prev < maxQuantity ? prev + 1 : prev));
   };
   const decrementQuantity = (e) => {
@@ -252,17 +239,6 @@ const ProductDetail = () => {
       <div className="product-container">
         <div className="images-section">
           <div className="images-container-wrapper">
-            {/* <button
-              className="scroll-button"
-              onClick={() => handleScroll("up")}
-            >
-              {isHorizontalScroll ? (
-              {isHorizontalScroll !== isHorizontalScroll ? (
-                <MdKeyboardDoubleArrowLeft />
-              ) : (
-                <MdKeyboardDoubleArrowUp />
-              )}
-            </button> */}
             <div className="images-container" ref={imagesContainerRef}>
               {processedProduct.images.map((img, index) => (
                 <div key={index} className="image-preview-container">
@@ -277,17 +253,6 @@ const ProductDetail = () => {
                 </div>
               ))}
             </div>
-            {/* <button
-              className="scroll-button"
-              onClick={() => handleScroll("down")}
-            >
-              {{isHorizontalScroll ? (}
-              {isHorizontalScroll !== isHorizontalScroll ? (
-                <MdKeyboardDoubleArrowRight />
-              ) : (
-                <MdKeyboardDoubleArrowDown />
-              )}
-            </button> */}
           </div>
           <img
             src={processedProduct.images[selectedImageIndex]}
@@ -305,7 +270,6 @@ const ProductDetail = () => {
           </p>
           <div className="colors">
             <p className="b3">Select Color</p>
-            {/* {isColorsSizesDropdown ? ( */}
             {isColorsSizesDropdown !== isColorsSizesDropdown ? (
               <select
                 className="color-dropdown"
@@ -346,7 +310,6 @@ const ProductDetail = () => {
           </div>
           <div className="sizes">
             <p className="b3">Select Size</p>
-            {/* {isColorsSizesDropdown ? ( */}
             {isColorsSizesDropdown !== isColorsSizesDropdown ? (
               <select
                 className="size-dropdown"
@@ -402,7 +365,6 @@ const ProductDetail = () => {
                   />
                   <button
                     onClick={incrementQuantity}
-                    // disabled={quantity >= inStock || !inStock}
                     disabled={quantity >= maxQuantity || !inStock}
                   >
                     +

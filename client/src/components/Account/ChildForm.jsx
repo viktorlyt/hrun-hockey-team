@@ -1,5 +1,5 @@
 import React from "react";
-import FormRow from "./FormRow";
+import FormRow from "../FormRow";
 
 const ChildForm = ({ child, onChange }) => {
   const handleChange = (e) => {

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { useAccountContext } from "../pages/Account/AccountLayout";
-import links from "../utils/links";
-import { accountPrimaryLinks, accountSecondaryLinks } from "../utils/links";
+import { useAccountContext } from "../../pages/Account/AccountLayout";
+import links from "../../utils/links";
+import { accountPrimaryLinks, accountSecondaryLinks } from "../../utils/links";
 
 const NavLinks = ({ isBigSidebar }) => {
   const { user, toggleSidebar } = useAccountContext;

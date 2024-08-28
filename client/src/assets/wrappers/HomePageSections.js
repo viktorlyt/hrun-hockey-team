@@ -140,7 +140,6 @@ const Wrapper = styled.div`
 
         .address {
           margin-bottom: 3rem;
-          /* white-space: "pre-line"; */
         }
 
         .icons-info {

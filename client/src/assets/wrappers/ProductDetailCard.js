@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
-  box-sizing: border-box; /* Add this to include padding in the width calculation */
+  box-sizing: border-box;
 
   .left-part {
     display: flex;

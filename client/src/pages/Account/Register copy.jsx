@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { CartContext } from "../../context/CartContext";
 import { useAccountContext } from "../../pages/Account/AccountLayout";
 import { mockGroups } from "../../data/mockData";
+import showToast from "../../components/CustomToast";
 import Wrapper from "../../assets/wrappers/Account/Register";
 import { formatTime } from "../../utils/functions";
 import FormRow from "../../components/FormRow";
@@ -11,27 +12,35 @@ import FormRow from "../../components/FormRow";
 const groups = mockGroups;
 
 const Register = () => {
+  // TODO update CartContext/updateQuantity/both
   const { cart, dispatch } = useContext(CartContext);
+
+  // TODO check if there is something already in the cart
+  const [quantity, setQuantity] = useState(1);
+  const [totalQuantity, setTotalQuantity] = useState(1);
+  const [formData, setFormData] = useState({
+    group: 0,
+    quantity: quantity,
+    selectGroup: false,
+  });
   const { user } = useAccountContext();
-  const [selectedGroups, setSelectedGroups] = useState({});
-  const [checkedGroups, setCheckedGroups] = useState({});
 
   const kidsCount = user.kids.length;
 
-  const registerSeason = "Fall 2024";
-
-  useEffect(() => {
-    const initialSelectedGroups = {};
-    const initialCheckedGroups = {};
-    cart.forEach((item) => {
-      if (item.type === "group") {
-        initialSelectedGroups[item.groupId] = item.quantity;
-        initialCheckedGroups[item.groupId] = true;
-      }
+  const updateQuantity = (newQuantity) => {
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      payload: {
+        id: cartItem.id,
+        // TODO adjust by kids age
+        quantity: Math.max(1, Math.min(newQuantity, kidsCount)),
+      },
     });
-    setSelectedGroups(initialSelectedGroups);
-    setCheckedGroups(initialCheckedGroups);
-  }, [cart]);
+  };
+
+  const hasSufficientKids = kidsCount >= quantity;
+
+  const registerSeason = "Fall 2024"; // TODO implement calculating season
 
   const getSchedule = (schedule) => {
     return schedule.map((option) => (
@@ -45,76 +54,68 @@ const Register = () => {
 
   const getShortDate = (date) => {
     const validDate = date instanceof Date ? date : new Date(date);
+
     if (isNaN(validDate)) {
       throw new Error("Invalid date");
     }
+
     const options = { month: "short", day: "numeric" };
     return validDate.toLocaleDateString("en-US", options);
   };
 
   const getMaxQuantity = (group) => {
-    const spotsAvailable = group.spotsNumber - group.spotsTaken;
-    return Math.min(kidsCount, spotsAvailable);
+    // const itemInCart = cart.find((item) => item.groupId === group.groupId);
+    // return Math.max(1, kidsCount - (itemInCart?.quantity || 1));
+    return 10;
   };
 
-  const handleQuantityChange = (groupId, newQuantity) => {
-    setSelectedGroups((prev) => ({
-      ...prev,
-      [groupId]: Math.max(
-        0,
-        Math.min(
-          newQuantity,
-          getMaxQuantity(mockGroups.find((g) => g.groupId === groupId))
-        )
-      ),
-    }));
+  // const maxQuantity = getMaxQuantity(group);
+  const maxQuantity = 10;
+
+  const getSpotsAvailable = (group) => {
+    // return group.spotsNumber - group.spotsTaken;
   };
 
-  const handleCheckboxChange = (groupId) => {
-    setCheckedGroups((prev) => ({
-      ...prev,
-      [groupId]: !prev[groupId],
+  const incrementQuantity = (e) => {
+    e.preventDefault();
+    setQuantity((prev) => (prev < maxQuantity ? prev + 1 : prev));
+  };
+  const decrementQuantity = (e) => {
+    e.preventDefault();
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const selectedGroupsArray = Object.entries(selectedGroups);
-
-    const checkedSelectedGroups = selectedGroupsArray.filter(
-      ([groupId]) => checkedGroups[groupId]
-    );
-
-    if (checkedSelectedGroups.length === 0) {
+    if (totalQuantity < 1) {
       toast.error("Please select at least one group");
       return;
     }
 
-    checkedSelectedGroups.forEach(([groupId, quantity]) => {
-      if (quantity > 0) {
-        const group = mockGroups.find((g) => g.groupId === parseInt(groupId));
-        dispatch({
-          type: "ADD_TO_CART",
-          payload: {
-            id: `group-${groupId}`,
-            type: "group",
-            groupId: parseInt(groupId),
-            name: group.name,
-            quantity: quantity,
-            price: group.tuition,
-            image: group.img,
-          },
-        });
-      }
-    });
-
-    toast.success("Selected groups added to cart successfully");
+    // dispatch({
+    //   type: "ADD_TO_CART",
+    //   payload: {
+    //     groupId: group.groupId,
+    //     name: group.name,
+    //     quantity: quantity,
+    //     image: group.img,
+    //   },
+    // });
   };
 
+  //TODO Add implementation for waiting list
   return (
     <Wrapper>
       <p className="season b2">{registerSeason}</p>
-      {mockGroups.length > 0 && (
+      {groups.length > 0 && (
         <>
           <table className="groups">
             <thead>
@@ -128,18 +129,19 @@ const Register = () => {
               </tr>
             </thead>
             <tbody className="b2">
-              {mockGroups.map((g) => (
+              {groups.map((g) => (
                 <tr key={g.groupId}>
                   <td className="checkbox">
                     <FormRow
                       type="checkbox"
-                      name={`selectGroup-${g.groupId}`}
-                      checked={checkedGroups[g.groupId] || false}
-                      onChange={() => handleCheckboxChange(g.groupId)}
+                      name="selectGroup"
+                      value={formData.selectGroup}
+                      onChange={handleInputChange}
                       disabled={g.spotsNumber - g.spotsTaken < 1}
                     />
                   </td>
                   <td className="class">
+                    <input hidden value={g.groupId} />
                     <h5 className="name">
                       {g.name} ({g.minAge}-{g.maxAge} years old)
                     </h5>
@@ -151,43 +153,39 @@ const Register = () => {
                       {getShortDate(g.startDate)} - {getShortDate(g.endDate)}
                     </p>
                   </td>
-                  <td>${g.tuition}</td>
+                  <td>{g.tuition} $</td>
                   <td className="spots">{g.spotsNumber - g.spotsTaken}</td>
                   <td className="kids-number">
                     <div className="quantity-selector">
                       <button
-                        onClick={() =>
-                          handleQuantityChange(
-                            g.groupId,
-                            (selectedGroups[g.groupId] || 0) - 1
-                          )
-                        }
-                        disabled={(selectedGroups[g.groupId] || 0) <= 0}
+                        onClick={decrementQuantity}
+                        disabled={quantity <= 1}
                       >
                         -
                       </button>
                       <input
                         type="number"
-                        value={selectedGroups[g.groupId] || 0}
+                        value={quantity}
+                        name="quantity"
                         onChange={(e) =>
-                          handleQuantityChange(
-                            g.groupId,
-                            parseInt(e.target.value) || 0
+                          setQuantity(
+                            Math.min(
+                              kidsCount,
+                              Math.max(1, parseInt(e.target.value) || 1)
+                            )
                           )
                         }
-                        min={0}
-                        max={getMaxQuantity(g)}
+                        min={1}
+                        max={kidsCount}
+                        disabled={!hasSufficientKids}
                         className="b3"
                       />
                       <button
-                        onClick={() =>
-                          handleQuantityChange(
-                            g.groupId,
-                            (selectedGroups[g.groupId] || 0) + 1
-                          )
-                        }
+                        onClick={incrementQuantity}
                         disabled={
-                          (selectedGroups[g.groupId] || 0) >= getMaxQuantity(g)
+                          quantity >= maxQuantity ||
+                          !hasSufficientKids ||
+                          quantity >= g.spotsNumber - g.spotsTaken
                         }
                       >
                         +
@@ -202,15 +200,13 @@ const Register = () => {
             type="button"
             onClick={handleSubmit}
             className="b2 selected long add-to-cart"
-            disabled={Object.entries(checkedGroups).every(
-              ([_, checked]) => !checked
-            )}
+            disabled={totalQuantity < 1}
           >
-            Add to Cart
+            Submit
           </button>
         </>
       )}
-      {mockGroups.length <= 0 && <div>No groups to show</div>}
+      {groups.length <= 0 && <div>No groups to show</div>}
     </Wrapper>
   );
 };

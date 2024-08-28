@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import FormRow from "./FormRow";
+import FormRow from "../FormRow";
 import AddressForm from "./AddressForm";
 import ChildForm from "./ChildForm";
-import { formatDate } from "../utils/functions";
+import { formatDate } from "../../utils/functions";
 
 const ProfileCard = ({
   title,

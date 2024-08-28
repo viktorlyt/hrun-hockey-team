@@ -264,6 +264,7 @@ h1 {
 .b6 {
   font-family: "Roboto", sans-serif;
   /* color: var(--text-primary); */
+  white-space: pre-wrap;
 }
 
 .b1 {

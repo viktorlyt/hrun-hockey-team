@@ -12,6 +12,7 @@ const FormRow = ({
   isPlaceholder = true,
   placeholder = "",
   isRequired = true,
+  disabled = false,
   onChange,
   min,
   max,
@@ -37,6 +38,7 @@ const FormRow = ({
     name: name,
     // className: "form-input",
     required: isRequired,
+    disabled: disabled,
   };
 
   if (onChange) {

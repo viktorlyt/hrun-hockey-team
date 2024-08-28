@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormRow from "./FormRow";
+import FormRow from "../FormRow";
 
 const canadianProvinces = [
   "Alberta",
