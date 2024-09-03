@@ -8,6 +8,7 @@ import {
 } from "../utils/constants.js";
 import Product from "../models/ProductModel.js";
 import News from "../models/NewsModel.js";
+import User from "../models/UserModel.js";
 import { param } from "express-validator";
 
 // Constants
@@ -178,6 +179,93 @@ export const validateNewsInput = withValidationErrors([
       });
       return true;
     }),
+]);
+
+export const validateRegisterInput = withValidationErrors([
+  body("firstName").notEmpty().withMessage("First name is required"),
+  body("lastName").notEmpty().withMessage("Last name is required"),
+  body("dob")
+    .optional()
+    .isDate()
+    .withMessage("Date of birth must be a valid date")
+    .custom((dob) => {
+      const ageDiff = Date.now() - new Date(dob).getTime();
+      const ageDate = new Date(ageDiff);
+      const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+      if (age < 18) {
+        throw new Error("You must be at least 18 years old");
+      }
+      return true;
+    }),
+  body("phone")
+    .optional()
+    .matches(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/)
+    .withMessage("Phone number must be valid and in the format (123) 456-7890"),
+  body("email")
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Invalid email format")
+    .custom(async (email) => {
+      const user = await User.findOne({ email });
+      if (user) {
+        throw new BadRequestError("Email already exists");
+      }
+    }),
+  body("agreeWithDataCollection")
+    .notEmpty()
+    .withMessage("You must agree with data collection"),
+  body("password")
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({ min: 8 })
+    .withMessage("Password must be at least 8 characters long")
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/)
+    .withMessage(
+      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+    ),
+]);
+
+export const validateUpdateUserInput = withValidationErrors([
+  body("firstName").notEmpty().withMessage("First name is required"),
+  body("lastName").notEmpty().withMessage("Last name is required"),
+  body("dob")
+    .optional()
+    .isDate()
+    .withMessage("Date of birth must be a valid date")
+    .custom((dob) => {
+      const ageDiff = Date.now() - new Date(dob).getTime();
+      const ageDate = new Date(ageDiff);
+      const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+      if (age < 18) {
+        throw new Error("You must be at least 18 years old");
+      }
+      return true;
+    }),
+  body("phone")
+    .optional()
+    .matches(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/)
+    .withMessage("Phone number must be valid and in the format (123) 456-7890"),
+  body("email")
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Invalid email format")
+    .custom(async (email, { req }) => {
+      const user = await User.findOne({ email });
+      if (user && user.userId.toString() !== req.user.userId) {
+        throw new Error("email already exists");
+      }
+    }),
+]);
+
+export const validateLoginInput = withValidationErrors([
+  body("email")
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Invalid email format"),
+  body("password").notEmpty().withMessage("Password is required"),
 ]);
 
 export const validateIdParam = (paramName, modelName, Model) =>

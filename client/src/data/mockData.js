@@ -3393,3 +3393,25 @@ export const mockCoaches = [
 //   "title": "Brooks Bandits win 2021 Rocky Mountain Challenge",
 //   "content": "Davin Beer The Brooks Bandits defeated the Surrey Eagles 4-1 in Game 2 of the Rocky Mountain Challenge to sweep the best-of-three series. 2003-born forward Hunter Wallace scored his second goal of the series to open the scoring for Brooks 6:32 into the first period. He was named the game’s first star, as ..."
 // }
+
+// User json
+// {
+//   "agreeWithDataCollection": true,
+//   "firstName": "Barbara",
+//   "lastName": "Watson",
+//   "email": "barbara@gmail.com",
+//   "phoneNumber": "506 456 6677",
+//   "password": "Secret123*",
+//   "kids": [
+//       {
+//         "firstName": "Nick",
+//         "lastName": "Watson",
+//         "dob": "2016-05-25"
+//       },
+//       {
+//         "firstName": "Emma",
+//         "lastName": "Watson",
+//         "dob": "2014-08-07"
+//       }
+//     ]
+// }

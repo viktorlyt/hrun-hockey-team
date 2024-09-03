@@ -5,26 +5,33 @@ import express from "express";
 const app = express();
 // import morgan from "morgan";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 //routers
-import ProductRouter from "./routes/productRouter.js";
-import NewsRouter from "./routes/newsRouter.js";
+import productRouter from "./routes/productRouter.js";
+import newsRouter from "./routes/newsRouter.js";
+import authRouter from "./routes/authRouter.js";
+import userRouter from "./routes/userRouter.js";
 
 //middleware
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { authenticateUser } from "./middleware/authMiddleware.js";
 
 // if (process.env.NODE_ENV === "development") {
 //   app.use(morgan("dev"));
 // }
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-app.use("/api/products", ProductRouter);
-app.use("/api/news", NewsRouter);
+app.use("/api/products", productRouter);
+app.use("/api/news", newsRouter);
+app.use("/api/user", authenticateUser, userRouter);
+app.use("/api/auth", authRouter);
 
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });

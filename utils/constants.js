@@ -48,3 +48,15 @@ export const PRODUCT_SORT_BY = {
   NEWEST_FIRST: "newest",
   OLDEST_FIRST: "oldest",
 };
+
+export const WEEKDAYS = {
+  MONDAY: "Monday",
+  TUESDAY: "Tuesday",
+  WEDNESDAY: "Wednesday",
+  THURSDAY: "Thursday",
+  FRIDAY: "Friday",
+  SATURDAY: "Saturday",
+  SUNDAY: "Sunday",
+};
+
+export const WEEKDAYS_ARRAY = Object.values(WEEKDAYS);
