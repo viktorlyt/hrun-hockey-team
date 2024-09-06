@@ -8,8 +8,6 @@ import { CartProvider } from "./context/CartContext";
 import { extendStringPrototype } from "./utils/stringExtensions";
 import { LanguageProvider } from "./context/LanguageContext";
 import axios from "axios";
-// import "react-toastify/dist/ReactToastify.css";
-// import { ToastContainer } from "react-toastify";
 import { Toaster } from "react-hot-toast";
 
 const response = await axios.get("");
@@ -24,7 +22,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <TeamProvider>
           <CartProvider>
             <App />
-            {/* <ToastContainer /> */}
             <Toaster />
           </CartProvider>
         </TeamProvider>

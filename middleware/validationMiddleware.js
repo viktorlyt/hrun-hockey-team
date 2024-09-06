@@ -10,6 +10,7 @@ import Product from "../models/ProductModel.js";
 import News from "../models/NewsModel.js";
 import User from "../models/UserModel.js";
 import { param } from "express-validator";
+import { isAdult, parseAndValidateDate, isChild } from "../utils/dateUtils.js";
 
 // Constants
 const MIN_DESCRIPTION_LENGTH = 5;
@@ -182,48 +183,56 @@ export const validateNewsInput = withValidationErrors([
 ]);
 
 export const validateRegisterInput = withValidationErrors([
-  body("firstName").notEmpty().withMessage("First name is required"),
-  body("lastName").notEmpty().withMessage("Last name is required"),
+  body("firstName").notEmpty().withMessage("First name is required\n"),
+  body("lastName").notEmpty().withMessage("Last name is required\n"),
   body("dob")
+    // .notEmpty()
     .optional()
-    .isDate()
-    .withMessage("Date of birth must be a valid date")
     .custom((dob) => {
-      const ageDiff = Date.now() - new Date(dob).getTime();
-      const ageDate = new Date(ageDiff);
-      const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-      if (age < 18) {
-        throw new Error("You must be at least 18 years old");
+      const date = parseAndValidateDate(dob);
+      if (!isAdult(date)) {
+        throw new Error("You must be at least 18 years old\n");
       }
       return true;
     }),
   body("phone")
     .optional()
-    .matches(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/)
-    .withMessage("Phone number must be valid and in the format (123) 456-7890"),
+    .matches(/^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/)
+    .withMessage(
+      "Phone number must be valid and in the format (123) 456-7890\n"
+    ),
   body("email")
     .notEmpty()
-    .withMessage("Email is required")
+    .withMessage("Email is required\n")
     .isEmail()
-    .withMessage("Invalid email format")
+    .withMessage("Invalid email format\n")
     .custom(async (email) => {
       const user = await User.findOne({ email });
       if (user) {
-        throw new BadRequestError("Email already exists");
+        throw new BadRequestError("Email already exists\n");
       }
     }),
   body("agreeWithDataCollection")
     .notEmpty()
-    .withMessage("You must agree with data collection"),
+    .withMessage("You must agree with data collection\n"),
   body("password")
     .notEmpty()
-    .withMessage("Password is required")
+    .withMessage("Password is required\n")
     .isLength({ min: 8 })
-    .withMessage("Password must be at least 8 characters long")
+    .withMessage("Password must be at least 8 characters long\n")
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/)
     .withMessage(
-      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character\n"
     ),
+  body("confirmPassword")
+    .notEmpty()
+    .withMessage("Please confirm your password\n")
+    .custom((confirmPassword, { req }) => {
+      if (confirmPassword !== req.body.password) {
+        throw new Error("Passwords do not match\n");
+      }
+      return true;
+    }),
 ]);
 
 export const validateUpdateUserInput = withValidationErrors([
@@ -231,20 +240,17 @@ export const validateUpdateUserInput = withValidationErrors([
   body("lastName").notEmpty().withMessage("Last name is required"),
   body("dob")
     .optional()
-    .isDate()
-    .withMessage("Date of birth must be a valid date")
+    // .isDate()
     .custom((dob) => {
-      const ageDiff = Date.now() - new Date(dob).getTime();
-      const ageDate = new Date(ageDiff);
-      const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-      if (age < 18) {
+      const date = parseAndValidateDate(dob);
+      if (!isAdult(date)) {
         throw new Error("You must be at least 18 years old");
       }
       return true;
     }),
   body("phone")
     .optional()
-    .matches(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/)
+    .matches(/^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/)
     .withMessage("Phone number must be valid and in the format (123) 456-7890"),
   body("email")
     .notEmpty()

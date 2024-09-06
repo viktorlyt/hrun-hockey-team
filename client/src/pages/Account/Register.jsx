@@ -137,7 +137,7 @@ const Register = () => {
     showToast({
       type: "success",
       title: "You registered successfully!",
-      message: "A Confirmation has been sent to  your email.",
+      message: "A Confirmation has been sent to your email.",
       linkText: "Go to your profile",
       link: "/account",
     });

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.footer`
   background-color: var(--bg-ocean-green);
   padding: 2rem 4rem;
-  margin-top: 8rem;
+  /* margin-top: 8rem; */
   width: 100%;
   box-sizing: border-box;
   --footer-height: 320px;

@@ -50,8 +50,8 @@ const ProfileCard = ({
     console.log("newValueName", newValue.name);
 
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const phoneRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-
+    const phoneRegex =
+      /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/;
     const isValid =
       (name === "address" && !isAddressEmpty(newValue)) ||
       (name === "addChild" &&
@@ -65,7 +65,7 @@ const ProfileCard = ({
       (name === "name" && newValue.length >= 4) ||
       (name === "dob" && calculateAge(newValue) >= 18) ||
       (name === "email" && emailRegex.test(newValue)) ||
-      (name === "phoneNumber" &&
+      (name === "phone" &&
         phoneRegex.test(
           newValue
             .replace(/\s/g, "")

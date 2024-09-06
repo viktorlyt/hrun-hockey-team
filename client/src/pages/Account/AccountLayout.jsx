@@ -14,7 +14,7 @@ const AccountLayout = () => {
     dob: null,
     image: "",
     email: "barbara@gmail.com",
-    phoneNumber: "506 456 6677",
+    phone: "506 456 6677",
     kids: [
       { id: 1, name: "Nick Watson", dob: "2016-05-25" },
       { id: 3, name: "Emma Watson", dob: "2014-05-25" },

@@ -3400,7 +3400,7 @@ export const mockCoaches = [
 //   "firstName": "Barbara",
 //   "lastName": "Watson",
 //   "email": "barbara@gmail.com",
-//   "phoneNumber": "506 456 6677",
+//   "phone": "506 456 6677",
 //   "password": "Secret123*",
 //   "kids": [
 //       {

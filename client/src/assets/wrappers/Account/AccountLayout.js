@@ -13,8 +13,6 @@ const Wrapper = styled.section`
     width: 100%;
   }
 
-  .account-page {
-  }
   @media (max-width: 768px) {
     padding: 2rem 1rem;
   }

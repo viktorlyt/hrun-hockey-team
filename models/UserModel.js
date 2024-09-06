@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Counter from "./counter.js";
+import { isAdult, isChild, parseAndValidateDate } from "../utils/dateUtils.js";
 
 const UserSchema = new mongoose.Schema(
   {
@@ -26,21 +27,19 @@ const UserSchema = new mongoose.Schema(
     dob: {
       type: Date,
       required: false,
+      set: parseAndValidateDate,
       validate: {
-        validator: function (dob) {
-          const ageDiff = Date.now() - new Date(dob).getTime();
-          const ageDate = new Date(ageDiff);
-          const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-          return age >= 18;
-        },
+        validator: isAdult,
         message: "User must be at least 18 years old.",
       },
     },
-    phoneNumber: {
+    phone: {
       type: String,
       validate: {
         validator: function (v) {
-          return /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(v);
+          return /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/.test(
+            v
+          );
         },
         message: (props) => `${props.value} is not a valid phone number!`,
       },
@@ -96,13 +95,9 @@ const UserSchema = new mongoose.Schema(
         },
         dob: {
           type: Date,
+          set: parseAndValidateDate,
           validate: {
-            validator: function (dob) {
-              const ageDiff = Date.now() - new Date(dob).getTime();
-              const ageDate = new Date(ageDiff);
-              const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-              return age < 18;
-            },
+            validator: isChild,
             message: "Kids must be less than 18 years old.",
           },
         },

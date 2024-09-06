@@ -13,7 +13,7 @@ const GroupCard = ({ id, name, minAge, maxAge, decription, img }) => {
         </h4>
         <p className="b2 desc">{decription}</p>
         <button className="b2 selected registration">
-          <Link to={`/registration/${id}`}>Register here</Link>
+          <Link to={`/account/register`}>Register here</Link>
         </button>
       </div>
     </Wrapper>

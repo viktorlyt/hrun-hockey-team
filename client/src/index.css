@@ -473,6 +473,16 @@ button.selected:disabled,
   }
 }
 
+input {
+  &.error {
+    border-color: var(--error) !important;
+  }
+}
+
+.custom-toast {
+  max-width: 98%;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -494,6 +504,8 @@ main {
   flex: 1 0 auto;
   padding-top: 6rem;
   box-sizing: border-box;
+  margin-bottom: 0;
+  padding-bottom: 8rem;
 }
 
 a {
@@ -586,6 +598,26 @@ textarea::placeholder {
 .content-blurred {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.password-wrapper {
+  position: relative;
+
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: var(--color-b20-b60);
+
+    &:hover {
+      color: var(--color-b40-o);
+    }
+  }
 }
 
 @media (max-width: 1343px) {

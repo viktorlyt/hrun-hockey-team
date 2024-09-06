@@ -18,6 +18,8 @@ import Community from "./pages/Community";
 import HockeySchool from "./pages/HockeySchool";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
+import CreateAccount, { action as createAccount } from "./pages/CreateAccount";
+import Login, { action as login } from "./pages/Login";
 import AccountLayout from "./pages/Account/AccountLayout";
 import Profile from "./pages/Account/Profile";
 import Register from "./pages/Account/Register";
@@ -68,6 +70,8 @@ const router = createBrowserRouter([
       },
       { path: "cart", element: <Cart />, loader: cartLoader },
       { path: "tickets", element: <Tickets /> },
+      { path: "register", element: <CreateAccount />, action: createAccount },
+      { path: "login", element: <Login />, action: login },
       { path: "*", element: <NotFound /> },
     ],
   },

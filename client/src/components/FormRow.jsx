@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 const FormRow = ({
   type,
@@ -16,7 +17,14 @@ const FormRow = ({
   onChange,
   min,
   max,
+  className = "",
 }) => {
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevState) => !prevState);
+  };
+
   const renderLabel = () => {
     if (type === "checkbox" && labelText.includes("collected and stored")) {
       const parts = labelText.split("collected and stored");
@@ -70,11 +78,16 @@ const FormRow = ({
   const renderInput = () => {
     switch (type) {
       case "textarea":
-        return <textarea className="form-input b3" {...inputProps} />;
+        return (
+          <textarea className={`form-input b3 ${className}`} {...inputProps} />
+        );
       case "select":
         return (
           <div className="select-wrapper">
-            <select className="form-input b5 capitalize-first" {...inputProps}>
+            <select
+              className={`form-input b5 capitalize-first ${className}`}
+              {...inputProps}
+            >
               <option className="b5 capitalize-first" value="" disabled hidden>
                 {placeholder || `Select ${name}`}
               </option>
@@ -89,6 +102,23 @@ const FormRow = ({
             </span>
           </div>
         );
+      case "password":
+        return (
+          <div className="password-wrapper">
+            <input
+              type={isPasswordVisible ? "text" : "password"}
+              {...inputProps}
+              className={`form-input b3 ${className}`}
+            />
+            <span
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="toggle-password"
+            >
+              {isPasswordVisible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            </span>
+          </div>
+        );
       default:
         if (React.isValidElement(placeholder)) {
           return (
@@ -96,7 +126,7 @@ const FormRow = ({
               <input
                 type={type}
                 {...inputProps}
-                className="form-input b3"
+                className={`form-input b3 ${className}`}
                 min={min}
                 max={max}
               />
@@ -109,7 +139,7 @@ const FormRow = ({
         } else {
           return (
             <input
-              className="form-input b3"
+              className={`form-input b3 ${className}`}
               type={type}
               {...inputProps}
               min={min}

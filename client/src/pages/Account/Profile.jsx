@@ -18,7 +18,7 @@ const Profile = () => {
     name: `${user.firstName} ${user.lastName}`,
     dob: user.dob ? formatDate(user.dob) : "yyyy-mm-dd",
     email: user.email,
-    phoneNumber: user.phoneNumber,
+    phone: user.phone,
     address: user.address || {
       country: "Canada",
       streetAddress: "",
@@ -86,8 +86,8 @@ const Profile = () => {
     },
     {
       title: "Phone number:",
-      name: "phoneNumber",
-      value: profileData.phoneNumber,
+      name: "phone",
+      value: profileData.phone,
       inputType: "tel",
     },
     { title: "Address:", name: "address", value: profileData.address },
