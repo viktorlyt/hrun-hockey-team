@@ -1,25 +1,25 @@
-import { Outlet } from "react-router-dom";
-import Wrapper from "../../assets/wrappers/Account/AccountLayout";
+import { createContext, useContext, useState } from "react";
+import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import customFetch from "../../utils/customFetch";
 import AccountBigSidebar from "../../components/Account/AccountBigSidebar";
 import AccountTopbar from "../../components/Account/AccountTopbar";
-import { createContext, useContext, useState } from "react";
+import Wrapper from "../../assets/wrappers/Account/AccountLayout";
+
+export const loader = async () => {
+  try {
+    const { data } = await customFetch("/user");
+    return data;
+  } catch (error) {
+    return redirect("/");
+  }
+};
 
 const AccountContext = createContext();
 
 const AccountLayout = () => {
-  const user = {
-    userId: 1,
-    firstName: "Barbara",
-    lastName: "Watson",
-    dob: null,
-    image: "",
-    email: "barbara@gmail.com",
-    phone: "506 456 6677",
-    kids: [
-      { id: 1, name: "Nick Watson", dob: "2016-05-25" },
-      { id: 3, name: "Emma Watson", dob: "2014-05-25" },
-    ],
-  };
+  const navigate = useNavigate();
+  const { user } = useLoaderData();
   const [showSidebar, setShowSidebar] = useState(false);
 
   const toggleSidebar = () => {
@@ -27,7 +27,9 @@ const AccountLayout = () => {
   };
 
   const logoutUser = async () => {
-    console.log("user logged out");
+    navigate("/");
+    await customFetch.get("/auth/logout");
+    toast.success("Logging out...");
   };
 
   return (
@@ -44,7 +46,7 @@ const AccountLayout = () => {
         <div className="account-container">
           <AccountTopbar />
           <div className="account-page">
-            <Outlet />
+            <Outlet context={{ user }} />
           </div>
         </div>
       </Wrapper>

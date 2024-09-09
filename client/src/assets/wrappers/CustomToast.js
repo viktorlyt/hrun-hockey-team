@@ -30,6 +30,13 @@ const Wrapper = styled.div`
     color: #000;
   }
 
+  .confirmation-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    gap: 1rem;
+  }
+
   @media (max-width: 1600px) {
     width: 45vw;
   }

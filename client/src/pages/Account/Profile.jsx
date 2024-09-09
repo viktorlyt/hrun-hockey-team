@@ -5,10 +5,10 @@ import Wrapper from "../../assets/wrappers/Account/Profile";
 import { formatDate } from "../../utils/functions";
 
 const Profile = () => {
-  const { user, updateUser } = useAccountContext();
+  const { user = {}, updateUser } = useAccountContext();
   const [showChildForm, setShowChildForm] = useState(false);
   const [isAddingChild, setIsAddingChild] = useState(false);
-  const [kids, setKids] = useState(user.kids);
+  const [kids = [], setKids] = useState(user.kids);
   const [newChild, setNewChild] = useState({
     newChildName: "",
     newChildDob: "",
@@ -27,7 +27,8 @@ const Profile = () => {
       province: "New Brunswick",
       postalCode: "",
     },
-    kids: user.kids || [],
+    // kids: user.kids || [],
+    kids,
   });
 
   // TODO check editing dates (change year for the first kid)

@@ -7,6 +7,8 @@ const AccountTopbar = () => {
   const { user } = useAccountContext();
   const location = useLocation();
 
+  const avatarUrl = `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}&background=cde5ea&rounded=true`;
+
   const getHeading = () => {
     switch (location.pathname) {
       case "/account":
@@ -33,9 +35,7 @@ const AccountTopbar = () => {
         </span>
         <img
           className="avatar"
-          src={`${
-            user.image !== "" ? user.image : "/assets/images/avatar.png"
-          }`}
+          src={`${user.image && user.image !== "" ? user.image : avatarUrl}`}
         />
       </div>
     </Wrapper>

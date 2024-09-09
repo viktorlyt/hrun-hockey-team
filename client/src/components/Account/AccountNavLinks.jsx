@@ -2,9 +2,18 @@ import { NavLink } from "react-router-dom";
 import { useAccountContext } from "../../pages/Account/AccountLayout";
 import links from "../../utils/links";
 import { accountPrimaryLinks, accountSecondaryLinks } from "../../utils/links";
+import showToast from "../CustomToast";
 
 const NavLinks = ({ isBigSidebar }) => {
-  const { user, toggleSidebar } = useAccountContext;
+  const { toggleSidebar, logoutUser } = useAccountContext();
+
+  const handleLogout = () => {
+    showToast({
+      title: "Are you sure you want to log out?",
+      onConfirm: logoutUser,
+      onConfirmBtnText: "Sign out",
+    });
+  };
 
   return (
     <div className="nav-links">
@@ -32,7 +41,13 @@ const NavLinks = ({ isBigSidebar }) => {
             <NavLink
               to={path}
               key={text}
-              onClick={isBigSidebar ? null : toggleSidebar}
+              onClick={
+                text === "Sign out"
+                  ? handleLogout
+                  : isBigSidebar
+                  ? null
+                  : toggleSidebar
+              }
               className="nav-link b2"
               end
             >

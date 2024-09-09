@@ -20,7 +20,9 @@ import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import CreateAccount, { action as createAccount } from "./pages/CreateAccount";
 import Login, { action as login } from "./pages/Login";
-import AccountLayout from "./pages/Account/AccountLayout";
+import AccountLayout, {
+  loader as userLoader,
+} from "./pages/Account/AccountLayout";
 import Profile from "./pages/Account/Profile";
 import Register from "./pages/Account/Register";
 import MyOrders from "./pages/Account/MyOrders";
@@ -61,6 +63,7 @@ const router = createBrowserRouter([
       {
         path: "account/",
         element: <AccountLayout />,
+        loader: userLoader,
         children: [
           { index: true, element: <Profile /> },
           { path: "register", element: <Register /> },

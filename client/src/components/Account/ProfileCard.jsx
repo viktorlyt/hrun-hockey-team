@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import FormRow from "../FormRow";
 import AddressForm from "./AddressForm";
 import ChildForm from "./ChildForm";
-import { formatDate } from "../../utils/functions";
+import {
+  formatDate,
+  isAdult,
+  isChild,
+  parseAndValidateDate,
+} from "../../utils/functions";
 
 const ProfileCard = ({
   title,
@@ -32,23 +37,7 @@ const ProfileCard = ({
     );
   };
 
-  const calculateAge = (date) => {
-    const today = new Date();
-    const dob = new Date(date);
-    const age = today.getFullYear() - dob.getFullYear();
-    const monthDiff = today.getMonth() - dob.getMonth();
-
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate()))
-      age--;
-
-    return age;
-  };
-
   const validateFormData = (newValue) => {
-    console.log("inside validateFormData");
-    console.log("newValue", newValue);
-    console.log("newValueName", newValue.name);
-
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const phoneRegex =
       /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/;
@@ -57,13 +46,13 @@ const ProfileCard = ({
       (name === "addChild" &&
         newValue.newChildName.length >= 4 &&
         newValue.newChildDob &&
-        calculateAge(newValue.newChildDob) < 18) ||
+        isChild(newValue.newChildDob)) ||
       (name === "kids" &&
         newValue.name.length >= 4 &&
         newValue.id &&
-        calculateAge(newValue.dob) < 18) ||
+        isChild(newValue.dob)) ||
       (name === "name" && newValue.length >= 4) ||
-      (name === "dob" && calculateAge(newValue) >= 18) ||
+      (name === "dob" && isAdult(newValue)) ||
       (name === "email" && emailRegex.test(newValue)) ||
       (name === "phone" &&
         phoneRegex.test(

@@ -10,40 +10,53 @@ const RouterWrapper = ({ children }) => (
   <BrowserRouter>{children}</BrowserRouter>
 );
 
-const CustomToast = ({ icon, title, message, linkText, onLinkClick }) => {
-  // const CustomToast = ({icon, title, message, linkText, link }) => (
+const CustomToast = ({
+  icon,
+  title,
+  message,
+  linkText,
+  onLinkClick,
+  onConfirm,
+  onCancel,
+  onConfirmBtnText,
+}) => {
   const { theme } = useTheme();
 
+  console.log("onLinkClick", onLinkClick);
   return (
     <Wrapper className={`site-wrapper ${theme}`}>
       {icon && <div className="icon">{icon}</div>}
       <h3>{title}</h3>
-      <p className="b1">{message}</p>
-      {/* {link && (
-        <Link to={link} className="button selected long">
-          {linkText}
-        </Link>
-      )} */}
-      {/* {link && (
-        <a href={link} className="button selected long">
-          {linkText}
-        </a>
-      )} */}
+      {message && <p className="b1">{message}</p>}
       {onLinkClick && (
         <button onClick={onLinkClick} className="button selected long">
           {linkText}
         </button>
       )}
+      {onConfirm && onCancel && (
+        <div className="confirmation-buttons">
+          <button onClick={onConfirm} className="button selected">
+            {onConfirmBtnText !== "" ? onConfirmBtnText : "Confirm"}
+          </button>
+          <button onClick={onCancel} className="button">
+            Cancel
+          </button>
+        </div>
+      )}
     </Wrapper>
   );
 };
+
 const showToast = ({
-  type = "info",
-  duration = 4000,
+  type,
+  duration = 7000,
   title,
   message,
   linkText,
   link,
+  onConfirm,
+  onCancel,
+  onConfirmBtnText,
 }) => {
   const icons = {
     success: <BsCheck2Circle style={{ color: "green" }} />,
@@ -51,44 +64,37 @@ const showToast = ({
     info: <FaInfoCircle style={{ color: "blue" }} />,
   };
 
-  //   toast.custom(
-  //     (t) => (
-  //       <RouterWrapper>
-  //         <CustomToast
-  //           t={t}
-  //           icon={icons[type]}
-  //           title={title}
-  //           message={message}
-  //           link={link}
-  //           linkText={linkText}
-  //         />
-  //       </RouterWrapper>
-  //     ),
-  //     {
-  //       duration: 2000,
-  //       position: "center",
-  //     }
-  //   );
-  // };
+  console.log("link", link);
+
   toast.custom(
     (t) => (
       <CustomToast
-        icon={icons[type]}
+        icon={type ? icons[type] : null}
         title={title}
         message={message}
         linkText={linkText}
-        onLinkClick={() => {
-          if (link) {
-            // Close the toast
-            toast.dismiss(t.id);
-            // Navigate to the link
-            window.location.href = link;
-          }
+        onLinkClick={
+          link
+            ? () => {
+                toast.dismiss(t.id);
+                window.location.href = link;
+              }
+            : null
+        }
+        onConfirm={() => {
+          if (onConfirm) onConfirm();
+          toast.dismiss(t.id);
         }}
+        onCancel={() => {
+          if (onCancel) onCancel();
+          toast.dismiss(t.id);
+        }}
+        onConfirmBtnText={onConfirmBtnText}
       />
     ),
     {
       duration: link ? Infinity : duration,
+      // duration: onConfirm && onCancel ? Infinity : duration,
       position: "top-center",
     }
   );

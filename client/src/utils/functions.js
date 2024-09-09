@@ -1,8 +1,19 @@
 import { format, parse } from "date-fns";
 
-export function formatDate(date) {
-  return date.toISOString().split("T")[0]; //  "yyyy-MM-dd"
-}
+// export function formatDate(date) {
+//   return date.toISOString().split("T")[0]; //  "yyyy-MM-dd"
+// }
+
+export const formatDate = (date) => {
+  const parsedDate = new Date(date);
+
+  if (!isNaN(parsedDate)) {
+    return parsedDate.toISOString().split("T")[0];
+  } else {
+    console.error("Invalid date:", date);
+    return "Invalid Date";
+  }
+};
 
 export const formatTime = (timeString) => {
   const date = parse(timeString, "HH:mm:ss", new Date());

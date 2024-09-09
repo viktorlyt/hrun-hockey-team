@@ -80,7 +80,7 @@ const UserSchema = new mongoose.Schema(
       {
         kidId: {
           type: Number,
-          unique: true,
+          // Remove the unique constraint from here
         },
         firstName: {
           type: String,
@@ -127,13 +127,19 @@ UserSchema.pre("save", async function (next) {
     );
     this.userId = counter.seq;
 
-    for (let kid of this.kids) {
-      const kidCounter = await Counter.findByIdAndUpdate(
-        { _id: "kidId" },
-        { $inc: { seq: 1 } },
-        { new: true, upsert: true }
-      );
-      kid.kidId = kidCounter.seq;
+    // Only assign kidId if kids array is not empty
+    if (this.kids && this.kids.length > 0) {
+      for (let kid of this.kids) {
+        if (!kid.kidId) {
+          // Only assign a new kidId if it doesn't already have one
+          const kidCounter = await Counter.findByIdAndUpdate(
+            { _id: "kidId" },
+            { $inc: { seq: 1 } },
+            { new: true, upsert: true }
+          );
+          kid.kidId = kidCounter.seq;
+        }
+      }
     }
 
     next();
@@ -148,6 +154,9 @@ UserSchema.index({
   "kids.firstName": "text",
   "kids.lastName": "text",
 });
+
+// Add a compound index for kidId and userId
+UserSchema.index({ userId: 1, "kids.kidId": 1 }, { unique: true });
 
 UserSchema.methods.toJSON = function () {
   var obj = this.toObject();
