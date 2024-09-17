@@ -189,6 +189,7 @@ export const validateRegisterInput = withValidationErrors([
     // .notEmpty()
     .optional()
     .custom((dob) => {
+      if (!dob || !dob === "") return true;
       const date = parseAndValidateDate(dob);
       if (!isAdult(date)) {
         throw new Error("You must be at least 18 years old\n");
@@ -237,21 +238,25 @@ export const validateRegisterInput = withValidationErrors([
 
 export const validateUpdateUserInput = withValidationErrors([
   body("firstName").notEmpty().withMessage("First name is required"),
+
   body("lastName").notEmpty().withMessage("Last name is required"),
+
   body("dob")
     .optional()
-    // .isDate()
     .custom((dob) => {
+      if (!dob || !dob === "") return true;
       const date = parseAndValidateDate(dob);
       if (!isAdult(date)) {
-        throw new Error("You must be at least 18 years old");
+        throw new Error("You must be at least 18 years old\n");
       }
       return true;
     }),
+
   body("phone")
     .optional()
     .matches(/^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/)
     .withMessage("Phone number must be valid and in the format (123) 456-7890"),
+
   body("email")
     .notEmpty()
     .withMessage("Email is required")
@@ -262,6 +267,55 @@ export const validateUpdateUserInput = withValidationErrors([
       if (user && user.userId.toString() !== req.user.userId) {
         throw new Error("email already exists");
       }
+    }),
+
+  body("address")
+    .optional()
+    .custom((address) => {
+      if (!address) return true;
+      if (!address.streetAddress || address.streetAddress.length < 5) {
+        throw new Error("Street address must be at least 5 characters long");
+      }
+      if (!address.city || address.city.length < 3) {
+        throw new Error("City must be at least 3 characters long");
+      }
+      if (!address.province) {
+        throw new Error("Province is required");
+      }
+      // if (!address.country) {
+      //   throw new Error("Country is required");
+      // }
+      if (!address.postalCode) {
+        throw new Error("Postal code is required");
+      } else {
+        const postalCodeRegex =
+          /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
+        if (!postalCodeRegex.test(address.postalCode))
+          throw new Error("Postal code is not valid");
+      }
+      return true;
+    }),
+
+  body("kids")
+    .optional()
+    .custom((kids) => {
+      if (!kids || !Array.isArray(kids)) return true;
+      kids.forEach((kid) => {
+        if (
+          !kid.firstName ||
+          kid.firstName.length < 3 ||
+          !kid.lastName ||
+          kid.lastName.length < 3
+        ) {
+          throw new Error(
+            "Child's first and last name must be at least 2 characters long"
+          );
+        }
+        if (!kid.dob || !isChild(parseAndValidateDate(kid.dob))) {
+          throw new Error("Child's date of birth is invalid");
+        }
+      });
+      return true;
     }),
 ]);
 

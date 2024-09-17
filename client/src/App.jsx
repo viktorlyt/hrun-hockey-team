@@ -32,6 +32,7 @@ import Tickets from "./pages/Tickets";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 import PageOverlay from "./components/PageOverlay";
+import ProtectedRoute from "./components/shared/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       {
         path: "account/",
+        // element: (
+        //   <ProtectedRoute>
+        //     <AccountLayout />
+        //   </ProtectedRoute>
+        // ),
         element: <AccountLayout />,
         loader: userLoader,
         children: [

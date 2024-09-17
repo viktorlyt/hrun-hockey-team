@@ -8,6 +8,7 @@ import {
   isChild,
   parseAndValidateDate,
 } from "../../utils/functions";
+import NameForm from "./NameForm";
 
 const ProfileCard = ({
   title,
@@ -29,11 +30,18 @@ const ProfileCard = ({
   }, [name, value]);
 
   const isAddressEmpty = (address) => {
+    return !address.streetAddress || !address.city.length;
+  };
+
+  const isAddressValid = (address) => {
+    const postalCodeRegex =
+      /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
     return (
       address.streetAddress.length < 5 ||
       address.city.length < 3 ||
-      !address.province
-      //|| !address.postalCode
+      !address.province ||
+      !address.postalCode ||
+      !postalCodeRegex.test(address.postalCode)
     );
   };
 
@@ -41,17 +49,24 @@ const ProfileCard = ({
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const phoneRegex =
       /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/;
+
+    console.log("newValue", newValue);
+
     const isValid =
-      (name === "address" && !isAddressEmpty(newValue)) ||
+      (name === "address" && !isAddressValid(newValue)) ||
       (name === "addChild" &&
-        newValue.newChildName.length >= 4 &&
-        newValue.newChildDob &&
-        isChild(newValue.newChildDob)) ||
-      (name === "kids" &&
-        newValue.name.length >= 4 &&
-        newValue.id &&
+        newValue.firstName.length >= 2 &&
+        newValue.lastName.length >= 2 &&
+        newValue.dob &&
         isChild(newValue.dob)) ||
-      (name === "name" && newValue.length >= 4) ||
+      (name === "kids" &&
+        newValue.firstName.length >= 2 &&
+        newValue.lastName.length >= 2 &&
+        newValue.dob &&
+        isChild(newValue.dob)) ||
+      (name === "fullName" &&
+        newValue.firstName.length >= 2 &&
+        newValue.lastName.length >= 2) ||
       (name === "dob" && isAdult(newValue)) ||
       (name === "email" && emailRegex.test(newValue)) ||
       (name === "phone" &&
@@ -93,7 +108,11 @@ const ProfileCard = ({
         if (validateFormData(editedValue)) {
           handleEditSubmit(name, editedValue);
           if (name === "addChild") {
-            setEditedValue({ newChildName: "", newChildDob: "" });
+            setEditedValue({
+              newChildFirstName: "",
+              newChildLastName: "",
+              newChildDob: "",
+            });
           }
         } else {
           setEditedValue(value);
@@ -110,11 +129,11 @@ const ProfileCard = ({
     validateFormData(newValue);
   };
 
-  const handleFormChange = (newFormData, childId = null) => {
+  const handleFormChange = (newFormData, kidId = null) => {
     if (name === "kids") {
       setEditedValue((prev) => ({
         ...prev,
-        [childId]: newFormData,
+        [kidId]: newFormData,
       }));
       validateFormData(newFormData);
     } else {
@@ -124,23 +143,23 @@ const ProfileCard = ({
   };
 
   const renderEditContent = (kid = null) => {
-    if (name === "address") {
+    if (name === "address")
       return <AddressForm address={editedValue} onChange={handleFormChange} />;
-    }
 
     if (name === "kids" && kid) {
       return (
         <ChildForm
-          // child={kid}
-          child={editedValue[kid.id] || kid}
-          onChange={(data) => handleFormChange(data, kid.id)}
+          child={editedValue[kid.child] || kid}
+          onChange={(data) => handleFormChange(data, kid.child)}
         />
       );
     }
 
-    if (name === "addChild") {
+    if (name === "addChild")
       return <ChildForm child={editedValue} onChange={handleFormChange} />;
-    }
+
+    if (name === "fullName")
+      return <NameForm fullName={editedValue} onChange={handleFormChange} />;
 
     return (
       <FormRow
@@ -185,10 +204,20 @@ const ProfileCard = ({
     if (name === "kids" && kid) {
       return (
         <div>
-          <span className="b1 value">{kid.name}</span>
+          <span className="b1 value">
+            {kid.firstName} {kid.lastName}
+          </span>
           <h4 className="child-dob">Date of birth:</h4>
           <span className="b1 value">{formatDate(new Date(kid.dob))}</span>
         </div>
+      );
+    }
+
+    if (name === "fullName") {
+      return (
+        <span className="b1 value">
+          {editedValue.firstName} {editedValue.lastName}
+        </span>
       );
     }
 
@@ -271,18 +300,3 @@ const ProfileCard = ({
   );
 };
 export default ProfileCard;
-
-// <span className="b1 edit">
-//   {isEditing
-//     ? isFormDataValid
-//       ? "Save"
-//       : name === "addChild" || (name === "address" && isAddressEmpty)
-//       ? "Save"
-//       : "Cancel"
-//     : "Edit"}
-// </span>;
-
-// TODO Remove when back-end implemented
-// if (typeof value === "object" && value !== null) {
-//   return <span className="b1 value">{JSON.stringify(value)}</span>;
-// }

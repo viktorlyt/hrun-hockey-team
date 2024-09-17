@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { Outlet, useLoaderData, useNavigate } from "react-router-dom";
+import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import customFetch from "../../utils/customFetch";
 import AccountBigSidebar from "../../components/Account/AccountBigSidebar";
@@ -11,6 +11,10 @@ export const loader = async () => {
     const { data } = await customFetch("/user");
     return data;
   } catch (error) {
+    if (error.response && error.response.status === 401) {
+      return redirect("/login");
+    }
+    console.log("error", error);
     return redirect("/");
   }
 };

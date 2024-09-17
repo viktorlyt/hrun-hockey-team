@@ -22,7 +22,8 @@ const CustomToast = ({
 }) => {
   const { theme } = useTheme();
 
-  console.log("onLinkClick", onLinkClick);
+  console.log("onConfirm", onConfirm);
+  console.log("onConfirmBtnText", onConfirmBtnText);
   return (
     <Wrapper className={`site-wrapper ${theme}`}>
       {icon && <div className="icon">{icon}</div>}
@@ -33,10 +34,10 @@ const CustomToast = ({
           {linkText}
         </button>
       )}
-      {onConfirm && onCancel && (
+      {onConfirm && (
         <div className="confirmation-buttons">
           <button onClick={onConfirm} className="button selected">
-            {onConfirmBtnText !== "" ? onConfirmBtnText : "Confirm"}
+            {onConfirmBtnText ? onConfirmBtnText : "Confirm"}
           </button>
           <button onClick={onCancel} className="button">
             Cancel
@@ -49,7 +50,7 @@ const CustomToast = ({
 
 const showToast = ({
   type,
-  duration = 7000,
+  duration = 3000,
   title,
   message,
   linkText,
@@ -63,8 +64,6 @@ const showToast = ({
     error: <FaExclamationCircle style={{ color: "red" }} />,
     info: <FaInfoCircle style={{ color: "blue" }} />,
   };
-
-  console.log("link", link);
 
   toast.custom(
     (t) => (
@@ -81,14 +80,22 @@ const showToast = ({
               }
             : null
         }
-        onConfirm={() => {
-          if (onConfirm) onConfirm();
-          toast.dismiss(t.id);
-        }}
-        onCancel={() => {
-          if (onCancel) onCancel();
-          toast.dismiss(t.id);
-        }}
+        onConfirm={
+          onConfirm
+            ? () => {
+                onConfirm();
+                toast.dismiss(t.id);
+              }
+            : null
+        }
+        onCancel={
+          onConfirm
+            ? () => {
+                onCancel();
+                toast.dismiss(t.id);
+              }
+            : null
+        }
         onConfirmBtnText={onConfirmBtnText}
       />
     ),

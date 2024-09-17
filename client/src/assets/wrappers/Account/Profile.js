@@ -42,6 +42,15 @@ const Wrapper = styled.div`
         color: var(--color-b40-b60);
       }
 
+      .name {
+        width: fit-content;
+        .form-input {
+          width: 30%;
+          max-width: 250px;
+          min-width: 100px;
+        }
+      }
+
       .address-form {
         flex: 1 1 80%;
         width: 80%;

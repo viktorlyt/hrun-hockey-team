@@ -24,8 +24,7 @@ export const accountPrimaryLinks = [
 
 export const accountSecondaryLinks = [
   { text: "Support", path: "support", icon: <IoHelpCircleOutline /> },
-  // { text: "Sign out", path: "signout", icon: <CiLogout /> },
-  { text: "Sign out", icon: <CiLogout /> },
+  { text: "Sign out", path: "signout", icon: <CiLogout /> },
 ];
 
 export default links;

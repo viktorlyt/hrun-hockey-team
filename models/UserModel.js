@@ -27,9 +27,15 @@ const UserSchema = new mongoose.Schema(
     dob: {
       type: Date,
       required: false,
-      set: parseAndValidateDate,
+      set: (value) => {
+        if (value) return parseAndValidateDate(value);
+        return value;
+      },
       validate: {
-        validator: isAdult,
+        validator: (value) => {
+          if (value) return isAdult(value);
+          return true;
+        },
         message: "User must be at least 18 years old.",
       },
     },
@@ -68,7 +74,9 @@ const UserSchema = new mongoose.Schema(
         type: String,
         validate: {
           validator: function (v) {
-            return /^[A-Za-z0-9]{3} ?[A-Za-z0-9]{3}$/.test(v);
+            return /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(
+              v
+            );
           },
           message: (props) => `${props.value} is not a valid postal code!`,
         },

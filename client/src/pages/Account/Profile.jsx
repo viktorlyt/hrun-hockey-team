@@ -10,12 +10,16 @@ const Profile = () => {
   const [isAddingChild, setIsAddingChild] = useState(false);
   const [kids = [], setKids] = useState(user.kids);
   const [newChild, setNewChild] = useState({
-    newChildName: "",
-    newChildDob: "",
+    firstName: "",
+    lastName: "",
+    dob: "",
   });
 
   const [profileData, setProfileData] = useState({
-    name: `${user.firstName} ${user.lastName}`,
+    fullName: {
+      firstName: user.firstName,
+      lastName: user.lastName,
+    },
     dob: user.dob ? formatDate(user.dob) : "yyyy-mm-dd",
     email: user.email,
     phone: user.phone,
@@ -72,7 +76,11 @@ const Profile = () => {
   };
 
   const profileSections = [
-    { title: "First and last name:", name: "name", value: profileData.name },
+    {
+      title: "First and last name:",
+      name: "fullName",
+      value: profileData.fullName,
+    },
     {
       title: "Date of birth:",
       name: "dob",

@@ -17,9 +17,7 @@ export const action = async ({ request }) => {
     errors.name = "First and last name are required";
   }
 
-  if (!data.dob.trim()) {
-    errors.dob = "Date of birth is required";
-  } else {
+  if (data.dob.trim()) {
     const parsedDate = parseAndValidateDate(data.dob.trim());
     if (!parsedDate) {
       errors.dob = "Invalid date format. Please use DD/MM/YYYY or DD-MM-YYYY.";

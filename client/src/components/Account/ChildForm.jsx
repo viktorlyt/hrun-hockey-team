@@ -2,29 +2,44 @@ import React from "react";
 import FormRow from "../FormRow";
 
 const ChildForm = ({ child, onChange }) => {
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   const updatedName = name.replace(
+  //     /^(new|child)(FirstName|LastName|Dob).*/,
+  //     "$2"
+  //   );
+  //   onChange({ ...child, [updatedName.toLowerCase()]: value });
+  // };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const updatedChild = {
-      ...child,
-      [name.includes("Name") ? "name" : "dob"]: value,
-    };
-
-    onChange(updatedChild);
+    onChange({ ...child, [name]: value });
   };
 
   return (
     <div className="child-form">
-      <FormRow
-        type="text"
-        name={child.id ? `childName${child.id}` : "newChildName"}
-        placeholder="Type name"
-        value={child.name || ""}
-        onChange={handleChange}
-      />
+      <input value={child.kidId} hidden />
+      <div className="form-row-inline">
+        <FormRow
+          type="text"
+          name={child.kidId ? `firstName-${child.kidId}` : "firstName"}
+          placeholder="First name"
+          value={child.firstName}
+          onChange={handleChange}
+        />
+        <FormRow
+          type="text"
+          // name="lastName"
+          name={child.kidId ? `lastName-${child.kidId}` : "lastName"}
+          placeholder="Last name"
+          value={child.lastName}
+          onChange={handleChange}
+        />
+      </div>
       <h4 className="child-dob">Date of birth:</h4>
       <FormRow
         type="date"
-        name={child.id ? `childDob${child.id}` : "newChildDob"}
+        name={child.kidId ? `dob-${child.kidId}` : "dob"}
         placeholder="yyyy-mm-dd"
         value={child.dob || ""}
         onChange={handleChange}

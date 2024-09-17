@@ -14,9 +14,6 @@ const Wrapper = styled.div`
       .form-row {
         width: 550px;
         max-width: 98%;
-        input {
-          box-shadow: var(--shadow);
-        }
       }
     }
 
