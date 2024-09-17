@@ -20,10 +20,24 @@ export const formatTime = (timeString) => {
   return format(date, "h:mm a");
 };
 
+// export const calculateAge = (dob) => {
+//   const ageDiff = Date.now() - new Date(dob).getTime();
+//   const ageDate = new Date(ageDiff);
+//   return Math.abs(ageDate.getUTCFullYear() - 1970);
+// };
+
 export const calculateAge = (dob) => {
-  const ageDiff = Date.now() - new Date(dob).getTime();
-  const ageDate = new Date(ageDiff);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
+  const today = new Date();
+  const birthDate = new Date(dob);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  const dayDiff = today.getDate() - birthDate.getDate();
+
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    age--;
+  }
+
+  return age;
 };
 
 export const parseAndValidateDate = (dob) => {
@@ -63,5 +77,6 @@ export const isAdult = (dob) => {
 };
 
 export const isChild = (dob) => {
+  console.log(calculateAge(dob));
   return calculateAge(dob) < 18;
 };

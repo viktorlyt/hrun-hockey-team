@@ -1,20 +1,14 @@
 import React from "react";
 import FormRow from "../FormRow";
+import { formatDate } from "../../utils/functions";
 
 const ChildForm = ({ child, onChange }) => {
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   const updatedName = name.replace(
-  //     /^(new|child)(FirstName|LastName|Dob).*/,
-  //     "$2"
-  //   );
-  //   onChange({ ...child, [updatedName.toLowerCase()]: value });
-  // };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     onChange({ ...child, [name]: value });
   };
+
+  const formattedDob = child.dob ? formatDate(new Date(child.dob)) : "";
 
   return (
     <div className="child-form">
@@ -22,15 +16,14 @@ const ChildForm = ({ child, onChange }) => {
       <div className="form-row-inline">
         <FormRow
           type="text"
-          name={child.kidId ? `firstName-${child.kidId}` : "firstName"}
+          name="firstName"
           placeholder="First name"
           value={child.firstName}
           onChange={handleChange}
         />
         <FormRow
           type="text"
-          // name="lastName"
-          name={child.kidId ? `lastName-${child.kidId}` : "lastName"}
+          name="lastName"
           placeholder="Last name"
           value={child.lastName}
           onChange={handleChange}
@@ -39,16 +32,14 @@ const ChildForm = ({ child, onChange }) => {
       <h4 className="child-dob">Date of birth:</h4>
       <FormRow
         type="date"
-        name={child.kidId ? `dob-${child.kidId}` : "dob"}
+        name="dob"
         placeholder="yyyy-mm-dd"
-        value={child.dob || ""}
+        value={formattedDob}
         onChange={handleChange}
-        min={
+        min={formatDate(
           new Date(new Date().setFullYear(new Date().getFullYear() - 18))
-            .toISOString()
-            .split("T")[0]
-        }
-        max={new Date().toISOString().split("T")[0]}
+        )}
+        max={formatDate(new Date())}
       />
     </div>
   );

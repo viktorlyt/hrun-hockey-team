@@ -37,11 +37,11 @@ const ProfileCard = ({
     const postalCodeRegex =
       /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
     return (
-      address.streetAddress.length < 5 ||
-      address.city.length < 3 ||
-      !address.province ||
-      !address.postalCode ||
-      !postalCodeRegex.test(address.postalCode)
+      address.streetAddress.length >= 5 &&
+      address.city.length >= 3 &&
+      address.province &&
+      address.postalCode &&
+      postalCodeRegex.test(address.postalCode)
     );
   };
 
@@ -50,10 +50,8 @@ const ProfileCard = ({
     const phoneRegex =
       /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/;
 
-    console.log("newValue", newValue);
-
     const isValid =
-      (name === "address" && !isAddressValid(newValue)) ||
+      (name === "address" && isAddressValid(newValue)) ||
       (name === "addChild" &&
         newValue.firstName.length >= 2 &&
         newValue.lastName.length >= 2 &&
@@ -84,13 +82,18 @@ const ProfileCard = ({
 
   const handleEdit = (childId = null) => {
     if (name === "kids") {
+      // setIsEditing((prev) => {
+      //   const newState = { ...prev, [childId]: !prev[childId] };
+      //   console.log("New isEditing state:", newState);
+      //   return newState;
+      // });
       setIsEditing((prev) => ({
         ...prev,
         [childId]: !prev[childId],
       }));
 
       if (!isEditing[childId]) {
-        const childToEdit = value.find((kid) => kid.id === childId);
+        const childToEdit = value.find((kid) => kid.kidId === childId);
         setEditedValue((prev) => ({
           ...prev,
           [childId]: childToEdit,
@@ -98,7 +101,7 @@ const ProfileCard = ({
       } else {
         if (validateFormData(editedValue[childId])) {
           const updatedKids = value.map((kid) =>
-            kid.id === childId ? editedValue[childId] : kid
+            kid.kidId === childId ? editedValue[childId] : kid
           );
           handleEditSubmit(name, updatedKids);
         }
@@ -109,9 +112,9 @@ const ProfileCard = ({
           handleEditSubmit(name, editedValue);
           if (name === "addChild") {
             setEditedValue({
-              newChildFirstName: "",
-              newChildLastName: "",
-              newChildDob: "",
+              firstName: "",
+              lastName: "",
+              dob: "",
             });
           }
         } else {
@@ -149,8 +152,8 @@ const ProfileCard = ({
     if (name === "kids" && kid) {
       return (
         <ChildForm
-          child={editedValue[kid.child] || kid}
-          onChange={(data) => handleFormChange(data, kid.child)}
+          child={editedValue[kid.kidId] || kid}
+          onChange={(data) => handleFormChange(data, kid.kidId)}
         />
       );
     }
@@ -174,13 +177,6 @@ const ProfileCard = ({
             new Date().setFullYear(new Date().getFullYear() - 18) - 86400000
           )
         )}
-        // max={formatDate(
-        //   new Date(
-        //     new Date(new Date() - 86400000).setFullYear(
-        //       new Date().getFullYear() - 18
-        //     )
-        //   )
-        // )}
       />
     );
   };
@@ -239,7 +235,6 @@ const ProfileCard = ({
 
   return (
     <>
-      {/* Render all cards except "kids" */}
       {name !== "kids" && (
         <form
           className={`profile-card info-card ${!showCard ? "hide" : ""}`}
@@ -264,18 +259,23 @@ const ProfileCard = ({
         </form>
       )}
 
-      {/* Render "kids" cards if the kids array is not empty */}
       {name === "kids" &&
         value.map((kid) => (
           <form
-            key={`child ${kid.id}`}
+            key={`child ${kid.kidId}`}
             className={`profile-card info-card ${!showCard ? "hide" : ""}`}
             onSubmit={(e) => e.preventDefault()}
           >
-            <input hidden value={kid.id} name="childId" id="childId" readOnly />
+            <input
+              hidden
+              value={kid.kidId}
+              name="childId"
+              id="childId"
+              readOnly
+            />
             <div className="info">
               <h4>{title}</h4>
-              {isEditing[kid.id]
+              {isEditing[kid.kidId]
                 ? renderEditContent(kid)
                 : renderViewContent(kid)}
             </div>
@@ -283,14 +283,11 @@ const ProfileCard = ({
               <button
                 type="button"
                 className="text-button"
-                onClick={() => handleEdit(kid.id)}
-                disabled={
-                  // isEditing[kid.id] && !validateFormData(editedValue[kid.id])
-                  isEditing[kid.id] && !isFormDataValid
-                }
+                onClick={() => handleEdit(kid.kidId)}
+                disabled={isEditing[kid.kidId] && !isFormDataValid}
               >
                 <span className="b1 edit">
-                  {isEditing[kid.id] ? "Save" : "Edit"}
+                  {isEditing[kid.kidId] ? "Save" : "Edit"}
                 </span>
               </button>
             </div>
