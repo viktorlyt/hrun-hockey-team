@@ -1,4 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import customFetch from "../../utils/customFetch";
@@ -23,7 +29,8 @@ const AccountContext = createContext();
 
 const AccountLayout = () => {
   const navigate = useNavigate();
-  const { user } = useLoaderData();
+  const { user: initialUser } = useLoaderData();
+  const [user, setUser] = useState(initialUser);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const toggleSidebar = () => {
@@ -36,6 +43,10 @@ const AccountLayout = () => {
     toast.success("Logging out...");
   };
 
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
+  };
+
   return (
     <AccountContext.Provider
       value={{
@@ -43,6 +54,7 @@ const AccountLayout = () => {
         showSidebar,
         toggleSidebar,
         logoutUser,
+        updateUser,
       }}
     >
       <Wrapper>

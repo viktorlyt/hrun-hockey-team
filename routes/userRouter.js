@@ -10,8 +10,7 @@ import { validateUpdateUserInput } from "../middleware/validationMiddleware.js";
 router
   .route("/")
   .get(getCurrentUser)
-  .patch(validateUpdateUserInput, updateUser);
-//   .patch(validateRegisterInput, updateUser)
-//   .delete(deleteUser);
+  .patch(validateUpdateUserInput, updateUser)
+  .delete(deleteUser);
 
 export default router;

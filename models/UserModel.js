@@ -74,8 +74,11 @@ const UserSchema = new mongoose.Schema(
         type: String,
         validate: {
           validator: function (v) {
-            return /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(
-              v
+            return (
+              v === "" ||
+              /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(
+                v
+              )
             );
           },
           message: (props) => `${props.value} is not a valid postal code!`,
@@ -88,7 +91,7 @@ const UserSchema = new mongoose.Schema(
       {
         kidId: {
           type: Number,
-          // Remove the unique constraint from here
+          // required: true,
         },
         firstName: {
           type: String,
@@ -122,24 +125,24 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.pre("save", async function (next) {
-  if (!this.isNew) {
+  if (!this.isNew && !this.isModified("kids")) {
     next();
     return;
   }
 
   try {
-    const counter = await Counter.findByIdAndUpdate(
-      { _id: "userId" },
-      { $inc: { seq: 1 } },
-      { new: true, upsert: true }
-    );
-    this.userId = counter.seq;
+    if (this.isNew) {
+      const counter = await Counter.findByIdAndUpdate(
+        { _id: "userId" },
+        { $inc: { seq: 1 } },
+        { new: true, upsert: true }
+      );
+      this.userId = counter.seq;
+    }
 
-    // Only assign kidId if kids array is not empty
     if (this.kids && this.kids.length > 0) {
       for (let kid of this.kids) {
         if (!kid.kidId) {
-          // Only assign a new kidId if it doesn't already have one
           const kidCounter = await Counter.findByIdAndUpdate(
             { _id: "kidId" },
             { $inc: { seq: 1 } },

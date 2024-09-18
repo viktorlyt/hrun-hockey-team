@@ -1,5 +1,5 @@
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { FaAlignJustify } from "react-icons/fa";
 import Wrapper from "../../assets/wrappers/Account/AccountTopbar";
 import { useAccountContext } from "../../pages/Account/AccountLayout";
 
@@ -36,6 +36,7 @@ const AccountTopbar = () => {
         <img
           className="avatar"
           src={`${user.image && user.image !== "" ? user.image : avatarUrl}`}
+          alt={`${user.firstName} ${user.lastName}`}
         />
       </div>
     </Wrapper>

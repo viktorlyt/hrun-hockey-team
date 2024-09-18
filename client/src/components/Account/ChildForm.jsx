@@ -12,7 +12,7 @@ const ChildForm = ({ child, onChange }) => {
 
   return (
     <div className="child-form">
-      <input value={child.kidId} hidden />
+      <input value={child.kidId} hidden readOnly />
       <div className="form-row-inline">
         <FormRow
           type="text"

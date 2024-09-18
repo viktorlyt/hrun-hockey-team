@@ -77,6 +77,5 @@ export const isAdult = (dob) => {
 };
 
 export const isChild = (dob) => {
-  console.log(calculateAge(dob));
   return calculateAge(dob) < 18;
 };

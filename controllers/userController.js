@@ -8,15 +8,38 @@ export const getCurrentUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
+  const { userId } = req.user;
   const obj = { ...req.body };
-  delete obj.password;
-  //   const updatedUser = await User.findOneAndUpdate(req.user.userId, req.body);
-  const updatedUser = await User.findOneAndUpdate(req.user.userId, obj);
 
-  res.status(StatusCodes.OK).json({ msg: "user updated" });
+  delete obj.password;
+  delete obj.role;
+  delete obj.userId;
+
+  try {
+    const user = await User.findOne({ userId });
+    if (!user) {
+      return res.status(StatusCodes.NOT_FOUND).json({ msg: "User not found" });
+    }
+
+    Object.assign(user, obj);
+    await user.save();
+
+    const updatedUser = user.toJSON();
+
+    res
+      .status(StatusCodes.OK)
+      .json({ msg: "User updated successfully", user: updatedUser });
+  } catch (error) {
+    res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ msg: "Failed to update user", error: error.message });
+  }
 };
 
 export const deleteUser = async (req, res) => {
-  const removedUser = await User.findOneAndDelete(req.params.id);
-  res.status(StatusCodes.OK).json({ msg: "user deleted", user: removedUser });
+  const removedUser = await User.findOneAndDelete({ userId: req.user.userId });
+  if (!removedUser) {
+    return res.status(StatusCodes.NOT_FOUND).json({ msg: "User not found" });
+  }
+  res.status(StatusCodes.OK).json({ msg: "User deleted successfully" });
 };

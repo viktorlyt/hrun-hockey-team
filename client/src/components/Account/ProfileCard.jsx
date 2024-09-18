@@ -9,12 +9,14 @@ import {
   parseAndValidateDate,
 } from "../../utils/functions";
 import NameForm from "./NameForm";
+import showToast from "../CustomToast";
 
 const ProfileCard = ({
   title,
   value,
   isEmptyValue = false,
   handleEditSubmit,
+  handleDeleteChild,
   inputType = "text",
   name,
   showCard = true,
@@ -30,7 +32,7 @@ const ProfileCard = ({
   }, [name, value]);
 
   const isAddressEmpty = (address) => {
-    return !address.streetAddress || !address.city.length;
+    return !address.streetAddress || !address.city;
   };
 
   const isAddressValid = (address) => {
@@ -143,6 +145,14 @@ const ProfileCard = ({
       setEditedValue(newFormData);
       validateFormData(newFormData);
     }
+  };
+
+  const handleDelete = (childId, childFirstName, childLastName) => {
+    showToast({
+      title: `Are you sure you want to delete profile of ${childFirstName} ${childLastName}?`,
+      onConfirm: () => handleDeleteChild(childId),
+      onConfirmBtnText: "Delete",
+    });
   };
 
   const renderEditContent = (kid = null) => {
@@ -280,6 +290,15 @@ const ProfileCard = ({
                 : renderViewContent(kid)}
             </div>
             <div className="actions">
+              <button
+                type="button"
+                className="text-button"
+                onClick={() =>
+                  handleDelete(kid.kidId, kid.firstName, kid.lastName)
+                }
+              >
+                <span className="b1 delete">Delete</span>
+              </button>
               <button
                 type="button"
                 className="text-button"

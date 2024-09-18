@@ -136,12 +136,19 @@ const Wrapper = styled.div`
       justify-content: start;
       gap: 0.5rem;
       margin-top: 1rem;
-      color: var(--text-ocean);
       cursor: pointer;
 
-      .edit {
+      .edit,
+      .delete {
         padding: 0 0.5rem;
+      }
+      .edit {
+        color: var(--text-ocean);
         border-bottom: 2px solid var(--text-ocean);
+      }
+      .delete {
+        color: var(--error);
+        border-bottom: 2px solid var(--error);
       }
     }
   }

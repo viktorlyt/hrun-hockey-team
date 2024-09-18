@@ -84,7 +84,10 @@ const withValidationErrors = (validateValues) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         const errorMessages = errors.array().map((error) => error.msg);
-        if (errorMessages[0].startsWith("No product")) {
+        if (
+          errorMessages[0].startsWith("No product") ||
+          errorMessages[0].startsWith("User not")
+        ) {
           throw new NotFoundError(errorMessages);
         }
         throw new BadRequestError(errorMessages);
@@ -236,6 +239,97 @@ export const validateRegisterInput = withValidationErrors([
     }),
 ]);
 
+// export const validateUpdateUserInput = withValidationErrors([
+//   body("firstName")
+//     .if(body("firstName").exists())
+//     .notEmpty()
+//     .withMessage("First name is required")
+//     .isLength({ min: 2, max: 50 })
+//     .withMessage("First name must be between 2 and 50 characters"),
+
+//   body("lastName")
+//     .if(body("lastName").exists())
+//     .notEmpty()
+//     .withMessage("Last name is required")
+//     .isLength({ min: 2, max: 50 })
+//     .withMessage("Last name must be between 2 and 50 characters"),
+
+//   body("dob")
+//     .optional()
+//     .custom((dob) => {
+//       if (!dob) return true;
+//       const date = parseAndValidateDate(dob);
+//       if (!isAdult(date)) {
+//         throw new Error("You must be at least 18 years old");
+//       }
+//       return true;
+//     }),
+
+//   body("phone")
+//     .optional()
+//     .matches(/^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})$/)
+//     .withMessage("Phone number must be valid and in the format (123) 456-7890"),
+
+//   body("email")
+//     .if(body("email").exists())
+//     .notEmpty()
+//     .withMessage("Email is required")
+//     .isEmail()
+//     .withMessage("Invalid email format")
+//     .custom(async (email, { req }) => {
+//       const user = await User.findOne({ email });
+//       if (user && user.userId.toString() !== req.user.userId) {
+//         throw new Error("Email already exists");
+//       }
+//       return true;
+//     }),
+
+//   body("address")
+//     .optional()
+//     .custom((address) => {
+//       if (!address) return true;
+//       if (address.streetAddress && address.streetAddress.length < 5) {
+//         throw new Error("Street address must be at least 5 characters long");
+//       }
+//       if (address.city && address.city.length < 3) {
+//         throw new Error("City must be at least 3 characters long");
+//       }
+//       if (address.postalCode) {
+//         const postalCodeRegex =
+//           /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
+//         if (!postalCodeRegex.test(address.postalCode))
+//           throw new Error("Postal code is not valid");
+//       }
+//       return true;
+//     }),
+
+//   body("kids")
+//     .optional()
+//     .isArray()
+//     .withMessage("Kids must be an array")
+//     .custom((kids) => {
+//       if (!kids) return true;
+//       kids.forEach((kid, index) => {
+//         if (!kid.firstName || kid.firstName.length < 2) {
+//           throw new Error(
+//             `Child #${
+//               index + 1
+//             }'s first name must be at least 2 characters long`
+//           );
+//         }
+//         if (!kid.lastName || kid.lastName.length < 2) {
+//           throw new Error(
+//             `Child #${index + 1}'s last name must be at least 2 characters long`
+//           );
+//         }
+//         if (!kid.dob || !isChild(parseAndValidateDate(kid.dob))) {
+//           throw new Error(`Child #${index + 1}'s date of birth is invalid`);
+//         }
+//       });
+//       return true;
+//     }),
+// ]);
+
 export const validateUpdateUserInput = withValidationErrors([
   body("firstName").notEmpty().withMessage("First name is required"),
 
@@ -264,7 +358,7 @@ export const validateUpdateUserInput = withValidationErrors([
     .withMessage("Invalid email format")
     .custom(async (email, { req }) => {
       const user = await User.findOne({ email });
-      if (user && user.userId.toString() !== req.user.userId) {
+      if (user && user.userId.toString() !== req.user.userId.toString()) {
         throw new Error("email already exists");
       }
     }),
@@ -272,27 +366,35 @@ export const validateUpdateUserInput = withValidationErrors([
   body("address")
     .optional()
     .custom((address) => {
-      if (!address) return true;
-      if (!address.streetAddress || address.streetAddress.length < 5) {
+      if (
+        !address ||
+        (!address.streetAddress &&
+          !address.city &&
+          !address.province &&
+          !address.postalCode)
+      ) {
+        return true;
+      }
+
+      if (address.streetAddress && address.streetAddress.length < 5) {
         throw new Error("Street address must be at least 5 characters long");
       }
-      if (!address.city || address.city.length < 3) {
+      if (address.city && address.city.length < 3) {
         throw new Error("City must be at least 3 characters long");
       }
-      if (!address.province) {
+      if (address.province === undefined || address.province === "") {
         throw new Error("Province is required");
       }
-      // if (!address.country) {
-      //   throw new Error("Country is required");
-      // }
-      if (!address.postalCode) {
-        throw new Error("Postal code is required");
-      } else {
+      if (address.postalCode) {
         const postalCodeRegex =
           /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
-        if (!postalCodeRegex.test(address.postalCode))
+        if (!postalCodeRegex.test(address.postalCode)) {
           throw new Error("Postal code is not valid");
+        }
+      } else {
+        throw new Error("Postal code is required");
       }
+
       return true;
     }),
 
