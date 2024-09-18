@@ -6,6 +6,7 @@ import { UserProvider } from "../context/UserContext";
 import customFetch from "../utils/customFetch";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/shared/ScrollToTop";
 
 const Main = styled.main`
   background-color: ${(props) =>
@@ -38,6 +39,7 @@ export default function Layout() {
     // <UserProvider initialUser={userData}>
     <UserProvider>
       <div className={`site-wrapper ${theme}`}>
+        <ScrollToTop />
         <Header isHomePage={isHomePage} />
         <Main $isAccountPage={isAccountPage}>
           <Outlet />
