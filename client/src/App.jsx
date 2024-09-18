@@ -88,9 +88,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <PageOverlay>
-      <RouterProvider router={router} />
-    </PageOverlay>
+    <ErrorBoundary>
+      <PageOverlay>
+        <RouterProvider router={router} />
+      </PageOverlay>
+    </ErrorBoundary>
   );
 }
 
