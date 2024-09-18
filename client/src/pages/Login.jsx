@@ -1,16 +1,27 @@
-import { Form, Link, redirect, useNavigation } from "react-router-dom";
+import { useEffect } from "react";
+import {
+  Form,
+  Link,
+  redirect,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import toast from "react-hot-toast";
 import customFetch from "../utils/customFetch";
+import { useUser } from "../context/UserContext";
 import FormRow from "../components/FormRow";
 import Wrapper from "../assets/wrappers/CreateAccountAndLogin";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
-  const data = Object.fromEntries(formData);
+  const loginData = Object.fromEntries(formData);
   try {
-    await customFetch.post("/auth/login", data);
+    await customFetch.post("/auth/login", loginData);
     // toast.success("Login successful", { duration: 700 });
-    return redirect("/account");
+    // return redirect("/account");
+    const userData = await customFetch.get("/user");
+    return { success: true, user: userData.data.user };
   } catch (error) {
     let errorMessage = "";
 
@@ -46,6 +57,17 @@ export const action = async ({ request }) => {
 const Login = () => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
+  const navigate = useNavigate();
+  const { updateUser } = useUser();
+  const actionData = useActionData();
+
+  useEffect(() => {
+    if (actionData?.success && actionData?.user) {
+      updateUser(actionData.user);
+      navigate("/account");
+    }
+  }, [actionData, updateUser, navigate]);
+
   return (
     <Wrapper>
       <Form method="post" className="form login">

@@ -1,17 +1,29 @@
 import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLoaderData, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useTheme } from "../context/ThemeContext";
+import { UserProvider } from "../context/UserContext";
+import customFetch from "../utils/customFetch";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-// import Socials from "../components/Socials";
 
 const Main = styled.main`
   background-color: ${(props) =>
     props.$isAccountPage ? "var(--bg-secondary)" : "inherit"};
 `;
 
+// export const loader = async () => {
+//   try {
+//     const { data } = await customFetch("/user");
+//     console.log("User data loaded in Layout:", data);
+//     return data;
+//   } catch (error) {
+//     return null;
+//   }
+// };
+
 export default function Layout() {
+  // const userData = useLoaderData();
   const { theme } = useTheme();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -23,12 +35,15 @@ export default function Layout() {
   }, [theme]);
 
   return (
-    <div className={`site-wrapper ${theme}`}>
-      <Header isHomePage={isHomePage} />
-      <Main $isAccountPage={isAccountPage}>
-        <Outlet />
-      </Main>
-      <Footer />
-    </div>
+    // <UserProvider initialUser={userData}>
+    <UserProvider>
+      <div className={`site-wrapper ${theme}`}>
+        <Header isHomePage={isHomePage} />
+        <Main $isAccountPage={isAccountPage}>
+          <Outlet />
+        </Main>
+        <Footer />
+      </div>
+    </UserProvider>
   );
 }

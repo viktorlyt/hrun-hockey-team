@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import Layout, { loader as layoutLoader } from "./pages/Layout";
 import Layout from "./pages/Layout";
 import Home, { loader as latestNewsLoader } from "./pages/Home";
 import News, { loader as newsLoader } from "./pages/News";
@@ -20,9 +21,7 @@ import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import CreateAccount, { action as createAccount } from "./pages/CreateAccount";
 import Login, { action as login } from "./pages/Login";
-import AccountLayout, {
-  loader as userLoader,
-} from "./pages/Account/AccountLayout";
+import AccountLayout from "./pages/Account/AccountLayout"; // loader as userLoader,
 import Profile from "./pages/Account/Profile";
 import Register from "./pages/Account/Register";
 import MyOrders from "./pages/Account/MyOrders";
@@ -33,11 +32,13 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 import PageOverlay from "./components/PageOverlay";
 import ProtectedRoute from "./components/shared/ProtectedRoute";
+import ErrorBoundry from "./components/shared/ErrorBoundry";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    // loader: layoutLoader,
     children: [
       { index: true, element: <Home />, loader: latestNewsLoader },
       { path: "news", element: <News />, loader: newsLoader },
@@ -63,13 +64,13 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       {
         path: "account/",
-        // element: (
-        //   <ProtectedRoute>
-        //     <AccountLayout />
-        //   </ProtectedRoute>
-        // ),
-        element: <AccountLayout />,
-        loader: userLoader,
+        element: (
+          <ProtectedRoute>
+            <AccountLayout />
+          </ProtectedRoute>
+        ),
+        // element: <AccountLayout />,
+        // loader: userLoader,
         children: [
           { index: true, element: <Profile /> },
           { path: "register", element: <Register /> },
@@ -88,11 +89,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ErrorBoundary>
+    <ErrorBoundry>
       <PageOverlay>
         <RouterProvider router={router} />
       </PageOverlay>
-    </ErrorBoundary>
+    </ErrorBoundry>
   );
 }
 

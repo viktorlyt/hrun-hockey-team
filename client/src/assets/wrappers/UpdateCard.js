@@ -8,6 +8,7 @@ const Wrapper = styled(Link)`
   padding: 1rem 7rem;
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: auto;
 
   &:hover {
     transform: translateY(-5px);

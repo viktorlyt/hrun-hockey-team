@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { accountPrimaryLinks, accountSecondaryLinks } from "../../utils/links";
+import { useUser } from "../../context/UserContext";
 import { useAccountContext } from "../../pages/Account/AccountLayout";
 import showToast from "../CustomToast";
 
 const NavLinks = ({ isBigSidebar }) => {
-  const { toggleSidebar, logoutUser } = useAccountContext();
+  const { toggleSidebar } = useAccountContext();
+  const { logoutUser } = useUser();
 
   const handleLogout = () => {
     showToast({

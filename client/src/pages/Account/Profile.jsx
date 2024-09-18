@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAccountContext } from "./AccountLayout";
+import { useUser } from "../../context/UserContext";
 import ProfileCard from "../../components/Account/ProfileCard";
 import Wrapper from "../../assets/wrappers/Account/Profile";
 import { formatDate } from "../../utils/functions";
@@ -7,7 +8,17 @@ import customFetch from "../../utils/customFetch";
 import { toast } from "react-hot-toast";
 
 const Profile = () => {
-  const { user, updateUser } = useAccountContext();
+  // const { user, updateUser } = useAccountContext();
+  const { user, updateUser } = useUser();
+
+  useEffect(() => {
+    console.log("Current user in Profile:", user);
+  }, [user]);
+
+  if (!user) {
+    return <div>Loading user data...</div>;
+  }
+
   const [showChildForm, setShowChildForm] = useState(false);
   const [isAddingChild, setIsAddingChild] = useState(false);
   const [profileData, setProfileData] = useState({

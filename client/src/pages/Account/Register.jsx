@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { CartContext } from "../../context/CartContext";
+import { useUser } from "../../context/UserContext";
 import { useAccountContext } from "../../pages/Account/AccountLayout";
 import { mockGroups } from "../../data/mockData";
 import showToast from "../../components/CustomToast";
@@ -13,7 +14,8 @@ const groups = mockGroups;
 
 const Register = () => {
   const { cart, dispatch } = useContext(CartContext);
-  const { user } = useAccountContext();
+  // const { user } = useAccountContext();
+  const { user } = useUser();
   const [selectedGroups, setSelectedGroups] = useState({});
   const [checkedGroups, setCheckedGroups] = useState({});
 
