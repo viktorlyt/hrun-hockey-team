@@ -16,10 +16,10 @@ const ContactFormSection = () => {
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -41,7 +41,7 @@ const ContactFormSection = () => {
                 <LuPhone /> {phone}
               </p>
               <p className="icons-info b1">
-                <LuMail /> {email}
+                <LuMail /> <a href={`mailto:${email}`}>{email}</a>
               </p>
             </div>
           </div>

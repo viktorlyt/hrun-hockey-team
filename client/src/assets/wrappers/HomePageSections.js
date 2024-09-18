@@ -212,6 +212,24 @@ const Wrapper = styled.div`
               aspect-ratio: 1/1;
               width: 26px;
               padding: 0;
+
+              &:checked {
+                color: var(--text-secondary);
+                background-color: var(--color-b10-od);
+              }
+
+              &:checked::after {
+                content: "";
+                position: relative;
+                top: 40%;
+                left: 50%;
+                width: 50%;
+                height: 50%;
+                border: solid var(--text-secondary);
+                border-width: 0 2px 2px 0;
+                transform: translate(-50%, -50%) rotate(45deg);
+                display: block;
+              }
             }
 
             .checkbox-lbl {

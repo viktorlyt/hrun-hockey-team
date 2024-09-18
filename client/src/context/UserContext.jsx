@@ -12,11 +12,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        console.log("Fetching user data...");
-
         const { data } = await customFetch("/user");
-        console.log("User data fetched:", data.user);
-
         setUser(data.user);
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -28,19 +24,11 @@ export const UserProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  useEffect(() => {
-    console.log("User state changed:", user);
-  }, [user]);
-
   const updateUser = (newUserData) => {
-    console.log("Updating user:", newUserData);
-
     setUser(newUserData);
   };
 
   const logoutUser = async () => {
-    console.log("Logging out user");
-
     await customFetch.get("/auth/logout");
     setUser(null);
     // localStorage.removeItem("user");
