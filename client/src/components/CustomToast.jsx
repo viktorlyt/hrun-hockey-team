@@ -22,8 +22,6 @@ const CustomToast = ({
 }) => {
   const { theme } = useTheme();
 
-  console.log("onConfirm", onConfirm);
-  console.log("onConfirmBtnText", onConfirmBtnText);
   return (
     <Wrapper className={`site-wrapper ${theme}`}>
       {icon && <div className="icon">{icon}</div>}

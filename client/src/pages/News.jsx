@@ -9,7 +9,6 @@ import { mockNews } from "../data/mockData.js";
 export const loader = async ({ request }) => {
   try {
     if (shouldUseMockData) {
-      console.log("Using mock data");
       return { data: { news: mockNews } };
     }
     const { data } = await customFetch.get("/news");
@@ -27,8 +26,6 @@ const News = () => {
   const news = data.news || [];
 
   const sortedNews = news.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  console.log(`${news}`);
 
   return (
     <Wrapper>

@@ -6,7 +6,7 @@ import { useAccountContext } from "../../pages/Account/AccountLayout";
 import { mockGroups } from "../../data/mockData";
 import showToast from "../../components/CustomToast";
 import Wrapper from "../../assets/wrappers/Account/Register";
-import { formatTime } from "../../utils/functions";
+import { formatTime, getFormattedDate } from "../../utils/functions";
 import FormRow from "../../components/FormRow";
 
 // TODO get groups for particular kids???
@@ -44,15 +44,6 @@ const Register = () => {
         )} - ${formatTime(option.endTime)}`}
       </p>
     ));
-  };
-
-  const getShortDate = (date) => {
-    const validDate = date instanceof Date ? date : new Date(date);
-    if (isNaN(validDate)) {
-      throw new Error("Invalid date");
-    }
-    const options = { month: "short", day: "numeric" };
-    return validDate.toLocaleDateString("en-US", options);
   };
 
   const getMaxQuantity = (group) => {
@@ -182,7 +173,8 @@ const Register = () => {
                   <td className="days">
                     <div className="b2 days">{getSchedule(g.schedule)}</div>
                     <p className="b2 dates">
-                      {getShortDate(g.startDate)} - {getShortDate(g.endDate)}
+                      {getFormattedDate(g.startDate)} -{" "}
+                      {getFormattedDate(g.endDate)}
                     </p>
                   </td>
                   <td>${g.tuition}</td>

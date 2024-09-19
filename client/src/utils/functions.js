@@ -1,5 +1,16 @@
 import { format, parse } from "date-fns";
 
+export const getFormattedDate = (date, short = true) => {
+  const validDate = date instanceof Date ? date : new Date(date);
+  if (isNaN(validDate)) {
+    throw new Error("Invalid date");
+  }
+  const options = short
+    ? { month: "short", day: "numeric" }
+    : { month: "long", day: "numeric", year: "numeric" };
+  return validDate.toLocaleDateString("en-US", options);
+};
+
 // export function formatDate(date) {
 //   return date.toISOString().split("T")[0]; //  "yyyy-MM-dd"
 // }

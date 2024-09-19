@@ -29,6 +29,18 @@ const OrderSchema = new mongoose.Schema(
             return !this.registrations || this.registrations.length === 0;
           },
         },
+        name: {
+          type: String,
+          required: function () {
+            return !this.registrations || this.registrations.length === 0;
+          },
+        },
+        category: {
+          type: String,
+          required: function () {
+            return !this.registrations || this.registrations.length === 0;
+          },
+        },
         variant: {
           type: {
             color: String,
@@ -58,6 +70,24 @@ const OrderSchema = new mongoose.Schema(
         //   },
         // },
         groupId: {
+          type: Number,
+          required: function () {
+            return !this.items || this.items.length === 0;
+          },
+        },
+        groupName: {
+          type: String,
+          required: function () {
+            return !this.items || this.items.length === 0;
+          },
+        },
+        groupMinAge: {
+          type: Number,
+          required: function () {
+            return !this.items || this.items.length === 0;
+          },
+        },
+        groupMaxAge: {
           type: Number,
           required: function () {
             return !this.items || this.items.length === 0;

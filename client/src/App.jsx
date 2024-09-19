@@ -24,7 +24,7 @@ import Login, { action as login } from "./pages/Login";
 import AccountLayout from "./pages/Account/AccountLayout"; // loader as userLoader,
 import Profile from "./pages/Account/Profile";
 import Register from "./pages/Account/Register";
-import MyOrders from "./pages/Account/MyOrders";
+import MyOrders, { loader as ordersLoader } from "./pages/Account/MyOrders";
 import Settings from "./pages/Account/Settings";
 import Cart, { loader as cartLoader } from "./pages/Cart";
 import Tickets from "./pages/Tickets";
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Profile /> },
           { path: "register", element: <Register /> },
-          { path: "orders", element: <MyOrders /> },
+          { path: "orders", element: <MyOrders />, loader: ordersLoader },
           { path: "settings", element: <Settings /> },
         ],
       },

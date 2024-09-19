@@ -11,9 +11,9 @@ const Profile = () => {
   // const { user, updateUser } = useAccountContext();
   const { user, updateUser } = useUser();
 
-  useEffect(() => {
-    console.log("Current user in Profile:", user);
-  }, [user]);
+  // useEffect(() => {
+  //   console.log("Current user in Profile:", user);
+  // }, [user]);
 
   if (!user) {
     return <div>Loading user data...</div>;

@@ -29,7 +29,6 @@ export const action = async ({ request }) => {
       errorMessage = error.response.data.errors
         .map((err) => err.msg)
         .join("\n");
-      console.log("if", errorMessage);
     } else if (error?.response?.data?.msg) {
       errorMessage = error.response.data.msg[0];
       errorMessage = errorMessage

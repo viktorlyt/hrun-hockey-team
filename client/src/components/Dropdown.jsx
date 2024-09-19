@@ -61,7 +61,6 @@ const Dropdown = ({
           <div
             className="custom-select"
             onClick={() => {
-              console.log(`dropdown clicked ${isOpen}`);
               setIsOpen(!isOpen);
             }}
           >

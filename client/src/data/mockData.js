@@ -69,7 +69,7 @@ export const mockTeamStats = [
     lastName: "Smith",
     position: "Left Wing",
     number: 21,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -105,7 +105,7 @@ export const mockTeamStats = [
     lastName: "Brown",
     position: "Right Wing",
     number: 81,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -141,7 +141,7 @@ export const mockTeamStats = [
     lastName: "Johnson",
     position: "Center",
     number: 19,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -178,7 +178,7 @@ export const mockTeamStats = [
     lastName: "Wilson",
     position: "Left Wing",
     number: 23,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -214,7 +214,7 @@ export const mockTeamStats = [
     lastName: "Taylor",
     position: "Right Wing",
     number: 71,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -250,7 +250,7 @@ export const mockTeamStats = [
     lastName: "Anderson",
     position: "Center",
     number: 12,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -286,7 +286,7 @@ export const mockTeamStats = [
     lastName: "Martin",
     position: "Left Wing",
     number: 15,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -322,7 +322,7 @@ export const mockTeamStats = [
     lastName: "Davis",
     position: "Right Wing",
     number: 17,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -358,7 +358,7 @@ export const mockTeamStats = [
     lastName: "White",
     position: "Center",
     number: 11,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -394,7 +394,7 @@ export const mockTeamStats = [
     lastName: "Clark",
     position: "Left Wing",
     number: 14,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -430,7 +430,7 @@ export const mockTeamStats = [
     lastName: "Moore",
     position: "Right Wing",
     number: 16,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -468,7 +468,7 @@ export const mockTeamStats = [
     lastName: "Johnson",
     position: "Defenseman",
     number: 44,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -504,7 +504,7 @@ export const mockTeamStats = [
     lastName: "Miller",
     position: "Defenseman",
     number: 55,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -540,7 +540,7 @@ export const mockTeamStats = [
     lastName: "Brown",
     position: "Defenseman",
     number: 3,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -576,7 +576,7 @@ export const mockTeamStats = [
     lastName: "Lee",
     position: "Defenseman",
     number: 24,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -612,7 +612,7 @@ export const mockTeamStats = [
     lastName: "Green",
     position: "Defenseman",
     number: 5,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240315",
@@ -648,7 +648,7 @@ export const mockTeamStats = [
     lastName: "Hall",
     position: "Defenseman",
     number: 6,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240315",
@@ -686,7 +686,7 @@ export const mockTeamStats = [
     lastName: "Howard",
     position: "Goalie",
     number: 1,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "goalie",
     goalieCatches: "L",
     gameId: "G20240315",
@@ -716,7 +716,7 @@ export const mockTeamStats = [
     lastName: "Wilson",
     position: "Goalie",
     number: 30,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "goalie",
     goalieCatches: "L",
     gameId: "G20240315",
@@ -749,7 +749,7 @@ export const mockTeamStats = [
     lastName: "Doe",
     position: "Center",
     number: 10,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -785,7 +785,7 @@ export const mockTeamStats = [
     lastName: "Smith",
     position: "Left Wing",
     number: 21,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -821,7 +821,7 @@ export const mockTeamStats = [
     lastName: "Brown",
     position: "Right Wing",
     number: 81,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -857,7 +857,7 @@ export const mockTeamStats = [
     lastName: "Johnson",
     position: "Center",
     number: 19,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -893,7 +893,7 @@ export const mockTeamStats = [
     lastName: "Wilson",
     position: "Left Wing",
     number: 23,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -929,7 +929,7 @@ export const mockTeamStats = [
     lastName: "Taylor",
     position: "Right Wing",
     number: 71,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -965,7 +965,7 @@ export const mockTeamStats = [
     lastName: "Anderson",
     position: "Center",
     number: 12,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1001,7 +1001,7 @@ export const mockTeamStats = [
     lastName: "Martin",
     position: "Left Wing",
     number: 15,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -1037,7 +1037,7 @@ export const mockTeamStats = [
     lastName: "Davis",
     position: "Right Wing",
     number: 17,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1073,7 +1073,7 @@ export const mockTeamStats = [
     lastName: "White",
     position: "Center",
     number: 11,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1109,7 +1109,7 @@ export const mockTeamStats = [
     lastName: "Clark",
     position: "Left Wing",
     number: 14,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1145,7 +1145,7 @@ export const mockTeamStats = [
     lastName: "Moore",
     position: "Right Wing",
     number: 16,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1183,7 +1183,7 @@ export const mockTeamStats = [
     lastName: "Johnson",
     position: "Defenseman",
     number: 44,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -1219,7 +1219,7 @@ export const mockTeamStats = [
     lastName: "Miller",
     position: "Defenseman",
     number: 55,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -1255,7 +1255,7 @@ export const mockTeamStats = [
     lastName: "Brown",
     position: "Defenseman",
     number: 3,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1291,7 +1291,7 @@ export const mockTeamStats = [
     lastName: "Lee",
     position: "Defenseman",
     number: 24,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -1327,7 +1327,7 @@ export const mockTeamStats = [
     lastName: "Green",
     position: "Defenseman",
     number: 5,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "R",
     gameId: "G20240316",
@@ -1362,7 +1362,7 @@ export const mockTeamStats = [
     lastName: "Hall",
     position: "Defenseman",
     number: 6,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "skater",
     skaterShoots: "L",
     gameId: "G20240316",
@@ -1400,7 +1400,7 @@ export const mockTeamStats = [
     lastName: "Wilson",
     position: "Goalie",
     number: 30,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "goalie",
     goalieCatches: "R",
     gameId: "G20240316",
@@ -1430,7 +1430,7 @@ export const mockTeamStats = [
     lastName: "Howard",
     position: "Goalie",
     number: 1,
-    img: "/assets/images/logo.jpg",
+    img: "/assets/images/logo.png",
     playerType: "goalie",
     goalieCatches: "R",
     gameId: "G20240316",
@@ -1622,72 +1622,72 @@ export const mockGames = [
     gameId: 1,
     team1: "Team A",
     team2: "Team B",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-04-10T15:00:00-03:00",
   },
   {
     gameId: 2,
     team1: "Team C",
     team2: "Team D",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-07-15T18:30:00-03:00",
   },
   {
     gameId: 3,
     team1: "Team C",
     team2: "Team A",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-07-07T09:30:00-03:00",
   },
   {
     gameId: 4,
     team1: "Team D",
     team2: "Team A",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2023-12-10T11:30:00-04:00",
   },
   {
     gameId: 5,
     team1: "Boston",
     team2: "Los Angeles",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-10-02T19:00:00-03:00",
   },
   {
     gameId: 6,
     team1: "Boston",
     team2: "Los Angeles",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-10-10T11:00:00-03:00",
   },
   {
     gameId: 7,
     team1: "Boston",
     team2: "Los Angeles",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-10-15T13:00:00-03:00",
   },
   {
     gameId: 8,
     team1: "Boston",
     team2: "Los Angeles",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-10-24T19:00:00-03:00",
   },
   {
     gameId: 9,
     team1: "Boston",
     team2: "Los Angeles",
-    team1Logo: "/assets/images/logo.jpg",
-    team2Logo: "/assets/images/logo.jpg",
+    team1Logo: "/assets/images/logo.png",
+    team2Logo: "/assets/images/logo.png",
     datetime: "2024-10-29T17:00:00-03:00",
   },
   {
@@ -1895,10 +1895,10 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_hoody_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -1970,8 +1970,8 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_hoody_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2043,9 +2043,9 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_logo_white_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2131,9 +2131,9 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_black_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2225,10 +2225,10 @@ export const mockProducts = [
     details:
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2348,10 +2348,10 @@ export const mockProducts = [
     details:
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2386,7 +2386,7 @@ export const mockProducts = [
   },
   {
     productId: 8,
-    name: "Pro Crested Hat",
+    name: "Graphic Hat",
     category: "Adults",
     type: "Hat",
     description:
@@ -2395,9 +2395,9 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_hat_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2441,9 +2441,9 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_red_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2536,8 +2536,8 @@ export const mockProducts = [
       "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
     images: [
       "/assets/images/product_jersey_red_1.png",
-      "/assets/images/logo.jpg",
-      "/assets/images/logo.jpg",
+      "/assets/images/logo.png",
+      "/assets/images/logo.png",
     ],
     variants: [
       {
@@ -2597,11 +2597,11 @@ export const mockProduct = {
   details:
     "The graphic jersey in cotton-blend fabric with soft, brushed inside. Ribbing at neckline, cuffs, and hem. Cotton 60%, Polyester 40% Cotton is a soft and versatile natural fibre harvested from the cotton plant.",
   images: [
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
-    "/assets/images/logo.jpg",
+    "/assets/images/logo.png",
+    "/assets/images/logo.png",
+    "/assets/images/logo.png",
+    "/assets/images/logo.png",
+    "/assets/images/logo.png",
   ],
   variants: [
     {
@@ -2696,13 +2696,98 @@ export const mockCoaches = [
   },
 ];
 
+export const mockOrders = [
+  {
+    orderId: 1,
+    createdBy: "60d5ecb54b24a411d8e2d8e3",
+    items: [
+      {
+        productId: 2,
+        name: "Pro Crested Hoodie",
+        category: "Adults",
+        variant: {
+          color: "Brown",
+          size: "Adult",
+          price: 55,
+        },
+        quantity: 1,
+      },
+      {
+        productId: 8,
+        name: "Graphic Hat",
+        category: "Adults",
+        variant: {
+          color: "White and black",
+          size: "One size",
+          price: 45,
+        },
+        quantity: 1,
+      },
+      {
+        productId: 1,
+        name: "Pro Crested Jersey",
+        category: "Adults",
+        variant: {
+          color: "White",
+          size: "Adult",
+          price: 60,
+        },
+        quantity: 1,
+      },
+    ],
+    totalAmount: 143,
+    status: "Completed",
+    createdAt: "2024-08-01T10:00:00.000Z",
+    updatedAt: "2024-08-01T10:00:00.000Z",
+  },
+  {
+    orderId: 2,
+    createdBy: "60d5ecb54b24a411d8e2d8e4",
+    registrations: [
+      {
+        groupId: 1,
+        groupName: "Juniors",
+        groupMinAge: 6,
+        groupMaxAge: 8,
+        season: {
+          spotsNumber: 20,
+          tuition: 130,
+          startDate: "2024-09-01T00:00:00.000Z",
+          endDate: "2024-12-15T00:00:00.000Z",
+          schedule: [
+            {
+              weekday: "Monday",
+              startTime: "16:00",
+              endTime: "17:30",
+            },
+            {
+              weekday: "Wednesday",
+              startTime: "16:00",
+              endTime: "17:30",
+            },
+          ],
+        },
+        kid: {
+          kidId: 101,
+          firstName: "John",
+          lastName: "Doe",
+        },
+      },
+    ],
+    totalAmount: 130,
+    status: "Unpaid",
+    createdAt: "2024-08-16T14:30:00.000Z",
+    updatedAt: "2024-08-16T14:30:00.000Z",
+  },
+];
+
 ////////////////////////////////////////
 // {
 //   "name": "Pro Crested Jersey",
 //   "category": "Adults",
 //   "type": "Jersey",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
-//   "images": ["/assets/images/logo.jpg"],
+//   "images": ["/assets/images/logo.png"],
 //   "variants": [
 //     {
 //       "color": "Green",
@@ -2761,11 +2846,11 @@ export const mockCoaches = [
 //   "type": "Hoodie",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -2825,9 +2910,9 @@ export const mockCoaches = [
 //   "type": "Hoodie",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -2887,10 +2972,10 @@ export const mockCoaches = [
 //   "type": "T-Shirt",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -2962,10 +3047,10 @@ export const mockCoaches = [
 //   "type": "T-Shirt",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -3043,10 +3128,10 @@ export const mockCoaches = [
 //   "type": "T-Shirt",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -3148,10 +3233,10 @@ export const mockCoaches = [
 //   "type": "Hat",
 //   "description": "This graphic hat which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -3187,10 +3272,10 @@ export const mockCoaches = [
 //   "type": "Hat",
 //   "description": "This graphic hat which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -3226,10 +3311,10 @@ export const mockCoaches = [
 //   "type": "T-Shirt",
 //   "description": "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {
@@ -3307,9 +3392,9 @@ export const mockCoaches = [
 //   "type": "Jersey",
 //   "description": "Show your support for the Junior Rangers with this official youth hockey jersey. Made from breathable, durable fabric, it's perfect for young fans both on and off the ice. Features the team logo and colors.",
 //   "images": [
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg",
-//     "/assets/images/logo.jpg"
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png",
+//     "/assets/images/logo.png"
 //   ],
 //   "variants": [
 //     {

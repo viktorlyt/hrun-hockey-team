@@ -21,8 +21,6 @@ export const calculateAge = (dob) => {
 // };
 
 export const parseAndValidateDate = (dob) => {
-  console.log("parseAndValidateDate called with:", dob);
-
   if (dob instanceof Date && !isNaN(dob.getTime())) {
     return dob;
   }
@@ -42,14 +40,12 @@ export const parseAndValidateDate = (dob) => {
         : part2 - 1;
       const day = part3;
       date = new Date(year, month, day);
-      console.log("Parsed YYYY-MM-DD format:", date);
     } else {
       // DD/MM/YYYY or DD-MM-YYYY
       const day = part1;
       const month = part2 - 1;
       const year = part3;
       date = new Date(year, month, day);
-      console.log("Parsed DD/MM/YYYY format:", date);
     }
   }
 
@@ -60,7 +56,6 @@ export const parseAndValidateDate = (dob) => {
     );
   }
 
-  console.log("Returning valid date:", date);
   return date;
 };
 
