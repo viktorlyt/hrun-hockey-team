@@ -2,7 +2,19 @@ import React, { useState, useEffect } from "react";
 import { getFormattedDate } from "../../utils/functions";
 
 const OrderCard = ({ order }) => {
-  console.log("order", order);
+  const countRegistrationsPerGroup = (registrations) => {
+    const groupCounts = {};
+    registrations.forEach((registration) => {
+      const groupId = registration.groupId;
+      groupCounts[groupId] = (groupCounts[groupId] || 0) + 1;
+    });
+    return groupCounts;
+  };
+
+  const registrationCounts = order.registrations
+    ? countRegistrationsPerGroup(order.registrations)
+    : {};
+
   return (
     <div className="info-card">
       <table>
@@ -33,14 +45,16 @@ const OrderCard = ({ order }) => {
                         {r.groupName} ({r.groupMinAge} - {r.groupMaxAge} years
                         old)
                       </h5>
-                      <h5>x1</h5>
+                      <h5>x{registrationCounts[r.groupId]}</h5>{" "}
                     </div>
                   ))}
             </td>
             <td>${order.totalAmount}</td>
             <td>{getFormattedDate(order.createdAt, false)}</td>
-            <td className={`status ${order.status.toLowerCase()}`}>
-              {order.status}
+            <td>
+              <div className={`status ${order.status.toLowerCase()}`}>
+                {order.status}
+              </div>
             </td>
           </tr>
         </tbody>

@@ -53,6 +53,28 @@ const Wrapper = styled.div`
         justify-content: space-between;
         gap: 3rem;
       }
+
+      .status {
+        border-radius: var(--border-radius-md);
+        border: 1px solid var(--color-b40-gb);
+        padding: 1rem 0.1rem;
+        text-align: center;
+
+        &.completed {
+          border-color: var(--success);
+          color: var(--success);
+        }
+
+        &.unpaid {
+          border-color: var(--error);
+          color: var(--error);
+        }
+
+        &.pending {
+          border-color: var(--warning);
+          color: var(--warning);
+        }
+      }
     }
   }
 
