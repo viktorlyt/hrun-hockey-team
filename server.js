@@ -25,8 +25,11 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 // Use CORS middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // Change this to your frontend's URL in production
-    credentials: true, // Allow credentials if needed
+    origin: [
+      "http://localhost:5173",
+      "https://hrun-hockey-team-kpyg.onrender.com",
+    ], // Allow both local and production origins
+    credentials: true,
   })
 );
 
