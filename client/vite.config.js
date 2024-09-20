@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // Use environment variables from process.env inside Vite config
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.VITE_NODE_ENV === "production";
 
 // Set the target URL based on the environment
 const targetUrl = isProduction
