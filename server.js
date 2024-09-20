@@ -6,6 +6,7 @@ const app = express();
 // import morgan from "morgan";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 //routers
 import productRouter from "./routes/productRouter.js";
@@ -20,6 +21,14 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 // if (process.env.NODE_ENV === "development") {
 //   app.use(morgan("dev"));
 // }
+
+// Use CORS middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Change this to your frontend's URL in production
+    credentials: true, // Allow credentials if needed
+  })
+);
 
 app.use(cookieParser());
 app.use(express.json());
