@@ -23,7 +23,13 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 // }
 
 // Use CORS middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://castors-tau.vercel.app/"], // Allow both local and production origins
+    credentials: true,
+    optionsSuccessStatus: 200,
+  })
+);
 
 app.use(cookieParser());
 app.use(express.json());
