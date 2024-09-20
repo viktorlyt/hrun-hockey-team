@@ -23,15 +23,7 @@ import { authenticateUser } from "./middleware/authMiddleware.js";
 // }
 
 // Use CORS middleware
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://hrun-hockey-team-kpyg.onrender.com",
-    ], // Allow both local and production origins
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(cookieParser());
 app.use(express.json());
