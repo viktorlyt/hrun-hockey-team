@@ -28,7 +28,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://castors-tau.vercel.app",
-      "https://main--castors.netlify.app",
+      "https://castors.netlify.app",
     ], // Allow both local and production origins
     credentials: true,
     optionsSuccessStatus: 200,
